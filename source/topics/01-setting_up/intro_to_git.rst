@@ -64,21 +64,17 @@ Once you have chosen/installed an editor, configure git to use it:
 
 ``$ git config --global core.editor "nano -w"``
 
-**Sublime Text (mac):**
+**Sublime Text (macOS):**
 
 ``$ git config --global core.editor "subl -n -w"``
 
-**Sublime Text(win):**
+**Sublime Text (windows):**
 
 ``$ git config --global core.editor "'c:/program files/sublime text 2/sublime_text.exe' -w"``
 
 **Notepad++ (Win):**
 
 ``$ git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"``
-
-**Atom:**
-
-``git config --global core.editor "atom --wait"``
 
 Repositories
 ------------
@@ -88,7 +84,7 @@ A repository is just a collection of files that 'belong together'.
 Since ``git`` is a *distributed* versioning system, there is no **primary**
 repository that serves as the one to rule them all. This simply means that all repositories on each users machine should look the same.
 
-However, to keep things sane, there is generally one "central" repository chosen that users check with for changes. For us this is the one hosted on GitHub in the UWPCE-PythonCert-ClassRepos organization.
+However, to keep things sane, there is generally one "central" repository chosen that users check with for changes.
 
 
 .. Working with Remotes
@@ -101,11 +97,11 @@ However, to keep things sane, there is generally one "central" repository chosen
 .. .. code-block:: bash
 
 ..   $ git remote -v
-..   origin  https://github.com/UWPCE-PythonCert-ClassRepos/ExampleRepo.git (fetch)
-..   origin  https://github.com/UWPCE-PythonCert-ClassRepos/ExampleRepo.git (push)
+..   origin  https://github.com/example-organization/ExampleRepo.git (fetch)
+..   origin  https://github.com/example-organization/ExampleRepo.git (push)
 
 .. This shows that the local repo on my machine *originated* from one in
-.. the UWPCE-PythonCert-ClassRepos GitHub account (it shows up twice, because there is a shortcut for both ``fetch`` from and ``push`` to this remote).
+.. the example-organization GitHub account (it shows up twice, because there is a shortcut for both ``fetch`` from and ``push`` to this remote).
 
 GitHub forks
 ------------
@@ -122,7 +118,7 @@ With one exception: your instructor may use a GitHub repository to manage notes,
 
 Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on GitHub as well, in this repo:
 
-https://github.com/UWPCE-PythonCert/ProgrammingInPython
+https://github.com/plockaby/ProgrammingInPython
 
 So you may want to fork that repo in order to make suggestions.
 

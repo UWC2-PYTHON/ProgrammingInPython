@@ -135,7 +135,7 @@ Here is some GitHub help for that:
 
 https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
-You've pushed your own changes to that fork, and then issued pull requests to have that work merged back to the main class repo in (UWPCE-PythonCert-ClassRepos). An instructor will look at your code, make comments and approve your pull request if your work is satisfactory.
+You've pushed your own changes to that fork, and then issued pull requests to have that work merged back to the main class repo. An instructor will look at your code, make comments and approve your pull request if your work is satisfactory.
 
 Do that now with just the README file, so we can get the class repo all set up, and so that both you and your instructors know you have your GitHub repo all set up correctly.
 
