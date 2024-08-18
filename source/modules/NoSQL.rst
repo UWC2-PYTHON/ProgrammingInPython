@@ -347,7 +347,7 @@ https://www.mongodb.com/cloud/atlas
 Installing Mongo
 ................
 
-Simple copy and paste install or use homebrew (at least on OS-X)
+Simple copy and paste install or use homebrew (at least on macOS)
 
 Drop the files from ``bin`` into ``usr/local/bin`` or similar, or in your home dir somewhere you can find them.
 

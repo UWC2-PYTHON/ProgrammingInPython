@@ -494,7 +494,7 @@ a ``set``  is an unordered collection of distinct values.
 
 Essentially, a ``set`` is a dict with only keys.
 
-https://docs.python.org/3.8/library/stdtypes.html#set-types-set-frozenset
+https://docs.python.org/3.12/library/stdtypes.html#set-types-set-frozenset
 
 Set Constructors:
 -----------------
@@ -606,7 +606,7 @@ Symmetric difference: return a new set with elements in either the set or other 
 
   set ^ other
 
-In fact, it is the operator versions that make the ``set`` object "officially" a Set: (`Set ABC <https://docs.python.org/3.8/library/collections.abc.html?highlight=set%20abc#collections.abc.Set>`_)
+In fact, it is the operator versions that make the ``set`` object "officially" a Set: (`Set ABC <https://docs.python.org/3.12/library/collections.abc.html?highlight=set%20abc#collections.abc.Set>`_)
 
 
 Frozen Set

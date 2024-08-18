@@ -8,7 +8,7 @@ Using Windows Bash for Python Development
 
 With Windows 10, Microsoft has introduced the "Windows Subsystem for Linux" (WSL). Technically, it's not Linux at all (it is not running the Linux kernel), but it does provide an actual bash shell, and access to much (all) of the packages available in Ubuntu Linux, providing a very Linux-like environment.
 
-If you run Windows 10, but want to be able to work in an environment that is very much like Linux (and the OS-X command line) Windows-bash may be a good options for you.
+If you run Windows 10, but want to be able to work in an environment that is very much like Linux (and the macOS command line) Windows-bash may be a good options for you.
 
 Using WSL to Build a Python Development Environment on Windows
 ==============================================================

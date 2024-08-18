@@ -17,7 +17,7 @@ If you want to run the code directly (it is a script), you have a couple options
 
   $ python3 the_name_of_the_script.py
 
-2) On \*nix (linux, OS-X, Windows bash), you can make the file "executable"::
+2) On \*nix (linux, macOS, Windows bash), you can make the file "executable"::
 
        $ chmod +x the_file.py
 
