@@ -235,6 +235,6 @@ Add the file to the develop brnach of your repo for this excercise.
 
 Make frequent commits with good, clear messages about what you're doing and why.
 
-When you're done and ready for the instructors to review your work, push your changes to gitHub fork and then go to the gitHub website and make a pull request.
+When you're done and ready for the instructors to review your work, push your changes to GitHub fork and then go to the GitHub website and make a pull request.
 
-Copy the gitHub link to the pull request, and provide it to the insstructors when you submit it in your LMS.
+Copy the GitHub link to the pull request, and provide it to the insstructors when you submit it in your LMS.

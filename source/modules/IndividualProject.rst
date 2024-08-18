@@ -30,7 +30,7 @@ The requirements are pretty simple:
 
 * It should have unit tests! -- and near 100% test coverage.
 
-* Ideally, it will be in version control (gitHub or similar -- you can use the class repo, or create a new one just for your project).
+* Ideally, it will be in version control (GitHub or similar -- you can use the class repo, or create a new one just for your project).
 
 * You are not required to use any specific python features (i.e. classes): use what is appropriate for your project.
 

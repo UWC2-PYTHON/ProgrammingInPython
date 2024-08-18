@@ -139,9 +139,9 @@ git
 ----
 
 git is a source code version control system. It is not strictly related to Python, but it (or a similar system) is a critical tool for software development in general, and it is very widely used in the Python community.
-We will be using it, along with the gitHub classroom service, in the program to hand in assignments and support code review.
+We will be using it, along with the GitHub classroom service, in the program to hand in assignments and support code review.
 
-You will need a git client. The gitHub GUI client may be nice; I honestly don't know. However, we will be using the command line client in class.
+You will need a git client. The GitHub GUI client may be nice; I honestly don't know. However, we will be using the command line client in class.
 
 There are a couple of options for a command line client.
 

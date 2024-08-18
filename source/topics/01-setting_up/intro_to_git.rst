@@ -116,11 +116,11 @@ When you *fork* a repository, you make a copy of that repository in your own (Gi
 
 When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainer(s) of that project than have the option of accepting your changes, in which case your changes will become part of that project.
 
-For this class, we are using gitHub classroom -- whihc does the creating and forkin go repos for you, so you proably dont need to use this feature now.
+For this class, we are using GitHub Classroom -- which does the creating and forking of the repos for you, so you probably do not need to use this feature now.
 
-With one exception: your instructor may use a gitHub repository to manage note3s, examples, and solutions for the class -- if so, it may be helpful to make a fork of that repo, particularly if you want to make suggestions etc.
+With one exception: your instructor may use a GitHub repository to manage notes, examples, and solutions for the class -- if so, it may be helpful to make a fork of that repo, particularly if you want to make suggestions etc.
 
-Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on gitUb as well, in this repo:
+Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on GitHub as well, in this repo:
 
 https://github.com/UWPCE-PythonCert/ProgrammingInPython
 

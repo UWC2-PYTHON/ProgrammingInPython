@@ -339,7 +339,7 @@ While not strictly necessary to develop code, it is a very, very, good idea to m
 
 https://en.wikipedia.org/wiki/Version_control
 
-This is such a critical software development practice the we use it in the program for you to mange your projects and turn in assignments (via gitHub classroom), so that you can gain familiarity with the practice.
+This is such a critical software development practice the we use it in the program for you to mange your projects and turn in assignments (via GitHub classroom), so that you can gain familiarity with the practice.
 
 git
 ---
