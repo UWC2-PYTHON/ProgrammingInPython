@@ -33,9 +33,9 @@ These materials are  Open Source, released under the Creative Commons Attributio
 
 They are built with the Sphinx documentation system, utilizing Restructured Text (rst) markup.
 
-It is managed in this gitHub repository:
+It is managed in this GitHub repository:
 
-https://github.com/UWPCE-PythonCert/ProgrammingInPython
+https://github.com/plockaby/ProgrammingInPython/tree/main
 
 Readers are encouraged to report omissions, typos, or make suggestions for improvements via issues and pull requests on that repository.
 
@@ -45,7 +45,7 @@ Example Code
 
 Assorted Example code can be found in the source repository for these documents. Most of the examples are linked to directly from these documents, but it might be helpful to have them all in one place:
 
-https://github.com/UWPCE-PythonCert/ProgrammingInPython/tree/master/source/examples
+https://github.com/plockaby/ProgrammingInPython/tree/main/source/examples
 
 
 .. Indices and tables
