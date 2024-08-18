@@ -64,21 +64,17 @@ Once you have chosen/installed an editor, configure git to use it:
 
 ``$ git config --global core.editor "nano -w"``
 
-**Sublime Text (mac):**
+**Sublime Text (macOS):**
 
 ``$ git config --global core.editor "subl -n -w"``
 
-**Sublime Text(win):**
+**Sublime Text (windows):**
 
 ``$ git config --global core.editor "'c:/program files/sublime text 2/sublime_text.exe' -w"``
 
 **Notepad++ (Win):**
 
 ``$ git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"``
-
-**Atom:**
-
-``git config --global core.editor "atom --wait"``
 
 Repositories
 ------------
@@ -88,7 +84,7 @@ A repository is just a collection of files that 'belong together'.
 Since ``git`` is a *distributed* versioning system, there is no **primary**
 repository that serves as the one to rule them all. This simply means that all repositories on each users machine should look the same.
 
-However, to keep things sane, there is generally one "central" repository chosen that users check with for changes. For us this is the one hosted on GitHub in the UWPCE-PythonCert-ClassRepos organization.
+However, to keep things sane, there is generally one "central" repository chosen that users check with for changes.
 
 
 .. Working with Remotes
@@ -101,11 +97,11 @@ However, to keep things sane, there is generally one "central" repository chosen
 .. .. code-block:: bash
 
 ..   $ git remote -v
-..   origin  https://github.com/UWPCE-PythonCert-ClassRepos/ExampleRepo.git (fetch)
-..   origin  https://github.com/UWPCE-PythonCert-ClassRepos/ExampleRepo.git (push)
+..   origin  https://github.com/example-organization/ExampleRepo.git (fetch)
+..   origin  https://github.com/example-organization/ExampleRepo.git (push)
 
 .. This shows that the local repo on my machine *originated* from one in
-.. the UWPCE-PythonCert-ClassRepos GitHub account (it shows up twice, because there is a shortcut for both ``fetch`` from and ``push`` to this remote).
+.. the example-organization GitHub account (it shows up twice, because there is a shortcut for both ``fetch`` from and ``push`` to this remote).
 
 GitHub forks
 ------------
@@ -116,13 +112,13 @@ When you *fork* a repository, you make a copy of that repository in your own (Gi
 
 When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainer(s) of that project than have the option of accepting your changes, in which case your changes will become part of that project.
 
-For this class, we are using gitHub classroom -- whihc does the creating and forkin go repos for you, so you proably dont need to use this feature now.
+For this class, we are using GitHub Classroom -- which does the creating and forking of the repos for you, so you probably do not need to use this feature now.
 
-With one exception: your instructor may use a gitHub repository to manage note3s, examples, and solutions for the class -- if so, it may be helpful to make a fork of that repo, particularly if you want to make suggestions etc.
+With one exception: your instructor may use a GitHub repository to manage notes, examples, and solutions for the class -- if so, it may be helpful to make a fork of that repo, particularly if you want to make suggestions etc.
 
-Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on gitUb as well, in this repo:
+Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on GitHub as well, in this repo:
 
-https://github.com/UWPCE-PythonCert/ProgrammingInPython
+https://github.com/plockaby/ProgrammingInPython
 
 So you may want to fork that repo in order to make suggestions.
 

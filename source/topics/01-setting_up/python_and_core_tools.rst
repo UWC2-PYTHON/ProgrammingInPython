@@ -13,7 +13,7 @@ Minimal Setup
 
 Although it is OK to use different tools, there are some requirements to successfully do the work the program requires:
 
-#. cPython version 3.8.*
+#. cPython version 3.9 or greater
 #. A way to edit Python files (Programmers Text Editor)
 #. A way to run your code -- command line, IDE, etc.
 #. A way to use the "git" source code version control system
@@ -25,11 +25,11 @@ If you are not sure -- you can go here to test your setup out: :ref:`testing_you
 Platforms
 ---------
 
-Python is a very platform independent system, it can run on all major operating systems, including micro controllers even. It is most commonly used in production on Windows, Linux or OS-X systems.
+Python is a very platform independent system, it can run on all major operating systems, including micro controllers even. It is most commonly used in production on Windows, Linux or macOS systems.
 
 For this program, we feel it is best for students to work in an environment in which they are comfortable, and which they will ultimately use to do production work.
 
-We have included instructions for Windows, Linux and OS-X systems -- any of these are fine.
+We have included instructions for Windows, Linux and macOS systems -- any of these are fine.
 
 Python Itself
 -------------
@@ -46,7 +46,7 @@ There are a number of different Python interpreters (or run-time environments) a
 
 These each have their own special uses. For example, for interaction with the Java VM or Microsoft CLR, or running on micro controllers. But most production Python is run with the cPython interpreter, and most people mean cPython when they say "Python".
 
-For this program, you will need cPython version 3.8, installed and running so that when you type "python" at your command line, it starts up.
+For this program, you will need cPython version 3.9 or greater, installed and running so that when you type "python" at your command line, it starts up.
 
 cPython itself is available from a number of sources, or "distributions". We recommend the version available from `python.org`.
 
@@ -73,7 +73,7 @@ In order to be productive in this program, you need to be able to do the followi
 * Manipulate files and write and save Python code in files.
   You really, really want a "real" programmer's editor (not Notepad!) for this.
 
-* Run your code with Python 3.8 or higher
+* Run your code with Python 3.9 or greater
 
 * Run the iPython interactive interpreter
 
@@ -101,7 +101,7 @@ We suggest running through the **CLI** tutorial at "learn code the hard way":
 
 `Command Line Crash Course <https://learnpythonthehardway.org/book/appendixa.html>`_
 
-Or, for Linux and OS-X users:
+Or, for Linux and macOS users:
 
 `Linux command line for you and me! <https://lym.readthedocs.io/en/latest/>`_
 
@@ -109,21 +109,20 @@ Or, for Linux and OS-X users:
 Windows:
 --------
 
-Most of the demos in lessons will be done using the "bash" command line shell on OS-X. This is identical to the bash shell on Linux.
+Most of the demos in lessons will be done using the "bash" command line shell on macOS. This is identical to the bash shell on Linux.
 
 Windows provides the "DOS" command line, which is OK, but pretty old and limited, or "Power Shell" -- a more modern, powerful, flexible command shell.
 
 If you are comfortable with either of these -- go for it.
 
-If not, you can use the "git Bash" shell -- which is much like the bash shell
-on OS-X and Linux: :ref:`git_bash`
+If not, you can use the "git Bash" shell -- which is much like the bash shell on macOS and Linux: :ref:`git_bash`
 
 Or, on Windows 10, look into the "bash shell for Windows" otherwise known as the "Linux subsystem for Windows" - - more info here: :ref:`windows_bash`
 
-OS-X
-----
+macOS
+-----
 
-OS-X comes out of the box with a bash command line. You can access it by running the "Terminal" application, which you can find under:
+macOS comes out of the box with a bash command line. You can access it by running the "Terminal" application, which you can find under:
 
 Applications => Utilities => Terminal.app
 
@@ -133,11 +132,7 @@ The Terminal app can be interfaced with the Finder, making it easy to open it up
 
 On The Mac, you may have a "New Terminal at Folder" right-click (or command click -- "secondary click") menu item already -- try it! If not, you can turn it on by following these instructions:
 
-   Head into System Preferences and select Keyboard => Shortcuts => Services. Find "New Terminal at Folder" in the settings and click the box. Now, when you're in Finder, just right-click a folder and you're shown the open to open Terminal. When you do, it'll start right in the folder you're in.
-
-See: `launch an OS-X terminal in a folder <https://lifehacker.com/launch-an-os-x-terminal-window-from-a-specific-folder-1466745514>`_
-
-for more detail.
+   Head into System Settings and select Keyboard => Shortcuts => Services. Find "New Terminal at Folder" in the settings and click the box. Now, when you're in Finder, just right-click a folder and you're shown the open to open Terminal under the Services sub-menu. When you do, it'll start right in the folder you're in.
 
 Linux
 -----
@@ -158,8 +153,7 @@ You see it when you type ``python`` at the command line:
 .. code-block:: bash
 
   $ python
-  Python 3.8.2 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25)
-  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
@@ -189,7 +183,7 @@ To get out of the interpreter, you can type::
 
   exit()
 
-Or hit `ctrl+D` on Linux and OS-X or `ctrl+Z` On Windows.
+Or hit `ctrl+D` on Linux and macOS or `ctrl+Z` On Windows.
 
 
 Tools in the Interpreter
@@ -330,7 +324,7 @@ Which a lot of people like a lot.
 
 VSCode from MS is apretty full featured IDE as well.
 
-But do make sure, when you set up and IDE, that you know what its doing when you click "run", and that it is using the version of Python that you expect. (cPython 3.8 in this case)
+But do make sure, when you set up and IDE, that you know what its doing when you click "run", and that it is using the version of Python that you expect. (cPython 3.9 in this case)
 
 Version Control System
 ======================
@@ -339,7 +333,7 @@ While not strictly necessary to develop code, it is a very, very, good idea to m
 
 https://en.wikipedia.org/wiki/Version_control
 
-This is such a critical software development practice the we use it in the program for you to mange your projects and turn in assignments (via gitHub classroom), so that you can gain familiarity with the practice.
+This is such a critical software development practice the we use it in the program for you to mange your projects and turn in assignments (via GitHub classroom), so that you can gain familiarity with the practice.
 
 git
 ---

@@ -24,7 +24,7 @@ should be able to run the script directly like so:
 
     $ ./dict_lab.py
 
-(on OS-X and Linux) or
+(on macOS and Linux) or
 
 .. code-block:: bash
 
@@ -39,7 +39,7 @@ To make this work you, make sure you include the 'shebang' on the first line of 
     #!/usr/bin/env python3
 
 
-Finally (on OS-X and linux) you need to make the file executable; do that with this command:
+Finally (on macOS and linux) you need to make the file executable; do that with this command:
 
 .. code-block:: bash
 

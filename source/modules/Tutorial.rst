@@ -71,19 +71,18 @@ There are a few Python interpreters (or run-times) available:
 These each have their own special uses for interaction the the Java VM or CLR, or running on micro controllers. But most production Python is run with the cPython interpreter, and most people mean cPython when they say "Python".
 
 
-For this tutorial, you will need cPython version 3.7 or 3.8, installed and running so that when you type "python" at your command line, it starts up:
+For this tutorial, you will need cPython version 3.9 or greater, installed and running so that when you type "python" at your command line, it starts up:
 
 .. code-block:: bash
 
   MacBook-Pro:~ Chris$ python
-  Python 3.7.4 (v3.6.2:5fd33b5926, Jul 16 2017, 20:11:06)
-  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
-Your result may be slightly different, but it should say Python 3. *something* there at the top, and give you the command prompt (``>>>``) at the end.
+In this case we are using Python 3.12.5. Your result may be slightly different, but it should say Python 3.*something* there at the top, and give you the command prompt (``>>>``) at the end.
 
-You can get out of it by typing ctrl+D (on OS-X and Linux) or ctrl+Z (On Windows), or typing ``exit()`` and then <return>.
+You can get out of it by typing ctrl+D (on macOS and Linux) or ctrl+Z (On Windows), or typing ``exit()`` and then <return>.
 
 Your first "program"
 --------------------
@@ -96,7 +95,7 @@ Type it exactly as above, with no extra space at the beginning, and no other cha
 
 Save the file as ``first.py``. Make sure to save it somewhere that makes sense, maybe a directory you create for this purpose, called "tutorial".
 
-Start up the command line ("Terminal" on OS-X, "Command Prompt" on Windows), and "Navigate" to the directory where you just saved that file::
+Start up the command line ("Terminal" on macOS, "Command Prompt" on Windows), and "Navigate" to the directory where you just saved that file::
 
   cd tutorial
 

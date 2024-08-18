@@ -8,7 +8,7 @@ git is a very complex system, and can be used in many ways. Because of this, it 
 
 Every group using git has to establish a standard "work flow". If you google "git workflow" you find a LOT of discussion, and they are not all the same. And depending on the workflow you are using, the problems you'll have and the solutions to them will be different.
 
-We are using a very simplified workflow with gitHub classroom for this class, and this page seeks to provide solutions to problems that you might encounter specifically with this workflow.
+We are using a very simplified workflow with GitHub classroom for this class, and this page seeks to provide solutions to problems that you might encounter specifically with this workflow.
 
 .. note:: This is a page for reference. It is a bit outdated, and should not be required right off. But do remember that it's here if you get tangled up in git as we move along.
 
@@ -26,7 +26,7 @@ a git repo can be "connected" with virtually any number of remote repositories y
 
   git remote -v
 
-After cloning a repository (from gitHub, for instance) on your machine, is will look something like this:
+After cloning a repository (from GitHub, for instance) on your machine, is will look something like this:
 
 .. code-block:: bash
 
@@ -34,9 +34,9 @@ After cloning a repository (from gitHub, for instance) on your machine, is will 
     origin  https://github.com/PythonCHB/Sp2018-Accelerated.git (fetch)
     origin  https://github.com/PythonCHB/Sp2018-Accelerated.git (push)
 
-so I have one remote repository, on gitHub. It is listed twice, as I am both fetching from (pulling) and pushing to the same repository. "origin" is created when you do a clone, and it is the one that is pushed to and pulled from by default. git is so flexible that you could set it up to push and pull be default to two different repos, but I've never seen that done.
+So I have one remote repository, on GitHub. It is listed twice, as I am both fetching from (pulling) and pushing to the same repository. "origin" is created when you do a clone, and it is the one that is pushed to and pulled from by default. git is so flexible that you could set it up to push and pull by default to two different repos, but I've never seen that done.
 
-There is often use for having more than one remote repository, to keep various workflows in sync. But with gitHub classroom, you will have one: the "origin" remote that was created when you cloned your gitHub repo.
+There is often use for having more than one remote repository, to keep various workflows in sync. But with GitHub classroom, you will have one: the "origin" remote that was created when you cloned your GitHub repo.
 
 Adding a remote
 ---------------
@@ -47,18 +47,18 @@ If you do need to add a remote, you it's pretty easy:
 
   git remote add name_of_remote https://the_long_url_to_the_remote_repo.git
 
-"upstream" is a common name for antoher remote you need to talk to.
+"upstream" is a common name for another remote you need to talk to.
 
 Changing a remote
 -----------------
 
-If your remotes are not set up right, you can reset them, but removing one:
+If your remotes are not set up right then you can reset them, but removing one:
 
 .. code-block:: bash
 
     git remote remove upstream
 
-and then adding it back correctly:
+And then adding it back correctly:
 
     $ git remote add upstream https://the_long_url_to_the_remote_repo.git
 
@@ -72,7 +72,7 @@ If you were to try to push to the upstream one, it would fail, as you do not hav
 
     $ git pull upstream master
 
-you are telling git to pull all the latest changes from the "upstream" repository into your local one. Note that all those changes will only get into your repo on github (origin) when you push:
+You are telling git to pull all the latest changes from the "upstream" repository into your local one. Note that all those changes will only get into your repo on github (origin) when you push:
 
 .. code-block:: bash
 
@@ -84,13 +84,13 @@ Note that "origin" is the default remote, and "master" is the default branch, so
 
     $ git pull origin master
 
-And when you pull from your gitHub repo (``git pull``) that is shorthand for:
+And when you pull from your GitHub repo (``git pull``) that is shorthand for:
 
     $ git pull origin master
 
-Note that you may not have a reason to pull from your origin repo. But if you were to work on two different machines -- say a personal laptop at home, and a work machine at the office, you could push stuff to your gitHub repo from both, and use ``git pull`` to keep your changes in sync.
+Note that you may not have a reason to pull from your origin repo. But if you were to work on two different machines -- say a personal laptop at home, and a work machine at the office, you could push stuff to your GitHub repo from both, and use ``git pull`` to keep your changes in sync.
 
-In fact, I highly recommend using git and gitHub as a way to coordinate your personal work if you have multiple machines (or multiple OSs, or...). You also get a backup essentially for free that way.
+In fact, I highly recommend using git and GitHub as a way to coordinate your personal work if you have multiple machines (or multiple OSs, or...). You also get a backup essentially for free that way.
 
 
 Backing out a change
@@ -98,7 +98,9 @@ Backing out a change
 
 If you change a file in your repo, and you decide that you simply want to put it back the way it was the last time you committed it -- that's easy::
 
-  git checkout the_name_of_the_file
+.. code-block:: bash
+
+    $ git checkout the_name_of_the_file
 
 Backing out a change that has been committed.
 ---------------------------------------------
@@ -107,7 +109,7 @@ Here's the situation:
 
 I accidentally changed a file in the examples dir in my fork of the repo.
 
-Then I committed it, and pushed that commit to gitHub and did a PR.
+Then I committed it, and pushed that commit to GitHub and did a PR.
 
 So how do I back this out?
 
@@ -121,11 +123,15 @@ In this example, the file in question is:
 
 I can use ``git log`` to  figure out when the file was last touched::
 
+.. code-block:: bash
+
     $ git log  examples/Session05/maillroom_test.py
 
 That means: "show me the log of that particular file". ``git log`` by itself will show you the history of the entire repo -- less useful in this case.
 
 In this case, I got::
+
+.. code-block:: bash
 
     $ git log  examples/Session05/maillroom_test.py
     commit 87d27a12bcae5c1bdc565e05e954e7c94bfa27e0 (HEAD -> master, origin/master, origin/HEAD)
@@ -151,6 +157,8 @@ The entry at the top, from Dec 9th, is the one I want to get rid of, so I want t
 Each "commit" is essentially a snapshot of the entire repo when "git commit" was run. Each one is identified by a unique "hash" -- that long string of characters.
 
 To restore a file back to the state in a previous commit, we do::
+
+.. code-block:: bash
 
     git checkout 8e5908a37d7d examples/Session05/maillroom_test.py
 
@@ -193,30 +201,38 @@ You may want to start with this tutorial to familiarize yourself with the idea:
 https://www.atlassian.com/git/tutorials/using-branches
 
 
-quick tutorial
+Quick Tutorial
 --------------
 
-You create a new "branch" with git with the branch command::
+You create a new "branch" with git with the branch command:
 
-    git branch the_name_of_the_branch
+.. code-block:: bash
+
+    $ git branch the_name_of_the_branch
 
 where ``the_name_of_the_branch`` is the name of the branch, naturally. To see all the branches you have, you can simply do::
 
-  git branch
+.. code-block:: bash
 
-The "current" branch or "HEAD" will be marked with an asterix.
+    $ git branch
+
+The "current" branch or "HEAD" will be marked with an asterisk.
 
 To switch to another branch, you can checkout the branch:
 
-    git checkout the_name_of_the_branch
+.. code-block:: bash
+
+    $ git checkout the_name_of_the_branch
 
 You are now working in the new branch. Anything you commit will be comited to that branch, and no longer effect the master branch.
 
-IF you do a ``git push`` -- you will get a message from git telling you that the branch you are now on is not set up to push to "origin" (your giotHub repo), but it will show you the command you need to set that up -- set-upstream::
+If you do a ``git push`` -- you will get a message from git telling you that the branch you are now on is not set up to push to "origin" (your GitHub repo), but it will show you the command you need to set that up -- set-upstream::
 
-  git push --set-upstream origin the_name_of_the_branch
+.. code-block:: bash
 
-Now it will push to gitHub, and you can see it there.
+  $ git push --set-upstream origin the_name_of_the_branch
+
+Now it will push to GitHub, and you can see it there.
 
 You can create Pull Requests from that new branch, as well as the old, master, branch.
 
@@ -227,11 +243,15 @@ When you are happy with your work in the new branch, you may want to merge it ba
 
 Yu can do this by switching to the master branch::
 
-    git checkout master
+.. code-block:: bash
+
+    $ git checkout master
 
 And then merging your new work into it::
 
-    git merge the_name_of_the_branch
+.. code-block:: bash
+
+    $ git merge the_name_of_the_branch
 
 And there you go!
 
@@ -244,13 +264,17 @@ It's a good way to work -- branching and merging is easy enough it git that it p
 "detached HEAD"
 ---------------
 
-Above, we talked about using ``git checkout`` to restore a file to the state it was in in a previous commit, like so::
+Above, we talked about using ``git checkout`` to restore a file to the state it was in in a previous commit, like so:
 
-    git checkout 8e5908a37d7d examples/Session05/mailroom_test.py
+.. code-block:: bash
+
+    $ git checkout 8e5908a37d7d examples/Session05/mailroom_test.py
 
 But what happens if you do a checkout with a commit, and no specific file?
 
-It does what you might expect -- puts ALL the files back the way they were at that commit. But there is a hitch ... let's see what happens when I do that::
+It does what you might expect -- puts ALL the files back the way they were at that commit. But there is a hitch ... let's see what happens when I do that:
+
+.. code-block:: bash
 
     $ git checkout c03bb5b2c401c
     Note: checking out 'c03bb5b2c401c'.
@@ -268,7 +292,9 @@ It does what you might expect -- puts ALL the files back the way they were at th
 
 So the files are set to the old state -- but now there is that note about "detached HEAD" -- this means that changes you make, even commits, will not effect the git repo. If you want to start from here and make changes that will stick, you need to do what it says, and make a new branch.  But what it DOESN'T tell you is how to simply "re-attach" the HEAD. Turns out there is an easy way::
 
-  $ git checkout -
+.. code-block:: bash
+
+    $ git checkout -
     Previous HEAD position was c03bb5b adding print_grid from class
     Switched to branch 'master'
     Your branch is up to date with 'origin/master'.

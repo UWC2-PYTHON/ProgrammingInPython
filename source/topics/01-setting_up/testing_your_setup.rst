@@ -25,8 +25,8 @@ Create a file called ``install_test.py``, with the following content:
     version = sys.version_info
 
     if version.major == 3:
-        if version.minor < 8:
-            print("You should be running version 3.8 or higher")
+        if version.minor < 9:
+            print("You should be running version 3.9 or higher")
         else:
             print("I am running python {}.{} -- all good!".format(
                    version.major, version.minor))
@@ -38,7 +38,7 @@ Create a file called ``install_test.py``, with the following content:
 Run it with your version of python. It should result in something like this::
 
     This is my first python program
-    I am running python 3.8 -- all good!
+    I am running python 3.12 -- all good!
 
 
 If you can't figure out how to run it, see: :ref:`how_to_run_a_python_file`

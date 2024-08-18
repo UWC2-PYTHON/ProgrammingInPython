@@ -1,6 +1,6 @@
 :orphan:
 
-.. NOTE: This is the "old" version, before we adopted gitHub Classroom
+.. NOTE: This is the "old" version, before we adopted GitHub Classroom
 ..       It is not currently published.
 
 .. _git_workflow:
@@ -54,7 +54,7 @@ Remember that ``git status`` is your friend -- when in doubt, run that command t
 
    ``$ git push``
 
-7. If your are ready to submit your work, make a pull request on the gitHub website.
+7. If your are ready to submit your work, make a pull request on the GitHub website.
 
 Note that when you are working, you may want to do steps 2-6 far more often than step 7. (Don't go too crazy here, we don't want you to wait until the end of the quarter to get to step 7. ;-))
 
@@ -76,7 +76,7 @@ The first step is to ``cd`` to the students directory:
 
 ``$ cd students``
 
-Then create a directory for yourself. You can use your first name, your gitHub handle (username), or any nickname you like -- just make sure your instructor knows who you are so you can get credit for your work.
+Then create a directory for yourself. You can use your first name, your GitHub handle (username), or any nickname you like -- just make sure your instructor knows who you are so you can get credit for your work.
 
 ``$ mkdir marie_curie``
 
@@ -112,7 +112,7 @@ Commit the changes with a summary of what you have done:
 
 ``$ git commit -a -m 'added a readme file'``
 
-Push your changes to your repo on gitHub:
+Push your changes to your repo on GitHub:
 
 ``$ git push origin master``
 
@@ -131,13 +131,13 @@ In high level overview, pull request provides a view to see the difference betwe
 
 Now go onto GitHub, and make your first pull request (PR)!
 
-Here is some gitHub help for that:
+Here is some GitHub help for that:
 
 https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
-You've pushed your own changes to that fork, and then issued pull requests to have that work merged back to the main class repo in (UWPCE-PythonCert-ClassRepos). An instructor will look at your code, make comments and approve your pull request if your work is satisfactory.
+You've pushed your own changes to that fork, and then issued pull requests to have that work merged back to the main class repo. An instructor will look at your code, make comments and approve your pull request if your work is satisfactory.
 
-Do that now with just the README file, so we can get the class repo all set up, and so that both you and your instructors know you have your gitHub repo all set up correctly.
+Do that now with just the README file, so we can get the class repo all set up, and so that both you and your instructors know you have your GitHub repo all set up correctly.
 
 Starting a new Exercise
 -----------------------
@@ -182,20 +182,20 @@ Then as you work, each time you get to a good saving point, make a commit:
 
 ``git commit -a -m "added the donation listing feature"``
 
-And when you are done, push it to gitHub:
+And when you are done, push it to GitHub:
 
 ``$ git push``
 
-If you are ready for an instructor to review it, go to your repo on the gitHub website and make a pull request.
+If you are ready for an instructor to review it, go to your repo on the GitHub website and make a pull request.
 
 Final Thoughts
 --------------
 
-We are using gitHub to submit and review your work because it provides a nice interface for code review. But more importantly, because the git revision control system, and the gitHub collaborative code development platform are industry standard tools for developing code.
+We are using GitHub to submit and review your work because it provides a nice interface for code review. But more importantly, because the git revision control system, and the GitHub collaborative code development platform are industry standard tools for developing code.
 
 Learning git is a great skill -- we are only requiring the very basics for this class, but do take the opportunity to explore git a bit more -- making branches, reverting to older versions, etc.
 
-Also -- by doing it this way, you are getting an automatic back up of your work. Each time you "push", a copy of your work is getting backed up on gitHub. And you can also use it to coordinate your work among multiple computers -- you can have as many clones of your repo on gitHub as you like -- say one on a computer at work, and one at home. If you push a change from one computer, then running:
+Also -- by doing it this way, you are getting an automatic back up of your work. Each time you "push", a copy of your work is getting backed up on GitHub. And you can also use it to coordinate your work among multiple computers -- you can have as many clones of your repo on GitHub as you like -- say one on a computer at work, and one at home. If you push a change from one computer, then running:
 
 ``$ git pull``
 

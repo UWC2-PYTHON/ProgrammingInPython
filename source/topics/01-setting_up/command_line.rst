@@ -21,8 +21,8 @@ Zed Shaw's tutorial in "Learn Code the Hard way" is excellent, but apparently is
 `Command Line Crash Course <https://learnpythonthehardway.org/book/appendixa.html>`_
 
 
-Linux and OS-X
---------------
+Linux and macOS
+---------------
 
 Tutorials
 .........

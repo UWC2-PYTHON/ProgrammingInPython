@@ -1,23 +1,19 @@
 .. _python_for_mac:
 
-**************************
-Setting up OS-X for Python
-**************************
+***************************
+Setting up macOS for Python
+***************************
 
 ==================
 Getting The Tools
 ==================
 
-
-OS-X comes with Python out of the box, but not the full setup you'll need for development or this class. It also doesn't have the latest version(s), and no version of Python 3.
-
-So we recommend installing a new version.
+macOS sometimes comes with Python out of the box, but not the full setup you'll need for development or this class. It also doesn't have the latest version(s), and no version of Python 3. So we recommend installing a new version.
 
 
 **Note**:
 
-
-If you use ``macports`` or ``homebrew`` to manage \*nix software on your machine, feel free to use those for ``python``, ``git``, etc, as well. But make sure you have Python 3.8.*
+If you use ``macports`` or ``homebrew`` to manage \*nix software on your machine, feel free to use those for ``python``, ``git``, etc, as well. But make sure you have Python 3.9 or greater.
 
 If not, then read on.
 
@@ -33,41 +29,32 @@ Drag it to the dock to easily access.
 Python
 ------
 
-While OS-X does provide Python out of the box, it tends not to have the
-latest version, and you really don't want to mess with the system
-installation. So we recommend installing an independent installation from
-``python.org``:
+While macOS oftentimes provide Python out of the box, it tends not to have the latest version, and you really don't want to mess with the system installation. So we recommend installing an independent installation from ``python.org``:
 
 Download the latest release of Python installer from Python.org:
 
 https://www.python.org/downloads/
 
-NOTE: As of this writting, version 3.9.0 was jsut released -- it will work fine. But we willnot be using any 3.9 features in this course, and examples will generally be in 3.8 -- so 3.8 or 3.9 is fine.
+NOTE: As of this writting, version 3.13.0 was just released -- it will work fine. But we will not be using any 3.13 features in this course, and examples will generally be in 3.9 -- so anything between 3.9 and 3.13 should be good.
 
 Double click the installer and follow the prompts. The defaults are your best bet. Simple as that.
 
-Oddly, this does NOT install a ``python`` command, but rather a ``python3`` command. If you want to be able to simply type ``python`` and get python3, then you can add a symlink to the install. Type this at a terminal prompt:
+Installing Python on macOS does NOT install a ``python`` command, but rather a ``python3`` command you should use an alias, like this:
 
 .. code-block:: bash
 
-  $ cd /Library/Frameworks/Python.framework/Versions/3.8/bin
-  $ ln -s python3.8 python
-
-(replace the 3.8 above with 3.9 if you have installed 3.9)
-
-Or an add an alias in your shell by adding the following line::
-
   alias python='python3'
 
-to your ``.bash_profile`` file.
+To your ``.bash_profile`` file or ``.zsh_profile`` file.
 
-Once you have done that, you should be able to type ``python`` at the command prompt, and get something like:
+The reason for this is because some installations of macOS include Python already and they map the ``python`` command to the included version of Python. You do not want to change the system version of Python.
+
+Once you have set an alias then you should be able to type ``python`` at the command prompt and get something like:
 
 .. code-block:: bash
 
   $ python
-  Python 3.8.6 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
-  [Clang 6.0 (clang-600.0.57)] on darwin
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
@@ -127,9 +114,9 @@ Now you should now be able to run ``iPython``:
 .. code-block:: ipython
 
   $ ipython
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)]
   Type 'copyright', 'credits' or 'license' for more information
-  IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
+  IPython 8.26.0 -- An enhanced Interactive Python. Type '?' for help.
 
   In [1]:
 
@@ -139,9 +126,9 @@ git
 ----
 
 git is a source code version control system. It is not strictly related to Python, but it (or a similar system) is a critical tool for software development in general, and it is very widely used in the Python community.
-We will be using it, along with the gitHub classroom service, in the program to hand in assignments and support code review.
+We will be using it, along with the GitHub classroom service, in the program to hand in assignments and support code review.
 
-You will need a git client. The gitHub GUI client may be nice; I honestly don't know. However, we will be using the command line client in class.
+You will need a git client. The GitHub GUI client may be nice; I honestly don't know. However, we will be using the command line client in class.
 
 There are a couple of options for a command line client.
 
@@ -161,7 +148,7 @@ you'll need to go to  system preferences:
 
   "Security and Privacy"
 
-Depending on the OS-X version, you will need to check the box saying "Open Anyway," or perhaps the box saying you can install untrusted packages.
+Depending on the macOS version, you will need to check the box saying "Open Anyway," or perhaps the box saying you can install untrusted packages.
 
 After either of these is installed, the ``git`` command should work:
 
@@ -190,8 +177,7 @@ For Python:
 .. code-block:: bash
 
   $ python3
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
-  [Clang 6.0 (clang-600.0.57)] on darwin
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
@@ -202,9 +188,9 @@ For iPython:
 .. code-block:: bash
 
   $ ipython
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
+  Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)]
   Type 'copyright', 'credits' or 'license' for more information
-  IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
+  IPython 8.26.0 -- An enhanced Interactive Python. Type '?' for help.
 
   In [1]:
 
@@ -214,7 +200,7 @@ For pip:
 .. code-block:: bash
 
   $ python3 -m pip --version
-  pip 20.2.3 from /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip (python 3.8)
+  pip 24.2 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pip (python 3.12)
 
 Note that when you ask pip for ``--version`` it tells you which version of python it is "connected" to.
 Make sure that's the one you expect!
@@ -225,7 +211,7 @@ For git:
 .. code-block:: bash
 
   $ git --version
-  git version 2.24.3 (Apple Git-128)
+  git version 2.39.3 (Apple Git-146)
 
 
 If those commands all run -- you are all set!

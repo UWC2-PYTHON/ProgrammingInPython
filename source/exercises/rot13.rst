@@ -70,7 +70,7 @@ should help you to find it. If you do find it, using it is completely fair game.
 As usual, add your new file to your local clone right away.  Make commits
 early and often and include commit messages that are descriptive and concise.
 
-When you are done, if you want it to be reviewed, submit it via gitHub classroom.
+When you are done, if you want it to be reviewed, submit it via GitHub classroom.
 
 Try decrypting this:
 

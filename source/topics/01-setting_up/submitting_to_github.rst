@@ -1,17 +1,17 @@
 :orphan:
 
-.. _submitting_to_gitHub:
+.. _submitting_to_GitHub:
 
 
 **NOTE:** This is the "old" way -- it has been replaced with gitHUb classroom. But there may be some helpful hints here that should be included in the new docs.
 
 ####################################
-Submitting your work to gitHub (old)
+Submitting your work to GitHub (old)
 ####################################
 
-In this program, we are using the gitHub source code management system to manage each student's code, as well as examples and solutions.
+In this program, we are using the GitHub source code management system to manage each student's code, as well as examples and solutions.
 
-gitHub is designed as a system to develop collaborative software projects. As such, it is a great tool to learn for your future programming endeavors.
+GitHub is designed as a system to develop collaborative software projects. As such, it is a great tool to learn for your future programming endeavors.
 
 It also has great interface for code review, so provides a system with which the instructors can review and provide feedback on your code.
 
@@ -52,25 +52,25 @@ Most Exercise will begin with creating a new python file.
 
    To see what is going on -- it will tell you which files are staged for commit, which files have been modified, and which are not being managed by git at all.
 
-6) Recall that all this git adding and committing is only effecting your local repo -- the one on your local machine. Once you have everything at a point where you want to share it with others (i.e. the instructors, classmates, or yourself on another machine!), you want to "push" it to your gitHub account::
+6) Recall that all this git adding and committing is only effecting your local repo -- the one on your local machine. Once you have everything at a point where you want to share it with others (i.e. the instructors, classmates, or yourself on another machine!), you want to "push" it to your GitHub account::
 
      git push
 
    Should do it.
 
-   If you are working from multiple machines, and pushing to gitHub, you will need to do::
+   If you are working from multiple machines, and pushing to GitHub, you will need to do::
 
      git pull
 
-   To get everything that is up on gitHub down to your local machine.
+   To get everything that is up on GitHub down to your local machine.
 
 7) Once you have completed the assignment, and are ready to "turn it in" (that is, have the instructors review your work), you need to:
 
-  a) make sure the latest version is in your gitHub account::
+  a) make sure the latest version is in your GitHub account::
 
        git push
 
-  b) Go to *your* repo in gitHub in a browser.
+  b) Go to *your* repo in GitHub in a browser.
 
   c) Submit a "Pull Request" to the class repo:
 
@@ -78,4 +78,4 @@ Most Exercise will begin with creating a new python file.
 
      Make sure to add a note to the PR letting the instructors know which code is ready for review, or of you have any specific questions.
 
-When you submit you PR on gitHub, the instructors will automatically get an email letting them know that you have submitted something.
+When you submit you PR on GitHub, the instructors will automatically get an email letting them know that you have submitted something.

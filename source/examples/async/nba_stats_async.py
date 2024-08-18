@@ -9,7 +9,7 @@ Running this on my machine, on my home network, took:
 
 
 ***NOTE***
-On my OS-X box, a regular user is limited to 256 open files per process.
+On my macOS box, a regular user is limited to 256 open files per process.
 A socket is considered a file -- so this can crash out when it hits that limit.
 
 (as of now, there are 491 players listed)

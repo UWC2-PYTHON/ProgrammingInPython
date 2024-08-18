@@ -38,7 +38,7 @@ should be able to run the script directly like so:
 
     $ ./list_lab.py
 
-(At least on OS-X and Linux).
+(At least on macOS and Linux).
 
 -- you do that with this command:
 

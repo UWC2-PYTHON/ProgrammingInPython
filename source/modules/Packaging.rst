@@ -484,12 +484,11 @@ Each version of Python requires a particular version of the MS Compiler:
 
 `MS compiler versions <https://wiki.python.org/moin/WindowsCompilers#Which_Microsoft_Visual_C.2B-.2B-_compiler_to_use_with_a_specific_Python_version_.3F>`_
 
-You can get the one for recent Pythons
-`here <https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019>`_.
+You can get the one for recent Pythons `here <https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019>`_.
 
 
-OS-X
-....
+macOS
+.....
 
 Lots of Python versions:
 
@@ -854,7 +853,7 @@ Building a wheel::
 
   python setup.py bdist_wheel
 
-``pip install packagename`` will find wheels for Windows and OS-X and "manylinux"
+``pip install packagename`` will find wheels for Windows and macOS and "manylinux"
 
 ``pip install --no-use-wheel`` avoids that, and forces a source install.
 

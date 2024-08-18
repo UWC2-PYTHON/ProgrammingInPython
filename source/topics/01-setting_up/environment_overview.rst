@@ -23,7 +23,7 @@ There are three basic elements to your environment when working with Python for 
 
 * A Python interpreter
 
-  - We use "cPython" version 3.8 or greater for this class.
+  - We use "cPython" version 3.9 or greater for this class.
 
 * A way to edit your code.
 

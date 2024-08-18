@@ -4,7 +4,7 @@ Course Materials for Python 310: the first course in the UWPCE Python Certificat
 
 Published here:
 
-https://uwpce-pythoncert.github.io/ProgrammingInPython/
-
+https://plockaby.github.io/ProgrammingInPython/
 
 **LICENSE:** Creative Commons Attribution-ShareAlike 4.0 International Public License
+See: https://creativecommons.org/licenses/by-sa/4.0/deed.en
