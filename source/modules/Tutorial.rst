@@ -302,33 +302,3 @@ comments can come after running code on a line as well. Using the hash to "comme
 1) To add a little extra description to some code, to explain what it doing.
 
 2) To temporarily disable some code
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

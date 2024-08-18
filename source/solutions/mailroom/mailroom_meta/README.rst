@@ -9,7 +9,3 @@ The json_save package is included as well. It must be installed in order for the
 ::
 
     python -m pip install -e ./
-
-
-
-

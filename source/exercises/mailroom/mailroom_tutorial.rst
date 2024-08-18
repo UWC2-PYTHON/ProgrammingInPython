@@ -195,4 +195,3 @@ Note: you might see a lot of examples online using the ``lambda`` statement, it 
 .. code-block:: python
 
     sorted(students, key=lambda x: x[0].split(" ")[1], reverse=True)
-

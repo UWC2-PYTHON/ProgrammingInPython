@@ -154,9 +154,3 @@ for _ in range(r):
     key = next(it)
 
 print("A random key:", key)
-
-
-
-
-
-

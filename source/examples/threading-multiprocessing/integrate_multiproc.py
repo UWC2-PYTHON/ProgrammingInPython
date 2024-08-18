@@ -42,4 +42,3 @@ if __name__ == "__main__":
 
     print("Numerical solution with N=%(N)d : %(x)f" %
           {'N': N, 'x': multi_integrate(f, a, b, N, process_count=process_count)})
-

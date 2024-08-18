@@ -116,7 +116,7 @@ When you *fork* a repository, you make a copy of that repository in your own (Gi
 
 When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainer(s) of that project than have the option of accepting your changes, in which case your changes will become part of that project.
 
-For this class, we are using gitHub classroom -- whihc does the creating and forkin go repos for you, so you proably dont need to use this feature now. 
+For this class, we are using gitHub classroom -- whihc does the creating and forkin go repos for you, so you proably dont need to use this feature now.
 
 With one exception: your instructor may use a gitHub repository to manage note3s, examples, and solutions for the class -- if so, it may be helpful to make a fork of that repo, particularly if you want to make suggestions etc.
 
@@ -149,4 +149,3 @@ https://try.github.io/levels/1/challenges/1
 
 basic git commands:
 https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
-

@@ -300,5 +300,3 @@ def test_attributes_one_line_tag():
     print(file_contents)
     assert 'id="this"' in file_contents
     assert 'color="red"' in file_contents
-
-

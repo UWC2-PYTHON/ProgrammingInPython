@@ -704,4 +704,3 @@ Also other nifty stuff in the ``collections`` module:
 https://docs.python.org/3.6/library/collections.html
 
 **NOTE:** As of Python 3.6, dicts do preserve order. But they are not full featured ordered objects. If you want a "properly" ordered object, use ``OrderedDict``.
-

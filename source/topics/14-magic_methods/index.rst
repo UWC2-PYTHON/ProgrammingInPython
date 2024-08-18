@@ -20,4 +20,3 @@ Properties and Magic Methods
     :maxdepth: 1
 
     ../../exercises/sparse_array
-

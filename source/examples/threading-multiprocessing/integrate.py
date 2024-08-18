@@ -39,6 +39,3 @@ def integrate_numpy(f, a, b, N):
     i = np.arange(N)
     s = np.sum(f(a + (i * dx)))
     return s * dx
-
-
-

@@ -165,9 +165,3 @@ class Circle(DrawObject, LineObject, FillObject):
             r = self.diameter // 2 + i
             bounds = ((c[0] - r, c[1] - r), (c[0] + r, c[1] + r))
             drawer.ellipse(bounds, fill=None, outline=self.line_color)
-
-
-
-
-
-

@@ -18,4 +18,3 @@ Sequences and Iteration
 .. toctree::
     :caption: Exercises
     :maxdepth: 1
-

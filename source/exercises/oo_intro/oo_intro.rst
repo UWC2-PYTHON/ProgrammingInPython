@@ -46,4 +46,3 @@ Or a more descriptive tutorial here:
 https://realpython.com/python-data-classes/.
 
 Reminder: use Test Driven Development and make sure you have complete unit tests for all of your class methods.
-

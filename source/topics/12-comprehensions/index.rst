@@ -19,4 +19,3 @@ Comprehensions
     :maxdepth: 1
 
     ../../exercises/mailroom/mailroom_with_comprehensions
-

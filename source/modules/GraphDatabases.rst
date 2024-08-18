@@ -204,5 +204,3 @@ There is even a package for storing networkx graphs in neo4j:
 https://neonx.readthedocs.io
 
 So you can store your graph in the neo4j database, and work with it with networkx. This may even give you a nicer, more pythonic interface to neo4j.
-
-

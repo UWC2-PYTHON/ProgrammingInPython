@@ -31,5 +31,3 @@ Unzip that, and you will find::
     sample_text_file.txt: an example file you can use to try it out.
 
 Your mission is to put all these files in an package hierarchy, and then write a simple ``setup.py`` file that will build and install it as a package.
-
-

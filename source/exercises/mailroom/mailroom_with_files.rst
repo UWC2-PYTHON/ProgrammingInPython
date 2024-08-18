@@ -62,4 +62,3 @@ An example file content looks like this::
 Feel free to enhance your letter template with some more information about past generosity, etc....
 
 The idea is to require you to structure your code so that you can write the same letter to the screen or to disk (and thus anywhere else) and also exercise a bit of file writing. Remember to review the `with <http://www.diveintopython3.net/files.html#with>`_ statement as it is the preferred method when working with files.
-

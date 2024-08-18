@@ -11,10 +11,9 @@ def write():
     time.sleep(random.random())
     sys.stdout.write( "..done\n")
     lock.release()
-    
-    
+
+
 while True:
     thread = threading.Thread(target=write)
     thread.start()
     time.sleep(.1)
-    

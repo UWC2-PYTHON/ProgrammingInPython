@@ -23,7 +23,7 @@ class TestClass(object):
 
 
 class MyClass(object):
-    
+
     class __MyClass(object):
         def __init__(self, db_config):
             self.db_config = db_config
@@ -52,4 +52,3 @@ class MyClass(object):
 
     def __getattr__(self, name):
         return getattr(self.instance, name)
-

@@ -19,4 +19,3 @@ Dictionaries and Sets
     :maxdepth: 1
 
     ../../exercises/mailroom/mailroom_with_dicts.rst
-

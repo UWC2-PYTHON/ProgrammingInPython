@@ -332,9 +332,3 @@ Also these:
 http://atlee.ca/blog/posts/diving-into-python-logging.html
 
 http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python
-
-
-
-
-
-

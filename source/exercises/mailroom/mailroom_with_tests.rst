@@ -117,8 +117,3 @@ Yes, that does mean that that you'll have some very simple functions like:
 But trust me -- that is a Good Thing™
 
 .. note:: Testing print() is rearely neccesasry if you factor your code correctly. But it would be able to test your menu code with `input()` in it. This is a pretty advanced topic, but if you want to give it a try, there is more on advanced testing here: :ref:`advanced_testing`
-
-
-
-
-

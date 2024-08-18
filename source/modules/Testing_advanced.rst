@@ -969,7 +969,3 @@ In your test file, you would do this:
     def test_get_input(self, new_mocked_input):
         new_mocked_input.return_value = 'blue'
         self.assertEqual(mock_input.get_input(), 'blue')
-
-
-
-

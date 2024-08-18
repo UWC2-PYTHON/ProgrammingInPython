@@ -25,4 +25,3 @@ the best way to learn is by doing, but you need the basics in order to do anythi
 
     ../../exercises/grid_printer.rst
     ../../exercises/fizz_buzz.rst
-

@@ -427,6 +427,3 @@ Now I know to use::
     except FileNotFoundError:
 
 In the ``try`` block where I am opening the file.
-
-
-

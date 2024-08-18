@@ -79,17 +79,3 @@ Most Exercise will begin with creating a new python file.
      Make sure to add a note to the PR letting the instructors know which code is ready for review, or of you have any specific questions.
 
 When you submit you PR on gitHub, the instructors will automatically get an email letting them know that you have submitted something.
-
-
-
-
-
-
-
-
-
-
-
-
-
-

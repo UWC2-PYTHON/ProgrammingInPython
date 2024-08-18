@@ -44,7 +44,7 @@ def reader():
 
 def writer():
     """
-    Function to be threaded. Over-the-top creating of a random words for author name and book name, 
+    Function to be threaded. Over-the-top creating of a random words for author name and book name,
     dropped into the database one at a time.
     """
     with sqlite3.connect(DB_FILENAME) as conn:
@@ -62,24 +62,24 @@ def writer():
 
 
 if __name__ == '__main__':
-    
+
     if os.path.exists(DB_FILENAME):
         os.remove(DB_FILENAME)
-    
+
     create_db_table()
     ready = threading.Event()
-        
+
     # If you start the writer thread first, it will hog the thread similarly
     # In general, you will see that the database connection does not like to let go
-    # Can you figure out how to get the connection to cooperate more? 
+    # Can you figure out how to get the connection to cooperate more?
     # Under what circumstances are database transactions optimized by threading?
 
     threads = [
         threading.Thread(name="Reader", target=reader, args=()),
         threading.Thread(name="Writer", target=writer, args=()),
         ]
-        
+
     [t.start() for t in threads]
-        
+
     [t.join() for t in threads]
     print('exit')

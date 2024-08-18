@@ -195,4 +195,3 @@ You can (and should) communicate with others on your team when doing this.
 Always remember to remove the conflict markers too.  They are not syntactic code in any language and will cause errors.
 
 Once a conflict is resolved, you can ``git add`` the file back and then commit the merge.
-

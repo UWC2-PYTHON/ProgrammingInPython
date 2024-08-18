@@ -141,6 +141,3 @@ def test_non_integer():
 def test_float_with_integer_value():
     """to_roman should work for floats with integer values"""
     assert to_roman(3.0) == "III"
-
-
-

@@ -52,6 +52,3 @@ Once you have 100% coverage for the logic code -- it's time to test the UI.
 You should be able to use mocking to mock the ``input`` function, and then actually test your user interface code, too.
 
 Can you get 100% test coverage?
-
-
-

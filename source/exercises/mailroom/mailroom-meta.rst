@@ -36,7 +36,3 @@ You may need to extend the JSON-save module a bit to make it work for you!
 When you are done, your class that holds the database of donors and their data should have ``save`` and ``load`` methods that will, naturally, save and load the entire dataset.
 
 **Make Sure it's Tested!**
-
-
-
-

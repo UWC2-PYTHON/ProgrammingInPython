@@ -38,4 +38,3 @@ However, like real data files, the file is NOT well-formed. Only some lines have
 How can you tell the difference between a nickname and a language?
 
 Extra challenge: keep track of how many students specified each language.
-

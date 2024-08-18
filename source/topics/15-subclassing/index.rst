@@ -17,4 +17,3 @@ Subclassing and Inheritance
 
     ../../exercises/html_renderer/html_renderer.rst
     ../../exercises/html_renderer/html_renderer_tutorial.rst
-

@@ -63,4 +63,3 @@ class Body(Element):
 
 class P(Element):
     tag = "p"
-

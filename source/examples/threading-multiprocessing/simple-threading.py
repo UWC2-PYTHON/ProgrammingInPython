@@ -29,4 +29,3 @@ for thread in threads:
     print("joining thread:", thread.name)
     thread.join()
 print("all threads finished")
-

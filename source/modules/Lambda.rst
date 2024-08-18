@@ -186,8 +186,3 @@ and presto! 2 raised to the zeroth, then first, the second, ... power.
 This may seem pretty obscure, but it's a handy way to auto-generate custom functions on the fly -- like for GUI callbacks, for instance:
 
 https://wiki.wxpython.org/Passing%20Arguments%20to%20Callbacks
-
-
-
-
-

@@ -43,11 +43,3 @@ The requirements are pretty simple:
 **NOTE:** If you are doing a work related project, and are not able to put your code online, that's fine -- you can send your instructors a copy via email or whatever -- we just need to know what you've done.
 
 Make sure to get in touch with your instructors if you haven't figured out what to do by the eighth week!
-
-
-
-
-
-
-
-

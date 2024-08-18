@@ -117,4 +117,3 @@ Add your new module to your personal git repo and commit frequently while workin
 Include good commit messages that explain concisely both *what* you are doing and *why*.
 
 When you are finished, push your changes to your fork of exercise repository in GitHub and make a pull request to submit it.
-

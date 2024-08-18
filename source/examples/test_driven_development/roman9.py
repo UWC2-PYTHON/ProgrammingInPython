@@ -159,6 +159,3 @@ def test_roundtrip():
         numeral = to_roman(integer)
         result = from_roman(numeral)
         assert integer == result
-
-
-

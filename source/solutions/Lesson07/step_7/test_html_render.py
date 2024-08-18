@@ -369,4 +369,3 @@ def test_header():
     assert file_contents.endswith('</h3>')
     assert "A nice header line" in file_contents
     assert ' align="center"' in file_contents
-

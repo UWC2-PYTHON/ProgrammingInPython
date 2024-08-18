@@ -44,4 +44,3 @@ formatter = "the first %i numbers are: %s" % (len(numbers), formatter)
 # the format operator needs a tuple
 # tuple(seq) will make a tuple out of any sequence
 print(formatter % tuple(numbers))
-

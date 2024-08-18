@@ -10,7 +10,7 @@ Classical Greek: ὕαλον ϕαγεῖν δύναμαι· τοῦτο οὔ �
 
 Greek (monotonic): Μπορώ να φάω σπασμένα γυαλιά χωρίς να πάθω τίποτα.
 
-Greek (polytonic): Μπορῶ νὰ φάω σπασμένα γυαλιὰ χωρὶς νὰ πάθω τίποτα. 
+Greek (polytonic): Μπορῶ νὰ φάω σπασμένα γυαλιὰ χωρὶς νὰ πάθω τίποτα.
 
 Latin: Vitrum edere possum; mihi non nocet.
 

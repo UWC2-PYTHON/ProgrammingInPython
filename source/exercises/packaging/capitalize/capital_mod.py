@@ -10,7 +10,7 @@ from pathlib import Path
 def load_special_words(data_file_name, words=None):
     """
     Loads the special words (those that don't get capitalized)
-        
+
     from the data file in the package
 
     data file is a text file with one work per line
@@ -52,7 +52,7 @@ def capitalize_line(instr, special_words=special_words):
         new = word.capitalize() if word not in special_words else word
         new_words.append(new)
     # capitalize the first word:
-    
+
     if new_words:
         new_words[0] = new_words[0].capitalize()
     return " ".join(new_words)
@@ -88,4 +88,3 @@ def capitalize(infilename, outfilename):
         outfile.write("\n")
 
     return None
-

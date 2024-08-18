@@ -13,4 +13,3 @@ class Channel():
 
     def recv(self):
         return pickle.load(self.in_f)
-

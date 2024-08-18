@@ -103,7 +103,3 @@ But if a coroutine raises ``StopIteration`` right away, what's the point? Well, 
 ``await an_awaitable`` suspends the coroutine until something is done, then returns the "awaitable"'s result.
 
 hmm -- we have a trick here -- we need an "awaitable" object -- how do we get one of those? Well, a coroutine is awaitable, so let's make the simplest one of those:
-
-
-
-

@@ -18,4 +18,3 @@ Multiple Inheritance
 .. Add old excercise (updated) using mixins with PIL.
 
 ..    ../../exercises/xxxxx
-

@@ -256,7 +256,3 @@ Further Reading
 Here's a nice blog post about writting better functions:
 
 https://jeffknupp.com/blog/2018/10/11/write-better-python-functions/
-
-
-
-

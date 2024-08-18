@@ -70,5 +70,3 @@ def test_number_of_pages():
     report = example_report()
 
     assert report.get_number_of_pages() == 2
-
-

@@ -864,5 +864,3 @@ As in the metaclass case, the actual decorator is pretty simple.
 And it can use much of the code from the metaclass solution -- since not much really had anything specific to metaclasses.
 
 Let's take a look at that, too:
-
-

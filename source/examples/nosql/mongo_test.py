@@ -2,7 +2,7 @@
 
 """
 simple test file for mongoDB
-remember to start database: 
+remember to start database:
 $ mongod --dbpath=mongo_data/
 
 """

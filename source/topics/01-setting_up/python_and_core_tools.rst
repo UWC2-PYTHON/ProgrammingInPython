@@ -326,7 +326,7 @@ You may want to go get the educational edition of PyCharm:
 
 https://www.jetbrains.com/pycharm-edu/
 
-Which a lot of people like a lot. 
+Which a lot of people like a lot.
 
 VSCode from MS is apretty full featured IDE as well.
 

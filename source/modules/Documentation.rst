@@ -126,5 +126,3 @@ The docstring PEP
 .................
 
 For the full "official" recommendations about docstrings, see `PEP 257: Docstring Conventions <http://legacy.python.org/dev/peps/pep-0257/>`_.
-
-

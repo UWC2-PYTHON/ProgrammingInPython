@@ -34,4 +34,3 @@ def test_bad_input():
 
     with pytest.raises(TypeError):
         q = Quadratic(2,3)
-

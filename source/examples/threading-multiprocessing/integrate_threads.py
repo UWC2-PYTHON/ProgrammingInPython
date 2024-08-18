@@ -39,4 +39,3 @@ if __name__ == "__main__":
 
     print("Numerical solution with N=%(N)d : %(x)f" %
           {'N': N, 'x': threading_integrate(f, a, b, N, thread_count=thread_count)})
-

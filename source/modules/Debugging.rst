@@ -593,5 +593,3 @@ To debug an application running a different Python, even remotely:
 remote-pdb
 
 https://pypi.python.org/pypi/remote-pdb
-
-

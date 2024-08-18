@@ -41,10 +41,3 @@ if __name__ == "__main__":
 
     print("calling with an invalid index")
     it["this"]
-
-
-
-
-
-
-

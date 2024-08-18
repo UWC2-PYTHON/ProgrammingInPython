@@ -32,6 +32,3 @@ def test_get_color_purple(mocked_input):
     mocked_input.return_value = "purple"
     with pytest.raises(ValueError):
         result = get_color()
-
-
-

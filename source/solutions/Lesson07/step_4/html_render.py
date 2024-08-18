@@ -99,5 +99,3 @@ class Head(Element):
 
 class Title(OneLineTag):
     tag = "title"
-
-

@@ -127,6 +127,3 @@ def test_negative():
     """to_roman should raise an ValueError with negative input"""
     with pytest.raises(ValueError):
         to_roman(-1)
-
-
-

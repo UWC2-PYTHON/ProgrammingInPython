@@ -333,5 +333,3 @@ Need the index and the item?
     the 0th item is: this
     the 1th item is: that
     the 2th item is: the other
-
-

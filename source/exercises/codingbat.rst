@@ -18,4 +18,3 @@ While the CodingBat site has an interface for submitting your solution and see i
 If you are in a formal class, let the instructor know which ones you have done.
 
 Remember this site -- it's a good idea to come back and play again with these little puzzles as you learn more Python. It's kind of like playing scales to keep fresh when learning a musical instrument.
-

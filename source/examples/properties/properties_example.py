@@ -27,4 +27,3 @@ if __name__ == "__main__":
     c = C()
     c.x = 5
     print(c.x)
-

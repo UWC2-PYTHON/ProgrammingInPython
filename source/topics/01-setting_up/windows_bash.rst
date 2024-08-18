@@ -51,4 +51,3 @@ The WSL provides a full linux experience -- but, most importantly, it does not s
   One of the benefits of WSL is being able to use the same file with both Windows and Linux apps or tools.
 
 So you can manipulate and edit your files, as well as use the browser, etc, in regular Windows, and still run Python and git, etc in the bash shell.
-

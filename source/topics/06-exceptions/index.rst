@@ -19,4 +19,3 @@ Exception Handling
 
     ../../exercises/exceptions/except_exercise.rst
     ../../exercises/mailroom/mailroom_with_exceptions.rst
-

@@ -55,5 +55,3 @@ Example calling code
 
 
 See the test code in :download:`test_lambda.py <../solutions/extras/lambda/test_lambda.py>`
-
-

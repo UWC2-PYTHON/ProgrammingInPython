@@ -230,4 +230,3 @@ For git:
   hosun@DESKTOP-GJT06Q0 MINGW64 ~
   $ git --version
   git version 2.18.3.windows.1
-

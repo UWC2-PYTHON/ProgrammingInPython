@@ -77,8 +77,3 @@ That's what functional programming is all about:
 * First class functions
 * Functions without side effects
 * Data transformations
-
-
-
-
-

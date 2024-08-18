@@ -136,4 +136,3 @@ def test_send_thank_you_invalid_number(find_mock, input_mock):
     find_mock.assert_called_once()
     assert input_mock.call_count == 5
     assert result is None
-

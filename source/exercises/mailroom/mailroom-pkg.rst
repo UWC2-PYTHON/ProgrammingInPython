@@ -140,4 +140,3 @@ and run the test from within the package:
 (or run the tests from the test dir as well)
 
 If you installed in editable mode, then you can update the code and re-run the tests or the script, and it will use the new code right away.
-

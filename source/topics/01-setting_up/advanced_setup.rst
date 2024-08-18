@@ -26,7 +26,3 @@ Command Shells
     shell.rst
     ipython.rst
     windows_bash.rst
-
-
-
-

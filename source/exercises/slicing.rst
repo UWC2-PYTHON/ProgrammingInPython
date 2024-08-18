@@ -57,5 +57,3 @@ Tests:
     assert exchange_first_last(a_tuple) == (32, 54, 13, 12, 5, 2)
 
 Write a test or two like that for each of the above functions.
-
-

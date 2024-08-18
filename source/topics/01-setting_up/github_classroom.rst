@@ -208,7 +208,7 @@ b) Commit your work. When you have gotten to a good "pause point" in your work: 
 
 Note that in this case, I edited the ``install_test.py`` file after adding it. When you edit a file, git will not track those changes unless you tell it to, which you can do by running ``git add`` again. So ``git add`` tells git that you want it to keep track of that file -- called "staging for commit"::
 
-    $ git add install_test.py 
+    $ git add install_test.py
 
     $ git status
     On branch develop
@@ -272,10 +272,10 @@ But it's pretty simple, really. git is telling you that it doesn't know where to
     Compressing objects: 100% (3/3), done.
     Writing objects: 100% (3/3), 639 bytes | 319.00 KiB/s, done.
     Total 3 (delta 0), reused 0 (delta 0)
-    remote: 
+    remote:
     remote: Create a pull request for 'develop' on gitHub by visiting:
     remote:      https://github.com/UWPCE-Py310-Fall2020/initial-setup-PythonCHB/pull/new/develop
-    remote: 
+    remote:
     To https://github.com/UWPCE-Py310-Fall2020/initial-setup-PythonCHB.git
      * [new branch]      develop -> develop
     Branch 'develop' set up to track remote branch 'develop' from 'origin'.
@@ -320,7 +320,7 @@ Once you create the PR, gitHub will show you the PR view:
 
 .. image:: images/gitHubclassroom/pr_header.png
 
-This is the same view that your instructors will see. 
+This is the same view that your instructors will see.
 If you click on the "conversation" tab, you can see your initial comment and any comments made after the initial PR creation.
 
 If you click on the "files changed" tab, you will see all the changes in this PR. For this class, that should be your entire assignment.

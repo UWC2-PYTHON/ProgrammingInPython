@@ -132,5 +132,3 @@ class Br(SelfClosingTag):
     Line break
     """
     tag = "br"
-
-

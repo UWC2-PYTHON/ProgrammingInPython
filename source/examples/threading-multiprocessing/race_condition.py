@@ -28,4 +28,3 @@ for thread in threads:
     thread.join()
 
 print(shared.val)
-

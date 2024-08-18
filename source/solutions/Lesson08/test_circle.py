@@ -237,6 +237,3 @@ def test_sphere_sort():
 
     for s1, s2 in zip(list_o_spheres, list_o_spheres[1:]):
         assert s1 <= s2
-
-
-

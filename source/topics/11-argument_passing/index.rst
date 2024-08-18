@@ -13,4 +13,3 @@ Advanced Argument Passing
     :maxdepth: 1
 
     ../../exercises/args_kwargs_lab
-

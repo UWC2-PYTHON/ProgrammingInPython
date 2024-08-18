@@ -239,5 +239,3 @@ def test_make_words_single_quote():
         assert not word.endswith("'")
 
     assert False
-
-

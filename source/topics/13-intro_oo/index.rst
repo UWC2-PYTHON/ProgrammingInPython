@@ -18,4 +18,3 @@ Intro to Object Oriented Programing
 
     ../../exercises/oo_intro/oo_intro.rst
     ../../exercises/mailroom/mailroom-oo.rst
-

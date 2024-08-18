@@ -426,4 +426,3 @@ http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods
 And with a bit more explanation:
 
 https://www.python-course.eu/python3_magic_methods.php
-

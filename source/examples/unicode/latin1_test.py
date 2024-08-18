@@ -57,10 +57,3 @@ if all_bytes2 == all_bytes:
     print "yup -- that worked...the values are preserved on the round trip."
 else:
     print "Hey, that should have worked"
-
-
-
-
-
-
-

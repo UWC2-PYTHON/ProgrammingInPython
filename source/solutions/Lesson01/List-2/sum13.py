@@ -61,4 +61,3 @@ if __name__ == "__main__":
     assert sum13([13, 0]) == 0
 
     print("all asserts passed")
-

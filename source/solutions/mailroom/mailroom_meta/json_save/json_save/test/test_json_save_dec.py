@@ -205,4 +205,3 @@ def test_from_json_dict2(nested_dict):
     reconstructed = js.from_json(json_str)
 
     assert reconstructed == nested_dict
-

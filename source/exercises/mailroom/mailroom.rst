@@ -95,4 +95,3 @@ Finally, for Part 1 use only functions and the basic Python data types you've le
 about so far in Lessons 1-3. There is no need to go any farther than that for this assignment.
 
 If you're having a hard time getting started, or need some pointers, you should read the tutorial here: :ref:`exercise_mailroom_part1_tutorial`
-

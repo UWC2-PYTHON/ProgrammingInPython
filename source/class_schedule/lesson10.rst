@@ -23,5 +23,3 @@ Exercises
 
 It's now time to catch up on everything you haven't quite finished.
 In particular, you should finish an object oriented mailroom that is fully complete and unit tested.
-
-

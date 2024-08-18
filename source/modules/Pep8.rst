@@ -362,5 +362,3 @@ Pythonic Style
 Good "Pythonic" style goes beyond style guides and things linters can figure out for you.
 
 The `Hitchhiker's Guide to Python: Code Style <http://docs.python-guide.org/en/latest/writing/style/>`_ is a good read that gets into a nice level of detail.
-
-

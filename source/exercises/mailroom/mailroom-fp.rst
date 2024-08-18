@@ -104,4 +104,3 @@ Closures
 Closures are another functional programming strategy.  They allow you to create functions according to parameters that are known only at runtime and not beforehand.
 
 Your task now is to replace the functions that you have been passing to ``map()`` or ``apply()`` with a closure.
-

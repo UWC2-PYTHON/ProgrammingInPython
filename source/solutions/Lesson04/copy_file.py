@@ -28,4 +28,3 @@ with open(source, 'rb') as infile, open(dest, 'wb') as outfile:
         if not data:  # End of file
             break
         outfile.write(data)
-

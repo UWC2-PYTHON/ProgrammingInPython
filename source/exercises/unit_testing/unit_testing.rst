@@ -121,4 +121,3 @@ Do at least two of these to get the hang of the process.
 Also -- once you have the tests passing, look at your solution -- is there a way it could be refactored to be cleaner?
 
 Give it a shot -- you'll know if it still works if the tests still pass!
-

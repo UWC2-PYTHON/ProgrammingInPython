@@ -240,4 +240,3 @@ will suffice for now. If you are interested in reading further, there is
 `a lot to learn`_.
 
 .. _a lot to learn: http://www.gnu.org/software/bash/manual/bash.html
-

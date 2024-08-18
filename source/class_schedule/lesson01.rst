@@ -84,4 +84,3 @@ Also make sure you are comfortable "playing" with python in the iPython command 
 
 If you are uncomfortable with the command line, brush up on that:
 `This: <https://learnpythonthehardway.org/python3/appendixa.html>`_ is a good tutorial.
-

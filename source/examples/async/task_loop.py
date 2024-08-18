@@ -16,6 +16,3 @@ only designed to run a bunch of tasks asynchronously, wohtout the other
 machinery required to support proper events -- like a way to generate a new
 event, for instance.
 """
-
-
-

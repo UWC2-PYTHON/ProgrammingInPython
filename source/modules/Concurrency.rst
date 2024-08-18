@@ -358,8 +358,3 @@ When to Use What
 ================
 
 .. image:: /_static/proc_thread_async.png
-
-
-
-
-

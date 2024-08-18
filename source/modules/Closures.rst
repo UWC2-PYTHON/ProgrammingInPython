@@ -579,14 +579,3 @@ We can use ``functools.partial`` to *partially* evaluate the function, giving us
 
     square = partial(power, exponent=2)
     cube = partial(power, exponent=3)
-
-
-
-
-
-
-
-
-
-
-

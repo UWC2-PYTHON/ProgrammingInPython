@@ -331,7 +331,7 @@ Widely used by the scipy community:
 (lots of hard to build stuff that needs to work together...)
 
   * Anaconda (https://store.continuum.io/cshop/anaconda/) and `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_
-  
+
   * ActivePython (http://www.activestate.com/activepython)
 
 Conda has seen a LOT of growth in the last few years -- it's based on the open-source conda packaging system, and provides both a commercial curated set of packages, and a community-developed collection of packages known as conda-forge:
@@ -1154,7 +1154,7 @@ The "easy" and traditional way to isntall command line scripts is with the ``scr
           ...
           )
 
-This works well on Unix systems (including the mac), but is not as reliable on Windows. All it really does is put a slightly altered copy of the script on PATH -- so it will work if it is named with the ``.py`` extension and the system is set up to run ``.py`` files. 
+This works well on Unix systems (including the mac), but is not as reliable on Windows. All it really does is put a slightly altered copy of the script on PATH -- so it will work if it is named with the ``.py`` extension and the system is set up to run ``.py`` files.
 
 entry points
 ............
@@ -1213,5 +1213,3 @@ LAB: A Small Example Package
 :download:`capitalize.zip <../examples/packaging/capitalize.zip>`
 
 Or go straight to making a package of your mailroom project.
-
-

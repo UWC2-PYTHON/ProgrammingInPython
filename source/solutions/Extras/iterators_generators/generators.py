@@ -102,8 +102,3 @@ def squares(n):
 def squares2(n):
     for count in range(n):
         yield count ** 2
-
-
-
-
-

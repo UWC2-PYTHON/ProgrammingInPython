@@ -264,7 +264,7 @@ Python has a default encoding. On Mac and Unix systems, it's usually utf-8 -- Wi
 
 Try this on your machine, and see what you get.
 
-The default encoding will get used in unexpected places! 
+The default encoding will get used in unexpected places!
 Notably in text files by default.
 
 Using Unicode Everywhere

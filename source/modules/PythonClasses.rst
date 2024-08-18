@@ -384,7 +384,3 @@ So you now know how to:
 You can do a lot with this simple functionality. Frankly, all creating classes like this has done is put everything together in a neat package -- which is very useful, but hasn't given you much new power.
 
 But it's a good idea to get the hang of using classes, and methods, and ``self`` for a bit before moving on to the more powerful feature of subclassing.
-
-
-
-

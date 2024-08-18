@@ -40,5 +40,3 @@ Exercises:
     ../exercises/dict_lab.rst
     ../exercises/mailroom/mailroom_with_dicts.rst
     ../exercises/trigrams/trigrams.rst
-
-

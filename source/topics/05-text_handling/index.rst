@@ -20,4 +20,3 @@ Basic Text Handling
 
     ../../exercises/mailroom/mailroom.rst
     ../../exercises/mailroom/mailroom_tutorial.rst
-

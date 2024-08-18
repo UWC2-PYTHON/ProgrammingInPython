@@ -125,8 +125,3 @@ def test_save_on_add_donor(sample_db):
         DB = js.from_json(js_file)
 
     assert sample_db == DB
-
-
-
-
-

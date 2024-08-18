@@ -30,5 +30,3 @@ Exercises:
     ../exercises/comprehensions_lab.rst
     ../exercises/mailroom/mailroom_with_exceptions.rst
     ../exercises/mailroom/mailroom_with_files.rst
-
-

@@ -138,7 +138,3 @@ One note about that talk -- Jack is mostly encouraging people to not use names t
 However, with beginners, it's often tempting to use names that are too *short* and *non-specific*, like "x" and "item" -- so you need to strike a balance, but absolutely:
 
 .. centered:: **Use Meaningful Names**
-
-
-
-

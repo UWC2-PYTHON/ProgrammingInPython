@@ -317,5 +317,3 @@ This generator can be used like so:
         ...:     print("The first line of: {} is:\n{}".format(f.name, f.readline()))
 
 Each iteration through the loop, the previous file gets closed, and the new one opened.  If there is an exception raised inside that loop, the last file will get properly closed.
-
-

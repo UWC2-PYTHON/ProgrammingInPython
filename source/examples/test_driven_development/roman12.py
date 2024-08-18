@@ -228,5 +228,3 @@ def test_malformed_antecedents():
               'MCMC', 'XCX', 'IVI', 'LM', 'LD', 'LC'):
         with pytest.raises(ValueError):
             from_roman(s)
-
-

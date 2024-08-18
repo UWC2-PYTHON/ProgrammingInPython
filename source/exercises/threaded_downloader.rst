@@ -44,5 +44,3 @@ Python has a built-in client http lib (urllib). But almost everyone uses the "re
     $ pip install requests
 
 Should do it.
-
-

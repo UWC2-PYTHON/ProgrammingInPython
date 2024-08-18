@@ -21,4 +21,3 @@ Modules and Packages
     :maxdepth: 1
 
     ../../exercises/mailroom/mailroom-pkg.rst
-

@@ -278,9 +278,3 @@ the dash means "the branch or commit you were on before your last checkout comma
 For more info about "detached HEAD", see:
 
 https://www.cloudbees.com/blog/git-detached-head
-
-
-
-
-
-

@@ -221,4 +221,3 @@ Another example: ``print_grid2(5,3)``::
     + - - - + - - - + - - - + - - - + - - - +
 
 Have fun!
-

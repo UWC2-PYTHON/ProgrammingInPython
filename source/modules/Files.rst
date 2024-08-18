@@ -382,8 +382,3 @@ But if you read a binary file as text, then Python will try to interpret the byt
 In Python2, it's less likely that you'll get an error like this -- it doesn't try to decode the file as it's read -- even for text files -- so it's a bit tricky and more error prone.
 
 **NOTE:** If you want to actually DO anything with a binary file, other than passing it around, then you'll need to know a lot about how the details of what the bytes in the file mean -- and most likely, you'll use a library for that -- like an image processing library for the jpeg example above.
-
-
-
-
-

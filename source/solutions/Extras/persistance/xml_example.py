@@ -41,4 +41,3 @@ for person in book.getchildren():
 
 if AddressBook2 == AddressBook:
     print("xml version is the same as the original")
-

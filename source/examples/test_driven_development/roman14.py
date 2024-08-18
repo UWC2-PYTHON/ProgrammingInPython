@@ -288,5 +288,3 @@ def test_malformed_antecedents():
         with pytest.raises(ValueError):
             print(f"trying: {s}")
             from_roman(s)
-
-

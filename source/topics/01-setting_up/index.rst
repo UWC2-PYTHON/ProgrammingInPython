@@ -24,6 +24,3 @@ Here are some resources to getting yourself set up.
 
     testing_your_setup
     ../../exercises/python_pushups
-
-
-

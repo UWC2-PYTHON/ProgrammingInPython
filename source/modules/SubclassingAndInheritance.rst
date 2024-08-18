@@ -324,4 +324,3 @@ OO can be a very powerful approach, but don't be a slave to what OO is *supposed
 Let OO work for you, not *create* work for you.
 
 And the biggest way to do that is to support code re-use.
-

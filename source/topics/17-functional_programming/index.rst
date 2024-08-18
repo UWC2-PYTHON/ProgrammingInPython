@@ -22,4 +22,3 @@ Introduction to Functional Programming
     :maxdepth: 1
 
     ../../exercises/trapezoid
-

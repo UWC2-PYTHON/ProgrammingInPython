@@ -74,8 +74,3 @@ And you'll get a dict that will automatically put an empty list in when the key 
 Similarly for the others.
 
 Take a bit of time to try them out -- you may find them really useful.
-
-
-
-
-

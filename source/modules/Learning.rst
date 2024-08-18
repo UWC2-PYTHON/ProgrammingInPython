@@ -110,7 +110,7 @@ Advanced Books
   The Python Cookbook provides practical solutions to various programming tasks, along with excellent explanations of how they work. Written by David Beazley -- Python author and instructor extraordinaire. Also available fully online: (http://chimera.labs.oreilly.com/books/1230000000393/index.html)
 
 * **Fluent Python**
-  (http://shop.oreilly.com/product/0636920032519.do): Fluent Python is an excellent deeper dive into the inner workings of   Python. Written for folks that already understand the basics of Python, it goes provides explainations of the more advanced topics in Python. If we were going to use a textbook for an advanced Python class, this would be it. 
+  (http://shop.oreilly.com/product/0636920032519.do): Fluent Python is an excellent deeper dive into the inner workings of   Python. Written for folks that already understand the basics of Python, it goes provides explainations of the more advanced topics in Python. If we were going to use a textbook for an advanced Python class, this would be it.
 
 Evaluating Your Options
 -----------------------------
@@ -130,4 +130,3 @@ as a result of that research offers some great hints about the aspects of
 Python programming best covered by each resource. I would urge any new student
 of Python to take the time to look over this poster to help determine the best
 path forward for themselves.
-

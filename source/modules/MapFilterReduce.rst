@@ -137,4 +137,3 @@ Some people like that syntax better.
 And "map-reduce" is a big concept these days for parallel processing of "Big Data" in NoSQL databases.
 
 (Hadoop, MongoDB, etc.)
-

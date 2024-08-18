@@ -96,5 +96,5 @@ How this will work in class
 
 - We will go over code together. Everyone is encouraged to make comments and ask questions.
 
-Feel free to ask your classmates in slack or on the mailing list about code you are writing. 
+Feel free to ask your classmates in slack or on the mailing list about code you are writing.
 This is why you have access to everyone's code, to share and learn from each other.

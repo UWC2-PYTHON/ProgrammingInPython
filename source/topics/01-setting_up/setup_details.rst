@@ -15,4 +15,3 @@ Python itself is very platform independent. The code itself runs the same on all
     vagrant
 
     git_editor_windows
-

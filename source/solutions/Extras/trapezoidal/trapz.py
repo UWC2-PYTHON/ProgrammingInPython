@@ -101,4 +101,3 @@ def curry_quadratic(A, B, C):
 # using functools.partial
 import functools
 quad_partial_123 = functools.partial(quadratic, A=1, B=2, C=3)
-

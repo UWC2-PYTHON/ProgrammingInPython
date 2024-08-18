@@ -156,4 +156,3 @@ def test_step_2_noindent():
     assert "<body>" in file_contents
     # you could do more here, but it should all be covered above.
     assert False
-

@@ -20,4 +20,3 @@ class Quadratic:
 
     def __call__(self, x):
         return self.A * x**2 + self.B * x + self.C
-        

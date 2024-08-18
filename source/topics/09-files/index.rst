@@ -20,4 +20,3 @@ File Handling
     ../../exercises/file_processing/file_processing.rst
     ../../exercises/mailroom/mailroom_with_files.rst
     ../../exercises/trigrams/trigrams.rst
-

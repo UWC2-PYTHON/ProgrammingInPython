@@ -36,6 +36,3 @@ If you are already set up with all this, then go straight here:
 and give it a try.
 
 If you are not sure, then read on ...
-
-
-

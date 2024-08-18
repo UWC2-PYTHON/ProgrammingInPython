@@ -294,6 +294,3 @@ Try it out:
 -----------
 
 Now that you know a bit more about Python boolean operations, it's a good time to visit some coding bat exercises and see if you can make your solutions cleaner and more compact.
-
-
-

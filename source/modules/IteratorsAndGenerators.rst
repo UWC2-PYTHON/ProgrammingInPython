@@ -600,4 +600,3 @@ Prime numbers:
 
 Others to try:
   Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...
-

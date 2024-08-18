@@ -1837,5 +1837,3 @@ Any other changes you can think of? Go ahead and try them, if the tests still pa
 
 
 © 2001–11 `Mark Pilgrim`, 2020 `Christopher Barker`
-
-

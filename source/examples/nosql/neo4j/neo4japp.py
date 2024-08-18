@@ -219,7 +219,3 @@ if __name__ == '__main__':
     # test2(driver)
     # test3(driver)
     test4(driver)
-
-
-
-

@@ -6,4 +6,3 @@ def not_string(st):
         return st
     else:
         return 'not ' + st
-

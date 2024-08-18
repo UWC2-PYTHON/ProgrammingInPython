@@ -106,4 +106,3 @@ Sets 2
 * Create a frozenset with the letters in 'marathon'.
 
 * Display the union and intersection of the two sets.
-

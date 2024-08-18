@@ -76,4 +76,3 @@ def test_multiple_exp_fail_diff_exp():
     """This test should fail"""
     with Raises(ZeroDivisionError, AttributeError, RuntimeError):
         float("not a number")
-

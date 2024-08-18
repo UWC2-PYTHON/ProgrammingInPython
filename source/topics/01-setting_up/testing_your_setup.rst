@@ -74,4 +74,3 @@ iPython
 And get something like that.
 
 ``ipython`` can be quit by typing ``quit``
-

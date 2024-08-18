@@ -602,4 +602,3 @@ http://zetcode.com/python/fstring/
 One that gets into the technical details (bytecode! -- for the real geeks):
 
 https://hackernoon.com/a-closer-look-at-how-python-f-strings-work-f197736b3bdb
-

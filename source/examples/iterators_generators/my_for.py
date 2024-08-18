@@ -43,8 +43,3 @@ if __name__ == "__main__":
     t = ('a','b','c','d')
 
     my_for(t, print_func)
-
-
-
-
-

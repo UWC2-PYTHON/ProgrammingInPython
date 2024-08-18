@@ -127,7 +127,7 @@ Now you should now be able to run ``iPython``:
 .. code-block:: ipython
 
   $ ipython
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39) 
+  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
   Type 'copyright', 'credits' or 'license' for more information
   IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
 
@@ -161,7 +161,7 @@ you'll need to go to  system preferences:
 
   "Security and Privacy"
 
-Depending on the OS-X version, you will need to check the box saying "Open Anyway," or perhaps the box saying you can install untrusted packages. 
+Depending on the OS-X version, you will need to check the box saying "Open Anyway," or perhaps the box saying you can install untrusted packages.
 
 After either of these is installed, the ``git`` command should work:
 
@@ -190,9 +190,9 @@ For Python:
 .. code-block:: bash
 
   $ python3
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39) 
+  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
   [Clang 6.0 (clang-600.0.57)] on darwin
-  Type "help", "copyright", "credits" or "license" for more information.  
+  Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
 
@@ -202,11 +202,11 @@ For iPython:
 .. code-block:: bash
 
   $ ipython
-  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39) 
+  Python 3.8.6 (v3.8.6:db455296be, Sep 23 2020, 13:31:39)
   Type 'copyright', 'credits' or 'license' for more information
   IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
 
-  In [1]: 
+  In [1]:
 
 For pip:
 ........

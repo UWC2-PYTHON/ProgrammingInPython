@@ -299,19 +299,3 @@ Can be written as:
 .. code-block:: python
 
     sum(fun(x) for x in list_of_x[1:-1])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

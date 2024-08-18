@@ -2,7 +2,7 @@
 # You can build the documentation by running "make html".
 
 MAKEFLAGS="-S -s -r"
-.PHONY: help clean Makefile
+.PHONY: help lint clean Makefile
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
@@ -14,6 +14,9 @@ BUILDDIR      = build
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+lint:
+	pre-commit run --all-files
 
 clean:
 	rm -rf build/

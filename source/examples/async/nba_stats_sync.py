@@ -82,4 +82,3 @@ with open("NBA_stats.json", 'w') as outfile:
     json.dump(all_players, outfile, indent=2)
 
 print("File written out")
-

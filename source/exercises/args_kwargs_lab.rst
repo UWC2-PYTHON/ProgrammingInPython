@@ -87,4 +87,3 @@ Generic parameters
 * Also have it print ``args`` and ``kwargs`` directly, so you can be sure you understand what's going on.
 
 * Note that in general, you can't know what will get passed into ``**kwargs`` So maybe adapt your function to be able to do something reasonable with any keywords.
-

@@ -18,4 +18,3 @@ Advanced Testing
     :maxdepth: 1
 
     ../../exercises/mailroom/mailroom-mock.rst
-

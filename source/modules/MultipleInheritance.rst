@@ -425,4 +425,3 @@ Some more experiments with ``super``
 :download:`super_test.py </examples/multiple_inheritance/super_test.py>`
 
 See if you can follow all that!
-

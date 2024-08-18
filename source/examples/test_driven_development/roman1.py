@@ -82,5 +82,3 @@ def test_to_roman_known_values():
     for integer, numeral in KNOWN_VALUES:
         result = to_roman(integer)
         assert numeral == result
-
-

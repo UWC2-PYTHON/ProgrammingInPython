@@ -614,7 +614,3 @@ For instance, your ``__main__`` block might look something like:
       print(new_text)
 
 **Have Fun!**
-
-
-
-

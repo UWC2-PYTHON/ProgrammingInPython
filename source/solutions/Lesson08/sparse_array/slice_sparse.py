@@ -136,4 +136,3 @@ class SparseArray(object):
             self.sparse_array = new_dict
         # length is now one shorter
         self.length -= 1
-

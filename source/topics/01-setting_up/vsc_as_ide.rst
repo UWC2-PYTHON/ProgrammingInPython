@@ -75,4 +75,3 @@ If you're on a Mac, be sure to set up your path_ for easy integration with the t
 I also recommend setting up Visual Studio Code as your default_ Git editor.
 
 .. _default: https://stackoverflow.com/questions/30024353/how-to-use-visual-studio-code-as-default-editor-for-git
-

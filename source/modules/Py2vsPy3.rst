@@ -98,4 +98,3 @@ The most drastic difference (improvement!) is better Unicode support, and better
 Most of the other differences are essentially implementation details, like getting iterators instead of sequences -- we'll talk about that more when it comes up in a later lesson.
 
 There are also a few syntax differences with more advanced topics: Exceptions, ``super()``, etc.
-

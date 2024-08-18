@@ -145,4 +145,3 @@ class A(OneLineTag):
         super().__init__(*args, **kwargs)
         # this could also be direct:
         # Element.__init__(self, *args, **kwargs)
-

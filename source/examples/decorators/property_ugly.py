@@ -15,5 +15,3 @@ class C:
     def _del_x(self):
         del self._x
     x = x.deleter(_del_x)
-
-

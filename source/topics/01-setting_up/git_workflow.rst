@@ -200,8 +200,3 @@ Also -- by doing it this way, you are getting an automatic back up of your work.
 ``$ git pull``
 
 on the other will bring that change down.  This makes it really easy to do your classwork (or any work) in multiple places.
-
-
-
-
-

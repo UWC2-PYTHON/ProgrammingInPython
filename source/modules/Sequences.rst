@@ -798,7 +798,7 @@ and you want to put one in each of the "inside" lists:
         ...:     # add a word to the corresponding bin
         ...:     bins[i].append(words[i])
 
-So, what is going to be in ``bins`` now? Think for a bit first -- you added one word to each bin, yes? But are those "sublists" independent? 
+So, what is going to be in ``bins`` now? Think for a bit first -- you added one word to each bin, yes? But are those "sublists" independent?
 
 There is only **One** bin
 -------------------------
@@ -806,7 +806,7 @@ There is only **One** bin
 .. code-block:: ipython
 
     In [16]: bins
-    Out[16]: 
+    Out[16]:
     [['one', 'three', 'rough', 'sad', 'goof'],
      ['one', 'three', 'rough', 'sad', 'goof'],
      ['one', 'three', 'rough', 'sad', 'goof'],
@@ -827,7 +827,7 @@ So how to make a list of independent lists? You need to loop and call that code 
 
     In [22]: for i in range(5):
         ...:     bins.append([])
-        ...: 
+        ...:
 
     In [23]: bins
     Out[23]: [[], [], [], [], []]
@@ -836,7 +836,7 @@ So how to make a list of independent lists? You need to loop and call that code 
         ...: for i in range(5):
         ...:     # add a word to the corresponding bin
         ...:     bins[i].append(words[i])
-        ...: 
+        ...:
 
     In [25]: bins
     Out[25]: [['one'], ['three'], ['rough'], ['sad'], ['goof']]
@@ -1208,4 +1208,3 @@ For more information, read the list docs:
 https://docs.python.org/3.6/library/stdtypes.html#mutable-sequence-types
 
 (actually any mutable sequence....)
-

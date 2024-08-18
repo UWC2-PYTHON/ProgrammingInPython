@@ -72,6 +72,3 @@ def test_not_call_iter():
     """
     with pytest.raises(TypeError):
         next(range2(3))
-
-
-

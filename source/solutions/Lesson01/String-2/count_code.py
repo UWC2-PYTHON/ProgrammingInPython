@@ -17,4 +17,3 @@ assert count_code('cozcop') == 0
 
 
 print("all checks passed")
-

@@ -51,4 +51,3 @@ So if you have code that looks like:
 Then you have a candidate for a comprehension.
 
 In your version of mailroom -- there may not be any such constructs -- that's OK, don't use a comprehension unless it cleans up your code.
-
