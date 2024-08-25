@@ -118,7 +118,7 @@ With one exception: your instructor may use a GitHub repository to manage notes,
 
 Another possiblity is if you notice an error, or can suggest a claification in these very pages. They are managed on GitHub as well, in this repo:
 
-https://github.com/plockaby/ProgrammingInPython
+https://github.com/UWC2-PYTHON/ProgrammingInPython
 
 So you may want to fork that repo in order to make suggestions.
 

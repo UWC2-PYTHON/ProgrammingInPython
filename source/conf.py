@@ -82,7 +82,7 @@ html_theme = "sphinx_rtd_theme"
 html_theme_options = {
     # 'canonical_url': '',
     # 'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
-    # 'github_url': 'https://github.com/plockaby/ProgrammingInPython',
+    # 'github_url': 'https://github.com/UWC2-PYTHON/ProgrammingInPython',
     'logo_only': True,
     'display_version': False,
     'prev_next_buttons_location': 'both',
@@ -97,7 +97,7 @@ html_theme_options = {
     'titles_only': True
 }
 
-github_url = 'https://github.com/plockaby/ProgrammingInPython'
+github_url = 'https://github.com/UWC2-PYTHON/ProgrammingInPython'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
