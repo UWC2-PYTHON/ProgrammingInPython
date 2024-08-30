@@ -12,35 +12,31 @@ Python has a very complete set of built in standard types that support most prog
 
 You can get pretty darn far with just these basic types -- but some problems require (or could be helped by) more complex collection types.
 
-This was recognised by the Python development team, so a number of genreally useful collection types are provided in the collections module.
+This was recognized by the Python development team, so a number of generally useful collection types are provided in the `collections <https://docs.python.org/3/library/collections.html>`_ module.
 
 The collections module
 ----------------------
 
-The first step is to see what's there by looking at the documentation:
-
-https://docs.python.org/3/library/collections.html
+The first step is to see what's there by looking `at the documentation for the collections module <https://docs.python.org/3/library/collections.html>`_.
 
 You can see a pretty nice list of options (kind of in order of usefulness)
 
-* ``namedtuple()``: factory function for creating tuple subclasses with named fields
-* ``deque``: list-like container with fast appends and pops on either end
-* ``Counter``: dict subclass for counting hashable objects
-* ``OrderedDict``: dict subclass that remembers the order entries were added
-* ``defaultdict``: dict subclass that calls a factory function to supply missing values
-* ``ChainMap``: dict-like class for creating a single view of multiple mappings
+* ``namedtuple()`` - factory function for creating tuple subclasses with named fields
+* ``deque`` - list-like container with fast appends and pops on either end
+* ``Counter`` - dict subclass for counting hashable objects
+* ``OrderedDict`` - dict subclass that remembers the order entries were added
+* ``defaultdict`` - dict subclass that calls a factory function to supply missing values
+* ``ChainMap`` - dict-like class for creating a single view of multiple mappings
 
-These are just the regular builtin types, but in a form that they can be subclassed -- to make your own custom version.
+These are just the regular built-in types, but in a form that they can be subclassed -- to make your own custom version.
 
-* ``UserDict``: wrapper around dictionary objects for easier dict subclassing
-* ``UserList``: wrapper around list objects for easier list subclassing
-* ``UserString``: wrapper around string objects for easier string subclassing
+* ``UserDict`` - wrapper around dictionary objects for easier dict subclassing
+* ``UserList`` - wrapper around list objects for easier list subclassing
+* ``UserString`` - wrapper around string objects for easier string subclassing
 
-To get an idea what these all are, read the docs, or a nice overview Python Module of the Week:
+To get an idea what these all are, read the docs, or a nice overview Python Module of the Week: https://pymotw.com/3/collections/
 
-https://pymotw.com/3/collections/
-
-Using the collection types
+Using the collection Types
 --------------------------
 
 To use these special types, they must be imported:
@@ -70,7 +66,5 @@ Then you can use it -- creating a ``defaultdict`` with a empty list as a default
     In [14]: dd['that'].append(4)
 
 And you'll get a dict that will automatically put an empty list in when the key isn't there yet. Kind of a handy replacement from having to call ``dict.setdefault`` each time.
-
-Similarly for the others.
 
 Take a bit of time to try them out -- you may find them really useful.

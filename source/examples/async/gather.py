@@ -20,9 +20,11 @@ async def factorial(name, number):
         f *= i
     print("Task %s: factorial(%s) = %s" % (name, number, f))
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(asyncio.gather(factorial("A", 2),
-                                       factorial("B", 3),
-                                       factorial("C", 4),
-                                       ))
-loop.close()
+async def run():
+    await asyncio.gather(
+        factorial("A", 2),
+        factorial("B", 3),
+        factorial("C", 4),
+    )
+
+asyncio.run(run())

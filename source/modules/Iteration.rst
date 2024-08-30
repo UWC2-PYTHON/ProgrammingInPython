@@ -6,7 +6,6 @@ Iteration
 
 Repetition, Repetition, Repetition, Repe...
 
-
 For Loops
 =========
 
@@ -34,7 +33,7 @@ Contrast this with other languages, where you must build and use an ``index`` to
 
 .. code-block:: javascript
 
-    for(var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         var value = arr[i];
         alert(i + ") " + value);
 
@@ -51,7 +50,7 @@ If you *do* need an index, you can use ``enumerate``:
 ``range`` and ``for`` Loops
 ---------------------------
 
-The ``range`` builtin is useful for looping a known number of times:
+The ``range`` built-in is useful for looping a known number of times:
 
 .. code-block:: ipython
 
@@ -64,13 +63,13 @@ The ``range`` builtin is useful for looping a known number of times:
     3
     4
 
-But you don't really need to do anything at all with ``i``
+But you don't really need to do anything at all with ``i``.
 
 In fact, it's a common convention to make this clear with a "nothing" name:
 
 .. code-block:: ipython
 
-    In [21]: for __ in range(5):
+    In [21]: for _ in range(5):
        ....:     print("*")
        ....:
     *
@@ -101,7 +100,6 @@ Sometimes you want to interrupt or alter the flow of control through a loop.
 
 Loops can be controlled in two ways, with ``break`` and ``continue``.
 
-
 The ``break`` keyword will cause a loop to immediately terminate:
 
 .. code-block:: ipython
@@ -114,8 +112,7 @@ The ``break`` keyword will cause a loop to immediately terminate:
     0 1 2 3 4 5... 46 47 48 49 50 51
 
 
-The ``continue`` keyword will skip later statements in the loop block, but
-allow iteration to continue:
+The ``continue`` keyword will skip later statements in the loop block, but allow iteration to continue:
 
 .. code-block:: ipython
 
@@ -169,10 +166,9 @@ If Python didn't have ``else`` on loops, you'd need to set a flag, something lik
     if not it_did_break:
         print('finished')
 
-That's klunkier, no?
+That's clunkier, no?
 
 Make sure to try this a bit yourself too, to make sure you get it.
-
 
 While Loops
 ===========
@@ -192,11 +188,9 @@ It continues to execute the body until the associated condition does not evaluat
 ``while`` vs. ``for``
 ---------------------
 
-``while``  is more general than ``for``
+``while`` is more general than ``for`` -- you can always express ``for`` as ``while``, but not always vice-versa.
 
--- you can always express ``for`` as ``while``, but not always vice-versa.
-
-``while``  is more error-prone -- requires some care to terminate.
+``while`` is more error-prone. It requires some care to ensure that it terminates.
 
 The loop body must make progress, so the associated condition can become ``False``.
 
@@ -238,7 +232,6 @@ Set a flag:
        .....:
     3
 
-
 Use a condition:
 
 .. code-block:: ipython
@@ -249,31 +242,28 @@ Use a condition:
        .....:
     0 0 2 3 4 6 8 8 8 9 12
 
-
 Similarities
 ------------
 
-Both ``for`` and ``while`` loops can use ``break`` and ``continue`` for
-internal flow control.
+Both ``for`` and ``while`` loops can use ``break`` and ``continue`` for internal flow control.
 
 Both ``for`` and ``while`` loops can have an optional ``else`` block.
 
-In both loops, the statements in the ``else`` block are only executed if the
-loop terminates normally (no ``break``).
+In both loops, the statements in the ``else`` block are only executed if the loop terminates normally (no ``break``).
 
 Pythonic Iteration
 ==================
 
 I've already said it, but it bears repeating:
 
-for loops are for iterating over something (an "iterable") -- you almost never want to iterate over the indexes, and then access items with the index.
+``for`` loops are for iterating over something (an "iterable") -- you almost never want to iterate over the indexes, and then access items with the index.
 
-Nifty for loop tricks
+Nifty for Loop Tricks
 ---------------------
 
 **tuple unpacking:**
 
-remember this?
+Remember this?
 
 .. code-block:: python
 
@@ -292,9 +282,8 @@ You can do that in a for loop, also:
   i:3, j:4
   i:5, j:6
 
-
-Looping through two iterables at once:
---------------------------------------
+Looping through two iterables at once
+-------------------------------------
 
   ``zip``
 
@@ -315,13 +304,13 @@ There can be more than two:
 
 .. code-block:: python
 
-  for i, j, k, l in zip(l1, l2, l3, l4):
+    for i, j, k, l in zip(l1, l2, l3, l4):
 
 
 Need the index and the item?
 ----------------------------
 
-  ``enumerate``
+Use the ``enumerate`` built-in function, like this:
 
 .. code-block:: ipython
 

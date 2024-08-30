@@ -26,11 +26,9 @@ The following are some extra topics that might be of interest
     ../../modules/Debugging
 
     ../../modules/NoSQL
-    ../../modules/GraphDatabases
 
     ../../modules/Concurrency
     ../../modules/Async
-    ../../modules/Coroutines
     ../../modules/ThreadingMultiprocessing
     ../../exercises/threaded_downloader
 

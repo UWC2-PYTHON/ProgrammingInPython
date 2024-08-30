@@ -120,6 +120,8 @@ def rot13e(text):
 
 # Maybe you noticed that there is a rot13 encoding build in to Python!
 import codecs
+
+
 def rot13f(text):
     """
     This one "cheats" by using the built-in 'rot13' encoding
@@ -128,13 +130,12 @@ def rot13f(text):
 
 
 if __name__ == "__main__":
-    print (rot13a("Zntargvp sebz bhgfvqr arne pbeare"))
-    print (rot13b("Zntargvp sebz bhgfvqr arne pbeare"))
-    print (rot13c("Zntargvp sebz bhgfvqr arne pbeare"))
-    print (rot13d("Zntargvp sebz bhgfvqr arne pbeare"))
-    print (rot13e("Zntargvp sebz bhgfvqr arne pbeare"))
-    print (rot13f("Zntargvp sebz bhgfvqr arne pbeare"))
-
+    print(rot13a("Zntargvp sebz bhgfvqr arne pbeare"))
+    print(rot13b("Zntargvp sebz bhgfvqr arne pbeare"))
+    print(rot13c("Zntargvp sebz bhgfvqr arne pbeare"))
+    print(rot13d("Zntargvp sebz bhgfvqr arne pbeare"))
+    print(rot13e("Zntargvp sebz bhgfvqr arne pbeare"))
+    print(rot13f("Zntargvp sebz bhgfvqr arne pbeare"))
 
     assert (rot13a("Zntargvp sebz bhgfvqr arne pbeare") ==
             "Magnetic from outside near corner")
@@ -152,7 +153,7 @@ if __name__ == "__main__":
             rot13f(text)
             )
 
-    print ("All assertions pass")
+    print("All assertions pass")
 
 # # Some timings:
 # # Note that the translate table versions are MUCH faster

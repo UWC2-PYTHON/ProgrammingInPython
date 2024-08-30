@@ -4,20 +4,15 @@
 Decorators
 ##########
 
-.. NOTE: bring over some of the good stuff from the Py300 version
-
 **A Short Reminder**
 
-
-Functions are things that generate values based on input (arguments).
+Functions are things that generate values based on input -- i.e. arguments.
 
 In Python, functions are first-class objects.
 
-This means that you can bind names to them, pass them around, etc., just like
-other objects.
+This means that you can bind names to them, pass them around, etc., just like other objects.
 
-Because of this fact, you can write functions that take functions as
-arguments and/or return functions as values:
+Because of this fact, you can write functions that take functions as arguments and/or return functions as values:
 
 .. code-block:: python
 
@@ -26,19 +21,15 @@ arguments and/or return functions as values:
             return "I'm not that other function"
         return new_function
 
-
 A Definition
 ------------
 
-There are many things you can do with a simple pattern like this one.
-So many, that we give it a special name:
+There are many things you can do with a simple pattern like this one. So many, in fact, that we give it a special name:
 
-**Decorator**
+Decorator
+    "A decorator is a function that takes a function as an argument and returns a function as a return value."
 
-    "A decorator is a function that takes a function as an argument and
-    returns a function as a return value."
-
-    That's nice and all, but why is that useful?
+That's nice and all, but why is that useful?
 
 An Example
 ----------
@@ -50,8 +41,7 @@ Imagine you are trying to debug a module with a number of functions like this on
     def add(a, b):
         return a + b
 
-You want to see when each function is called, with what arguments and
-with what result. So you rewrite each function as follows:
+You want to see when each function is called, with what arguments and with what result. So you rewrite each function as follows:
 
 .. code-block:: python
 
@@ -61,9 +51,7 @@ with what result. So you rewrite each function as follows:
         print("\tResult --> {}".format(result))
         return result
 
-
-That's not particularly nice, especially if you have lots of functions
-in your module.
+That's not particularly nice, especially if you have lots of functions in your module.
 
 Now imagine we defined the following, more generic *decorator*:
 
@@ -81,7 +69,6 @@ Now imagine we defined the following, more generic *decorator*:
             return result
         return logged
 
-
 We could then make logging versions of our module functions:
 
 .. code-block:: python
@@ -98,14 +85,11 @@ Then, where we want to see the results, we can use the logged version:
          Result --> 7
     Out[37]: 7
 
-
-This is nice, but we have to call the new function wherever we originally
-had the old one.
+This is nice, but we have to call the new function wherever we originally had the old one.
 
 It'd be nicer if we could just call the old function and have it log.
 
-Remembering that you can easily rebind symbols in Python using *assignment
-statements* leads you to this form:
+Remembering that you can easily rebind symbols in Python using *assignment statements* leads you to this form:
 
 .. code-block:: python
 
@@ -116,8 +100,7 @@ statements* leads you to this form:
         return a + b
     add = logged_func(add)
 
-And now you can simply use the code you've already written and calls to
-``add`` will be logged:
+And now you can simply use the code you've already written and calls to ``add`` will be logged:
 
 .. code-block:: ipython
 
@@ -130,12 +113,9 @@ And now you can simply use the code you've already written and calls to
 Syntax
 ------
 
-Rebinding the name of a function to the result of calling a decorator on that
-function is called **decoration**.
+Rebinding the name of a function to the result of calling a decorator on that function is called **decoration**.
 
-Because this is so common, Python provides a special operator to perform it
-more *declaratively*: the ``@`` operator -- I told you I'd eventually explain what was going on under the hood with
-that weird `@` symbol.
+Because this is so common, Python provides a special operator to perform it more *declaratively*: the ``@`` operator -- I told you I'd eventually explain what was going on under the hood with that weird ``@`` symbol.
 
 This is rebinding the name:
 
@@ -153,9 +133,7 @@ And this means exactly the same thing, with the decoration syntax:
     def add(a, b):
         return a + b
 
-
-The declarative form (called a decorator expression) is far more common,
-but both have the identical result, and can be used interchangeably.
+The declarative form -- called a decorator expression -- is far more common, but both have the identical result, and can be used interchangeably.
 
 Here's another simple example. First we define a decorator -- note that it is a function that takes an argument, and returns a function:
 
@@ -185,7 +163,7 @@ And we can apply it with the regular calling and rebinding syntax:
     In [6]: other_func
     Out[6]: <function __main__.my_decorator.<locals>.inner>
 
-Notice that ``other_func`` is now the "inner" function, which lives in the "my_decorator" namespace...
+Notice that ``other_func`` is now the "inner" function, which lives in the "my_decorator" namespace.
 
 And this is the same with the decoration syntax:
 
@@ -208,7 +186,6 @@ Decorators have the power to replace the decorated function with a different one
 
 And they do it with compact, declarative syntax that has the decoration right at the top where the function is defined.
 
-
 Callables
 ---------
 
@@ -220,14 +197,12 @@ Remember that a *callable* is a function, a class object, a method in a class, o
 
 So in fact the definition should be updated as follows:
 
-  "A decorator is a callable that takes a callable as an argument and returns a callable as a return value."
-
+    "A decorator is a callable that takes a callable as an argument and returns a callable as a return value."
 
 An Example
 ----------
 
-Consider a decorator that would save the results of calling an expensive
-function with given arguments so that it would not have to be re-computed with the same input (which is known an memoizing...).
+Consider a decorator that would save the results of calling an expensive function with given arguments so that it would not have to be re-computed with the same input. (This is known an memoizing.)
 
 .. code-block:: python
 
@@ -247,7 +222,6 @@ function with given arguments so that it would not have to be re-computed with t
                 self.memoized[args] = self.function(*args)
                 return self.memoized[args]
 
-
 Let's try that out with a potentially expensive function:
 
 .. code-block:: ipython
@@ -265,15 +239,12 @@ Let's try that out with a potentially expensive function:
 
 Run that code yourself and see how much faster it returns the second time.
 
-It's nice to see that in action, but what if we want to know *exactly*
-how much difference it made?
-
+It's nice to see that in action, but what if we want to know *exactly* how much difference it made?
 
 Nested Decorators
 -----------------
 
-You can stack decorator expressions.  The result is like calling each
-decorator in order, from bottom to top:
+You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:
 
 .. code-block:: python
 
@@ -286,7 +257,6 @@ decorator in order, from bottom to top:
     def func(x):
         pass
     func = decorator_two(decorator_one(func))
-
 
 Let's define another decorator that will time how long a given call takes:
 
@@ -302,9 +272,7 @@ Let's define another decorator that will time how long a given call takes:
             return result
         return timed
 
-
-And now we can use this new decorator stacked along with our memoizing
-decorator:
+And now we can use this new decorator stacked along with our memoizing decorator:
 
 .. code-block:: ipython
 
@@ -318,7 +286,6 @@ decorator:
     In [73]: sum2x(10000000)
     time expired: 4.05311584473e-06
     Out[73]: 99999990000000
-
 
 Parameterized Decorators
 ------------------------
@@ -334,7 +301,6 @@ How do we add more input parameters to our decorator? Like this example from Dja
    @register.filter(name='cut')
    def cut(value, arg):
        return value.replace(arg, '')
-
 
 Add yet another function in scope:
 
@@ -355,19 +321,12 @@ Add yet another function in scope:
         for arg in args:
             print(arg)
 
-
-Last example from: http://scottlobdell.me/2015/04/decorators-arguments-python/
-
-
 Examples from the Standard Library
 ----------------------------------
 
-It's going to be a lot more common for you to use pre-defined decorators than for you to be writing your own.
+It's going to be a lot more common for you to use pre-defined decorators than for you to be writing your own. We've seen a few already.
 
-We've seen a few already:
-
-For example, ``@staticmethod`` and ``@classmethod`` can also be used as simple
-callables, without the nifty decorator expression:
+For example, ``@staticmethod`` and ``@classmethod`` can also be used as simple callables, without the nifty decorator expression:
 
 .. code-block:: python
 
@@ -385,12 +344,9 @@ Is exactly the same as:
             return a + b
         add = staticmethod(add)
 
-Note that the "``def``" binds the name ``add``, then the next line
-rebinds it.
+Note that the "``def``" binds the name ``add``, then the next line rebinds it.
 
-[Note that this is exactly how you defined a ``staticmethod`` before the decoration syntax was added in python 2.4]
-
-The ``classmethod()`` builtin can do the same thing:
+The ``classmethod()`` built-in can do the same thing:
 
 .. code-block:: python
 
@@ -406,11 +362,10 @@ The ``classmethod()`` builtin can do the same thing:
             # method body
         from_iterable = classmethod(from_iterable)
 
-
 property()
------------
+----------
 
-Remember the ``property()`` builtin?
+Remember the ``property()`` built-in?
 
 Perhaps most commonly, you'll see the ``property()`` builtin used this way.
 
@@ -421,16 +376,18 @@ Previously, we saw this code:
     class C:
         def __init__(self):
             self._x = None
+
         @property
         def x(self):
             return self._x
+
         @x.setter
         def x(self, value):
             self._x = value
+
         @x.deleter
         def x(self):
             del self._x
-
 
 But this could also be accomplished like so:
 
@@ -439,41 +396,42 @@ But this could also be accomplished like so:
     class C:
         def __init__(self):
             self._x = None
+
         def getx(self):
             return self._x
+
         def setx(self, value):
             self._x = value
+
         def delx(self):
             del self._x
-        x = property(getx, setx, delx,
-                     "I'm the 'x' property.")
+
+        x = property(getx, setx, delx, "I'm the 'x' property.")
 
 
 :download:`property_ugly.py <../examples/decorators/property_ugly.py>`
 
-
-Note that in this case, the decorator object returned by the property decorator
-itself implements additional decorators as attributes on the returned method
-object. So you could actually do this:
-
+Note that in this case, the decorator object returned by the property decorator itself implements additional decorators as attributes on the returned method object. So you could actually do this:
 
 .. code-block:: python
 
     class C:
         def __init__(self):
             self._x = None
+
         def x(self):
             return self._x
         x = property(x)
+
         def _set_x(self, value):
             self._x = value
         x = x.setter(_set_x)
+
         def _del_x(self):
             del self._x
         x = x.deleter(_del_x)
 
 But that's getting really ugly! Makes you appreciate the ``@``, doesn't it?
-
 
 Import Time vs. Run Time
 ------------------------
@@ -482,13 +440,10 @@ Decorators are run at import time. Run this code and see what happens when:
 
 :download:`play_with_imports.py <../examples/decorators/play_with_imports.py>`
 
-
 What if my decorated function uses unknown inputs?
 --------------------------------------------------
 
-If you don't know what parameters the decorated function will take (and you usually don't), you want to make sure the inner function that you are replacing the decorated function with takes ANY arguments, and passes them on to the decorated function.
-
-``*args, **kwargs`` is your friend here:
+If you don't know what parameters the decorated function will take -- and you usually don't -- then you want to make sure the inner function that you are replacing the decorated function with takes ANY arguments, and passes them on to the decorated function. ``*args, **kwargs`` is your friend here.
 
 A decorator that wraps an html `<p>` tag around the output of any decorated function.
 
@@ -496,9 +451,8 @@ A decorator that wraps an html `<p>` tag around the output of any decorated func
 
     def p_decorate(func):
         def func_wrapper(*args, **kwargs):
-            return "<p>{0}</p>".format(func(*args, **kwargs))
+            return "<p>{}</p>".format(func(*args, **kwargs))
         return func_wrapper
-
 
     @p_decorate
     def get_fullname(first_name, last_name):
@@ -507,8 +461,7 @@ A decorator that wraps an html `<p>` tag around the output of any decorated func
     In [124]: get_fullname('Chris', 'Barker')
     Out[124]: '<p>Chris Barker</p>'
 
-
-Functools Library
+functools Library
 -----------------
 
 Single dispatch:
@@ -517,14 +470,14 @@ Single dispatch:
 
 https://docs.python.org/3/library/functools.html#functools.singledispatch
 
-Memoize decorator we created earlier is in Functools:
+Memoize decorator we created earlier is in functools:
 
 https://docs.python.org/3/library/functools.html#functools.lru_cache
 
 LAB
 ===
 
-A little excercise. See the "p_decorate" decorator defined above -- it wrapped an html <p> tag (paragraph) around the results of any function that returned a string.
+A little exercise. See the ``p_decorate`` decorator defined above. It wrapped an html ``<p>`` tag around the results of any function that returned a string.
 
 Can you make a version that will wrap any other tag -- specified as a parameter of the decorator itself? For example:
 
@@ -550,16 +503,6 @@ But:
     In [124]: get_fullname('Chris', 'Barker')
     Out[124]: '<div>Chris Barker</div>'
 
-and you could pass any tag in.
+And you could pass any tag in.
 
-This can be accomplished either with a closure --nesting another level of functions in the decorator, or with a callable class, like the memoize example. Maybe try both, and decide which you like better.
-
-
-Further Reading:
-----------------
-
-*Fluent Python* by Luciano Ramalho, Chapter 7.
-
-Another good overview:
-
-https://dbader.org/blog/python-decorators
+This can be accomplished either with a closure -- nesting another level of functions in the decorator -- or with a callable class, like the memoize example. Maybe try both, and decide which you like better.

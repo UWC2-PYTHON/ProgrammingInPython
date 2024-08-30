@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 """
 example of emulating a sequence using slices
@@ -101,7 +102,7 @@ class SparseArray(object):
             elif k in new_keys:
                 # if this is a key we are changing, change it,
                 # unless we are changing to a zero...
-                new_value = values[new_keys.index(k)]
+                new_value = new_values[new_keys.index(k)]
                 if new_value != 0:
                     new_dict[k] = new_value
             else:

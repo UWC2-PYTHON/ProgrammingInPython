@@ -4,8 +4,6 @@
 script to determine what programming languages students came to this class with
 """
 
-infilename = "students.txt"
-
 # all_langs = set()  # use a set to ensure unique values
 
 # with open(infilename) as f:  # default read text mode
@@ -33,6 +31,7 @@ infilename = "students.txt"
 
 from collections import Counter
 
+infilename = "students.txt"
 all_langs = Counter()
 
 with open(infilename) as f:
@@ -48,7 +47,7 @@ with open(infilename) as f:
                 continue
             lang = lang.strip().capitalize()  # clean them up -- and make case the same
             if lang:  # don't want empty strings
-                    all_langs[lang] += 1
+                all_langs[lang] += 1
 
 print("And now the counted version")
 for lang, count in all_langs.items():

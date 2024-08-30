@@ -4,10 +4,10 @@
 A couple nifty context managers
 """
 
-import pytest
 
 class Failed(AssertionError):
     pass
+
 
 class Raises:
     def __init__(self, *args):
@@ -31,7 +31,6 @@ class Raises:
                 msg = "{} raised -- expected {}".format(exc_type.__name__,
                                                         expected)
             raise Failed(msg)
-
 
 
 # putting the tests for raises
@@ -71,6 +70,7 @@ def test_multiple_exp_fail():
     """This test should fail"""
     with Raises(ZeroDivisionError, AttributeError, RuntimeError):
         45 / 5
+
 
 def test_multiple_exp_fail_diff_exp():
     """This test should fail"""

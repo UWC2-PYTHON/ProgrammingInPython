@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""
+r"""
 Example of solving the classic "diamond problem" using super()
 
 In this case, class A is at the root of the class hierarchy

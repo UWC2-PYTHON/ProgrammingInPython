@@ -10,13 +10,13 @@ Create a wrapper function, perhaps safe_input() that returns None rather
 rather than raising these exceptions, when the user enters ^C for Keyboard
 Interrupt, or ^D (^Z on Windows) for End Of File.
 
-NOTE: if the user types a few charactors, and the hits ctrl+C, the
+NOTE: if the user types a few characters, and the hits ctrl+C, the
 KeyboardInterrupt gets caught somewhere deeper in the process, and
 this function doesn't work.
 
-Don't worry about that -- I don't really understnd what's going on in
+Don't worry about that -- I don't really understand what's going on in
 the REPL (Read, Evaluate, Print Loop) either -- and the point of this
-assigment is simple Exception handling.
+assignment is simple Exception handling.
 """
 
 
@@ -33,9 +33,10 @@ def safe_input(prompt_string=""):
     except (EOFError, KeyboardInterrupt):
         return None
 
+
 if __name__ == "__main__":
     response = safe_input("Say Something: ")
     if response is None:
-        print("Hey! you cancled out!!!")
+        print("Hey! you canceled out!!!")
     else:
         print("You said:", response)

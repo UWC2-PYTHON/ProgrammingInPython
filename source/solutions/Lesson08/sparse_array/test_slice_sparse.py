@@ -96,7 +96,7 @@ def test_change_slice():
 
 def test_delete_number():
     my_array, my_sparse = set_up()
-    del(my_sparse[4])
+    del my_sparse[4]
     # if we delete the 4 position, should now be zero
     assert my_sparse[4] == 0
     # should have smaller length
@@ -113,7 +113,7 @@ def test_delete_zero():
 
 def test_delete_last_number():
     my_array, my_sparse = set_up()
-    del(my_sparse[13])
+    del my_sparse[13]
     # should get an error
     with pytest.raises(IndexError):
         my_sparse[13]
@@ -122,7 +122,7 @@ def test_delete_last_number():
 
 def test_indices_change():
     my_array, my_sparse = set_up()
-    del(my_sparse[3])
+    del my_sparse[3]
     # next index should have changed
     # my_sparse[4] was 3 now
     # my_sparse[3] should be 3

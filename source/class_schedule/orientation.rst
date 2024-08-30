@@ -6,12 +6,12 @@ Orientation
 
 Getting your system set up for the class.
 
-
 Activities
 ==========
 
 Install Python:
 ---------------
+
 :ref:`installing_python`
 
 Setting Up your Environment:

@@ -4,9 +4,6 @@
 File Reading and Writing
 ########################
 
-Saving and loading data.
-
-
 Files
 =====
 
@@ -15,13 +12,13 @@ Text Files
 
 .. code-block:: python
 
-    f = open('secrets.txt')
+    f = open("secrets.txt")
     secret_data = f.read()
     f.close()
 
-``secret_data`` is a string
+``secret_data`` is a string.
 
-.. note:: In Python 3, files are opened by default in text mode, and the default encoding is UTF-8. This means that in the usual case, you get a proper Unicode string to work with, as UTF-8 is the most common encoding for text. Also, it is ASCII compatible, so ASCII Files with "just work". IF "Unicode" and "ASCII" mean nothing to you -- don't worry about it, just know that things will usually work for text, even non-English text. And if you get odd characters or an ``EncodingError``, then your file is not UTF-8, and it's time to Google "Python Unicode". (more info here: :ref:`unicode`)
+.. note:: In Python 3, files are opened by default in text mode, and the default encoding is UTF-8. This means that in the usual case, you get a proper Unicode string to work with, as UTF-8 is the most common encoding for text. Also, it is ASCII compatible, so ASCII Files with "just work". IF "Unicode" and "ASCII" mean nothing to you -- don't worry about it, just know that things will usually work for text, even non-English text. And if you get odd characters or an ``EncodingError``, then your file is not UTF-8, and it's time to Google "Python Unicode". (You can read more about Unicode here: :ref:`unicode`)
 
 
 Binary Files
@@ -29,13 +26,11 @@ Binary Files
 
 .. code-block:: python
 
-    f = open('secrets.bin', 'rb')
+    f = open("secrets.bin", "rb")
     secret_data = f.read()
     f.close()
 
-``secret_data`` is a byte string (with arbitrary bytes in it -- well, not arbitrary -- whatever is in the file!)
-
-(See the ``struct``  module to unpack binary data )
+``secret_data`` is a byte string with arbitrary bytes in it. Well, not arbitrary -- whatever is in the file! See the Python ``struct`` module to unpack binary data.
 
 
 File Opening Modes
@@ -43,35 +38,28 @@ File Opening Modes
 
 .. code-block:: python
 
-    f = open('secrets.txt', [mode])
+    f = open("secrets.txt", [mode])
     'r', 'w', 'a'
     'rb', 'wb', 'ab'
     'r+', 'w+', 'a+'
     'r+b', 'w+b', 'a+b'
 
+These follow the Unix conventions, and aren't all that well documented in the Python docs. But these BSD docs make it pretty clear: http://www.manpagez.com/man/3/fopen/
 
-These follow the Unix conventions, and aren't all that well documented
-in the Python docs. But these BSD docs make it pretty clear:
-
-http://www.manpagez.com/man/3/fopen/
-
-**Gotcha** -- 'w' modes always clear the file if it already exists!
+**Gotcha!** ``'w'`` modes always erase the file if it already exists! If you want to add on to the end of the file then use ``'a'`` modes for "append".
 
 Text File Notes
 ---------------
 
-Text is default:
+When opening a file, text is default.
 
-  * Newlines are translated: ``\r\n`` -> ``\n``
-  *   -- reading and writing!
-  * Use \*nix-style in your code: ``\n``
-
+* Line endings are translated: ``\r\n`` -> ``\n``
+* Always use Unix-style line endings in your code: ``\n``
 
 Gotcha:
 
-  * no difference between text and binary on \*nix
-  * but this is not true on Windows, and will cause an error.
-
+* No difference between text and binary on Unix/Linux/macOS.
+* But this is not true on Windows, and using the wrong file type will cause an error.
 
 File Reading
 ------------
@@ -86,75 +74,69 @@ Reading part of a file:
     secret_rest = f.read()
     f.close()
 
-
 Common Idioms
 -------------
 
 .. code-block:: python
 
-    for line in open('secrets.txt'):
+    for line in open("secrets.txt"):
         print(line)
 
-(The file object is an iterable that iterates through the lines in a text file.)
+The file object is an iterable that iterates through the lines in a text file.
 
 .. code-block:: python
 
-    f = open('secrets.txt')
+    f = open("secrets.txt")
     while True:
         line = f.readline()
         if not line:
             break
         do_something_with_line()
 
-
-We will learn more about the keyword ``with`` later (it creates a "context manager"), but for now, just understand the syntax and the advantage over simply opening the file:
+We will learn more about the keyword ``with`` later -- it creates a "context manager" -- but for now, just understand the syntax and the advantage over simply opening the file:
 
 .. code-block:: python
 
- with open('workfile', 'r') as f:
-     read_data = f.read()
- f.closed
- True
+    with open("workfile", "r") as f:
+        read_data = f.read()
+    print(f.closed)  # will print True
 
-You use ``with`` to open the file, and assign it a name (``f`` in this case).
-The file remains open while in the ``with`` block.
-At the end of the ``with`` block, the file is unconditionally closed, even if an Exception is raised.  You code will (mostly) work without it, but it's a good habit to get into to always use ``with`` to open a file.
+You use ``with`` to open the file, and assign it a name. In this case we call the handle to the file ``f``. The file remains open while in the ``with`` block. At the end of the ``with`` block, the file is unconditionally closed, even if an Exception is raised. Your code will (mostly) work without it, but it's a good habit to get into to always use ``with`` to open a file.
 
 File Writing
 ------------
 
 .. code-block:: python
 
-    outfile = open('output.txt', 'w')
+    outfile = open("output.txt", "w")
     for i in range(10):
-        outfile.write("this is line: %i\n"%i)
+        outfile.write(f"this is line: {i}\n")
     outfile.close()
 
-    with open('output.txt', 'w') as f:
+    with open("output.txt", "w") as f:
         for i in range(10):
-           f.write("this is line: %i\n"%i)
-
+           f.write(f"this is line: {i}\n")
 
 File Methods
 ------------
 
-Commonly Used Methods:
+Commonly used file methods:
 
 .. code-block:: python
 
-    f.read() f.readline()  f.readlines()
-
-    f.write(str) f.writelines(seq)
-
-    f.seek(offset)   f.tell() # for binary files, mostly
-
+    f.read()
+    f.readline()
+    f.readlines()
+    f.write(str)
+    f.writelines(seq)
+    f.seek(offset)
+    f.tell() # for binary files, mostly
     f.close()
 
 ``StringIO``
 ------------
 
-A ``StringIO`` method is a "file like" object that stores the content in memory.
-That is, it has all the methods of a file, and behaves the same way, but never writes anything to disk.
+A ``StringIO`` method is a "file like" object that stores the content in memory. That is, it has all the methods of a file, and behaves the same way, but never writes anything to disk.
 
 .. code-block:: python
 
@@ -176,8 +158,7 @@ That is, it has all the methods of a file, and behaves the same way, but never w
 
     In [12]: f.close()
 
-(This can be handy for testing file handling code...)
-
+This can be handy for testing file handling code.
 
 Paths and Directories
 =====================
@@ -191,24 +172,26 @@ Relative paths:
 
 .. code-block:: python
 
-    'secret.txt'
-    './secret.txt'
+    "secret.txt"
+    "./secret.txt"
 
 Absolute paths:
 
 .. code-block:: python
 
-    '/home/chris/secret.txt'
+    "/home/chris/secret.txt"
 
 
-Either works with ``open()`` , etc.
+Either works with ``open()``, etc.
 
 Relative paths are relative to the current working directory, which is only relevant to command-line programs.
 
-``os`` module
+``os`` Module
 -------------
 
 .. code-block:: python
+
+    import os
 
     os.getcwd()
     os.chdir(path)
@@ -219,6 +202,8 @@ Relative paths are relative to the current working directory, which is only rele
 
 .. code-block:: python
 
+    import os.path
+
     os.path.split()
     os.path.splitext()
     os.path.basename()
@@ -228,27 +213,27 @@ Relative paths are relative to the current working directory, which is only rele
     os.path.relpath()
 
 
-(all platform independent)
+These are all platform independent and will work the same on Windows, Linux, and macOS.
 
 Directories
 -----------
 
 .. code-block:: python
 
+    import os
+
     os.listdir()
     os.mkdir()
     os.walk()
 
-(Note the ``shutil``  module provides higher level operations.)
+Note the ``shutil`` module provides higher level operations and might be more useful in many situations.
 
 pathlib
 -------
 
-``pathlib`` is a package for handling paths in an OO way:
+``pathlib`` is a package for handling paths in an object oriented way: http://pathlib.readthedocs.org/en/pep428/
 
-http://pathlib.readthedocs.org/en/pep428/
-
-All the stuff in os.path and more:
+It has all the stuff in ``os.path`` and more:
 
 .. code-block:: ipython
 
@@ -279,24 +264,20 @@ And it has a really nifty way to join paths, by overloading the "division" opera
     In [51]: p / "a_dir" / "one_more" / "a_filename"
     Out[51]: PosixPath('/Users/Chris/a_dir/one_more/a_filename')
 
-Kinda slick, eh?
+Kinda slick, eh? This makes your code platform agnostic so that you're using the correct path separators no matter what platform you are using.
 
-For the full docs:
-
-https://docs.python.org/3/library/pathlib.html
+For the full docs: https://docs.python.org/3/library/pathlib.html
 
 The Path Protocol
 -----------------
 
 As of Python 3.6, there is now a protocol for making arbitrary objects act like paths:
 
-Read about it in PEP 519:
-
-https://www.python.org/dev/peps/pep-0519/
+Read about it in PEP 519: https://www.python.org/dev/peps/pep-0519/
 
 This was added because most built-in file handling modules, as well as any number of third party packages that needed a path, worked only with string paths.
 
-Even after ``pathlib`` was added to the standard library, you couldn't pass a ``Path`` object in where a path was needed --even the most common ones like ``open()``.
+Even after ``pathlib`` was added to the standard library, you couldn't pass a ``Path`` object in where a path was needed -- even the most common ones like ``open()``.
 
 So you could use the nifty path manipulation stuff, but still needed to call ``str`` on it:
 
@@ -310,17 +291,15 @@ Rather than add explicit support for ``Path`` objects, a new protocol was define
 
 This way, third party path libraries could be used with the standard library as well.
 
-What this means to you
+What This Means to You
 ----------------------
 
 Unless you are writing a path manipulation library, or a library that deals with paths other than with the stdlib packages (like ``open()``), all you need to know is that you can use ``Path`` objects most places you need a path.
 
-I expect we will see expanded use of pathlib as python 3.6 and 3.7 becomes widely used.
+Some Additional Notes
+=====================
 
-Some added notes:
-=================
-
-Using files and "with"
+Using Files and "with"
 -----------------------
 
 Sorry for the confusion, but I'll be more clear now.
@@ -329,11 +308,12 @@ When working with files, unless you have a good reason not to, use ``with``:
 
 .. code-block:: python
 
-  with open(the_filename, 'w') as outfile:
+  with open(the_filename, "w") as outfile:
       outfile.write(something)
-      do_some_more...
+      do_some_more())
+
   # now done with out file -- it will be closed, regardless of errors, etc.
-  do_other_stuff
+  do_other_stuff()
 
 ``with`` invokes a context manager -- which can be confusing, but for now, just follow this pattern -- it really is more robust.
 
@@ -341,21 +321,20 @@ And you can even do two at once:
 
 .. code-block:: python
 
-    with open(source, 'rb') as infile, open(dest, 'wb') as outfile:
+    with open(source, "rb") as infile, open(dest, "wb") as outfile:
         outfile.write(infile.read())
-
 
 Binary files
 ------------
 
 Python can open files in one of two modes:
 
- * Text
- * Binary
+* Text
+* Binary
 
 This is just what you'd think -- if the file contains text, you want text mode. If the file contains arbitrary binary data, you want binary mode.
 
-All data in all files is binary -- that's how computers work. So in Python3, "text" actually means Unicode -- which is a particular system for matching characters to binary data.
+All data in all files is binary -- that's how computers work. So in Python, "text" actually means Unicode -- which is a particular system for matching characters to binary data.
 
 But this too is complicated -- there are multiple ways that binary data can be mapped to Unicode text, known as "encodings". In Python, text files are by default opened with the "utf-8" encoding. These days, that mostly "just works".
 
@@ -378,7 +357,5 @@ But if you read a binary file as text, then Python will try to interpret the byt
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
 
-
-In Python2, it's less likely that you'll get an error like this -- it doesn't try to decode the file as it's read -- even for text files -- so it's a bit tricky and more error prone.
 
 **NOTE:** If you want to actually DO anything with a binary file, other than passing it around, then you'll need to know a lot about how the details of what the bytes in the file mean -- and most likely, you'll use a library for that -- like an image processing library for the jpeg example above.

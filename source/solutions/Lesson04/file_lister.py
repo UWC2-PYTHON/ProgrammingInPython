@@ -18,7 +18,7 @@ print("listing using method one")
 for name in os.listdir(os.curdir):
     print(os.path.abspath(name))
 
-# Note: os.curdir is "." on all sytems I know of...
+# Note: os.curdir is "." on all systems I know of...
 #       so you could just do os.curdir(".")
 #       Back in the days of the old MacOS -- it WAS different there.
 

@@ -1,47 +1,28 @@
-:orphan:
-
 .. _unicode:
 
 =================
 Unicode in Python
 =================
 
-
-A quick run-down of Unicode,
-
-Its use in Python 2 and 3,
-
-and some of the gotchas that arise.
-
+A quick run-down of Unicode, its use in Python 3, and some of the gotchas that arise.
 
 History
 =======
 
-A bit about where all this mess came from...
-
+Here is a bit about where all this mess came from.
 
 What the heck is Unicode anyway?
 ---------------------------------
 
 * First there was chaos...
-
-  * Different machines used different encodings -- different ways of mapping
-    the binary data that the computer stores to letters.
-
+  * Different machines used different encodings -- different ways of mapping the binary data that the computer stores to letters.
 * Then there was ASCII -- and all was good (7 bit), 127 characters
-
   * (for English speakers, anyway)
-
 * But each vendor used the top half of 8bit bytes (127-255) for different things.
-
   * MacRoman, Windows 1252, etc...
-
   * There is now "latin-1", a 1-byte encoding suitable for European languages -- but still a lot of old files around that use the old ones.
-
 * Non-Western European languages required totally incompatible 1-byte encodings
-
 * This means there was no way to mix languages with different alphabets in the same document (web page, etc.)
-
 
 Enter Unicode
 --------------
@@ -51,41 +32,27 @@ The Unicode idea is pretty simple:
 
 But how do you express that in bytes?
   * Early days: we can fit all the code points in a two byte integer (65536 characters)
-
   * Turns out that didn't work -- 65536 is not enough for all languages. So we now need 32 bit integer to hold all of Unicode "raw" (UTC-4).
   * But it's a waste of space to use 4 full bytes for each character, when so many don't require that much space.
 
 Enter "encodings":
   * An encoding is a way to map specific bytes to a code point.
-
   * Each code point can be represented by one or more bytes.
-
   * Each encoding is different -- if you don't know the encoding, you don't know how to interpret the bytes! (though maybe you can guess)
-
 
 Unicode
 -------
 
-A good start:
-
-The Absolute Minimum Every Software Developer Absolutely,
-Positively Must Know About Unicode and Character Sets (No Excuses!)
-
-http://www.joelonsoftware.com/articles/Unicode.html
-
+A good start: `The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!) <http://www.joelonsoftware.com/articles/Unicode.html>`_
 
 **Everything is Bytes**
 
 * If it's on disk or on a network, it's bytes
-
 * Python provides some abstractions to make it easier to deal with bytes
 
 **Unicode is a Biggie**
 
-Actually, dealing with numbers rather than bytes is big
-
--- but we take that for granted.
-
+Actually, dealing with numbers rather than bytes is big -- but we take that for granted.
 
 Mechanics
 =========
@@ -93,43 +60,18 @@ Mechanics
 What are strings?
 -----------------
 
-Py2 strings were simply sequences of bytes.  When text was one per character that worked fine.
+In Python 3 strings are sequences of "platonic characters".
 
-Py3 strings (or Unicode strings in py2) are sequences of "platonic characters".
+It's almost one code point per character. There are complications with combined characters: accents, etc -- but we can mostly ignore those -- you will get far thinking of a code point as a character.
 
-It's almost one code point per character -- there are complications
-with combined characters: accents, etc -- but we can mostly ignore those -- you will get far thinking of a code point as a character.
-
-Platonic characters cannot be written to disk or network!
+Platonic characters cannot be written to disk or network.
 
 (ANSI: one character == one byte -- it was so easy!)
-
 
 Strings vs Unicode
 ------------------
 
-Python 2 had two types that let you work with text:
-
-* ``str``
-
-* ``unicode``
-
-And two ways to work with binary data:
-
-* ``str``
-
-* ``bytes()``  (and ``bytearray``)
-
-**but:**
-
-.. code-block:: ipython
-
-   In [86]: str is bytes
-   Out[86]: True
-
-``bytes`` is there in py2 for py3 compatibility -- but it's good for making your intentions clear, too.
-
-py3 is more clear:
+Python 3 is very clear:
 
   ``str`` for text
   ``bytes`` for binary data
@@ -137,9 +79,7 @@ py3 is more clear:
 Unicode
 --------
 
-The py3 string (py2 ``Unicode``) object lets you work with characters, instead of bytes.
-
-It has all the same methods you'd expect a string object to have.
+The Python 3 string object lets you work with characters, instead of bytes. It has all the methods you'd expect a string object to have.
 
 Encoding / Decoding
 -------------------
@@ -150,148 +90,9 @@ If you need to deal with the actual bytes for some reason, you may need to conve
 
 **"decoding"** is converting from bytes to a string object
 
-(sometimes this feels backwards...)
+(Sometimes this feels backwards.)
 
-And can get even more confusing with py2 strings being *both* text and bytes!
-
-This is actually one of the biggest differences between Python 2 and Python 3. As an ordinary user (particularly one that used English...), you may not notice -- text is text, and things generally "just work", but under the hood it is very different, and folks writting libraries for things like Internet protocols struggled with the differences.
-
-Using Unicode in Py2
---------------------
-
-If you do need to write Python2 code, you really should use Unicode. If you don't -- skip ahead to "Unicode Literals".
-
-Here are the basics:
-
-Built in functions
-..................
-
-.. code-block:: python
-
-  ord()
-  chr()
-  unichr()
-  str()
-  unicode()
-
-The codecs module
-.................
-
-.. code-block:: python
-
-  import codecs
-  codecs.encode()
-  codecs.decode()
-  codecs.open() # better to use ``io.open``
-
-
-Encoding and Decoding
-----------------------
-
-(Python 2!)
-
-**Encoding:** text to bytes -- you get a bytes (str) object
-
-.. code-block:: ipython
-
-  In [17]: u"this".encode('utf-8')
-  Out[17]: 'this'
-
-  In [18]: u"this".encode('utf-16')
-  Out[18]: '\xff\xfet\x00h\x00i\x00s\x00'
-
-**Decoding** bytes to text -- you get a unicode object
-
-.. code-block:: ipython
-
-  In [2]: text =  '\xff\xfe."+"x\x00\xb2\x00'.decode('utf-16')
-
-  In [3]: type(text)
-  Out[3]: unicode
-
-  In [4]: print text
-  ∮∫x²
-
-
-Unicode Literals
-----------------
-
-How do you get text that isn't plain English text?
-
-1) Use Unicode in your source files:
-
-.. code-block:: python
-
-    # -*- coding: utf-8 -*-
-
-(This is only required on Py2 -- the UTF-8 encoding is default for Python 3)
-
-2) Escape the Unicode characters:
-
-Either by its hexadecimal value, or its name:
-
-.. code-block:: python
-
-  print u"The integral sign: \u222B"
-  print u"The integral sign: \N{integral}"
-
-Lots of tables of code points are available online:
-
-One example:  http://inamidst.com/stuff/unidata/
-
-:download:`hello_unicode.py  <../examples/unicode/hello_unicode.py>`.
-
-
-Using Unicode
--------------
-
-Use ``unicode`` objects in all your code
-
-**Decode on input**
-
-**Encode on output**
-
-Many packages do this for you: *XML processing, databases, ...*
-
-**Gotcha:**
-
-Python has a default encoding. On Mac and Unix systems, it's usually utf-8 -- Windows? not nearly as consistent.
-
-.. code-block:: ipython
-
- In [7]: sys.getdefaultencoding()
- Out[7]: 'utf-8'
-
-Try this on your machine, and see what you get.
-
-The default encoding will get used in unexpected places!
-Notably in text files by default.
-
-Using Unicode Everywhere
--------------------------
-
-Python 2.6 and above have a nice feature to make it easier to use Unicode everywhere
-
-.. code-block:: python
-
-    from __future__ import unicode_literals
-
-After running that line, the ``u''`` is assumed
-
-.. code-block:: ipython
-
-    In [1]: s = "this is a regular py2 string"
-    In [2]: print type(s)
-    <type 'str'>
-
-    In [3]: from __future__ import unicode_literals
-    In [4]: s = "this is now a unicode string"
-    In [5]: type(s)
-    Out[5]: unicode
-
-NOTE: You can still get py2 strings from other sources! So you still need to think about ``str`` vs ``unicdode``
-
-This is a really good idea if you want to write code compatible with Python2 and 3.
+As an ordinary user (particularly one that used English...), you may not notice any difference between strings and bytes -- text is text, and things generally "just work", but under the hood it is very different, and folks writing libraries for things like Internet protocols have struggled with the differences.
 
 Encodings
 ----------
@@ -329,19 +130,18 @@ Gotchas:
 
 * "higher" code points may use more than one byte: up to 4 for one character
 
-* ASCII compatible means in may work with default encoding in tests -- but then blow up with real data...
+* ASCII compatible means it may work with default encoding in tests -- but then blow up with real data
 
 UTF-16
 ------
 
-Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: NOT ASCII compatible.
+Kind of like UTF-8, except it uses at least 16 bits (2 bytes) for each character: NOT ASCII compatible.
 
 But it still needs more than two bytes for some code points, so you still can't simply process it as two bytes per character.
 
 In C/C++, it is held in a "wide char" or "wide string".
 
 MS Windows uses UTF-16, as does (I think) Java.
-
 
 UTF-16 criticism
 -----------------
@@ -353,102 +153,48 @@ There is a lot of criticism on the net about UTF-16 -- it's kind of the worst of
 
 `UTF-16 Considered Harmful <http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful>`_
 
-But to be fair:
-
-Early versions of Unicode: everything fit into two bytes (65536 code points). MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
+But to be fair, in early versions of Unicode, everything fit into two bytes (65536 code points). Microsoft and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
 
 When it turned out that 4 bytes were really needed, they were kind of stuck in the middle.
 
 Latin-1
---------
+-------
 
-**NOT Unicode**:
+**NOT Unicode**
 
 A 1-byte per char encoding.
 
-* Superset of ASCII suitable for Western European languages.
-
-* The most common one-byte per char encoding for European text.
-
-* Nice property -- every byte value from 1 to 255 is a valid character ( at least in Python )
-
-* You will never get an UnicodeDecodeError if you try to decode arbitrary bytes with latin-1.
-
-* And it can "round-trip" through a unicode object.
-
+* Superset of ASCII suitable for Western European languages
+* The most common one-byte per char encoding for European text
+* Nice property -- every byte value from 1 to 255 is a valid character (at least in Python)
+* You will never get an UnicodeDecodeError if you try to decode arbitrary bytes with latin-1
+* And it can "round-trip" through a unicode object
 * Useful if you don't know the encoding -- at least it won't raise an Exception
-
-* Useful if you need to work with combined text+binary data.
-
-:download:`latin1_test.py  <../examples/unicode/latin1_test.py>`.
-
+* Useful if you need to work with combined text+binary data
 
 Unicode Docs
 ------------
 
-Python Docs Unicode HowTo:
-
-http://docs.python.org/howto/unicode.html
+Python Docs Unicode How-to: http://docs.python.org/howto/unicode.html
 
 "Reading Unicode from a file is therefore simple"
 
-use plain old open:
+Just use plain old open:
 
 .. code-block:: python
 
-  open('unicode.rst', encoding='utf-8')
-  for line in f:
-      print repr(line)
+    open('unicode.rst', encoding='utf-8')
+    for line in f:
+        print repr(line)
 
-
-Encodings Built-in to Python:
-  http://docs.python.org/3/library/codecs.html#standard-encodings
-
-
-Gotchas in Python 2
--------------------
-
-(Probaly do'nt need to worry about this anymore!)
-
-File names, etc:
-
-If you pass in unicode, you get unicode
-
-.. code-block:: ipython
-
-  In [9]: os.listdir('./')
-  Out[9]: ['hello_unicode.py', 'text.utf16', 'text.utf32']
-
-  In [10]: os.listdir(u'./')
-  Out[10]: [u'hello_unicode.py', u'text.utf16', u'text.utf32']
-
-Python deals with the file system encoding for you...
-
-But: some more obscure calls don't support unicode filenames:
-
-``os.statvfs()`` (http://bugs.python.org/issue18695)
-
-
-Exception messages:
-
- * Py2 Exceptions use str when they print messages.
-
- * But what if you pass in a unicode object?
-
-   * It is encoded with the default encoding.
-
- * ``UnicodeDecodeError`` Inside an Exception????
-
- NOPE: it swallows it instead.
-
-:download:`exception_test.py  <../examples/unicode/exception_test.py>`.
+Encodings built-in to Python: http://docs.python.org/3/library/codecs.html#standard-encodings
 
 Unicode in Python 3
 -------------------
 
 The "string" object **is** Unicode (always).
 
-Py3 has two distinct concepts:
+Python 3 has two distinct concepts:
 
 * "text" -- uses the str object (which is always Unicode!)
 * "binary data" -- uses bytes or bytearray
@@ -459,11 +205,7 @@ Everything that requires binary data uses bytes.
 
 It's all much cleaner.
 
-(by the way, the recent implementations are very efficient...)
-
-So you can pretty much ignore encodings and all that for most basic text processing.
-If you do find yourself needing to deal with binary data, you ay need to encode/decode stuff yourself.
-In which case, Python provides an ``.encode()`` method on strings that encode the string to a bytes object with the encoding you select:
+So you can pretty much ignore encodings and all that for most basic text processing. If you do find yourself needing to deal with binary data, you may need to encode/decode stuff yourself. In which case, Python provides an ``.encode()`` method on strings that encode the string to a bytes object with the encoding you select:
 
 .. code-block:: ipython
 
@@ -479,23 +221,11 @@ And bytes objects have a ``.decode`` method that decodes the bytes and makes a s
 
 It's all quite simple an robust.
 
-.. note::
-  During the long and painful transition from Python2 to Python3, the Unicode-always string type was a major source of complaints.  There are many rants and `well thought out posts <http://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/>`_ about it still available on the internet. It was enough to think that Python had made a huge mistake.
-
-  But there are a couple key points to remember:
-
-  * The primary people struggling were those that wrote (or worked with) libraries that had to deal with protocols that used both binary and text data in the same data stream.
-
-  * As of Python 3.4 or so, the python string object had grown the features it needed to support even those ugly binary+text use cases.
-
-  For a typical user, the Python3 text model is MUCH easier to deal with and less error prone.
-
-
 Exercises
 =========
 
 Basic Unicode LAB
--------------------
+-----------------
 
 * Find some nifty non-ascii characters you might use.
 
@@ -513,69 +243,11 @@ and / or
  - :download:`text.utf16 <../examples/unicode/text.utf16>`
  - :download:`text.utf32 <../examples/unicode/text.utf32>`
 
-* write some of the text from the first exercise to file -- read that file back in.
+* Write some of the text from the first exercise to file -- then read that file back in.
 
 Some Help
 ---------
 
-reference: http://inamidst.com/stuff/unidata/
+Reference: http://inamidst.com/stuff/unidata/
 
-NOTE: if your terminal does not support unicode -- you'll get an error trying to print.
-Try a different terminal or IDE, or google for a solution.
-
-Challenge Unicode LAB
-----------------------
-
-Here is an error in Python2:
-
-.. code-block:: ipython
-
-  In [38]: u'to \N{INFINITY} and beyond!'.decode('utf-8')
-  ---------------------------------------------------------------------------
-  UnicodeEncodeError                        Traceback (most recent call last)
-  <ipython-input-38-7f87d44dfcfa> in <module>()
-  ----> 1 u'to \N{INFINITY} and beyond!'.decode('utf-8')
-
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc in decode(input, errors)
-       14
-       15 def decode(input, errors='strict'):
-  ---> 16     return codecs.utf_8_decode(input, errors, True)
-       17
-       18 class IncrementalEncoder(codecs.IncrementalEncoder):
-
-  UnicodeEncodeError: 'ascii' codec can't encode character u'\u221e' in position 3: ordinal not in range(128)
-
-
-But why would you **decode** a unicode object?
-
-And it should be a no-op -- why the exception?
-
-And why 'ascii'? I specified 'utf-8'!
-
-It's there for backward compatibility
-
-What's happening under the hood
-
-.. code-block:: python
-
-    u'to \N{INFINITY} and beyond!'.encode().decode('utf-8')
-
-It encodes with the default encoding (ascii), then decodes
-
-In this case, it barfs on attempting to encode to 'ascii'
-
-So never call decode on a unicode object!
-
-But what if someone passes one into a function of yours that's expecting a py2 string?
-
-Type checking and converting -- yeach!
-
-Read:
-
-http://axialcorps.com/2014/03/20/unicode-str/
-
-See if you can figure out the decorators:
-
-:download:`unicodify.py  <../examples/unicode/unicodify.py>`.
-
-(This is advanced Python JuJu: Aren't you glad I didn't ask you to write that yourself?)
+NOTE: If your terminal does not support unicode -- you'll get an error trying to print. Try a different terminal or IDE, if possible.

@@ -16,18 +16,14 @@ But Python is not limited to using the actual boolean type in logic expressions 
 
 Some like to refer to this concept by the moniker given by Stephan Colbert: "Truthiness"
 
-
 Truthiness
 ----------
 
 What is true or false in Python?
 
 * The Booleans: ``True``  and ``False``
-
 * "Something or Nothing"; that is the presence or absence of a value.
-
 *  http://mail.python.org/pipermail/python-dev/2002-April/022107.html
-
 
 Determining Truthiness: If you want to know if a value is "truthy", you can use the bool constructor to make a boolean out of it:
 
@@ -47,26 +43,17 @@ This is similar to making an integer out of another value, such a float or a str
 
 ``bool(something)`` will always evaluate to either ``True`` or ``False``.
 
-
 What is Falsy?
 --------------
 
 * ``None``
-
 * ``False``
-
 * **Nothing:**
-
     - The zero value of any numeric type: ``0, 0.0, 0j``.
-
     - Any empty sequence, for example, ``"", (), []``.
-
     - Any empty mapping, for example, ``dict()``.
-
     - Instances of user-defined classes:
-
         *  for which ``__bool__()`` returns False
-
         *  for which ``__len__()`` returns 0
 
 * http://docs.python.org/library/stdtypes.html
@@ -78,12 +65,10 @@ What is Truthy?
 
 Everything else.
 
-
 Pythonic Booleans
 -----------------
 
-Any object in Python, when passed to the ``bool()`` type object, will
-evaluate to ``True`` or ``False``.
+Any object in Python, when passed to the ``bool()`` type object, will evaluate to ``True`` or ``False``.
 
 When you use the ``if`` keyword, it automatically does this to the expression provided.
 
@@ -93,6 +78,7 @@ Which means that this is redundant, and not Pythonic:
 
     if xx == True:
         do_something()
+
     # or even worse:
     if bool(xx) == True:
         do_something()
@@ -112,25 +98,21 @@ Python has three boolean operators: ``and``, ``or`` and ``not``.
 
 ``and`` and ``or`` are binary expressions, and evaluate from left to right.
 
-``and`` will return the first operand that evaluates to False, or the last
-operand if none are True:
+``and`` will return the first operand that evaluates to False, or the last operand if none are True:
 
 .. code-block:: ipython
 
     In [35]: 0 and 456
     Out[35]: 0
 
-``or`` will return the first operand that evaluates to True, or the last
-operand if none are True:
+``or`` will return the first operand that evaluates to True, or the last operand if none are True:
 
 .. code-block:: ipython
 
     In [36]: 0 or 456
     Out[36]: 456
 
-
-On the other hand, ``not`` is a unary expression (takes one operand) and inverts the boolean value
-of this operand:
+On the other hand, ``not`` is a unary expression (takes one operand) and inverts the boolean value of this operand:
 
 .. code-block:: ipython
 
@@ -172,9 +154,7 @@ In this case, the second expression needs to be evaluated -- so it DID raise an 
 
 This can be exploited to provide compact logic -- but it can also hide bugs!
 
-
-Because of the return value of the boolean operators, you can write concise
-statements, rather than a full ``if -- else`` block like so:
+Because of the return value of the boolean operators, you can write concise statements, rather than a full ``if -- else`` block like so:
 
 ::
 
@@ -221,7 +201,7 @@ In other languages, this can be compressed with a "ternary operator"::
 
     result = a > b ? x : y;
 
-(this is the syntax from the C family of languages)
+(This is the syntax from the C family of languages.)
 
 In Python, the same is accomplished with the conditional expression:
 
@@ -229,10 +209,7 @@ In Python, the same is accomplished with the conditional expression:
 
     y = 5 if x > 2 else 3
 
-It's pretty self explanatory
-
-PEP 308:
-(http://www.python.org/dev/peps/pep-0308/)
+It's pretty self explanatory. See `PEP 308 <http://www.python.org/dev/peps/pep-0308/>`_.
 
 
 Boolean Return Values
@@ -257,14 +234,12 @@ Here's a better solution:
     def sleep_in(weekday, vacation):
         return not (weekday == True and vacation == False)
 
-
 And here's an even better one:
 
 .. code-block:: python
 
     def sleep_in(weekday, vacation):
         return (not weekday) or vacation
-
 
 bools are integers?
 -------------------
@@ -277,7 +252,6 @@ In Python, the boolean types are subclasses of integer:
     Out[1]: True
     In [2]: False == 0
     Out[2]: True
-
 
 And you can even do math with them (though it's a bit odd to do so):
 

@@ -5,8 +5,6 @@ Test code for saving data to/from json with json_save
 """
 
 
-import pytest
-
 from json_save import json_save_dec as js
 
 from mailroom.model import Donor, DonorDB

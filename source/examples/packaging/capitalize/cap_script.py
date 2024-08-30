@@ -4,7 +4,8 @@
 A really simple script just to demonstrate packaging
 """
 
-import sys, os
+import sys
+import os
 import capital_mod
 import main
 

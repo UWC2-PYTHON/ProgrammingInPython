@@ -1,5 +1,3 @@
-:orphan:
-
 .. _code_review:
 
 ############
@@ -9,6 +7,7 @@ Code Reviews
 
 Why code review
 ===============
+
 As professional developers, we need to always be learning and improving.
 
 Code review is one of the best tools for this.
@@ -19,7 +18,6 @@ Code review helps more people to become familiar with the code.
 
 Code review squishes bugs.
 
-
 Getting code ready for review
 -----------------------------
 
@@ -27,7 +25,7 @@ Getting code ready for review
 - First draft is messy, refactor before code review
 - To get the most out of it, correct all that you can before review
 - Expect advice and corrections, and learn from them!
-- For this class, messy is okay. :-)
+- For this class, messy is okay :-)
 
 Size of code
 ------------
@@ -38,7 +36,6 @@ Size of code
    - and be able to explain how it fits in the bigger project
    - and be able to explain what the smallish piece is doing in a few sentences
 
-
 When/Why to review code
 -----------------------
 
@@ -46,7 +43,6 @@ When/Why to review code
 - Have code working, but seems there is probably a better way
 - Totally Stuck
 - Having difficulty making it modular, can help you break large chunks into smaller chunks
-
 
 What to look for
 ----------------
@@ -58,7 +54,6 @@ What to look for
 - anything not clear
 - logic issues
 
-
 Types of code review
 --------------------
 
@@ -66,11 +61,10 @@ Types of code review
 - in-line comments
 - using tools https://en.wikipedia.org/wiki/List_of_tools_for_code_review
 
-
 When refactoring or doing code reviews in person
 ------------------------------------------------
 
-Write comments explaining what the code is doing (if unclear) and/or questions about the code
+Write comments explaining what the code is doing (if unclear) and/or questions about the code.
 
 Then, if time permits you can jointly:
 
@@ -78,23 +72,22 @@ Then, if time permits you can jointly:
 - run tests after changes
 - goal is to make it clear enough to get rid of the comment(s) that were added
 
-Or do this yourself afterwards, as you would for written code reviews
-
+Or do this yourself afterwards, as you would for written code reviews.
 
 How this will work in class
 ---------------------------
 
 - Code can be pretty rough, no judging. :)
-
 - Person having code reviewed will send out link to code (a couple of days out, preferably)
-
 - At the beginning of the code review, reviewee will:
-
    - give a quick overview of the bigger picture
-
    - give a quick overview of the specific code we will look at
-
 - We will go over code together. Everyone is encouraged to make comments and ask questions.
 
 Feel free to ask your classmates in slack or on the mailing list about code you are writing.
 This is why you have access to everyone's code, to share and learn from each other.
+
+Additional Resources
+--------------------
+
+`Code Reviews - The Art and the Science <https://codedragon.github.io/code_reviews/#/>`_ - Great presentation given by Maria McKinley about some best practices for code reviews.

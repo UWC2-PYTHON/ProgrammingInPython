@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "json_save"
+description = "Metaclass based system for saving object to JSON"
+readme = "README.txt"
+requires-python = ">=3.9"
+dynamic = ["version"]
+dependencies = []
+
+[tool.setuptools.dynamic]
+version = {attr = "json_save.__version__"}

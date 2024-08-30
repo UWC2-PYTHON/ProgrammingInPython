@@ -20,6 +20,7 @@ lint:
 
 clean:
 	rm -rf build/
+	find . -type d -name "__pycache__" -print0 | xargs -0 rm -rf
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

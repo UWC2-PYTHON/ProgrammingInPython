@@ -6,7 +6,7 @@ import random
 import time
 
 
-class Simple:
+class MySimpleObject:
     """
     simple class to demonstrate a simple sorting key method
     """
@@ -21,7 +21,7 @@ class Simple:
 
         Example::
 
-          sorted(list_of_simple_objects, key=Simple.sort_key)
+          sorted(list_of_simple_objects, key=MySimpleObject.sort_key)
 
         """
         return self.val
@@ -33,23 +33,23 @@ class Simple:
         return self.val < other.val
 
     def __repr__(self):
-        return "Simple({})".format(self.val)
+        return "MySimpleObject({})".format(self.val)
 
 
 if __name__ == "__main__":
     N = 10000
-    a_list = [Simple(random.randint(0, 10000)) for i in range(N)]
+    a_list = [MySimpleObject(random.randint(0, 10000)) for i in range(N)]
     # print("Before sorting:", a_list)
 
     print("Timing for {} items".format(N))
-    start = time.clock()
+    start = time.perf_counter()
     sorted(a_list)
-    reg_time = time.clock() - start
+    reg_time = time.perf_counter() - start
     print("regular sort took: {:.4g}s".format(reg_time))
 
-    start = time.clock()
-    sorted(a_list, key=Simple.sort_key)
-    key_time = time.clock() - start
+    start = time.perf_counter()
+    sorted(a_list, key=MySimpleObject.sort_key)
+    key_time = time.perf_counter() - start
     print("key sort took: {:.4g}s".format(key_time))
 
     print("performance improvement factor: {:.4f}".format((reg_time / key_time)))

@@ -71,9 +71,9 @@ class Element:
 
 
 class OneLineTag(Element):
-    # note: by re-writting the render
+    # note: by re-writing the render
     def render(self, out_file, ind=""):
-        # there is some repition here -- maybe factor that out?
+        # there is some repetition here -- maybe factor that out?
         open_tag, close_tag = self.make_tags()
         out_file.write(ind + open_tag)
         for stuff in self.content:

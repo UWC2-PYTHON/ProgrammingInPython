@@ -12,10 +12,10 @@ test_kwargs_lab.py
 colors() is a function with a bunch of keyword arguments
   the test code calls it in various ways and confirms the results are as expected.
 
-call_colors() is a functiont hat takes totaly generic arguments
+call_colors() is a function that takes totally generic arguments
   the tet code calls it in various ways so you can confirm that it works as expected.
 
-colors_manual() takes generic arguments, but processes it as if it had keyworkd parameters.
+colors_manual() takes generic arguments, but processes it as if it had keyword parameters.
   - you'd never write code like this, but it shows what's going on under the hood.
   - the test code confirms it works the same way.
 
@@ -52,7 +52,7 @@ def call_colors(*args, **kwargs):
       making sure you know what happens when this function is called
       in various ways.
 
-    So this function will simpily return args and kwargs, and the test
+    So this function will simply return args and kwargs, and the test
     code will check and see if it works the way it is expected.
 
     As a rule, you don't want to do that -- you are throwing away Python's
@@ -61,9 +61,9 @@ def call_colors(*args, **kwargs):
     *args and **kwargs should be saved for times when you NEED generic
     function processing. There are two common use cases for this:
 
-    1) When you need to pass arguments through to antoher nested function --
+    1) When you need to pass arguments through to another nested function --
         we'll see examples of this in OO programming with subclassing and
-        some exampels of caling functions uknown at code writing time.
+        some examples of calling functions unknown at code writing time.
     2) When the arguments aren't known when you define the function:
        - either the number of arguments -- *args -- for example:
          os.path.join() function.

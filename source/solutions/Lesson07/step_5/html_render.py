@@ -114,9 +114,9 @@ class SelfClosingTag(Element):
         raise TypeError("You can not add content to a self closing tag")
 
     def render(self, out_file, ind=""):
-        # there is some repition here -- maybe factor that out?
+        # there is some repetition here -- maybe factor that out?
         open_tag, _ = self.make_tags()
-        # make it a self cloding tag by adding the /
+        # make it a self closing tag by adding the /
         out_file.write(ind + open_tag.replace(">", " />"))
 
 

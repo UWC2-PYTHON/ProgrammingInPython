@@ -12,13 +12,13 @@ Using ``lambda``
 Structure
 ---------
 
-"lambda" is a keyword -- it can not be used as a variable name, etc. A lambda expression looks like:
+"lambda" is a keyword -- it can not be used as a variable name, function name, module name, etc. A lambda expression looks like:
 
 .. code-block:: python
 
   lambda <parameters> : <expression>
 
-It is an expression -- which means it evaluates to a value -- which means that it can be assigned to a variable, put in a container (such as a list or dict) etc.
+It is an expression -- which means it evaluates to a value -- which means that it can be assigned to a variable or put in a container, such as a list or dict.
 
 The parameters are just like function parameters -- but without the parentheses. And they exist in the local scope of the lambda, and can thus be used in the expression.
 
@@ -57,14 +57,14 @@ So what is the difference? Well, ``lambda`` creates an "anonymous" function -- i
     In [10]: f.__name__
     Out[10]: '<lambda>'
 
-All lambda functions are called <lambda>. But:
+All lambda functions are called ``<lambda>``. But:
 
 .. code-block:: ipython
 
     In [11]: f2.__name__
     Out[11]: 'f2'
 
-Regular "def" defined functions know their name.
+Regular ``def`` defined functions know their name.
 
 So ``lambda`` creates a function, but it doesn't have a name, and it can only have a single expression in it -- no flow control.
 
@@ -97,7 +97,7 @@ Tuples are sorted, be default, by their first element. But what if you wanted to
     In [15]: lst
     Out[15]: [('Zola', 'Adams'), ('Chris', 'Barker'), ('Fred', 'Jones')]
 
-straightforward enough. But kind a lot of extra code, eh? and now there is this function: "sort_key" hanging around. You could delete it: ``del sort_key``, but that would be even more code.
+That is straightforward enough. But kind a lot of extra code, right? And now there is this function: "sort_key" hanging around. You could delete it: ``del sort_key``, but that would be even more code.
 
 But with a lambda, you simply define it inline:
 
@@ -112,13 +112,12 @@ But with a lambda, you simply define it inline:
 
 Nice and compact and clear, with no extra names hanging around.
 
-You'll find them useful with things like ``map``, ``filter``, and ``reduce``. as well.
+You'll find them useful with things like ``map``, ``filter``, and ``reduce``, as well.
 
-
-Functions as first class objects
+Functions as First Class Objects
 ================================
 
-lambda functions are python objects; they can be stored in a list or other container:
+lambda functions are python objects. They can be stored in a list or other container:
 
 .. code-block:: ipython
 
@@ -149,7 +148,7 @@ You can do that with "regular" functions too:
 
 If the goal is to have that little function in the list, and you don't need to give it a name and/or reference it anywhere else, then lambda is a cleaner way to do it.
 
-lambda and keyword arguments
+lambda and Keyword Arguments
 ----------------------------
 
 lambda functions can take keyword arguments as well:
@@ -159,7 +158,7 @@ lambda functions can take keyword arguments as well:
     In [20]: (lambda x=None: x * 2)(x=4)
     Out[20]: 8
 
-Remember that default arguments get evaluated when the function is defined. This is the case with lambda as well.  This can get you in trouble if you use a mutable in a function definition. But it also can be a handy way to "bake in" a value into a function to be used later:
+Remember that default arguments get evaluated when the function is defined. This is the case with lambda as well. This can get you in trouble if you use a mutable in a function definition. But it also can be a handy way to "bake in" a value into a function to be used later:
 
 .. code-block:: ipython
 
@@ -181,8 +180,6 @@ We can loop through that list, and call each function in turn with the same inpu
     4
     8
 
-and presto! 2 raised to the zeroth, then first, the second, ... power.
+And presto! 2 raised to the zeroth, then first, the second, ... power.
 
-This may seem pretty obscure, but it's a handy way to auto-generate custom functions on the fly -- like for GUI callbacks, for instance:
-
-https://wiki.wxpython.org/Passing%20Arguments%20to%20Callbacks
+This may seem pretty obscure, but it's a handy way to auto-generate custom functions on the fly.

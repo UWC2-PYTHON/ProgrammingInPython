@@ -9,7 +9,6 @@ it also write the thank you letters to files.
 
 """
 
-import sys
 import math
 from operator import itemgetter
 

@@ -31,6 +31,7 @@ def walnut_party3(walnuts, is_weekend):
     """
     return (walnuts >= 40) if is_weekend else (walnuts >= 40 and walnuts <= 60)
 
+
 if __name__ == "__main__":
     # some tests
 

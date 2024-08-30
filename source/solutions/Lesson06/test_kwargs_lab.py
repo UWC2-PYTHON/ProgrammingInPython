@@ -8,7 +8,7 @@ not a bad way to run code as you develop it anyway...
 
 And we want to encourage test code -- so we'll use it everywhere possible
 
-Note: I decided that instead of having my function print somthing it would
+Note: I decided that instead of having my function print something it would
 return a string -- that way I could test that the returned string was correct.
 
 """
@@ -136,7 +136,7 @@ def test_call_everything():
       - a keyword argument
       - **dict
     """
-    t = ('red',)  # note the extra comma to amke it a tuple!
+    t = ('red',)  # note the extra comma to make it a tuple!
 
     d = {'visited_color': 'cyan'}
 
@@ -152,27 +152,28 @@ def test_call_everything():
 
 
 def test_call_undefined_kwarg():
-    # should get an error passing in non-existand keyword
+    # should get an error passing in non-existent keyword
     with pytest.raises(TypeError):
-        result = colors(weird_color='grey')
+        colors(weird_color='grey')
 
 
 # ###########################
-# now lets try calling call_colors in all the above ways, and see if we get what we expect.
+# now lets try calling call_colors in all the above ways, and see if we get
+# what we expect.
 #
 # Note that these tests are really testing the Python machinery
 #  -- which you don't need to do! Python is already well tested.
 #
-# But writing theese tests tests your undestanding of how things work
+# But writing these tests tests your understanding of how things work
 #    if a test fails, it's because you ( I ;- ) didn't understand the
-#    calling convertions.
+#    calling conventions.
 # ############################
 
 
 def test_call_all_positional():
     args, kwargs = call_colors('red', 'blue', 'yellow', 'chartreuse')
 
-    # no kwrags, they should all be in the args tuple:
+    # no kwargs, they should all be in the args tuple:
     assert not kwargs  # kwargs is empty
     assert args == ('red', 'blue', 'yellow', 'chartreuse')
 
@@ -208,7 +209,7 @@ def test_call_call_tuple():
     t = ('red', 'blue', 'yellow', 'chartreuse')
     args, kwargs = call_colors(*t)
 
-    # This is straighforward -- the args tuple should be the one passed in!
+    # This is straightforward -- the args tuple should be the one passed in!
     assert args == t
 
     # But it is NOT the SAME tuple!
@@ -251,7 +252,7 @@ def test_call_call_everything():
       - a keyword argument
       - **dict
     """
-    t = ('red',)  # note the extra comma to amke it a tuple!
+    t = ('red',)  # note the extra comma to make it a tuple!
 
     d = {'visited_color': 'cyan'}
 
@@ -268,7 +269,7 @@ def test_call_call_everything():
 
 
 # ##################
-# Now to test the manual upacking of args, kwargs
+# Now to test the manual unpacking of args, kwargs
 # All the same tests as above should pass
 # ##################
 
@@ -391,7 +392,7 @@ def test_manual_call_everything():
       - a keyword argument
       - **dict
     """
-    t = ('red',)  # note the extra comma to amke it a tuple!
+    t = ('red',)  # note the extra comma to make it a tuple!
 
     d = {'visited_color': 'cyan'}
 
@@ -407,6 +408,6 @@ def test_manual_call_everything():
 
 
 def test_manual_call_undefined_kwarg():
-    # should get an error passing in non-existand keyword
+    # should get an error passing in non-existent keyword
     with pytest.raises(TypeError):
-        result = colors_manual(weird_color='grey')
+        colors_manual(weird_color='grey')

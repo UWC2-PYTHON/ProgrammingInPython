@@ -1,9 +1,7 @@
-
 .. _testing_your_setup:
 
-
 ##################
-Testing Your setup
+Testing Your Setup
 ##################
 
 If you have access to a command line, and Python installed, and a text editor or IDE ready to go, here's how you can make sure it's all working correctly.
@@ -40,7 +38,6 @@ Run it with your version of python. It should result in something like this::
     This is my first python program
     I am running python 3.12 -- all good!
 
-
 If you can't figure out how to run it, see: :ref:`how_to_run_a_python_file`
 
 If you can run, it but don't get that nice "all good" message, then you either do not have Python installed, or you have the wrong version.
@@ -67,9 +64,9 @@ iPython
 ``iPython`` is not critical, but it is very nice. You should be able to run it with::
 
     $ ipython
-    Python 3.6.2 (v3.6.2:5fd33b5926, Jul 16 2017, 20:11:06)
+    Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)]
     Type 'copyright', 'credits' or 'license' for more information
-    IPython 6.1.0 -- An enhanced Interactive Python. Type '?' for help.
+    IPython 8.26.0 -- An enhanced Interactive Python. Type '?' for help.
 
 And get something like that.
 

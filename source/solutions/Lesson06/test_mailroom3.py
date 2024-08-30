@@ -14,7 +14,7 @@ mailroom.donor_db = mailroom.get_donor_db()
 def test_list_donors():
     listing = mailroom.list_donors()
 
-    # hard to test this throughly -- better not to hard code the entire
+    # hard to test this thoroughly -- better not to hard code the entire
     # thing. But check for a few aspects -- this will catch the likely
     # errors
     assert listing.startswith("Donor list:\n")

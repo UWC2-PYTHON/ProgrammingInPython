@@ -48,7 +48,7 @@ with open(infilename) as f:
                 continue
             lang = lang.strip().capitalize()  # clean them up -- and make case the same
             if lang:  # don't want empty strings
-                    all_langs[lang] += 1
+                all_langs[lang] += 1
 
 print("And now the counted version")
 for lang, count in all_langs.items():

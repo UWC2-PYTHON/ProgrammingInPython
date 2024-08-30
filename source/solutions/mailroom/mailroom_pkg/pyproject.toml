@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mailroom"
+description = "Simple app for managing donations for a non-profit"
+readme = "README.txt"
+requires-python = ">=3.9"
+license = {file = "LICENSE.txt"}
+dynamic = ["version"]
+dependencies = []
+
+[project.scripts]
+mailroom = "mailroom.cli:main"
+
+[tool.setuptools]
+package-data = {"mailroom" = ["data/sample_data.json"]}
+
+[tool.setuptools.dynamic]
+version = {attr = "mailroom.__version__"}

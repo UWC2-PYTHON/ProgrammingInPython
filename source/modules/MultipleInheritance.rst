@@ -1,18 +1,16 @@
 .. _multiple_inheritance:
 
-
 ####################
 Multiple Inheritance
 ####################
 
+Inheriting From More Than One Class
+===================================
 
-Inheriting from more than one class.
-====================================
-
-The mechanics of multiple inheritance
+The Mechanics of Multiple Inheritance
 -------------------------------------
 
-Simply provide more than one parent:
+To implement multiple inheritance, simply provide more than one parent to your class implementation:
 
 .. code-block:: python
 
@@ -24,29 +22,28 @@ Simply provide more than one parent:
             Parent3.__init__(self, ......)
             # possibly more custom initialization
 
-Calls to the parent class ``__init__``  are optional and case dependent. (and maybe you can use ``super()``...stay tuned)
+Calls to the parent class ``__init__``  are optional and case dependent. And maybe you can use ``super()``.
 
-The Combined class now has ALL the attributes and methods of the multiple parent classes. You can bring a lot of functionality into a class that way.
-
+The ``Combined`` class now has ALL the attributes and methods of the multiple parent classes. You can bring a lot of functionality into a class that way.
 
 Purpose
 -------
 
 What was the purpose behind inheritance?
 
-*Code reuse*
+*Code re-use.*
 
 What is the purpose behind multiple inheritance?
 
-*Code reuse*
+*Code re-use.*
 
 What wasn't the purpose of inheritance?
 
-*Building massive class hierarchies for their own sake*
+*Building massive class hierarchies for their own sake.*
 
 What isn't the purpose of multiple inheritance?
 
-*Building massive class hierarchies for their own sake*
+*Building massive class hierarchies for their own sake.*
 
 Mix-ins
 -------
@@ -65,11 +62,9 @@ Hierarchies are not always simple:
 
     * lay_eggs()
 
-Where do you put a Platypus or Spiny Anteater?
+Where do you put a `Platypus or Spiny Anteater <http://www.ucmp.berkeley.edu/mammal/monotreme.html>`_?
 
-`Egg Laying Mammals <http://www.ucmp.berkeley.edu/mammal/monotreme.html>`_
-
-"mix-ins" can solve this problem. A mix-in is a class that can't do anything by itself, but rather, provides functionality that can be mixed into other classes.
+"Mix-ins" can solve this problem. A mix-in is a class that can't do anything by itself, but rather provides functionality that can be mixed into other classes.
 
 In the above contrived example, we could put "give_birth" (and associated methods) in a BirthGiver mixin, and lay_eggs in an EggLayer mixin, and then make our mammals, birds and platypi from them:
 
@@ -84,30 +79,26 @@ In the above contrived example, we could put "give_birth" (and associated method
     class Duck(Animal, EggLayer):
        ...
 
-But this is pretty darn contrived ... where do you use these for real?
+But this is pretty darn contrived. Where do you use these for real?
 
-Here is a nice discussion:
+Here is a nice discussion: `Mixins in Python <https://andrewbrookins.com/technology/mixins-in-python-and-ruby-compared/>`_ (Ignore the second part about Ruby.)
 
-`mixins in Python ... <https://andrewbrookins.com/technology/mixins-in-python-and-ruby-compared/>`_
-
-(Ignore the second part about Ruby...)
-
-Real World Example: The wxPython FloatCanvas:
-.............................................
+Real World Example: The wxPython FloatCanvas
+............................................
 
 https://github.com/wxWidgets/Phoenix/blob/master/wx/lib/floatcanvas/FCObjects.py
 
 I had read about mixins quite a while ago, and I thought they were pretty cool. But I couldn't imagine where I might actually use them.
 
-Then I set out to write FloatCanvas  -- a scalable, pan-able, object-persistent drawing canvas for the wxPython toolkit.
+Then I set out to write FloatCanvas -- a scalable, pan-able, object-persistent drawing canvas for the wxPython toolkit.
 
-What I discovered is that the draw objects were not in a clean hierarchy -- some objects had a line (like a poly line), some had just a fill (like a dot), some had a fill and outline (polygon), some were defined by a single point (a dot again), some by a bunch of points (polygon), etc....
+What I discovered is that the draw objects were not in a clean hierarchy. Some objects had a line (like a poly line), some had just a fill (like a dot), some had a fill and outline (polygon), some were defined by a single point (a dot again), some by a bunch of points (polygon), etc.
 
 In order to not write a lot of repeated code -- remember, "classes are for code re-use", I put all the individual bits of functionality into mixin classes, and then simply put them together in different ways.
 
 Once the system was set up, all you needed to write was a ``__init__`` and a draw method to make a whole new graphic object.
 
-Take a look at the code --quite a bit in the ``DrawObject`` base class, then a bunch of ``*Mixin`` classes that define specific functionality.
+Take a look at the code -- quite a bit in the ``DrawObject`` base class, then a bunch of ``*Mixin`` classes that define specific functionality.
 
 Now look at the real DrawObject classes, e.g. Line and Polygon. Not much code there:
 
@@ -122,7 +113,7 @@ Now look at the real DrawObject classes, e.g. Line and Polygon. Not much code th
         def _Draw(self,
         ...
 
-and:
+And:
 
 .. code-block:: python
 
@@ -137,28 +128,18 @@ and:
 
 There is some real code in the ``__init__`` and ``_Draw`` -- but those are still the only two methods that need to be defined to make a fully functional drawobject.
 
+FloatCanvas has a lot of complications with handling mouse events, and managing pens and brushes, and what have you, so a very trimmed down version, using the Python Imaging Library, is here to check out and modify: :download:`object_canvas.py <../examples/multiple_inheritance/object_canvas.py>` and :download:`test_object_canvas.py <../examples/multiple_inheritance/test_object_canvas.py>`
 
-FloatCanvas has a lot of complications with handling mouse events, and managing pens and brushes, and what have you, so a very trimmed down version, using the Python Imaging Library, is here to check out and modify:
-
-:download:`object_canvas.py <../examples/multiple_inheritance/object_canvas.py>`
-
-and
-
-:download:`test_object_canvas.py <../examples/multiple_inheritance/test_object_canvas.py>`
-
-This code requires the Python Imaging Library to do the rendering.  You can get it by installing the "pillow" package from PyPi::
+This code requires the Python Imaging Library to do the rendering. You can get it by installing the "pillow" package from PyPi::
 
     python -m pip install pillow
 
-Can you add other types of ``DrawObjects`` ? Maybe a polygon or ??
-
+Can you add other types of ``DrawObjects``? Maybe a polygon?
 
 Python's Multiple Inheritance Model
 ===================================
 
-Cooperative Multiple Inheritance
-
-Emphasis on cooperative!
+Cooperative Multiple Inheritance -- emphasis on cooperative!
 
 * Play by the rules and everybody benefits (parents, descendants).
 * Play by the rules and nobody gets hurt (yourself, mostly).
@@ -169,25 +150,18 @@ What could go wrong?
 The Diamond Problem
 -------------------
 
-In Python, everything is descended from 'object'.  Thus, the moment you invoke multiple inheritance you have the diamond problem.
+In Python, everything is descended from 'object'. Thus, the moment you invoke multiple inheritance you have the diamond problem: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem
 
-https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem
-
-Here is a toy Python example:
-
-:download:`diamond.py </examples/multiple_inheritance/diamond.py>`
+Here is a toy Python example: :download:`diamond.py </examples/multiple_inheritance/diamond.py>`
 
 Take a look at that code -- run it, and notice that class ``A``'s method gets run twice. Make sure you know why it is doing what it is doing.
-
 
 ``super()``
 -----------
 
-``super()`` can help.
+``super()`` can help. Use it to call a superclass method, rather than explicitly calling the unbound method on the superclass.
 
-``super()``: use it to call a superclass method, rather than explicitly calling the unbound method on the superclass.
-
-instead of:
+So, instead of:
 
 .. code-block:: python
 
@@ -205,41 +179,38 @@ You can do:
             super().__init__(*args, **kwargs)
             ...
 
-
 MRO: Method Resolution Order
 ----------------------------
 
-How does python decide which method to call, when multiple superclasses may have the *same* method ?
+How does python decide which method to call, when multiple superclasses may have the *same* method?
 
 .. code-block:: python
 
     class Combined(Super1, Super2, Super3)
 
-Attributes are located bottom-to-top, left-to-right
+Attributes are located bottom-to-top, left-to-right.
 
-* Is it an instance attribute ?
-* Is it a class attribute ?
-* Is it a superclass attribute ?
+* Is it an instance attribute?
+* Is it a class attribute?
+* Is it a superclass attribute?
 
   - Is it an attribute of the left-most superclass?
   - Is it an attribute of the next superclass?
   - and so on up the hierarchy...
 
-* Is it a super-superclass attribute ?
+* Is it a super-superclass attribute?
 * ... also left to right ...
 
-http://python-history.blogspot.com/2010/06/method-resolution-order.html
-
+See: https://docs.python.org/3/howto/mro.html
 
 Super's Superpowers
 -------------------
 
-The above system is clear when the hierarchy is simple -- but when you have the "diamond problem" -- or even more compexity, we need somethign smarter. Enter ``super()``.
+The above system is clear when the hierarchy is simple -- but when you have the "diamond problem" -- or even more complexity, we need something smarter. Enter ``super()``.
 
 ``super`` works out -- dynamically at runtime -- which classes are in the delegation order.
 
-Do not be afraid.  And be very afraid.
-
+Do not be afraid. And be very afraid.
 
 What does super() do?
 ----------------------
@@ -260,12 +231,11 @@ http://stackoverflow.com/questions/576169/understanding-python-super-with-init-m
 
 It's not returning the object itself -- but you can call methods on it as though it were a class object.
 
-It runs through the method resolution order (MRO) to find the method
-you call.
+It runs through the method resolution order (MRO) to find the method you call.
 
-Key point: the MRO is determined *at run time*
+Key point: the MRO is determined *at run time*.
 
-https://docs.python.org/3.6/library/functions.html#super
+See: https://docs.python.org/3/library/functions.html#super
 
 But it's not as simple as finding and calling the first superclass method it finds: ``super()`` will call all the sibling superclass methods:
 
@@ -287,25 +257,9 @@ Since you have called __init__ on the ``super()`` object, this is essentially th
            B.__init__()
            A.__init__()
 
-Keep in mind that ``super()`` can be used for any method, not just ``__init__`` -- while you usually *do* want to initiallize all the superclasses, you may not want to call the same method on every superclass if it's a more specialized method.
+Keep in mind that ``super()`` can be used for any method, not just ``__init__`` -- while you usually *do* want to initialize all the superclasses, you may not want to call the same method on every superclass if it's a more specialized method.
 
 But if you do, it's kind of handy.
-
-.. Dependency Injection
-.. --------------------
-
-.. Super() is the right way to do dependency injection.
-
-.. https://en.wikipedia.org/wiki/Dependency_injection
-
-.. Compare with Monkey Patching as done in other languages.
-
-.. https://en.wikipedia.org/wiki/Monkey_patch
-
-.. This "Dependency_injection" works, because the MRO is defined at run time --ao anything you add to a superclass will take effect the moment it is there.
-
-.. Read Hettinger's "super() considered super" (below) to get an idea about that
-
 
 Using ``super()``
 =================
@@ -313,19 +267,17 @@ Using ``super()``
 The rules:
 ----------
 
-Raymond Hettinger's rules for ``super()``
+Raymond Hettinger's rules for ``super()``:
 
-1. The method being called by super() needs to exist
-
+1. The method being called by ``super()`` needs to exist
 2. The caller and callee need to have a matching argument signature
+3. Every occurrence of the method needs to use ``super()``
 
-3. Every occurrence of the method needs to use super()
+Number 1 is pretty obvious.
 
-(1) Is pretty obvious :-)
+Number 2 we'll get into in a moment.
 
-(2) We'll get into in a moment
-
-(3) This is a tricky one -- you just need to remember it. What it means is that, for instance, if you are using super() to call ``__init__`` in the superclass(es), then all the superclasses ``__init__`` methods must ALSO call it:
+Number 3 is a tricky one. You just need to remember it. What it means is that, for instance, if you are using super() to call ``__init__`` in the superclass(es), then all the superclasses ``__init__`` methods must ALSO call it:
 
 .. code-block:: python
 
@@ -338,25 +290,24 @@ Failure to do that will cause odd errors!
 
 This is a bit weird -- it means that if you have a method that may get called with a super call, it needs to use super itself, EVEN if it doesn't need to call the superclass' method!
 
-See the example later for this...
-
+See the example later for more about this.
 
 Matching Argument Signature
 ---------------------------
 
-Remember that super does not only delegate to your superclass, it delegates to any class in the MRO.
+Remember that ``super`` does not only delegate to your superclass, it delegates to any class in the MRO.
 
 Therefore you must be prepared to call any other class's method in the hierarchy and be prepared to be called from any other class's method.
 
-The general rule is to pass all arguments you received on to the super function.
+The general rule is to pass all arguments you received on to the ``super`` function.
 
 That means that all the methods with the same name need to be able to accept the same arguments. In some cases, that's straightforward -- they are all the same. But sometimes it gets tricky.
 
-Remember that if you write a function that takes:
+Remember that if you write a function like this::
 
-``def fun(self, *args, **kwargs)``
+    def fun(self, *args, **kwargs)
 
-It can accept ANY arguments. But if you find yourself needing to do that -- maybe super isn't the right thing to use??
+It can accept ANY arguments. But if you find yourself needing to do that -- maybe ``super`` isn't the right thing to use??
 
 But a really common case, particularly for an ``__init__``, is for it to take a bunch of keyword arguments. And a subclass may take one or two more, and then want to pass the rest on. So a common pattern is:
 
@@ -366,41 +317,30 @@ But a really common case, particularly for an ``__init__``, is for it to take a 
         def __init__(self, extra_arg1, extra_arg2, *args, **kwargs):
             super().__init__(*args, **kwargs)
 
-Now your subclass doesn't really need to think about all the arguments the superclass can take.
+Now your subclass doesn't really need to think about all the arguments that the superclass can take.
 
-Two seminal articles
+Two Seminal Articles
 --------------------
 
-"Super Considered Harmful" -- James Knight
+* `"Python's Super is nifty, but you can't use it" -- James Knight <https://fuhm.net/super-harmful/>`_
+* `"Super() considered super!" -- Raymond Hettinger <http://rhettinger.wordpress.com/2011/05/26/super-considered-super/>`_
+* `"Super() considered super!" an accompanying video. <https://youtu.be/EiOglTERPEo>`_
 
-https://fuhm.net/super-harmful/
-
-"Super() considered super!"  --  Raymond Hettinger
-
-http://rhettinger.wordpress.com/2011/05/26/super-considered-super/
-
-https://youtu.be/EiOglTERPEo
-
-Both perspectives worth your consideration. In fact, they aren't that different...
-
-Both actually say similar things:
+Both perspectives are worth your consideration. In fact, they aren't that different. Both actually say similar things:
 
 * The method being called by super() needs to exist
 * Every occurrence of the method needs to use super():
 
-  - Use it consistently, and document that you use it, as it is part
-    of the external interface for your class, like it or not.
+  - Use it consistently, and document that you use it, as it is part of the external interface for your class, like it or not.
 
-If you follow these rules, then it really can be *super*
+If you follow these rules, then it really can be *super*.
 
-Example:
---------
+Example
+-------
 
-First, let's look at the diamond problem again -- this time using super:
+First, let's look at the diamond problem again -- this time using super: :download:`diamond_super.py </examples/multiple_inheritance/diamond_super.py>`
 
-:download:`diamond_super.py </examples/multiple_inheritance/diamond_super.py>`
-
-in this case, we are using ``super()``, rather than specifically calling the methods of the superclasses:
+In this case, we are using ``super()`` rather than specifically calling the methods of the superclasses:
 
 .. code-block:: python
 
@@ -417,11 +357,9 @@ And when we run it, we see that calling ``super().do_your_stuff()`` once in D re
     doing B's stuff
     doing D's stuff
 
-Some more experiments with ``super``
+Some More Experiments With ``super``
 ------------------------------------
 
-``super`` takes a while to wrap your head around -- try running the code in:
-
-:download:`super_test.py </examples/multiple_inheritance/super_test.py>`
+``super`` takes a while to wrap your head around -- try running the code in: :download:`super_test.py </examples/multiple_inheritance/super_test.py>`
 
 See if you can follow all that!

@@ -1,22 +1,17 @@
 .. _install_nano_win:
 
-Making your text Editor work with git on Windows
+Making Your Text Editor Work with Git on Windows
 ================================================
 
 By default, git will dump you into the "vim" editor when you make a commit.
 
-"vim" is a venerable old Unix tool that no one but Unix geeks can make any sense of.
+"vim" is a venerable old Unix tool that is generally difficult to use if you're not already familiar with it.
 
 So you are likely to want to use something else.
 
-git can be configured to use any editor you like.
+Fortunately, Git can be configured to use any editor you like.
 
 Here are some options:
-
-Notepad:
---------
-
-https://github.com/github/GitPad/
 
 Sublime Text:
 -------------
@@ -27,22 +22,3 @@ Notepad++
 ---------
 
 https://danlimerick.wordpress.com/2011/06/12/git-for-windows-tip-setting-an-editor/
-
-Nano
-----
-
-This was a nice way to go -- but unfortunately, there no longer seems to be a Windows binary available for nano.
-
-For all Windows installations, download the WinNT/9x binary from here:
-
-http://www.nano-editor.org/download.php
-
-Unzip the file and move the files into the git bin directory: C:\Program Files\Git\bin
-
-That's it! You should now be able to use nano from git bash:
-
-.. code-block:: bash
-
-    $ nano test.txt
-
-Command shortcuts are helpfully written in the editor!

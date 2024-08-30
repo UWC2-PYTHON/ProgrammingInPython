@@ -1,4 +1,4 @@
-.. Python 210 documentation master file, created by
+.. Python 310 documentation master file, created by
    sphinx-quickstart on Sun May 31 20:06:00 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -29,7 +29,7 @@ Many of these topics can be useful on their own, but each assumes that you know 
 About this Site
 ===============
 
-These materials are  Open Source, released under the Creative Commons Attribution-ShareAlike 4.0 license.
+These materials are Open Source, released under the Creative Commons Attribution-ShareAlike 4.0 license.
 
 They are built with the Sphinx documentation system, utilizing Restructured Text (rst) markup.
 

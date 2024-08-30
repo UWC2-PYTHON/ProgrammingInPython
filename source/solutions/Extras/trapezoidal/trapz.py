@@ -3,7 +3,7 @@
 """
 trapezoidal rule function
 
-Can integerate any function passed in
+Can integrate any function passed in
 """
 
 
@@ -63,7 +63,6 @@ def quadratic(x, A=0, B=0, C=0):
 from frange import frange
 
 
-
 def trapz(fun, a, b, *args, **kwargs):
     """
     Compute the area under the curve defined by
@@ -97,6 +96,7 @@ def curry_quadratic(A, B, C):
     "curry" the quadratic function to "lock in" particular arguments
     """
     return lambda x: quadratic(x, A=A, B=B, C=C)
+
 
 # using functools.partial
 import functools

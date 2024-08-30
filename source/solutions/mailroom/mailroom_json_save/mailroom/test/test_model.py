@@ -29,7 +29,6 @@ import pytest
 from mailroom import model
 
 
-
 def test_empty_db():
     """
     tests that you can initilize an empty DB

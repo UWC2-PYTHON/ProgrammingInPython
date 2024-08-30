@@ -4,18 +4,12 @@
 Code Structure, Modules, and Namespaces
 #######################################
 
-
-.. centered:: **How to get what you want when you want it**
-
-
 Code Structure
 ==============
 
-In Python, the structure of your code is determined by whitespace. This is nicely clear, and you've probably already figured it out, but we'll formally spell it out here:
+In Python, the structure of your code is determined by whitespace. This is nicely clear, and you've probably already figured it out, but we'll formally spell it out here.
 
-How you *indent* your code determines how it is structured
-
-::
+How you *indent* your code determines how it is structured::
 
     block statement:
         some code body
@@ -27,7 +21,7 @@ How you *indent* your code determines how it is structured
         still in the first block
     outside of the block statement
 
-The colon that terminates a block statement is also important...
+The colon that terminates a block statement is also important.
 
 One-liners
 ----------
@@ -42,7 +36,7 @@ You can put a one-liner after the colon:
 
 But this should only be done if it makes your code *more* readable. And that is rare.
 
-So you need both the colon and the indentation to start a new a block.  But the end of the indented section is the only indication of the end of the block.
+So you need both the colon and the indentation to start a new a block. But the end of the indented section is the only indication of the end of the block.
 
 Spaces vs. Tabs
 ---------------
@@ -52,18 +46,14 @@ Whitespace is important in Python.
 An indent *could* be:
 
 * Any number of spaces
-* A tab
-* A mix of tabs and spaces:
+* Any number of tabs
+* A mix of tabs and spaces
 
 If you want anyone to take you seriously as a Python developer:
 
 .. centered:: **Always use four spaces -- really!** (`PEP 8 <https://www.python.org/dev/peps/pep-0008/>`_)
 
-.. note::
-  If you *do* use tabs (and really, don't do that!) python interprets them as the equivalent of *eight* spaces.  Text editors can display tabs as any number of spaces, and most modern editors default to four -- so this can be *very* confusing! so again:
-
-.. centered::  **Never mix tabs and spaces in Python code**
-
+.. note:: If you *do* use tabs (and really, don't do that!) python interprets them as the equivalent of *eight* spaces.  Text editors can display tabs as any number of spaces, and most modern editors default to four -- so this can be *very* confusing! So again: **Never mix tabs and spaces in Python code.**
 
 Spaces Elsewhere
 ----------------
@@ -83,16 +73,14 @@ But you should strive for proper style. Isn't this easier to read?
 
     x = (3 * 4) + (12 / func(x, y, z))
 
-
 .. centered:: **Read** `PEP 8 <https://www.python.org/dev/peps/pep-0008/>`_ **and install a linter in your editor.**
-
 
 Modules and Packages
 ====================
 
-Python is all about *namespaces* -- the "dots"
+Python is all about *namespaces* -- the "dots"::
 
-``name.another_name``
+    name.another_name
 
 The "dot" indicates that you are looking for a name in the *namespace* of the given object. It could be:
 
@@ -101,7 +89,7 @@ The "dot" indicates that you are looking for a name in the *namespace* of the gi
 * An attribute of an object
 * A method of an object
 
-The only way to know is to know what type of object the name refers to.  But in all cases, it is looking up a name in the namespace of the object.
+The only way to know is to know what type of object the name refers to. But in all cases, it is looking up a name in the namespace of the object.
 
 So what *are* all these different types of namespaces?
 
@@ -153,7 +141,7 @@ Now try it:
     >>> import trivial
     at the end of the trivial module
 
-yes, we got that print function run.
+Yes, we got that print function run during the import.
 
 Let's see if the names are there:
 
@@ -166,23 +154,21 @@ Let's see if the names are there:
 
 .. code-block:: python
 
-
     >>> trivial.do_nothing(3,4,5)
     do_nothing was called with: 3 4 5
 
-yes, there are, in the ``trivial`` namespace.
-
+Yes, they are there, in the ``trivial`` namespace.
 
 Packages
 --------
 
 A package is a module with other modules in it.
 
-On a filesystem, this is represented as a directory that contains one or more ``.py`` files, one of which **must** be called ``__init__.py``. The ``__init__.py`` file can be empty (and often is) -- but it must be there.
+On a filesystem, this is represented as a directory that contains one or more ``.py`` files, one of which **must** be called ``__init__.py``. The ``__init__.py`` file can be, and often is, empty -- but it must be there.
 
-When there is a package available, you can import only the package, or any of the modules inside it. When a package is imported, the code in the ``__init__.py`` file is run, and any names defined in that file are available in the *package namespace*.
+When there is a package available, you can import only the package, or you can import any of the modules inside it. When a package or any module in the package is imported, the code in the ``__init__.py`` file is run, and any names defined in the file that you imported are available in the *package namespace*.
 
-Here we define about the simplest package possible:
+Let's define about the simplest package possible.
 
 Create a directory (folder) for your package:
 
@@ -233,7 +219,7 @@ What about the module?
 
     AttributeError: module 'my_package' has no attribute 'a_module'
 
-the ``a_module`` name does not exist. It must be imported explicitly:
+The ``a_module`` name does not exist. It must be imported explicitly:
 
 .. code-block:: ipython
 
@@ -254,12 +240,11 @@ Now the names defined in the ``a_module.py`` file are all there:
 
 Note that you can also put a package inside a package. So you can create arbitrarily deeply nested hierarchy of packages. This can be helpful for a large, complex collection of related code, such as an entire Web Framework. But from the *Zen of Python*:
 
-   "Flat is better than nested."
+    "Flat is better than nested."
 
-So don't overdo it -- only go as deep as you really need to to keep your code organized.
+So don't overdo it. Only go as deep as you really need to to keep your code organized.
 
-
-Importing modules
+Importing Modules
 -----------------
 
 You have probably imported a module or two already:
@@ -275,21 +260,21 @@ But there a handful of ways to import modules and packages.
 
     import modulename
 
-Is the simplest way: this adds the name of the module to the global namespace, and lets you access the names defined in that module:
+Above is the simplest way. Running ``import modulename`` adds the name of the module to the global namespace, and lets you access the names defined in that module:
 
 .. code-block:: python
 
     modulename.a_name_in_the_module
 
-If you want only a few names in a module, and don't want to type the module name each time, you can import only the names you want:
+If you want only a few names in a module, and don't want to type the module name out each time, you can import only the names you want:
 
 .. code-block:: python
 
     from modulename import this, that
 
-This brings only the names specified (``this``, ``that``) into the global namespace. All the code in the module is run, but the module's name is not available. But the explicitly imported names are directly available.
+The above brings only the names specified (``this``, ``that``) into the global namespace. All the code in the module is run, but the module's name is not available. Only the explicitly imported names are directly available.
 
-Sometimes you want the entire module, but maybe not want to type its entire name eadh time you use. So you can rename a module when you import it. (you may also want to do this if a module has the same name as a variable you want to use...)
+Sometimes you want the entire module, but maybe not want to type its entire name each time you use it. You can rename a module when you import it. (You may also want to do this if a module has the same name as a variable you want to use.)
 
 .. code-block:: python
 
@@ -310,7 +295,6 @@ You can also import a name within a module and rename it at the same time:
     from modulename import this as that
 
 This imports only one name from a module, while also giving it a new name in the global namespace.
-
 
 Examples
 --------
@@ -339,9 +323,8 @@ You can play with some of this with the standard library:
     In [8]: cosine(1.2)
     Out[8]: 0.3623577544766736
 
-
-My rules of thumb
------------------
+Rules of Thumb
+--------------
 
 If you only need a few names from a module, import only those:
 
@@ -363,10 +346,37 @@ Or import it with a nice short name:
     import math as m
     m.cos(2 * m.pi)
 
-import \* ?
------------
+Module and Package Names
+------------------------
 
-.. centered:: **Warning:**
+Try not to name your module or package the same as another module or package that you're trying to use. For example, say you create a file named ``math.py`` to test out a math function, like this:
+
+.. code-block:: python
+
+    from math import factorial
+
+    print(factorial(3))
+
+If you run this python script you will end up with a really strange error:
+
+.. code-block:: bash
+
+    $ python3 math.py
+    Traceback (most recent call last):
+      File "/Users/paul/dev/math.py", line 1, in <module>
+        from math import factorial
+      File "/Users/paul/dev/math.py", line 1, in <module>
+        from math import factorial
+    ImportError: cannot import name 'factorial' from partially initialized module 'math' (most likely due to a circular import) (/Users/paul/dev/math.py)
+
+What's happening here is that you named your file ``math.py``. When you try to import ``math`` in your code, python will first try to import your file rather than the built-in python ``math`` module.
+
+So name your modules something unique or put them into a namespace that is unique.
+
+What about ``import \*``?
+-------------------------
+
+.. centered:: **Warning!**
 
 You can also import all the names in a module with:
 
@@ -374,10 +384,9 @@ You can also import all the names in a module with:
 
     from modulename import *
 
-But this leads to name conflicts, and a cluttered namespace. It is NOT recommended practice anymore.
+But this leads to name conflicts, a cluttered namespace, and generally makes it really hard to trace your code because you do not know explicitly what came from where. It is NOT recommended practice anymore.
 
-
-Importing from packages
+Importing from Packages
 -----------------------
 
 Packages can contain modules, which can be nested -- ideally not very deeply.
@@ -388,16 +397,9 @@ In that case, you can simply add more "dots" and follow the same rules as above.
 
     from packagename import my_funcs.this_func
 
-.. Here's a nice reference for more detail:
-
-.. http://effbot.org/zone/import-confusion.htm
-
-.. And
-
 :ref:`packaging` goes into more detail about creating (and distributing!) your own package.
 
-
-What does ``import`` actually do?
+What Does ``import`` Actually Do?
 ---------------------------------
 
 When you import a module, or a symbol from a module, the Python code is *compiled* to *bytecode*.
@@ -408,9 +410,8 @@ Then after compiling, all the code in the module is run **at the module scope** 
 
 For this reason, it is good to avoid module-scope statements that have global side-effects. This includes things as simple as a ``print()`` -- it will only print the first time the module is imported.
 
-
-Re-import
-----------
+Re-importing Packages
+---------------------
 
 The code in a module is *not* re-run when imported again. This makes it efficient to import the same module multiple places in a program. But it means that if you change the code in a module after importing it, that change will not be reflected when it is imported again.
 
@@ -453,15 +454,12 @@ Create three modules (python files):
     import mod1
 
     print(f"In mod2: mod1.x = {mod1.x}")
-
     input("pausing (hit enter to continue >")
-
     print("importing mod3")
 
     import mod3
 
     print(f"Still in mod2: mod1.x = {mod1.x}")
-
     print("mod3 changed the value in mod1, and that change shows up in mod2")
 
 Here, we import ``mod1``, and we can now see the names defined in it, and print the value of ``x``. Then it pauses, waiting for input. After the user hits the <enter> key, it then imports ``mod3``, and again prints the value of ``x`` that is in ``mod1``. Let's now look at ``mod3.py``:
@@ -487,4 +485,4 @@ Running ``mod2.py`` results in::
 
 You can see that when ``mod3`` changed the value of ``mod1.x``, that changed the value everywhere that ``mod1`` is imported. You want to be very careful about this.
 
-If you are writing ``mod2.py``, and did not write ``mod3`` (or wrote it long enough ago that you don't remember its details), you might be very surprised that a value in ``mod1`` changes simply because you imported ``mod3``.  This is known as a "side effect", and you generally want to avoid them!
+If you are writing ``mod2.py``, and did not write ``mod3`` (or wrote it long enough ago that you don't remember its details), you might be very surprised that a value in ``mod1`` changes simply because you imported ``mod3``. This is known as a "side effect", and you generally want to avoid them!

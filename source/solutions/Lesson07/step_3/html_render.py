@@ -37,7 +37,7 @@ class Element:
         """
         add a new piece of content or another element to this element
         """
-        # note: this changed the internal represntation of content
+        # note: this changed the internal representation of content
         #       it no longer holds strings -- so a test will fail
         #       but that test was testing internal API --
         #       it's probably better remove it

@@ -4,6 +4,7 @@
 a template for the series assignment
 """
 
+
 def fibonacci(n):
     """ compute the nth Fibonacci number """
     a, b = 0, 1
@@ -36,10 +37,10 @@ def sum_series(n, n0=0, n1=1):
     Once generalized that way, sum_series(n, 0, 1) should be equivalent to fibonacci(n).
     And sum_series(n, 2, 1) should be equivalent to lucas(n).
 
-    sum_series(n, 3, 2) should generate antoehr series with no specific name
+    sum_series(n, 3, 2) should generate another series with no specific name
 
     The defaults are set to 0, 1, so if you don't pass in any values, you'll
-    get the fibonacci sercies
+    get the fibonacci series
     """
     a, b = n0, n1  # notice that all I had to change from fib were these values?
     if n == 0:

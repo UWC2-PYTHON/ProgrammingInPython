@@ -12,7 +12,6 @@ import math
 
 # handy utility to make pretty printing easier
 from textwrap import dedent
-import pathlib
 from mailroom import model, data_dir
 
 # create a DB with the sample data
@@ -105,6 +104,6 @@ def main():
         except KeyError:
             print("error: menu selection is invalid!")
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     main()

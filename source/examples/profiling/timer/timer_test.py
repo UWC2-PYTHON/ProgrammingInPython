@@ -5,9 +5,9 @@ def timer(func):
     def timer(*args, **kwargs):
         """a decorator which prints execution time of the decorated
         function"""
-        t1 = time.time()
+        t1 = time.perf_counter()
         result = func(*args, **kwargs)
-        t2 = time.time()
+        t2 = time.perf_counter()
         print("-- executed %s in %.4f seconds" % (func.__name__, (t2 - t1)))
         return result
     return timer

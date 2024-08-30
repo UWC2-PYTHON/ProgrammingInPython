@@ -3,7 +3,6 @@
 """
 test code for the trapezoidal rule exercise
 """
-import pytest
 
 from trapz_adapt import trapz, isclose
 
@@ -66,8 +65,6 @@ def test_sine2():
     # using abs_tol to compare with zero
     result = trapz(math.sin, 0, 2*math.pi, tol=1e-12)
     assert isclose(result, 0.0, abs_tol=1e-12)
-
-
 
 
 if __name__ == "__main__":

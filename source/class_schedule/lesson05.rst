@@ -1,9 +1,8 @@
 .. _session_1_05:
 
-#######################################################
-Lession 5: File Handling, Exceptions and Comprehensions
-#######################################################
-
+######################################################
+Lesson 5: File Handling, Exceptions and Comprehensions
+######################################################
 
 Readings
 ========
@@ -18,8 +17,19 @@ Readings
     ../modules/Comprehensions
     ../modules/CollectionsModule
 
-Exercises:
-==========
+Supplemental Reading
+--------------------
+
+* Think Python -- Chapter 13
+
+    - https://greenteapress.com/wp/think-python-3rd-edition/
+
+* Dive Into Python3 -- Chapter 11
+
+    - https://diveintopython3.net
+
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1

@@ -3,7 +3,7 @@
 """
 nifty Circle class
 
-Used to demo propeties and "magic methods"
+Used to demo properties and "magic methods"
 """
 
 from math import pi
@@ -30,6 +30,7 @@ class Circle(object):
     @property
     def diameter(self):
         return self.radius * 2.0
+
     @diameter.setter
     def diameter(self, value):
         self.radius = value / 2.0
@@ -39,7 +40,7 @@ class Circle(object):
         return self.radius**2 * pi
 
     def __repr__(self):
-        # usingthe repr attributes is a neat trick
+        # using the repr attributes is a neat trick
         return "Circle({:s})".format(repr(self.radius))
 
     def __str__(self):
@@ -93,8 +94,8 @@ class Circle(object):
         return self.radius < other.radius
 
 
-# This demostrates how you can
-#  subclass and get everyhting -- even the alternate constructor!
+# This demonstrates how you can
+#  subclass and get everything -- even the alternate constructor!
 class Sphere(Circle):
     """
     A simple Sphere object, which you can do math with...

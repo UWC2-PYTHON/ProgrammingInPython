@@ -185,6 +185,7 @@ def return_to_menu():
     ''' Return True to trigger exit out of sub-loop'''
     return True
 
+
 def quit():
     """
     quit the program
@@ -193,6 +194,7 @@ def quit():
           but this lets you put extra code in there if you want.
     """
     sys.exit(0)
+
 
 def send_thank_you():
     """
@@ -209,6 +211,7 @@ def send_thank_you():
                       "3": return_to_menu,
                       }
     run_menu(prompt, selection_dict)
+
 
 def main_menu():
     """

@@ -20,9 +20,8 @@ class Element(object):
 
     def _open_tag(self):
         if self.attributes:  # only if there are any attributes
-            open_tag = ["<{}".format(self.tag)]
-            atts = [f'{key}="{value}"' for key, value in self.attributes.items()]
-            tag = f"<{self.tag} {' '.join(atts)}>"
+            attrs = [f'{key}="{value}"' for key, value in self.attributes.items()]
+            tag = f"<{self.tag} {' '.join(attrs)}>"
         else:
             tag = f"<{self.tag}>"
         return tag

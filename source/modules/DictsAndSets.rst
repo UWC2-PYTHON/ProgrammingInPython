@@ -7,20 +7,20 @@ Dictionaries and Sets
 Dictionary
 ==========
 
-Python calls it a ``dict``
+Python calls it a ``dict``.
 
 Other languages call it:
 
-  * dictionary
-  * associative array
-  * map
-  * hash table
-  * hash
-  * key-value pair
+* dictionary
+* associative array
+* map
+* hash table
+* hash
+* key-value pair
 
 It is also known in Python as a "mapping", as it "maps" keys to values.
 
-It is like an array, in that it holds a number of items, and you can index into it to get at particular items. But it can use arbitrary indexes, rather than a sequence of numbers.
+It is like an array in that it holds a number of items, and you can index into it to get at particular items. But it can use arbitrary indexes, rather than a sequence of numbers.
 
 These indexes are called "keys", and the items stored are called "values".
 
@@ -28,23 +28,21 @@ So for any Python sequence, you might do::
 
   item = stuff[3]
 
-for a dict, you do::
+For a dict, you do::
 
   item = stuff["third"]
 
 .. note:: It is *very* common to use strings as keys in a dictionary. So common that virtually all examples you'll see both here and on the Internet use strings as keys. And many other languages have similar objects that only allow strings (like JavaScript objects, for instance). Python dicts, on the other hand, can use many types as keys, and this can be a very powerful feature to keep in mind.
 
-
 Dictionary Constructors
 -----------------------
 
-So how does one make a dict? There are a few ways...
+So how does one make a dict? There are a few ways.
 
 The dict "literal":
 
 .. code-block:: python
 
-    # This dict "lies"
     >>> {'key1': 3, 'key2': 5}
     {'key1': 3, 'key2': 5}
 
@@ -67,11 +65,10 @@ Calling the dict type object constructor:
     >>> d
     {'key1': 3, 'key2': 5}
 
-
 Dictionary Indexing
 -------------------
 
-And how do you get stuff out (index it)?
+And how do you get stuff out of the dict?
 
 The same way you index a sequence, except the index (now called a key) can be various types, rather than just an integer:
 
@@ -96,18 +93,16 @@ What if the key doesn't exist in the dict? You get a ``KeyError`` exception:
       File "<stdin>", line 1, in <module>
     KeyError: 'non-existing key'
 
-
-
 What can keys be?
 -----------------
 
 Surely not ANYTHING?
 
-Not quite: keys can be any "immutable":
+Not quite: keys can be anything that is "immutable":
 
-  * number
-  * string
-  * tuple
+* number
+* string
+* tuple
 
 .. code-block:: ipython
 
@@ -150,30 +145,25 @@ What would happen if the proxy (hash) changed after storing a key?
 
 Hashability requires immutability.
 
-Key lookup is very efficient:
+Key lookup is very efficient: the access time is constant regardless of the size of the dict.
 
-The access time is constant regardless of the size of the dict.
-
-Dictionary indexing
+Dictionary Indexing
 -------------------
 
 Note: cPython name look-ups are implemented with dicts -- it's highly optimized.
 
 Key to value:
 
- * lookup is one way.
+* lookup is one way
 
 Value to key:
 
- * requires visiting the whole dict.
+* requires visiting the whole dict
 
-If you need to check dict values often, create another dict or set.
+If you need to look things up in your dict by their values often, create another dict or set. But then it's up to you to keep the two objects synchronized.
 
-(But note that it's then up to you to keep them in sync).
-
-
-Dictionary Ordering (not)
--------------------------
+Dictionary Ordering
+-------------------
 
 Traditionally, dictionaries have had no defined order. See this example from Python 3.5:
 
@@ -187,8 +177,7 @@ Traditionally, dictionaries have had no defined order. See this example from Pyt
 
 Note how I defined the dict in a natural order, but when it gets printed, or you display the keys, they are in a different order.
 
-However, In cPython 3.6, the internal implementation was changed, and it *does* happen to preserve order. In cPython 3.6, that is considered an implementation detail -- and you should not count on it! However, as of cPython 3.7, dictionaries preserving order are part of the language specification. This was declared by Guido on the python-dev mailing list on
-Dec 15, 2017 <https://mail.python.org/pipermail/python-dev/2017-December/151283.html>.
+However, In cPython 3.6, the internal implementation was changed, and it *does* happen to preserve order. In cPython 3.6, that is considered an implementation detail -- and you should not count on it! However, as of cPython 3.7, dictionaries preserving order are part of the language specification so if you're using any modern and supported version of cPython then you can expect your dictionary keys to be in order.
 
 .. code-block:: ipython
 
@@ -201,7 +190,6 @@ Dec 15, 2017 <https://mail.python.org/pipermail/python-dev/2017-December/151283.
 
     In [11]: d.keys()
     Out[11]: dict_keys(['one', 'two', 'three'])
-
 
 When new items are added to a dict, they go on the "end":
 
@@ -218,18 +206,16 @@ When new items are added to a dict, they go on the "end":
     In [16]: str(d)
     Out[16]: "{'one': 1, 'two': 2, 'three': 3}"
 
-and ``dict.popitem()`` will remove the "last" item in the dict.
+And ``dict.popitem()`` will remove the "last" item in the dict.
 
-**CAUTION** This is new behavior in cPython 3.6 -- older versions of Python (notably including Python 2) do not preserve order.  In older versions, there is a special version of a dict in the collections module: ``collections.OrderedDict`` which preserves order in all versions of Python, and has a couple extra features.
+**CAUTION** This is new behavior in cPython 3.6 -- older versions of Python do not preserve order. In older versions, there is a special version of a dict in the collections module: ``collections.OrderedDict`` which preserves order in all versions of Python, and has a couple extra features. You can still use the `OrderedDict` in new versions of Python but it's not necessary.
 
-Also: while Python dicts now *preserve* order, they are not really a fully ordered object: there is no direct way to get, say, the "third" item in a dict, or to inset an item at a particular location.
-
-
+Also: while Python dicts now *preserve* order, they are not really a fully ordered object: there is no direct way to get, say, the "third" item in a dict, or to insert an item at a particular location.
 
 Dictionary Iterating
 --------------------
 
-``for``  iterates over the keys
+``for`` iterates over the keys.
 
 .. code-block:: ipython
 
@@ -241,8 +227,8 @@ Dictionary Iterating
     name
     score
 
-dict keys and values
---------------------
+Getting dict Keys and Values
+----------------------------
 
 .. code-block:: ipython
 
@@ -257,17 +243,14 @@ dict keys and values
     In [28]: d.items()
     Out[28]: dict_items([('name', 'Brian'), ('score', 42)])
 
-Notice that these are of type ``dict_keys`` and ``dict_values``. These are special types that provide iteration, printing and other features, but are tied to the underlying dict, rather than copies. They are actually Sets (see below), so can be compared to sets, and the ``in`` operator is efficient.
-
-(Python2 would simply create lists of keys and values -- but then you were making a copy when you probably didn't need one). If you do need a copy, or a proper Sequence, simmply wrap them in a ``list()``:
+Notice that these are of type ``dict_keys`` and ``dict_values``. These are special types that provide iteration, printing and other features, but are tied to the underlying dict, rather than copies. They are actually sets (see below), so can be compared to sets, and the ``in`` operator is efficient.
 
 .. code-block:: python
 
     the_values_as_a_list = list(a_dict.values())
 
-
-dict keys and values
---------------------
+Looping on dict Keys and Values
+-------------------------------
 
 Iterating on everything
 
@@ -283,51 +266,40 @@ Iterating on everything
 
 
 Dictionary Performance
------------------------
-
-  * Indexing is fast and constant time: O(1).
-
-  * ``x in s`` is fast and constant time: O(1).
-
-  * Visiting all items is proportional to n: O(n).
-
-  * Inserting is constant time: O(1).
-
-  * Deleting is constant time: O(1).
-
-
- http://wiki.python.org/moin/TimeComplexity
-
-
-Other dict operations:
 ----------------------
 
-See them all here:
+* Indexing is fast and constant time: O(1).
+* ``x in s`` is fast and constant time: O(1).
+* Visiting all items is proportional to n: O(n).
+* Inserting is constant time: O(1).
+* Deleting is constant time: O(1).
 
-https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+http://wiki.python.org/moin/TimeComplexity
+
+Other dict Operations:
+----------------------
+
+See them all here: https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
 Is it in there?
 
 .. code-block:: ipython
 
-  In [5]: d
-  Out[5]: {'that': 7, 'this': 5}
+    In [5]: d
+    Out[5]: {'that': 7, 'this': 5}
 
-  In [6]: 'that' in d
-  Out[6]: True
+    In [6]: 'that' in d
+    Out[6]: True
 
-  In [7]: 'this' not in d
-  Out[7]: False
+    In [7]: 'this' not in d
+    Out[7]: False
 
-Containment is on the keys.
+Checking whether something is ``in`` a dict is strictly based on the keys.
 
 Think of it like a "real" dictionary, where the keys are the words, and the values are the definitions.
 
-Is the word "gullible" in the dictionary? is asking if the key is in the dict.
-
-
-Getting something: (like indexing)
-----------------------------------
+Getting Something
+-----------------
 
 .. code-block:: ipython
 
@@ -341,10 +313,9 @@ But you can specify a default:
   In [11]: d.get('something', 'a default')
   Out[11]: 'a default'
 
-`get()` never raises an Exception (default is None).
+`get()` never raises an Exception like KeyError. If the element is not in the dict then it will return ``None``.
 
-
-iterating
+Iterating
 ---------
 
 .. code-block:: ipython
@@ -377,7 +348,7 @@ But to get values, you must specify you want the values:
   5
   7
 
-and to get both, you use ``.items``:
+And to get both, you use ``.items``:
 
 .. code-block:: ipython
 
@@ -387,13 +358,23 @@ and to get both, you use ``.items``:
   ('this', 5)
   ('that', 7)
 
+Or:
+
+.. code-block:: ipython
+
+  In [5]: for mykey, myvalue in d.items():
+     ...:     print(mykey, myvalue)
+     ...:
+  this 5
+  that 7
+
 
 ``pop()``
 ---------
 
-"Popping": getting the value while removing it.
+"Popping" gets the value out of the dict and removes it from the dict all at the same time.
 
-Pop out a particular key:
+You can pop out a particular key:
 
 .. code-block:: ipython
 
@@ -403,7 +384,7 @@ Pop out a particular key:
   In [20]: d
   Out[20]: {'that': 7}
 
-pop out an arbitrary key, value pair
+You can pop out an arbitrary key, value pair:
 
 .. code-block:: ipython
 
@@ -413,7 +394,7 @@ pop out an arbitrary key, value pair
   In [24]: d
   Out[24]: {}
 
-note that it's the last item, so not completely arbitrary.
+Note that it's the "last" item in the dict, so not completely arbitrary.
 
 ``setdefault``
 --------------
@@ -422,7 +403,7 @@ This one is handy:
 
 ``setdefault(key[, default])``
 
-gets the value if it's there, sets it to the specified default if it's not. Returns the value in either case.
+This gets the value if it's there or sets it to the specified default if it's not. Returns the value in either case.
 
 .. code-block:: ipython
 
@@ -440,7 +421,6 @@ The next time you call it, it gets the already set value:
 
   In [7]: d.setdefault('something', 'a different value')
   Out[7]: 'a value'
-
 
 Assignment
 ----------
@@ -461,7 +441,6 @@ And dicts are mutable -- so be careful!
   In [50]: item_view
   Out[50]: {'something': 'a value', 'something else': 'another value'}
 
-
 If you want a copy, use the explicit copy method to get a copy:
 
 .. code-block:: ipython
@@ -479,25 +458,23 @@ If you want a copy, use the explicit copy method to get a copy:
   In [54]: item_copy
   Out[54]: {'something': 'a value', 'something else': 'another value'}
 
-or pass any mapping into the dict constructor::
+Or pass any mapping into the dict constructor::
 
 .. code-block:: python
 
   new_dict = dict(old_dict)
 
-
-
 Sets
 ====
 
-a ``set``  is an unordered collection of distinct values.
+A ``set``  is an unordered collection of distinct values.
 
 Essentially, a ``set`` is a dict with only keys.
 
-https://docs.python.org/3.12/library/stdtypes.html#set-types-set-frozenset
+https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
 
-Set Constructors:
------------------
+Set Constructors
+----------------
 
 .. code-block:: ipython
 
@@ -516,13 +493,10 @@ Set Constructors:
     >>> s
     {1, 2, 3}
 
-
 Set Properties
 ---------------
 
-``Set``  members must be hashable, like dictionary keys -- and for same reason (efficient lookup).
-
-No indexing (unordered).
+``Set`` members must be hashable, just like dictionary keys -- and for same reason: efficient lookup. Sets are completely unordered.
 
 .. code-block:: ipython
 
@@ -530,7 +504,6 @@ No indexing (unordered).
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: 'set' object does not support indexing
-
 
 Set Methods
 -----------
@@ -551,8 +524,7 @@ Set Methods
       File "<stdin>", line 1, in <module>
     KeyError: 2
 
-
-All the "set" operations from math class...
+All the "set" operations from math class are supported:
 
 .. code-block:: python
 
@@ -576,7 +548,6 @@ All the basic set operations are support with math-class like operators:
 Test whether every element in the set is in other::
 
   set <= other
-
 
 Test whether the set is a proper subset of other, that is, set <= other and set != other::
 
@@ -608,13 +579,12 @@ Symmetric difference: return a new set with elements in either the set or other 
 
 In fact, it is the operator versions that make the ``set`` object "officially" a Set: (`Set ABC <https://docs.python.org/3.12/library/collections.abc.html?highlight=set%20abc#collections.abc.Set>`_)
 
-
 Frozen Set
 ----------
 
 Another kind of set: ``frozenset``
 
-immutable -- for use as a key in a dict (or another set...):
+This type of set is completely immutable -- for use as a key in a dict or another set:
 
 .. code-block:: python
 
@@ -670,10 +640,8 @@ If you want to add a bunch of stuff to a set, you can use update:
 
 **NOTE:** It's VERY often the case that when you find yourself writing a trivial loop -- there is a way to do it with a built in method!
 
-
-
-Sorting stuff in dictionaries:
--------------------------------
+Sorting Stuff in dicts
+----------------------
 
 dicts aren't sorted, so what if you want to do something in a sorted way?
 
@@ -690,8 +658,7 @@ As dicts DO preserve order, you can make a sorted version of a dict:
 
   sorted_dict = dict(sorted(dict.items(), key=sort_key))
 
-where sort_key is a function that takes the (key, value) tuple and returns a value to sort on.
-
+Where ``sort_key`` is a function that takes the (key, value) tuple and returns a value to sort on.
 
 Another option:
 
@@ -699,8 +666,6 @@ Another option:
 
     collections.OrderedDict
 
-Also other nifty stuff in the ``collections`` module:
+Also other nifty stuff in the ``collections`` module: https://docs.python.org/3.6/library/collections.html
 
-https://docs.python.org/3.6/library/collections.html
-
-**NOTE:** As of Python 3.6, dicts do preserve order. But they are not full featured ordered objects. If you want a "properly" ordered object, use ``OrderedDict``.
+**NOTE:** As of Python 3.6, dicts do preserve order. But they are not fully featured ordered objects. If you want a "properly" ordered object, use ``OrderedDict``.

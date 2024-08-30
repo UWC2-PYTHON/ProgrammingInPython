@@ -19,12 +19,6 @@ def integrate_f_with_functional_tools(f, a, b, N):
 
 
 
-
-
-
-
-
-
 # imported here so the rest of the code can run without it
 import numpy as np
 

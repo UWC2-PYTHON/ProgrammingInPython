@@ -1,11 +1,10 @@
 .. _session_1_07:
 
-#####################################
-Session 7: Object Oriented Programing
-#####################################
+######################################
+Session 7: Object Oriented Programming
+######################################
 
 Object Oriented Programing: classes, instance and class attributes, subclassing and inheritance.
-
 
 Readings
 ========
@@ -20,23 +19,22 @@ Readings
 Supplemental reading
 --------------------
 
-* Dive into Python3: 7.2 -- 7.3
+* Think Python -- Chapters 14 to 17
 
-   - http://www.diveintopython3.net/iterators.html#defining-classes
+    - https://greenteapress.com/wp/think-python-3rd-edition/
 
-* Think Python: 15 -- 18
+* Dive into Python3 -- Chapter 7
 
-   - http://www.greenteapress.com/thinkpython/html/thinkpython016.html
+    - https://diveintopython3.net
 
-Some Videos to watch:
----------------------
+Some Videos to Watch
+--------------------
 
 Python Class Toolkit by *Raymond Hettinger*
 
 https://youtu.be/HTLu2DFOdTg
 
 https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
-
 
 The Art of Subclassing by *Raymond Hettinger*
 
@@ -45,9 +43,7 @@ http://pyvideo.org/video/879/the-art-of-subclassing
 The most salient points from that video are as follows:
 
 * **Subclassing is not for Specialization**
-
 * **Classes and subclassing are for code re-use -- not creating taxonomies**
-
 * **Bear in mind that the subclass is in charge**
 
 Note that the previous talk and this one were back to back at PyCon -- but despite their contradictory titles -- they have similar messages.
@@ -59,12 +55,11 @@ by *Jack Diederich*
 
 http://pyvideo.org/video/880/stop-writing-classes
 
-"If your class has only two methods -- and one of them is ``__init__``
--- you don't need a class"
+"If your class has only two methods -- and one of them is ``__init__`` -- you don't need a class"
 
 
-Exercises:
-==========
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1

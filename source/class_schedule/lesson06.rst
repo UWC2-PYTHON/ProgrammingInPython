@@ -23,9 +23,8 @@ Supplemental Reading
 
   - https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
 
-
-Exercises:
-==========
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1
@@ -33,5 +32,4 @@ Exercises:
     ../exercises/args_kwargs_lab.rst
     ../exercises/mailroom/mailroom_with_tests.rst
 
-**NOTE:** you will find that most introductions to unit testing with Python use the built in ``unittest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we use pytest in this class:
-http://doc.pytest.org/en/latest/. But the principles of testing are the same.
+**NOTE:** You will find that most introductions to unit testing with Python use the built in ``unittest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we use pytest in this class: http://doc.pytest.org/en/latest/. But the principles of testing are the same.

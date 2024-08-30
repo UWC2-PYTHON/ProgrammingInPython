@@ -7,9 +7,9 @@ solutions to the Fibonacci Series, Lucas numbers and
 generalized sum_series
 
 These solutions use recursion
--- calling a funciton from within that function.
+-- calling a function from within that function.
 
-These series are defined "recusively", so it's a
+These series are defined "recursively", so it's a
 really natural way to express the solution. However,
 recursion can be substantially less efficient.n
 
@@ -56,10 +56,10 @@ def sum_series(n, n0=0, n1=1):
     Once generalized that way, sum_series(n, 0, 1) should be equivalent to fibonacci(n).
     And sum_series(n, 2, 1) should be equivalent to lucas(n).
 
-    sum_series(n, 3, 2) should generate antoehr series with no specific name
+    sum_series(n, 3, 2) should generate another series with no specific name
 
     The defaults are set to 0, 1, so if you don't pass in any values, you'll
-    get the fibonacci sercies
+    get the fibonacci series
     """
 
     if n < 0:

@@ -25,9 +25,9 @@ def test_init():
     """
     this only tests that it can be initialized -- but it's a start
     """
-    e = Element()
+    Element()
 
-    e = Element("this is some text")
+    Element("this is some text")
 
 
 # These two tests were testing internals
@@ -63,8 +63,8 @@ def test_render():
 
     file_contents = render_result(e)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<html>")
     assert file_contents.strip().endswith("</html>")
@@ -76,8 +76,8 @@ def test_html():
 
     file_contents = render_result(e)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<html>")
     assert file_contents.strip().endswith("</html>")
@@ -89,8 +89,8 @@ def test_body():
 
     file_contents = render_result(e)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<body>")
     assert file_contents.strip().endswith("</body>")
@@ -102,8 +102,8 @@ def test_p():
 
     file_contents = render_result(e)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<p>")
     assert file_contents.strip().endswith("</p>")

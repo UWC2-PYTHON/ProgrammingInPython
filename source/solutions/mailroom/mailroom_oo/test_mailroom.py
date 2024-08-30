@@ -33,6 +33,7 @@ import mailroom
 # creates a sample database for the tests to use
 sample_db = mailroom.DonorDB(mailroom.get_sample_data())
 
+
 def test_empty_db():
     """
     tests that you can initilize an empty DB
@@ -82,7 +83,7 @@ def test_list_donors():
     sample_db = mailroom.DonorDB(mailroom.get_sample_data())
     listing = sample_db.list_donors()
 
-    # hard to test this throughly -- better not to hard code the entire
+    # hard to test this thoroughly -- better not to hard code the entire
     # thing. But check for a few aspects -- this will catch the likely
     # errors
     assert listing.startswith("Donor list:\n")

@@ -3,28 +3,18 @@
 Basic Python
 ============
 
-Values, Types, and Symbols
-
-Expressions and Statements
-
-(Follow along in the iPython interpreter...)
+When reading this module, follow along in the iPython interpreter.
 
 Values
 ------
 
 All of programming is really about manipulating values.
 
-
 * Values are pieces of unnamed data: ``42``, ``'Hello, world'``
-
 * In Python, all values are objects.
-
   - Try ``dir(42)``  - lots going on behind the curtain!
-
 * Every value has a type
-
   - Try ``type(42)`` - the type of a value determines what it can do.
-
 
 Literals for the Basic Value types:
 ------------------------------------
@@ -48,7 +38,6 @@ The nothing object:
   - ``None``
 
 (There are intricacies to all of these that we'll get into later.)
-
 
 Code structure
 --------------
@@ -76,7 +65,7 @@ An expression is a unit of code that evaluates to a value:
 
 **Statements:**
 
-statements carry out an action, but do not evaluate to a value, that is, you can't assign to them (or put them in a lamda, or...)
+Statements carry out an action, but do not evaluate to a value That is, you can't assign to them (or put them in a lambda, or...)
 
 .. code-block:: ipython
 
@@ -87,7 +76,6 @@ statements carry out an action, but do not evaluate to a value, that is, you can
     In [8]: return something
 
 Statements include function (and class) definitions (``def``), loop constructs (``for``, ``while``), code forking constructs (``if``), exception handling (``try``, ``except``), and a handful of other more advanced constructs.
-
 
 The ``print()`` function does what you'd expect, and is very handy when playing with code:
 
@@ -102,7 +90,6 @@ You can print multiple things:
 
     In [2]: print("the value is", 5)
     the value is 5
-
 
 Any Python object can be printed (though it might not be pretty...)
 
@@ -135,9 +122,8 @@ Separate blocks of code are delimited by a colon and indentation. Everything ind
 
     try:
         do_something_bad()
-    except:
+    except Exception:
         fix_the_problem()
-
 
 Python uses indentation to delineate structure. This means that in Python, whitespace is **significant** (but **ONLY** for newlines and indentation).
 
@@ -147,9 +133,7 @@ The standard is to indent with **4 spaces**.
 
 **TABS ARE NOT SPACES**
 
-Python requires spaces for indents. You can probably set your editor to replace tabs with spaces.
-This is a good idea as it is easier to type one tab than 4 spaces.
-
+Python requires spaces for indents. You can probably set your editor to replace tabs with spaces. This is a good idea as it is easier to type one tab than 4 spaces.
 
 These two blocks look the same:
 
@@ -163,8 +147,6 @@ These two blocks look the same:
     for i in range(100):
         print(i**2)
 
-
-
 But they are not:
 
 .. code-block:: python
@@ -177,32 +159,23 @@ But they are not:
     for i in range(100):
     \tprint i**2
 
-
 .. centered:: **ALWAYS INDENT WITH 4 SPACES**
-
 
 Make sure your editor is set to use spaces only --
 
-Even when you hit the <tab> key
+Even when you hit the <tab> key.
 
-[Python itself allows any number of spaces (and tabs), but you are just going to confuse yourself and others if you do anything else]
-
+Python itself allows any number of spaces (and tabs), but you are just going to confuse yourself and others if you do anything else.
 
 Expressions
 ------------
 
 An *expression* is made up of values and operators.
 
-
 * An expression is evaluated to produce a new value:  ``2 + 2``
-
   *  The Python interpreter can be used as a calculator to evaluate expressions.
-
 * Integer vs. float arithmetic
-
-  * (Python 3 smooths this out).
   * Always use ``/`` when you want division with float results, ``//`` when you want floored (integer) results (no remainder):
-
 
 .. code-block:: ipython
 
@@ -239,26 +212,20 @@ Symbols
 
 Symbols are how we give names to values (objects).
 
-
 * Symbols must begin with an underscore or letter.
 * Symbols can contain any number of underscores, letters and numbers.
-
   * ``this_is_a_symbol``
   * ``this_is_2``
   * ``_AsIsThis``
   * ``1butThisIsNot``
   * ``nor-is-this``
-
 * Symbols (names) don't have a type; values do.
-
   * This is why Python is "Dynamic".
-
 
 Symbols and Type
 ----------------
 
-Evaluating the type of a *symbol* will return the type of the *value* to which
-it is bound.
+Evaluating the type of a *symbol* will return the type of the *value* to which it is bound.
 
 .. code-block:: ipython
 
@@ -280,8 +247,7 @@ it is bound.
     In [26]: type(a)
     Out[26]: float
 
-*wait!* ``a`` has a different type?!? -- yes, because it's the type of the value: ``3.1``, names don't actually have a type, the same name can refer to any type.
-
+*Wait!* ``a`` has a different type?!? Yes, because it's the type of the value: ``3.1``. Names don't actually have a type, the same name can refer to any type.
 
 Assignment
 ----------
@@ -291,7 +257,6 @@ A *symbol* is **bound** to a *value* with the assignment operator: ``=``
 * This attaches a name to a value.
 * A value can have many names (or none!)
 * Assignment is a statement, it returns no value.
-
 
 Evaluating the name will return the value to which it is bound
 
@@ -312,25 +277,18 @@ Evaluating the name will return the value to which it is bound
     In [31]: a_float
     Out[31]: 3.14
 
-
 Variables?
 ----------
 
-
 * In most languages, what Python calls symbols or names are called "variables".
-
 * In fact, we will probably call them variables in this class.
-
 * That's because they are used, for the most part, for the same purposes.
-
 * But often a "variable" is defined as something like:
+
   "a place in memory that can store values".
 
 * That is **NOT** the same thing as a symbol or name in Python!
-
-* A name can be bound to a value -- but that has nothing to do with a
-  location in memory.
-
+* A name can be bound to a value -- but that has nothing to do with a location in memory.
 
 In-Place Assignment
 -------------------
@@ -354,7 +312,7 @@ You can also do "in-place" assignment with ``+=``.
     In [37]: a
     Out[37]: 3
 
-also: ``-=, *=, /=, **=, \%=``
+Also: ``-=, *=, /=, **=, \%=``
 
 **Note:** This is a bit tricky -- if the value is mutable, it is in-place assignment -- that is the object itself is changed. But if the value is immutable (can't be changed), then it is replaced with a new object.
 
@@ -389,12 +347,10 @@ Example with a mutable type:
 
     In [20]: # b is changed --it's the SAME list.
 
-
 Multiple Assignment
 -------------------
 
-You can assign multiple names from multiple expressions in one
-statement:
+You can assign multiple names from multiple expressions in one statement:
 
 .. code-block:: ipython
 
@@ -410,9 +366,7 @@ statement:
     In [52]: j
     Out[52]: 243
 
-
 Python evaluates all the expressions on the right before doing any assignments.
-
 
 Nifty Python Trick
 ------------------
@@ -440,9 +394,9 @@ Multiple assignment and symbol swapping can be very useful in certain contexts.
 Deleting
 --------
 
-You can't actually directly delete values in Python...
+You can't actually directly delete values in Python.
 
-``del`` only deletes a name (or "unbinds" the name...)
+``del`` only deletes or "unbindes" a name from a value.
 
 .. code-block:: ipython
 
@@ -460,9 +414,7 @@ You can't actually directly delete values in Python...
 
     NameError: name 'a' is not defined
 
-
-The object is still there...Python will only delete it if there are no
-references to it.
+The object is still there. Python will only delete it if there are no references to it.
 
 .. code-block:: ipython
 
@@ -483,14 +435,12 @@ references to it.
     In [19]: b
     Out[19]: 5
 
-
 Identity
 --------
 
 Every value in Python is an object.
 
-Every object is unique and has a unique *identity*, which you can inspect with
-the ``id`` *builtin*:
+Every object is unique and has a unique *identity*, which you can inspect with the ``id`` *builtin*:
 
 .. code-block:: ipython
 
@@ -505,12 +455,10 @@ the ``id`` *builtin*:
     In [71]: id(new_i)
     Out[71]: 140553647890984
 
-
 Testing Identity
 ----------------
 
-You can find out if the values bound to two different symbols are the **same
-object** using the ``is`` operator:
+You can find out if the values bound to two different symbols are the **same object** using the ``is`` operator:
 
 .. code-block:: ipython
 
@@ -527,7 +475,6 @@ object** using the ``is`` operator:
     Out[76]: False
 
 **NOTE:** Checking the id of an object, or using "is" to check if two objects are the same is rarely used except for debugging and understanding what's going on under the hood. They are not used regularly in production code.
-
 
 Equality
 --------
@@ -550,7 +497,6 @@ You can test for the equality of certain values with the ``==`` operator
 
 A string is never equal to a number!
 
-
 Singletons
 ----------
 
@@ -570,7 +516,6 @@ To check if a name is bound to one of these, you use ``is``:
 
 Note that in contrast to English -- "is" is asking a question, not making an assertion -- ``a is True`` means "is a set to the True object?"
 
-
 Operator Precedence
 -------------------
 
@@ -584,8 +529,7 @@ To force statements to be evaluated out of order, use parentheses -- expressions
 
    (4 + 3) * 5 != 4 + (3 * 5)
 
-Python follows the "usual" rules of algebra.
-
+Python follows the "usual" rules of algebra. A good strategy, though, is to use parentheses liberally if you're not sure of the order of operations so that you can ensure that operations happen in the order that you intend.
 
 Python Operator Precedence
 --------------------------
@@ -673,19 +617,14 @@ You define a ``string`` value by writing a string *literal*:
     In [7]: r'a "raw" string, the \n comes through as a \n'
     Out[7]: 'a "raw" string, the \\n comes through as a \\n'
 
-Python3 strings fully support Unicode, which means they can support literally all the languages in the world (and then some -- Klingon, anyone? -- well `sort of. <http://www.personal.psu.edu/ejp10/blogs/gotunicode/2010/10/conscript-unicode-registry-csu.html>`_)
+Python3 strings fully support Unicode, which means they can support literally all the languages in the world.
 
 Because Unicode is native to Python strings, you can get very far without even thinking about it. Anything you can type in your editor will work fine.
-
 
 Keywords
 --------
 
-Python defines a number of **keywords**
-
-These are language constructs.
-
-You *cannot* use these words as symbols.
+Python defines a number of **keywords**. These are language constructs. You *cannot* use these words as symbols.
 
 ::
 
@@ -697,10 +636,7 @@ You *cannot* use these words as symbols.
     assert    else        import       pass
     break     except      in           raise
 
-
-
-If you try to use any of the keywords as symbols, you will cause a
-``SyntaxError``:
+If you try to use any of the keywords as symbols, you will cause a ``SyntaxError``:
 
 .. code-block:: ipython
 
@@ -720,13 +656,10 @@ If you try to use any of the keywords as symbols, you will cause a
                           ^
     SyntaxError: invalid syntax
 
-
 __builtins__
 ------------
 
-Python also has a number of pre-bound symbols, called **builtins**
-
-Try this:
+Python also has a number of pre-bound symbols, called **builtins**. Try this:
 
 .. code-block:: ipython
 
@@ -736,12 +669,11 @@ Try this:
      'AssertionError',
      'AttributeError',
      'BaseException',
-     'BufferError',
+     'BaseExceptionGroup',
      ...
+     'type',
      'vars',
-     'xrange',
      'zip']
-
 
 You are free to rebind these symbols:
 
@@ -762,7 +694,6 @@ You are free to rebind these symbols:
 
 In general, this is a **BAD IDEA** -- hopefully your editor will warn you.
 
-
 Exceptions
 ----------
 
@@ -772,17 +703,10 @@ Exceptions are how Python tells you that something has gone wrong.
 
 There are several exceptions that you are likely to see a lot of:
 
-
 * ``NameError``: indicates that you have tried to use a symbol that is not bound to a value.
-
 * ``TypeError``: indicates that you have tried to use the wrong kind of object for an operation.
-
 * ``SyntaxError``: indicates that you have mis-typed something.
-
-* ``AttributeError``: indicates that you have tried to access an attribute or
-  method that an object does not have (this often means you have a different
-  type of object than you expect)
-
+* ``AttributeError``: indicates that you have tried to access an attribute or method that an object does not have. (This often means you have a different type of object than you expect.)
 
 Functions
 ---------
@@ -791,8 +715,7 @@ Functions
 
 A function is a self-contained chunk of code.
 
-You use them when you need the same code to run multiple times,
-or in multiple parts of the program.
+You use them when you need the same code to run multiple times, or in multiple parts of the program.
 
 Functions allow you to take code that would otherwise be duplicated potentially many times, and put it in one place. Then all you do is call that code to use it.
 
@@ -809,8 +732,7 @@ The minimal function has at least one statement.
     def a_name():
         a_statement
 
-
-Pass Statement does nothing (Note the indentation!)
+The ``pass`` statement does nothing. Note the indentation!
 
 .. code-block:: python
 
@@ -819,29 +741,28 @@ Pass Statement does nothing (Note the indentation!)
 
 This, of course, has limited use -- you will generally have multiple statements in a function -- and they will do something.
 
-However, the pass statement can help you by allowing you to create placeholder functions that you will come back to later to develop and embelish.
+However, the pass statement can help you by allowing you to create placeholder functions that you will come back to later to develop and embellish.
 
 Functions: ``def``
 ------------------
 
-``def``  is a *statement*:
+``def`` is a *statement*:
 
   * it is executed
   * it creates a local name
   * it does *not* return a value
 
-
 Function defs must be executed before the functions can be called:
 
 .. code-block:: ipython
 
-    In [23]: unbound()
+    In [23]: simple()
     ---------------------------------------------------------------------------
     NameError                                 Traceback (most recent call last)
     <ipython-input-23-3132459951e4> in <module>()
-    ----> 1 unbound()
+    ----> 1 simple()
 
-    NameError: name 'unbound' is not defined
+    NameError: name 'simple' is not defined
 
 .. code-block:: ipython
 
@@ -871,7 +792,6 @@ You **call** a function using the function call operator (parentheses):
 
 Calling a function is how you run the code in that function.
 
-
 Functions: Call Stack
 ---------------------
 
@@ -893,7 +813,7 @@ Functions can call functions -- this makes what is called an execution stack. Th
 
 You've defined three functions, one of which will *call* the other two.
 
-When an error occurs, you are presented with a "traceback" of the call stack:
+When an error occurs, you are presented with a "traceback" of the call stack.
 
 Functions: Tracebacks
 ---------------------
@@ -927,7 +847,6 @@ Note that this listed in reverse order -- reverse of the order in which the func
 
 In a more complex system, this can be VERY useful -- learn to read tracebacks!
 
-
 Functions: ``return``
 ---------------------
 
@@ -940,8 +859,7 @@ This is actually the simplest possible function:
     def fun():
         return None
 
-
-If you don't explicitly put ``return``  there, Python will return ``None``:
+If you don't explicitly put ``return`` there, Python will return ``None``:
 
 .. code-block:: ipython
 
@@ -962,7 +880,7 @@ Only one return statement in a function will ever be executed.
 
 Ever.
 
-Anything after an executed return statement will never get run.
+Any statements in the function that come after a return statement will never get run.
 
 This is useful when debugging!
 
@@ -976,7 +894,6 @@ This is useful when debugging!
     In [15]: no_error()
     Out[15]: 'done'
 
-
 However, functions *can* return multiple results:
 
 .. code-block:: ipython
@@ -986,7 +903,6 @@ However, functions *can* return multiple results:
        ....:
     In [17]: fun()
     Out[17]: (1, 2, 3)
-
 
 Remember multiple assignment?
 
@@ -1004,8 +920,7 @@ Remember multiple assignment?
 Functions: parameters
 ---------------------
 
-In a ``def`` statement, the values written *inside* the parens are
-**parameters**
+In a ``def`` statement, the values written *inside* the parentheses are **parameters**.
 
 .. code-block:: ipython
 
@@ -1016,12 +931,10 @@ In a ``def`` statement, the values written *inside* the parens are
 
 x, y, z are *local* names -- so is q
 
-
 Functions: arguments
 --------------------
 
-When you call a function, you pass values to the function parameters as
-**arguments**
+When you call a function, you pass values to the function parameters as **arguments**.
 
 .. code-block:: ipython
 
@@ -1033,7 +946,7 @@ The values you pass in are *bound* to the names inside the function and used.
 The name used outside the object is separate from the name used inside the function.
 
 Making a Decision
-------------------
+-----------------
 
 **"Conditionals"**
 
@@ -1061,7 +974,6 @@ In order to do anything interesting at all, you need to be able to write code to
     that number won't do!
 
 There is more to it than that, but this will get you started.
-
 
 What's the difference between these two?
 
@@ -1092,7 +1004,7 @@ To make a list literal you use square brackets and commas between the items:
     a_list = [2,3,5,9]
     a_list_of_strings = ['this', 'that', 'the', 'other']
 
-You can put any type of object in a list...
+You can put any type of object in a list.
 
 Lists are a key Python data type with lots of functionality that we will get into later.
 
@@ -1119,7 +1031,7 @@ When you need to do something to all the objects in a sequence:
 ``range()`` and for
 -------------------
 
-``range`` builds sequences of numbers automatically
+``range`` builds sequences of numbers automatically.
 
 Use it when you need to do something a set number of times:
 
@@ -1131,16 +1043,14 @@ Use it when you need to do something a set number of times:
        ....:
     * * * *
 
-NOTE: ``range(n)`` creates an "iterable" -- something you can loop over.
-We will cover iterables in greater depth in a later lesson.
+NOTE: ``range(n)`` creates an "iterable" -- something you can loop over. We will cover iterables in greater depth in a later lesson.
 
 ``assert``
 ----------
 
-Writing ``tests`` that demonstrate that your program works is an important part of learning to program.
+Writing tests that demonstrate that your program works is an important part of learning to program.
 
-The Python ``assert`` statement is useful in writing simple tests:
-for your code.
+The Python ``assert`` statement is useful in writing simple tests for your code.
 
 .. code-block:: ipython
 
@@ -1159,7 +1069,6 @@ for your code.
 
     AssertionError:
 
-
 Intricacies
 ------------
 
@@ -1168,7 +1077,6 @@ This is enough to get you started.
 Each of the feature we have covered has intricacies special to Python.
 
 We'll get to those over the next couple of lessons -- or really, the rest of the program!
-
 
 Enough For Now
 --------------

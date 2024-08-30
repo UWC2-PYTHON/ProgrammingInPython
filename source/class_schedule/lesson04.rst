@@ -4,7 +4,6 @@
 Session 4: Dictionaries and Sets and Unit Testing
 #################################################
 
-
 Readings
 ========
 
@@ -17,19 +16,19 @@ Readings
     ../modules/Testing
     ../modules/TestDrivenDevelopment
 
-Recommended Additional Reading
-------------------------------
+Supplemental Reading
+--------------------
 
-* Think Python: Chapters 11, 13, 14
+* Think Python -- Chapter 10
 
-* Dive Into Python3: Sections 2.6, 2.7, 4, 11
+    - https://greenteapress.com/wp/think-python-3rd-edition/
 
-http://www.diveintopython3.net/native-datatypes.html#dictionaries
+* Dive Into Python3 -- Chapter 9
 
+    - https://diveintopython3.net
 
-
-Exercises:
-==========
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1

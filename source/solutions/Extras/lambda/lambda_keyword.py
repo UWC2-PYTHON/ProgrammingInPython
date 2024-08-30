@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 def function_builder(n):
     # l = []
@@ -5,6 +6,6 @@ def function_builder(n):
     #     def f(x, inc=i):
     #         return x + inc
     #     l.append(f)
-        # l.append(lambda x, inc=i: x + inc)
+    #     l.append(lambda x, inc=i: x + inc)
     # return l
     return [lambda x, inc=i: x + inc for i in range(n)]

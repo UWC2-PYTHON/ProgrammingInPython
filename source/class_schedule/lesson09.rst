@@ -4,7 +4,6 @@
 Session 9: Static and class methods: multiple inheritance
 #########################################################
 
-
 Readings
 ========
 
@@ -13,8 +12,8 @@ Readings
 
     ../modules/MultipleInheritance
 
-Supplemental Readings
----------------------
+Supplemental Reading
+--------------------
 
 Multiple Inheritance and the Diamond Problem
 ............................................
@@ -28,13 +27,12 @@ Method Resolution Order
 
 If you really want to understand the way it works:
 
-https://www.python.org/download/releases/2.3/mro/
+https://docs.python.org/3/howto/mro.html
 
 http://python-history.blogspot.com/2010/06/method-resolution-order.html
 
-
-Exercises:
-==========
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1

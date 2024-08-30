@@ -4,36 +4,34 @@
 Closures and Function Currying
 ##############################
 
-Defining specialized functions on the fly.
-
 A "Closure" is a fancy CS term that can be very hard to understand. Partly because they are expressed a little differently in every computer language that supports them But this is easiest definition I could find:
 
     Closure is when a function “remembers” its lexical scope even when the function is executed outside that lexical scope
 
-This definition is provided by Kyle Simpson
-(by way of `an article about closures in Javascript <https://medium.com/beginners-guide-to-mobile-web-development/closures-in-functional-programming-and-javascript-3ed730e08fc2>`_).
+This definition is provided by Kyle Simpson by way of `an article about closures in Javascript <https://medium.com/beginners-guide-to-mobile-web-development/closures-in-functional-programming-and-javascript-3ed730e08fc2>`_).
 
-The basic idea behind the concept of a closure lies in the understanding of the fact that closure is a mechanism by which an inner function will have access to the variables defined in its outer function’s lexical scope even after the outer function has returned.
+The basic idea behind the concept of a closure lies in the understanding of the fact that a closure is a mechanism by which an inner function will have access to the variables defined in its outer function's lexical scope even after the outer function has returned.
 
-Which brings us to the key practical part of how this works in Python:
-
+Which brings us to the key practical part of how this works in Python.
 
 Scope
 =====
 
 In order to get a handle on all this, it's important to understand variable scoping rules in Python.
 
-"Scope" is the word for `where` the names in your code are accessible. Another word for a scope is namespace.
+"Scope" is the word for *where* the names in your code are accessible. Another word for a scope is namespace.
 
 Global Scope
 ------------
 
-The simplest is the global scope. This is where all the names defined right in your code file (module) are. When running in an interactive interpreter,  it is in the global namespace as well.
+The simplest scope is the global scope. This is where all the names defined right in your code file (module) are. When running in an interactive interpreter, it is in the global namespace as well.
 
-You can get the global namespace with the ``globals()`` function, but ...
+You can get the global namespace with the ``globals()`` function, but...
 
 The Python interpreter defines a handful of names when it starts up, and iPython defines a whole bunch more.
+
 Recall that a convention in Python is that names that start with an underscore are "special" in some way -- double underscore names have a special meaning to Python, and single underscore names are considered "private".
+
 Most of the extra names defined by the Python interpreter or iPython that are designed for internal use start with an underscore. These can really "clutter up" the namespace, but they can be filtered out for a more reasonable result:
 
 .. code-block:: python
@@ -75,7 +73,7 @@ If we add a name or two, they show up in the global scope:
     x
     this
 
-names are created by assignment, and by ``def`` and ``class`` statements. We already saw a ``def``, here is a ``class`` definition.
+Names are created by assignment, and by ``def`` and ``class`` statements. We already saw a ``def``. Here is a ``class`` definition.
 
 .. code-block:: ipython
 
@@ -90,15 +88,14 @@ names are created by assignment, and by ``def`` and ``class`` statements. We alr
     test
     TestClass
 
-Always keep in mind that in Python, "global" means "global to the module", *not* global to the entire program. In the case of the interactive interpreter, the module is the "__main__" module (remember ``if __name__ == __main__:``?). But in a particular python file (usually one file is one module), the global scope is global to that one file.
-
+Always keep in mind that in Python, "global" means "global to the module", *not* global to the entire program. In the case of the interactive interpreter, the module is the ``__main__`` module (remember ``if __name__ == __main__:``?). But in a particular python file (usually one file is one module), the global scope is global to that one file.
 
 Local Scope
 -----------
 
-So that's the global scope -- what creates a new scope?
+So that's the global scope. What creates a new scope?
 
-A new, "local" scope is created by a function or class definition:
+A new, "local" scope is created by a function or class definition.
 
 There is a built-in function to get the names in the local scope, too, so we can use it to show us the names in a function's local namespace. There isn't a lot of cruft in the local namespace, so we don't need a special function to print it.
 
@@ -107,10 +104,10 @@ Note that ``locals()`` and ``globals()`` returns a dict of the names and the obj
 .. code-block:: ipython
 
     In [15]: def test():
-    ...:     x = 5
-    ...:     y = 6
-    ...:     print(locals().keys())
-    ...:
+        ...:     x = 5
+        ...:     y = 6
+        ...:     print(locals().keys())
+        ...:
 
     In [16]: test()
     dict_keys(['y', 'x'])
@@ -130,7 +127,7 @@ Similarly a class definition does the same thing:
         ...:
     dict_keys(['__module__', '__qualname__', 'this', 'z', '__init__'])
 
-Interesting -- that print statement ran when the class was defined...
+Interesting -- that print statement ran when the class was defined.
 
 But you see that class attributes are there, as is the ``__init__`` function.
 
@@ -159,7 +156,6 @@ Function Parameters
 
 The other way you can define names in a function's local namespace is with function parameters:
 
-
 .. code-block:: ipython
 
     In [14]: def fun_with_parameters(a, b=0):
@@ -172,14 +168,10 @@ The other way you can define names in a function's local namespace is with funct
 
 Notice that no other names have been defined in the function, but both of the parameters (positional and keyword) are local names.
 
-
 Finding Names
 -------------
 
-At any point, there are multiple scopes in play: the local scope, and all the surrounding scopes.
-When you use a name, python checks in the local scope first, then moves out one by one until it finds the name.
-If you define a new name inside a function, it "overrides" the name in any of the outer scopes.
-But any names not defined in an inner scope will be found by looking in the enclosing scopes.
+At any point, there are multiple scopes in play: the local scope, and all the surrounding scopes. When you use a name, python checks in the local scope first, then moves out one by one until it finds the name. If you define a new name inside a function, it "overrides" the name in any of the outer scopes. But any names not defined in an inner scope will be found by looking in the enclosing scopes.
 
 .. code-block:: ipython
 
@@ -202,7 +194,7 @@ But any names not defined in an inner scope will be found by looking in the encl
     this is in outer
     this is in inner
 
-Look carefully to see where each of those names came from. All the print statements are in the inner function, so its local scope is searched first, and then the outer function's scope, and then the global scope. ``name1`` is only defined in the global scope, so that one is found. but ``name2`` is redfined in the scope of the ``outer`` function, so that one is found. And ``name3`` is only defined in the ``inner`` function scope.
+Look carefully to see where each of those names came from. All the print statements are in the inner function, so its local scope is searched first, and then the outer function's scope, and then the global scope. ``name1`` is only defined in the global scope, so that one is found. but ``name2`` is redefined in the scope of the ``outer`` function, so that one is found. And ``name3`` is only defined in the ``inner`` function scope.
 
 The ``global`` keyword
 ----------------------
@@ -249,8 +241,7 @@ The ``global`` keyword tells python that you want to use the global name, rather
     In [42]: x
     Out[42]: 10
 
-**NOTE:** The use of ``global`` is frowned upon -- having global variables manipulated in arbitrary other scopes makes for buggy, hard to maintain code! You hardly ever need to use ``global`` -- if a function needs to manipulate a value, you should pass that value into the function, or have it return a value that can then be used to change the global name.
-
+**NOTE:** The use of ``global`` is frowned upon -- having global variables manipulated arbitrarily other scopes makes for buggy, hard to maintain code! You hardly ever need to use ``global`` -- if a function needs to manipulate a value, you should pass that value into the function, or have it return a value that can then be used to change the global name.
 
 ``nonlocal`` keyword
 --------------------
@@ -302,8 +293,7 @@ But if we use ``global``, we'll get the global ``x``:
 
 This indicates that the global ``x`` is getting changed, but not the one in the ``outer`` scope.
 
-This is enough of a limitation that Python 3 added a new keyword: ``nonlocal``.
-What it means is that the name should be looked for outside the local scope, but only as far as you need to go to find it:
+This is enough of a limitation that Python 3 added a new keyword: ``nonlocal``. What it means is that the name should be looked for outside the local scope, but only as far as you need to go to find it:
 
 .. code-block:: ipython
 
@@ -355,7 +345,6 @@ But it will go up multiple levels in nested scopes:
     In [17]: outer()
     x in outer is: 20
 
-
 Closures
 ========
 
@@ -367,11 +356,10 @@ Now that we have a good handle on namespace scope, we can get to see why this is
 
 But I have trouble following that, so we'll look at real world examples to get the idea -- it's actually pretty logical, once you have idea about how scope works in Python.
 
-
 Functions Within Functions
 --------------------------
 
-We've been defining functions within functions to explore namespace scope.  But functions are "first class objects" in python, so we can not only define them and call them, but we can assign names to them and pass them around like any other object.
+We've been defining functions within functions to explore namespace scope. But functions are "first class objects" in python, so we can not only define them and call them, but we can assign names to them and pass them around like any other object.
 
 So after we define a function within a function, we can actually return that function as an object:
 
@@ -437,7 +425,7 @@ But what happens if we call ``counter()`` multiple times?
 
 So each time ``counter()`` is called, a new ``incr`` function is created. Along with the new function, a new namespace is created that holds the ``count`` name. So the new ``incr`` function is holding a reference to that new ``count`` name.
 
-This is what makes it a "closure" -- it carries with it the scope in which it was created (or enclosed - I guess that's where the word closure comes from).
+This is what makes it a "closure" -- it carries with it the scope in which it was created or enclosed - I guess that's where the word closure comes from.
 
 The returned ``incr`` function is a "curried" function -- a function with some parameters pre-specified.
 
@@ -453,7 +441,6 @@ Currying
 `Currying on Wikipedia <https://en.wikipedia.org/wiki/Currying>`_
 
 The idea behind currying is that you may have a function with a number of parameters, and you want to make a specialized version of that function with a couple of parameters pre-set.
-
 
 Real world Example
 ------------------
@@ -554,7 +541,7 @@ And it can be used with ``map``, too:
 
 The ``functools`` module in the standard library provides utilities for working with functions:
 
-https://docs.python.org/3.5/library/functools.html
+https://docs.python.org/3/library/functools.html
 
 Creating a curried function turns out to be common enough that the ``functools.partial`` function provides an optimized way to do it:
 
@@ -579,3 +566,5 @@ We can use ``functools.partial`` to *partially* evaluate the function, giving us
 
     square = partial(power, exponent=2)
     cube = partial(power, exponent=3)
+
+And now you can call ``square`` and ``cube`` with a single argument rather than multiple arguments.

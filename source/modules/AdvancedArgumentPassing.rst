@@ -9,7 +9,7 @@ This is a very, very nifty Python feature -- it really lets you write dynamic pr
 Keyword arguments
 =================
 
-When defining a function, you can specify only what you need -- in any order
+When defining a function, you can specify only what you need -- in any order.
 
 .. code-block:: ipython
 
@@ -49,7 +49,7 @@ Can set defaults to variables
     x is: 4
 
 
-Defaults are evaluated when the function is defined
+Defaults are evaluated when the function is defined.
 
 .. code-block:: ipython
 
@@ -63,8 +63,7 @@ Defaults are evaluated when the function is defined
     In [160]: fun()
     x is: 4
 
-This is a **very** important point.
-
+This is a **very** important point that we will go into more later.
 
 Function arguments in variables
 -------------------------------
@@ -101,13 +100,12 @@ You can also pull the parameters out in the function as a tuple and a dict:
     the positional arguments are: (2, 3)
     the keyword arguments are: {'this': 5, 'that': 7}
 
-This can be very powerful...
+This can be very powerful.
 
 Passing a dict to str.format()
 -------------------------------
 
-Now that you know that keyword args are really a dict,
-you know how this nifty trick works:
+Now that you know that keyword args are really a dict, you know how this nifty trick works:
 
 The string ``format()`` method takes keyword arguments:
 
@@ -122,7 +120,7 @@ Build a dict of the keys and values:
 
     In [25]: d = {"last":"Barker", "first":"Chris"}
 
-And pass to ``format()`` with ``**``
+And pass to ``format()`` with ``**``.
 
 .. code-block:: ipython
 
@@ -178,7 +176,7 @@ But all four can be passed as either positional or keyword arguments:
     In [22]: fun(pos1=1, pos2=2, key1=3, key2=4)
     1 2 3 4
 
-or out of order:
+Or out of order:
 
 .. code-block:: ipython
 
@@ -197,7 +195,7 @@ And the positional arguments are all required:
 
     TypeError: fun() missing 1 required positional argument: 'pos2'
 
-**But:**  Notice that you can either have a required argument with no keyword, or an optional argument with a keyword (and a default). And keyword arguments can also be passed as positional arguments.
+**But:**  Notice that you can either have a required argument with no keyword, or an optional argument with a keyword and a default. And keyword arguments can also be passed as positional arguments.
 
 This was considered less than ideal -- with some APIs, you want to require a keyword be used -- and you may have a required argument that you want users to pass as a keyword (rather than positional) argument.
 
@@ -265,7 +263,7 @@ So you HAVE to provide it, and you HAVE to provide it as a keyword argument.
 What about ``*args``?
 ---------------------
 
-Asside from allowing keyword-only paramters with or without defaults, a key addition is that you can now have variable numbers of positional arguments, without them getting confused with the keyword arguments:
+Aside from allowing keyword-only parameters with or without defaults, a key addition is that you can now have variable numbers of positional arguments, without them getting confused with the keyword arguments:
 
 .. code-block:: python
 
@@ -303,7 +301,7 @@ So for ALL the features in one function:
     In [42]: fun(1,2,3,4, this='that', fred='bob')
     1 2 (3, 4) this {'this': 'that', 'fred': 'bob'}
 
-or:
+Or:
 
 .. code-block:: ipython
 
@@ -314,4 +312,4 @@ or:
     In [46]: fun(*args, **kwargs)
     1 2 (3, 4) this {'this': 'that', 'fred': 'bob'}
 
-Lots of Flexibility!!
+Lots of flexibility!

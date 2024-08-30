@@ -1,41 +1,41 @@
-def sum13(l):
+def sum13(x):
     tot = 0
     prev = 0
-    for i in range(len(l)):
-        if l[i] != 13 and prev != 13:
-            tot += l[i]
-        prev = l[i]
+    for i in range(len(x)):
+        if x[i] != 13 and prev != 13:
+            tot += x[i]
+        prev = x[i]
     return tot
 
 
-# def sum13(l):
+# def sum13(x):
 #     prev, tot = 0, 0
-#     for i in l:
+#     for i in x:
 #         if i != 13 and prev != 13:
 #             tot += i
 #         prev = i
 #     return tot
 
 
-# def sum13(l):
+# def sum13(x):
 #     tot = 0
 #     i = 0
-#     while i < len(l):
-#         if l[i] != 13:
-#             tot += l[i]
+#     while i < len(x):
+#         if x[i] != 13:
+#             tot += x[i]
 #             i += 1
 #         else:
 #             i += 2
 #     return tot
 
 
-# def sum13(l):
+# def sum13(x):
 #     tot = 0
-#     l_iter = iter(l)
-#     for i in l_iter:
+#     x_iter = iter(x)
+#     for i in x_iter:
 #         if i == 13:
 #             try:
-#                 next(l_iter)
+#                 next(x_iter)
 #             except StopIteration:
 #                 break
 #         else:

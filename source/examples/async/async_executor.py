@@ -44,7 +44,8 @@ def slow_function(duration):
 
 
 # get a loop going:
-loop = asyncio.get_event_loop()
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
 
 # or add tasks to the loop like this:
 loop.create_task(small_task(1))

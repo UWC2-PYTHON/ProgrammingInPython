@@ -39,12 +39,13 @@ author_list = ["Natasha Aleksandrova",
                "Rick Riehle",
                "Joseph Schilz",
                "Joseph Sheedy",
-               "Hosung Song"
+               "Hosung Song",
+               "Paul Lockaby"
                ]
 
 author = ", ".join(sorted(author_list, key=lambda n: n.split()[-1]))
 
-copyright = ("2020, University of Washington, {}. "
+copyright = ("2020, 2024, University of Washington, {}. "
              "Creative Commons Attribution-ShareAlike 4.0 license".format(author)
              ).format(author)
 

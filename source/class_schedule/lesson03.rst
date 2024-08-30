@@ -7,8 +7,8 @@ Session 3: Booleans, Sequences, Iteration, and Strings
 **Booleans, Sequences, Iteration, and Strings**
 
 
-Readings:
-=========
+Readings
+========
 
 .. toctree::
     :maxdepth: 1
@@ -18,8 +18,19 @@ Readings:
     ../modules/Iteration
     ../modules/Strings
 
-Exercises:
-==========
+Supplemental Reading
+--------------------
+
+* Think Python -- Chapters 7, 8, 9 and 11
+
+    - https://greenteapress.com/wp/think-python-3rd-edition/
+
+* Dive Into Python - Chapter 4
+
+    - https://diveintopython3.net
+
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1
@@ -37,15 +48,3 @@ Optional
     :maxdepth: 1
 
     ../exercises/rot13.rst
-
-
-Supplemental Reading:
----------------------
-
-Think Python, chapters 7 -- 10 (11, 12)
-
-(http://greenteapress.com/thinkpython/html/thinkpython008.html)
-
-Dive Into Python: chapters 3, 4
-
-(http://www.diveintopython3.net/strings.html)

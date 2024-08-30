@@ -1,58 +1,28 @@
-:orphan:
-
 .. _debugging:
 
 #########
 Debugging
 #########
 
-System Development with Python
-
-- Maria McKinley
-
-
-``parody@uw.edu``
-
-
-Topics
-######
-
-
--  The call stack
--  Exceptions
--  Debugging
-
-
 The Call Stack
 --------------
 
--  A stack is a Last-In-First-Out (LIFO) data structure (stack of plates)
--  The call stack is a stack data structure that stores information
-   about the current active function calls
--  The objects in the stack are known as "stack frames". Each frame
-   contains the arguments passed to the function, space for local
-   variables, and the return address
--  It is usually (unintuitively) displayed like an upside-down stack of
-   plates, with most recent frame on the bottom.
--  When a function is called, a stack frame is created for it and pushed
-   onto the stack
--  When a function returns, it is popped off the stack and control is
-   passed to the next item in the stack. If the stack is empty, the
-   program exits
+-  A stack is a Last-In-First-Out (LIFO) data structure, kind of like a stack of plates.
+-  The call stack is a stack data structure that stores information about the current active function calls.
+-  The objects in the stack are known as "stack frames". Each frame contains the arguments passed to the function, space for local variables, and the return address.
+-  It is usually (unintuitively) displayed like an upside-down stack of plates, with most recent frame on the bottom.
+-  When a function is called, a stack frame is created for it and pushed onto the stack.
+-  When a function returns, it is popped off the stack and control is passed to the next item in the stack. If the stack is empty, the program exits.
 
-http://www.pythontutor.com/visualize.html#mode=edit
-
-
-Visualize the stack!
---------------------
+Visualize the Stack
+-------------------
 
 .. image:: /_static/program_callstack.png
    :height: 580 px
 
+How deep can that stack be? Let's find out.
 
-.. rubric:: How deep can that stack be?
-
-::
+.. code-block:: python
 
     i = 0
 
@@ -64,11 +34,11 @@ Visualize the stack!
 
     recurse()
 
+That maximum stack depth value can be changed with ``sys.setrecursionlimit(N)``.
 
-That value can be changed with sys.setrecursionlimit(N)
+See: https://docs.python.org/3/library/sys.html#sys.setrecursionlimit.
 
-If we try to put more than sys.getrecursionlimit() frames on the stack, we get a RecursionError (derived from RuntimeError), which is python's version of StackOverflow
-
+If we try to put more than ``sys.getrecursionlimit()`` frames on the stack, we get a ``RecursionError`` (derived from ``RuntimeError``), which is Python's version of the Java's StackOverflowError.
 
 .. code-block:: ipython
 
@@ -84,48 +54,39 @@ If we try to put more than sys.getrecursionlimit() frames on the stack, we get a
 
     recurse(3)
 
-
-module https://docs.python.org/3/library/inspect.html
-
-more on recursion http://www.mariakathryn.net/Blog/60
-
-
 Exceptions
 ----------
 
-It's easier to ask for forgiveness than permission (Grace Hopper)
+  Ask forgiveness, not permission.
 
-When either the interpreter or your own code detects an error condition,
-an exception will be raised
+  -- Grace Hopper
 
-The exception will bubble up the call stack until it is handled. If it's
-not handled anywhere in the stack, the interpreter will exit the program.
+When either the interpreter or your own code detects an error condition then an exception will be raised.
 
+The exception will bubble up the call stack until it is handled. If it's not handled anywhere in the stack, the interpreter will exit the program.
 
 At each level in the stack, a handler can either:
 
--  let it bubble through (the default if no handler)
--  swallow the exception (the default for a handler)
--  catch the exception and raise it again
--  catch the exception and raise a new one
+- Let it bubble through. This is the default if no handler is found.
+- Swallow the exception. This is the default for a handler.
+- Catch the exception and raise it again.
+- Catch the exception and raise a new one.
 
-
-Handling exceptions
+Handling Exceptions
 -------------------
 
-The most basic form uses the builtins try and except
+The most basic form uses the built-ins ``try`` and ``except``.
 
 ::
 
     def temp_f_to_c(var):
         try:
-	    return(float(var) - 32)/1.8000
+	          return(float(var) - 32)/1.8000
         except ValueError as e:
             print("The argument does not contain numbers\n", e)
 
-
-A few more builtins for exception handling: finally, else, and raise
---------------------------------------------------------------------
+``finally``, ``else``, and ``raise``
+------------------------------------
 
 .. code-block:: python
 
@@ -136,10 +97,11 @@ A few more builtins for exception handling: finally, else, and raise
         result = x / y
     except (ZeroDivisionError, ValueError) as e:
         print("caught division error or maybe a value error:\n", e)
-    except Exception as e:  # only do this if absolutely necessary, or if planning to re-raise
+    except Exception as e:
+        # only catch "Exception" if absolutely necessary, or if planning to re-raise
         errors = e.args
-        print("Error({0})".format(errors))
-    # or you can just print e
+        print(f"Error({errors})")
+        # or you can just print e
         print("unhandled, unexpected exception:\n", e)
         raise
     else:
@@ -147,95 +109,87 @@ A few more builtins for exception handling: finally, else, and raise
         print("errors here will not be caught by above excepts")
     finally:
         print("this is executed no matter what")
-    print('this is only printed if there is no uncaught exception')
-
+    print("this is only printed if there is no uncaught exception")
 
 It is even possible to use a try block without the exception clause:
 
-::
+.. code-block:: python
 
     try:
         5/0
     finally:
-        print('did it work? why would you do this?')
+        print("did it work? why would you do this?"")
 
 
-.. rubric:: Built-in exceptions
-   :name: built-in-exceptions
+Built-in Exceptions
+-------------------
 
-::
+.. code-block:: python
 
     [name for name in dir(__builtin__) if "Error" in name]
 
+If one of these meets your needs, by all means use it. You can add messages to them, too:
 
-If one of these meets your needs, by all means use it. You can add messages:
-
-::
+.. code-block:: python
 
     raise SyntaxError("That was a mispelling")
 
-If no builtin exceptions work, define a new exception type by subclassing Exception.
+If no built-in exceptions work, define a new exception type by subclassing ``Exception``.
 
-::
+.. code-block:: python
 
     class MyException(Exception):
         pass
 
     raise MyException("An exception doesn't always prove the rule!")
 
-It is possible, but discouraged to catch all exceptions.
+It is possible, but discouraged to catch all exceptions. Seriously, do not do this.
 
-::
+.. code-block:: python
 
     try:
-	my_cool_code()
-    except:
-        print('no idea what the exceptions is, but I caught it')
+	      my_cool_code()
+    except:  # bad! do not do this!
+        print("no idea what the exceptions is, but I caught it")
 
+An exception to this exception rule is when you are running a service that should not ever crash, like a web server. In this case, it is extremely important to have very good logging so that you have reports of exactly what happened and what exception would have been thrown. But it's important to always catch at least the `Exception` exception.
 
-An exception to this exception rule is when you are running a service that should not ever crash,
-like a web server. In this case, it is extremely important to have very good logging so that you
-have reports of exactly what happened and what exception would have been thrown.
+.. code-block:: python
 
+    try:
+	      my_cool_code()
+    except Exception:  # ok! this is safe but not recommended
+        print("no idea what the exceptions is, but I caught it")
 
-.. rubric:: Further reading
-   :name: further-reading
-
--  http://docs.python.org/3/library/exceptions.html
--  http://docs.python.org/3/tutorial/errors.html
-
+- http://docs.python.org/3/library/exceptions.html
+- http://docs.python.org/3/tutorial/errors.html
 
 Debugging
 ---------
 
-.. rubric:: Python Debugging
-   :name: python-debugging
-
 - You will spend most of your time as a developer debugging.
 - You will spend more time than you expect on google.
 - Small, tested functions are easier to debug.
-- Find a bug, make a test, so it doesn't come back
-
+- If you find a bug then make a test to prove that you fixed it and so that it doesn't come back.
 
 Tools
 .....
 
--  interpreter hints
--  print()
--  logging
--  assert()
--  tests
--  debuggers
-
+- interpreter hints
+- print()
+- logging
+- assert()
+- tests
+- debuggers
 
 The Stack Trace
 ...............
 
-You already know what it looks like. Simple traceback:
+You already know what it looks like. Here is a simple traceback:
 
-::
+.. code-block:: bash
 
-    maria$ python3 define.py python
+    $ python3 define.py python
     Traceback (most recent call last):
       File "define.py", line 15, in <module>
         definition = Definitions.article(title)
@@ -247,165 +201,134 @@ You already know what it looks like. Simple traceback:
 
 But things can quickly get complicated. You may have already run into stacktraces that go on for a 50 lines or more.
 
+Helpful Hints for Stacktraces
+.............................
 
-Some helpful hints with stacktraces:
-....................................
-
-- May seem obvious, but... Read it carefully!
+- It may seem obvious, but read it carefully!
 - What is the error? Try reading it aloud.
 - The first place to look is the bottom.
 - Trace will show the line number and file of exception/calling functions.
-- More than likely the error is in your code, not established packages
-  - look at lines in your code mentioned in the stacktrace first
-  - Sometimes that error was triggered by something else, and you need to look higher. (probably more than one file in the stacktrace is your code)
+- More than likely the error is in your code, not established packages.
+  - Look at lines in your code mentioned in the stacktrace first.
+  - Sometimes that error was triggered by something else, and you need to look higher. (Probably more than one file in the stacktrace is your code.)
 
-
-If that fails you...
+If that fails you:
 
 - Make sure the code you think is executing is really executing.
-- Simplify your code (smallest code that causes bug).
-- Debugger
-- Save (and print) intermediate results from long expressions
-- Try out bits of code at the command line
+- Simplify your code to the smallest code that causes bug.
+- Pull out a debugger, possibly from your IDE.
+- Save and ``print`` intermediate results from long expressions.
+- Try out bits of code at the command line.
 
-If all else fails...
+If all else fails then write out an email that describes the problem:
 
-Write out an email that describes the problem:
+- Include the stacktrace.
+- Include steps you have taken to find the bug.
+- Include the relative function of your code.
 
-- include the stacktrace
-- include steps you have taken to find the bug
-- inlude the relative function of your code
-
-Often after writing out this email, you will realize what you forgot to check, and more often than not, this will happen just after you hit send. Good places to send these emails are other people on same project and mailing list for software package. For the purpose of this class, of course, copy it into slack or the class email list.
-
+Often, after writing out this email, you will realize what you forgot to check, and more often than not, this will happen just after you hit send. Good places to send these emails are other people on same project and mailing list for software package. For the purpose of this class, of course, copy it into Slack or the class email list.
 
 Print
 .....
 
-- print("my_module.py: my_variable: ", my_variable)
-- can use print statements to make sure you are editing a file in the stack
-
+- ``print("my_module.py: my_variable: ", my_variable)``
+- You can use print statements to make sure you are editing a file in the stack.
 
 Console Debuggers
 .................
 
 -  pdb/ipdb
 
-GUI debuggers (more about these below)
-......................................
+GUI debuggers
+.............
 
--  Winpdb
 -  IDEs: Eclipse, Wing IDE, PyCharm, Visual Studio Code
 
-.. rubric:: help from the interpreter
-   :name: help-from-the-interpreter
+Use the Interpreter
+...................
 
-1. investigate import issues with -v:
+Investigate import issues with ``-v``. This will give you a very verbose output of everything being imported and more.
 
-::
+.. code-block:: bash
 
-    python -v myscript.py
+    $ python -v myscript.py
 
+Inspect environment after running script with ``-i``. This will dump you into a Python REPL after the program exits so you can see what the environment looked like at the time of death.
 
-Verbose (trace import statements)
+.. code-block:: bash
 
+    $ python -i myscript.py
 
-2. inspect environment after running script with -i
+Other useful tools for debugging include:
 
-::
+- If you are using IPython, ``who`` will list all currently defined variables.
+- ``locals()``
+- ``globals()``
+- ``dir()``
 
-    python -i myscript.py
+``pdb`` - The Python Debugger
+-----------------------------
 
+See: https://docs.python.org/3/library/pdb.html
 
-Forces interpreter to remain active, and still in scope
+Pros:
 
-Useful tools from interpreter:
-..............................
+- You have it already, ships with the standard library.
+- Works with any development environment.
 
-- In IPython, 'who' will list all currently defined variables
-- locals()
-- globals()
-- dir()
+Cons:
 
-.. rubric:: `Pdb - The Python
-   Debugger <http://docs.python.org/2/library/pdb.html>`__
-   :name: pdb---the-python-debugger
+- Steep-ish learning curve.
+- Easy to get lost in a deep stack.
+- Watching variables isn't hard, but non-trivial.
 
-.. rubric:: Pros:
+The Four Ways of Invoking ``pdb``
+.................................
 
--  You have it already, ships with the standard library
--  Easy remote debugging (since it is non-graphical, see remote-pdb for true remote debugging)
--  Works with any development environment
+- Postmortem mode
+- Run mode
+- Script mode
+- Trace mode
 
-.. rubric:: Cons:
+Note: in most cases where you see the word 'pdb' in the examples, you can replace it with 'ipdb'. ipdb is the ipython enhanced version of pdb which is mostly compatible, and generally easier to work with. But it doesn't ship with Python.
 
--  Steep-ish learning curve
--  Easy to get lost in a deep stack
--  Watching variables isn't hard, but non-trivial
+Postmortem Mode
+...............
 
-.. rubric:: `Pdb - The Python Debugger <https://docs.python.org/3.7/library/pdb.html>`_
+This mode is For analyzing crashes due to uncaught exceptions.
 
-The 4-fold ways of invoking pdb
-...............................
+.. code-block:: bash
 
--  Postmortem mode
--  Run mode
--  Script mode
--  Trace mode
+    $ python -i script.py
+    >>> import pdb; pdb.pm()
 
-Note: in most cases where you see the word 'pdb' in the examples, you
-can replace it with 'ipdb'. ipdb is the ipython enhanced version of pdb
-which is mostly compatible, and generally easier to work with. But it
-doesn't ship with Python.
+Run Mode
+........
 
-.. rubric:: Postmortem mode
-   :name: postmortem-mode
+.. code-block:: python
 
-For analyzing crashes due to uncaught exceptions
+    pdb.run("some.expression()"")
 
-::
+Script Mode
+...........
 
-  python -i script.py
-  import pdb; pdb.pm()
+.. code-block:: bash
 
-More info on using Postmortem mode:
+    $ python -m pdb script.py
 
-http://www.almarklein.org/pm-debugging.html
+Trace Mode
+..........
 
-.. rubric:: Run mode
-   :name: run-mode
+Insert the following line into your code where you want execution to halt:
 
-::
-
-  pdb.run('some.expression()')
-
-.. rubric:: Script mode
-   :name: script-mode
-
-::
-
-  python -m pdb script.py
-
-
-"-m [module]" finds [module] in sys.path and executes it as a script
-
-
-.. rubric:: Trace mode
-   :name: trace-mode
-
-Insert the following line into your code where you want execution to
-halt:
-
-::
+.. code-block:: python
 
   import pdb; pdb.set_trace()
 
+It's not always OK or possible to modify your code in order to debug it, but this is often the quickest way to begin inspecting state.
 
-It's not always OK/possible to modify your code in order to debug it,
-but this is often the quickest way to begin inspecting state
-
-.. rubric:: pdb in ipython
-   :name: pdb-in-ipython
+``pdb`` in IPython
+..................
 
 .. code-block:: ipython
 
@@ -416,15 +339,12 @@ but this is often the quickest way to begin inspecting state
 
     # now halts execution on uncaught exception
 
-If you forget to turn on pdb, the magic command ``%debug`` will activate the
-debugger (in 'post-mortem mode').
+If you forget to turn on pdb, the magic command ``%debug`` will activate the debugger in 'post-mortem mode'.
 
-.. rubric:: Navigating pdb
-   :name: navigating-pdb
+Navigating ``pdb``
+------------------
 
-The goal of each of the preceding techniques was to get to the pdb
-prompt and get to work inspecting state. Most commands can be short-cutted
-to the first letter.
+The goal of each of the preceding techniques was to get to the pdb prompt and get to work inspecting state. Most commands can be shortened to just the first letter.
 
 ::
 
@@ -434,7 +354,7 @@ to the first letter.
     pdb> where  # print stack trace, bottom is most recent command
     pdb> list  # list the code including and surrounding the current running code
 
-To repeat the current command, press only the Enter key
+To repeat the current command, press only the Enter key.
 
 ::
 
@@ -455,9 +375,8 @@ To repeat the current command, press only the Enter key
       # advanced: create commands to be executed on a breakpoint
       pdb> commands
 
-
-.. rubric:: Breakpoints
-   :name: breakpoints
+Breakpoints
+...........
 
 ::
 
@@ -474,9 +393,7 @@ To repeat the current command, press only the Enter key
       hasn't been loaded yet).  The file is searched for on sys.path;
       the .py suffix may be omitted.
 
-
-Can use up, down, where and list to evalutate where you are, and use that to
-set a new breakpoint in code coming up. Useful for getting out of rabbit holes.
+You can use up, down, where, and list to evaluate where you are, and use that to set a new breakpoint in code coming up. This is useful for getting out of rabbit holes.
 
 ::
 
@@ -487,9 +404,7 @@ set a new breakpoint in code coming up. Useful for getting out of rabbit holes.
   # print lines in range
   pdb> list 1,28
 
-
-You can also delete(clear), disable and enable breakpoints
-
+You can also ``clear`` (i.e. delete), ``disable`` and ``enable`` breakpoints.
 
 ::
 
@@ -499,9 +414,8 @@ You can also delete(clear), disable and enable breakpoints
 
   enable [bpnumber [bpnumber...]]
 
-
-.. rubric:: Conditional Breakpoints
-   :name: conditional-breakpoints
+Conditional Breakpoints
+.......................
 
 ::
 
@@ -513,83 +427,43 @@ You can also delete(clear), disable and enable breakpoints
     1   breakpoint   keep yes   at .../pdb_break.py:9
             stop only if j>3
 
-Condition can be used to add a conditional to an existing breakpoint
+The condition can be used to add a conditional to an existing breakpoint.
 
-
-.. rubric:: Invoking pdb with pytest
-
+Invoking ``pdb`` with ``pytest``
+--------------------------------
 
 pytest allows one to drop into the PDB prompt via a command line option::
 
-  pytest --pdb
+    pytest --pdb
 
-This will invoke the Python debugger on every failure.
-Often you might only want to do this for the first failing
-test to understand a certain failure situation::
+This will invoke the Python debugger on every failure. Often you might only want to do this for the first failing test to understand a certain failure situation::
 
-  pytest -x --pdb   # drop to PDB on first failure, then end test session
-  pytest --pdb --maxfail=3  # drop to PDB for first three failures
+    pytest -x --pdb   # drop to PDB on first failure, then end test session
+    pytest --pdb --maxfail=3  # drop to PDB for first three failures
 
-
-Try some debugging! Here is a fun tutorial intro to pdb that someone created:
-
-https://github.com/spiside/pdb-tutorial
+Try some debugging! Here is a fun tutorial intro to pdb that someone created: https://github.com/spiside/pdb-tutorial
 
 
 Python IDEs
 -----------
 
-.. rubric:: PyCharm
+PyCharm
+.......
 
-From JetBrains, --- integrates some of their vast array of development
-tools
+From JetBrains, this integrates some of their vast array of development tools. The free Community Edition (CE) is available. It has great visual debugging support.
 
-Free Community Edition (CE) is available
+Eclipse
+.......
 
-Good visual debugging support
+A multi-language IDE with `Python support <http://pydev.org/>`__.
 
+It has automatic variable and expression watching and supports a lot of debugging features like conditional breakpoints, provided you look in the right places!
 
-.. rubric:: Eclipse
+See: http://pydev.org/manual_adv_debugger.html
 
-A multi-language IDE
+Visual Studio Code
+..................
 
-Python support via http://pydev.org/
+This is not the same as Visual Studio. Visual Studio Code is a much smaller quasi-IDE that has support for Python.
 
-Automatic variable and expression watching
-
-Supports a lot of debugging features like conditional breakpoints,
-provided you look in the right places!
-
-Further reading
-
-http://pydev.org/manual_adv_debugger.html
-
-
-.. rubric:: Visual Studio Code
-
-Visual Studio Code has support for Python
-
-(not the same as the monstrosity that is Visual Studio)
-
-https://code.visualstudio.com/
-
-
-.. rubric:: winpdb
-
-A multi platform Python debugger with threading support
-
-Easier to start up and get debugging::
-
-  winpdb your_app.py
-
-http://winpdb.org/tutorial/WinpdbTutorial.html
-
-
-Remote debugging
-----------------
-
-To debug an application running a different Python, even remotely:
-
-remote-pdb
-
-https://pypi.python.org/pypi/remote-pdb
+See: https://code.visualstudio.com/

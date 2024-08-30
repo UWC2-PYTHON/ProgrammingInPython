@@ -12,6 +12,5 @@ Python itself is very platform independent. The code itself runs the same on all
     python_for_mac
     python_for_windows
     python_for_linux
-    vagrant
 
     git_editor_windows

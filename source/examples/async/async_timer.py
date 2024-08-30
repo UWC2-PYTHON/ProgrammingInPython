@@ -28,15 +28,18 @@ async def display_date(num):
 def shutdown():
     print("shutdown called")
     # you can access the event loop this way:
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     loop.stop()
 
 
+# create the loop
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
 # You register "futures" on the loop this way:
+# NOTE: the loop must exist first
 asyncio.ensure_future(display_date(1))
 asyncio.ensure_future(display_date(2))
-
-loop = asyncio.get_event_loop()
 
 # or add tasks to the loop like this:
 loop.create_task(display_date(3))

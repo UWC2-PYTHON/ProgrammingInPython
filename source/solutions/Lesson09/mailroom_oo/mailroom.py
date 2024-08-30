@@ -316,6 +316,6 @@ def main():
         except KeyError:
             print("error: menu selection is invalid!")
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     main()

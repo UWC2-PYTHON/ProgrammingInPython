@@ -33,6 +33,6 @@ If you are already set up with all this, then go straight here:
 
 :ref:`testing_your_setup`
 
-and give it a try.
+And give it a try...
 
-If you are not sure, then read on ...
+If you are not sure, then read on!

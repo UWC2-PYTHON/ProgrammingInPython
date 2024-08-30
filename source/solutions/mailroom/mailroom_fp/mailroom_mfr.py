@@ -50,15 +50,15 @@ def add_donation(db, donor, contribution):
     # Validate user input as numeric
     try:
         float(contribution)
-    except ValueError as my_except:
-        print("mailroom>> Input validation error: {}".format(my_except))
+    except ValueError as e:
+        print("mailroom>> Input validation error: {}".format(e))
         return None
 
     # Catch embezzlement
     try:
         assert float(contribution) >= 0.0
-    except AssertionError as my_except:
-        print("mailroom>> Donations must be greater than $0.00: {}".format(my_except))
+    except AssertionError as e:
+        print("mailroom>> Donations must be greater than $0.00: {}".format(e))
         return None
 
     if donor in db.keys():
@@ -83,8 +83,8 @@ def multiplier_factory(factor):
     # Catch embezzlement
     try:
         assert int(factor) > 0
-    except AssertionError as my_except:
-        print("mailroom>> Challenge multipliers must be > 0: {}".format(my_except))
+    except AssertionError as e:
+        print("mailroom>> Challenge multipliers must be > 0: {}".format(e))
         return None
 
     def func(value):
@@ -108,8 +108,8 @@ def challenge(db, factor):
     challenge_maps = dict()
     new_db = dict()
 
-    for doner in db:
-        challenge_maps[doner] = map(challenge_multiplier, db[doner])
+    for donor in db:
+        challenge_maps[donor] = map(challenge_multiplier, db[donor])
 
     for name, new_donations in challenge_maps.items():
         new_db[name] = [donation for donation in new_donations]
@@ -147,7 +147,7 @@ def print_report(db):
 
 def thank_donor(donor, amount):
     with open('mailroom-thankyou-{}.txt'.format(donor), 'w') as f:
-        f.write("Thank you, {}, for your generous donations totaling ${}.\nSincerly, The Mailroom Team\n".format(donor, amount))
+        f.write("Thank you, {}, for your generous donations totaling ${}.\nSincerely, The Mailroom Team\n".format(donor, amount))
 
 
 def thank_donors(db):

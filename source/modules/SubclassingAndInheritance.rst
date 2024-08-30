@@ -9,22 +9,20 @@ How to put the pieces together to build a complex system without repeating code.
 Inheritance
 ===========
 
-In object-oriented programming (OOP), inheritance is a way to reuse the code
-of existing objects, or to establish a subtype from an existing object.
+In object-oriented programming (OOP), inheritance is a way to reuse the code of existing objects, or to establish a subtype from an existing object.
 
-Objects are defined by classes. Classes can inherit attributes and behavior
-from pre-existing classes called base classes or super classes.
+Objects are defined by classes. Classes can inherit attributes and behavior from pre-existing classes called base classes or super classes.
 
 The resulting classes are known as derived classes or subclasses.
 
-(http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29)
+See: http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29
 
 Subclassing
 -----------
 
 A subclass "inherits" all the attributes (methods, etc) of the parent class. This means that a subclass will have everything that its "parents" have.
 
-You can then change ("override") some or all of the attributes to change the behavior.  You can also add new attributes to extend the behavior.
+You can then change ("override") some or all of the attributes to change the behavior. You can also add new attributes to extend the behavior.
 
 You create a subclass by passing the superclass to the ``class`` statement.
 
@@ -35,9 +33,9 @@ The simplest subclass in Python:
     class A_subclass(The_superclass):
         pass
 
-``A_subclass``  now has exactly the same behavior as ``The_superclass`` -- all the same attributes and methods.
+``A_subclass`` now has exactly the same behavior as ``The_superclass`` -- all the same attributes and methods.
 
-Overriding attributes
+Overriding Attributes
 ---------------------
 
 Overriding is as simple as creating a new attribute with the same name:
@@ -97,12 +95,12 @@ Note that any methods that refer to that attribute, will get the new value, even
     In [15]: nc.describe()
     Out[15]: 'I am a blue circle'
 
-Note that this is *why* self is passed in to every method -- when you write the method, you don't know exactly what class ``self`` will be -- it is an instance of the class at the time the method is called.
+Note that this is *why* ``self`` is passed in to every method -- when you write the method, you don't know exactly what class ``self`` will be -- it is an instance of the class at the time the method is called.
 
-Overriding methods
+Overriding Methods
 ------------------
 
-Overriding methods is exactly the same thing, but with methods (remember, a method *is* an attribute in Python -- one that happens to be a function)
+Overriding methods is exactly the same thing, but with methods. Remember, a method *is* an attribute in Python -- one that happens to be a function.
 
 .. code-block:: python
 
@@ -120,17 +118,15 @@ Overriding methods is exactly the same thing, but with methods (remember, a meth
             self.diameter = self.diameter * math.sqrt(2)
 
 
-all the instances of the new class will have the new method -- similar, but different, behavior.  Note that both these methods are requiring that the class instance has a ``diameter`` attribute.
-
+All the instances of the new class will have the new method with similar, but different, behavior. Note that both these methods are requiring that the class instance has a ``diameter`` attribute.
 
 **Here's a program design suggestion:**
 
-  Whenever you override a method, the interface of the new method should be the same as the old.  It should take the same parameters, return the same type, and obey the same preconditions and postconditions.
+  Whenever you override a method, the interface of the new method should be the same as the old. It should take the same parameters, return the same type, and obey the same preconditions and postconditions.
 
-  If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand.  If you violate this rule, your code will collapse like (sorry) a house of cards.
+  If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand. If you violate this rule, your code will collapse like (sorry) a house of cards.
 
 -- from *Think Python*
-
 
 Overriding ``__init__``
 -----------------------
@@ -151,10 +147,9 @@ You often need to call the super class ``__init__``  as well, so that any initia
             diameter = radius*2
             Circle.__init__(self, diameter)
 
+This is an exception to the "don't change the method signature" rule.
 
-Exception to: "don't change the method signature" rule.
-
-Often when you override ``__init__``, the new class may take an extra parameter or two.  In this case, you will want to keep the signature as similar as possible, and cleanly define what is part of the subclass. A common idiom in this case is this:
+Often when you override ``__init__``, the new class may take an extra parameter or two. In this case, you will want to keep the signature as similar as possible, and cleanly define what is part of the subclass. A common idiom in this case is this:
 
 .. code-block:: python
 
@@ -167,19 +162,16 @@ Often when you override ``__init__``, the new class may take an extra parameter 
 
 That is:
 
- * Put the extra parameters in the beginning of the list -- usually as required positional parameters.
-
+ * Put the extra parameters in the beginning of the list -- usually as required positional parameters
  * Accept ``*args`` and ``**kwargs``
-
  * Pass everything else on to the superclass' __init__
 
-Using ``*args`` and ``**kwargs`` is a way to make it clear that the rest is simply the signature of the superclass.  It is also flexible if the superclass (or others up in the hierarchy) changes -- it could completely change its signature, and this subclass would still work.
+Using ``*args`` and ``**kwargs`` is a way to make it clear that the rest is simply the signature of the superclass. It is also flexible if the superclass -- or others up in the hierarchy -- changes. It could completely change its signature, and this subclass would still work.
 
+Using the Superclass' Methods
+-----------------------------
 
-Using the superclass' methods
--------------------------------
-
-In a subclass, you can access everything in the superclass: all attributes and other methods:
+In a subclass, you can access everything in the superclass: all attributes and other methods.
 
 .. code-block:: python
 
@@ -188,15 +180,12 @@ In a subclass, you can access everything in the superclass: all attributes and o
         def get_area(self, diameter):
             return math.pi * (diameter/2.0)**2
 
-
     class CircleR2(Circle):
     ...
         def get_area(self):
             return Circle.get_area(self, self.radius*2)
 
-
 Note that there is nothing special about ``__init__``  except that it gets called automatically when you instantiate an instance. Otherwise, it is the same as any other method -- it gets ``self`` as the first argument, it can or can not call the superclass' methods, etc.
-
 
 "Favor Object Composition Over Class Inheritance"
 -------------------------------------------------
@@ -205,20 +194,11 @@ That is a quotation from the "Design Patterns" book -- one of the gospels of OO 
 
 But what does it mean?
 
-There are essentially two ways to add multiple functionalities to a class:
+There are essentially two ways to add multiple functionalities to a class: subclassing and composition
 
-Subclassing
+As we have just learned about subclassing, you might be tempted to do it a lot. But you need to be careful of over-using subclassing: https://en.wikipedia.org/wiki/Composition_over_inheritance
 
-and
-
-Composition
-
-As we have just learned about subclassing, you might be tempted to do it a lot. But you need to be careful of over-using subclassing:
-
-https://en.wikipedia.org/wiki/Composition_over_inheritance
-
-Composition is when your classes have attributes of various types that they use to gain functionality -- "delegate" functionality to -- "Delegation" is a related concept in OO.
-
+Composition is when your classes have attributes of various types that they use to gain functionality. That is, they "delegate" functionality to other attributes. "Delegation" is a related concept in OO.
 
 "Is a" vs "Has a"
 .................
@@ -229,60 +209,54 @@ For example, you may have a class that needs to accumulate an arbitrary number o
 
 A list can do that -- so maybe you should subclass list?
 
-To help decide -- Ask yourself:
+To help decide, ask yourself:
 
 -- **Is** your class a list (with some extra functionality)?
 
 or
 
--- Does you class **have** a list?
+-- Does your class **have** a list?
 
 You only want to subclass list if your class could be used anywhere a list can be used. In fact this is a really good way to think about subclassing in general -- subclasses should be specialized versions of the superclass. "Kind of" the same, but with a little different functionality.
-
 
 Attribute Resolution Order
 --------------------------
 
 Once there is a potentially large hierarchy of subclasses, how do you know which one will be used?
 
-When you access an attribute:
+When you access an attribute::
 
-``an_instance.something``
+    an_instance.something
 
 Python looks for it in this order:
 
-  * Is it an instance attribute ?
-  * Is it a class attribute ?
-  * Is it a superclass attribute ?
-  * Is it a super-superclass attribute ?
-  * ...
+* Is it an instance attribute?
+* Is it a class attribute?
+* Is it a superclass attribute?
+* Is it a super-superclass attribute?
+* ...
 
-It can get more complicated, particularly when there are multiple superclasses (multiple inheritance), but when there is a simple inheritance structure (the usual case) -- it's fairly straightforward.
+It can get more complicated, particularly when there are multiple superclasses (multiple inheritance), but when there is a simple inheritance structure -- the usual case -- it's fairly straightforward.
 
 This is often referred to as "method resolution order" (MRO), because it's more complicated with methods, and in some languages, methods and attributes are more distinct than in Python. In Python, it can be thought of as "name resolution" -- everything in Python is about names and namespaces.
 
-If you want to know more of the gory details -- here's some reading:
+If you want to know more of the gory details -- here's some reading: https://docs.python.org/3/howto/mro.html
 
-https://www.python.org/download/releases/2.3/mro/
-
-http://python-history.blogspot.com/2010/06/method-resolution-order.html
-
-
-What are Python classes, really?
+What are Python Classes, Really?
 --------------------------------
 
 Putting aside the OO theory...
 
 Python classes feature:
 
-  * Namespaces
+* Namespaces
 
     * One for the class object
     * One for each instance
 
-  * Attribute resolution order -- how do you find an attribute.
-  * Auto tacking-on of ``self`` when methods are called
-  * automatically calling ``__init__`` when the class object is called.
+* Attribute resolution order -- how do you find an attribute.
+* Auto tacking-on of ``self`` when methods are called.
+* Automatically calling ``__init__`` when the class object is called.
 
 That's about it -- really!
 
@@ -310,9 +284,7 @@ But it is *very* rarely called for! Between Duck Typing, polymorphism, and EAFP,
 Wrap Up
 -------
 
-Thinking OO in Python:
-
-Think about what makes sense for your code:
+Thinking OO in Python, think about what makes sense for your code:
 
 * Code re-use
 * Clean APIs

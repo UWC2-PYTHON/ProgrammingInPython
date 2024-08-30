@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 def sleep_in(weekday, vacation):
     """
     basic solution

@@ -1,4 +1,4 @@
- #!/usr/bin/env python
+#!/usr/bin/env python
 
 """
 dict/set lab solutions: Chris' version.
@@ -16,11 +16,11 @@ d = {"name": "Chris",
 print(d)
 
 # or something fancier, like:
-print ("{name} is from {city}, and likes {cake} cake.".format(name=d['name'],
-                                                              city=d['city'],
-                                                              cake=d['cake']))
+print("{name} is from {city}, and likes {cake} cake.".format(name=d['name'],
+                                                             city=d['city'],
+                                                             cake=d['cake']))
 
-# But if that seems like unnecceasry typing -- it is:
+# But if that seems like unnecessary typing -- it is:
 # we'll learn the **d form is session05:
 print("{name} is from {city}, and likes {cake} cake.".format(**d))
 

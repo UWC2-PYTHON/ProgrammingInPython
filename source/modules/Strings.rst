@@ -4,11 +4,6 @@
 Strings
 #######
 
-  Fun with Strings
-
-Strings
-=======
-
 .. admonition:: Joke
 
   A piece of string is new in town, and looking for a drink. He sees a local bar, walks in, sits down, and orders a beer. The bartender looks at him askance, and says: "wait a minute, are you a piece of string?". "Why yes", the string replies.  The bartender growls back: "We don't serve your kind in here -- you get out!".
@@ -29,26 +24,24 @@ Why "string"?
 
 "String" can be used to mean "a linear sequence -- as of characters, words, proteins, etc."
 
-`Definition of string <http://wordnetweb.princeton.edu/perl/webwn?s=string>`_
-
 So a string is a sequence of individual letters or characters.
 
-In Python, each character can be a `Unicode <https://unicode.org/>`_ character -- that is, any character in any language in the world.
-Having this built in by default in Python(3) means that you can get very far simply ignoring it -- anything you can type on your computer can be used in strings in Python.
-If you do need to work with non-English characters, or data encoded in non-utf-8, particularly on Python 2, here are some notes about that: :ref:`unicode`.
-But for the most part, in Python3 -- strings are text, and text is strings, and that's that. If you know how to type characters (accented, etc.) that are not used in English on your computer, they should "just work".
+In Python, each character can be a `Unicode <https://unicode.org/>`_ character -- that is, any character in any language in the world. Having this built in by default in Python means that you can get very far simply ignoring it -- anything you can type on your computer can be used in strings in Python.
 
-Creating strings:
------------------
+If you do need to work with non-English characters, or data encoded in non-utf-8, here are some notes about that: :ref:`unicode`.
+
+But for the most part, in Python -- strings are text, and text is strings, and that's that. If you know how to type characters (accented, etc.) that are not used in English on your computer, they should "just work".
+
+.. note:: Strings in Python 2 functioned very differently from Python 3. Fortunately, Python 2 has been deprecated and officially unsupported since 2020. It's not included with any modern distribution (except possibly RHEL) so you shouldn't really come across Python 2 in your travels.
+
+Creating strings
+----------------
 
 A string literal creates a string type.
-
-(we've seen this already...)
 
 A literal can be delineated with single or double quotes, alone or in triples.
 
 ::
-
     "this is a string"
 
     'So is this'
@@ -68,16 +61,14 @@ You can also call the string object (``str()``) to "make" a string out of other 
 
 Strings can also be read from files or other sources of I/O.
 
-
 String Methods
 ===============
 
-The python string object is very powerful with lots of methods for common text manipulation. "methods" are functions defined on an object itself (more on that when we get to OO programming). But it means that you have many ways to manipulate text built right into the string objects themselves.
+The Python string object is very powerful with lots of methods for common text manipulation. "Methods" are functions defined on an object itself (more on that when we get to OO programming). But it means that you have many ways to manipulate text built right into the string objects themselves.
 
-Note that strings are "immutable" -- they can not be changed once they have been created. So the string methods all return new strings, rather than change the string in place. Which is kind of handy if you want to string multiple operations together (pun intended ...).
+Note that strings are "immutable" -- they can not be changed once they have been created. So the string methods all return new strings, rather than change the string in place. This is kind of handy if you want to string multiple operations together, pun intended.
 
-Here are just a few of the more common string methods:
-
+Here are just a few of the more common string methods.
 
 Splitting and Joining Strings
 -----------------------------
@@ -96,11 +87,11 @@ Splitting and Joining Strings
     In [170]: psv
     Out[170]: 'comma|separated|values'
 
-It may seem odd at first that ``.join()`` is a string method, rather than, say, a method on lists. But in fact, it makes a lot of sense. Lists (and tuples, and other sequences) can hold any type of data -- and "joining" arbitrary data types doesn't make any sense.  Joining is strictly a string activity.
+It may seem odd at first that ``.join()`` is a string method, rather than, say, a method on lists. But in fact, it makes a lot of sense. Lists (and tuples, and other sequences) can hold any type of data -- and "joining" arbitrary data types doesn't make any sense. Joining is strictly a string activity.
 
 And you need a string so you can join the parts with something (e.g. a space, or a comma, or ...) -- therefore, we need a string object in there somewhere anyway.
 
-Lastly, having join() be a string method means that it can join strings in ANY iterable object -- not just lists or other built-in sequence types.
+Lastly, having ``join()`` be a string method means that it can join strings in ANY iterable object -- not just lists or other built-in sequence types.
 
 So it does make sense. But even if doesn't make sense to you, that's the way it is -- so remember that you call ``.join()`` on the string you want to join things with, not on the sequence.
 
@@ -126,8 +117,8 @@ Maybe not very common, but you can join with a longer string as well:
     Out[5]: 'these --#-- are --#-- some --#-- strings'
 
 
-Building up a Long String.
---------------------------
+Building up a Long String
+-------------------------
 
 An obvious thing to do is something like:
 
@@ -137,7 +128,7 @@ An obvious thing to do is something like:
   for piece in list_of_stuff:
       msg += piece
 
-But: strings are immutable -- Python needs to create a new string each time you add a piece, which is not very efficient.  So it's better to gather all the pieces together in a list, and then join them together:
+But: strings are immutable -- Python needs to create a new string each time you add a piece, which is not very efficient. So it's better to gather all the pieces together in a list, and then join them together:
 
 .. code-block:: python
 
@@ -146,7 +137,7 @@ But: strings are immutable -- Python needs to create a new string each time you 
        msg.append(piece)
    " ".join(msg)
 
-appending to lists is efficient -- and so is the ``join()`` method of strings. In fact the `+=` approach is so inefficient that the `sum()` function explicitly forbids summing strings:
+Appending to lists is efficient -- and so is the ``join()`` method of strings. In fact the `+=` approach is so inefficient that the `sum()` function explicitly forbids summing strings:
 
 .. code-block:: ipython
 
@@ -202,7 +193,7 @@ Testing for certain classes of characters
 
 
 String Literals
------------------
+---------------
 
 Sometimes when you are creating a string, you want to put an non-normal character in there -- one that isn't strictly a letter or symbol, such as newlines, etc.
 
@@ -235,9 +226,9 @@ https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-liter
 https://docs.python.org/3/library/stdtypes.html#string-methods
 
 Raw Strings
-------------
+-----------
 
-There are times when you want a literal backslash in your string: Windows file paths, regular expressions.  To make this easy, Python support "raw" strings -- string literals where the backslash does not have special meaning:
+There are times when you want a literal backslash in your string: Windows file paths, regular expressions. To make this easy, Python support "raw" strings -- string literals where the backslash does not have special meaning:
 
 Add an ``r`` in front of the string literal:
 
@@ -273,7 +264,8 @@ If you put two string literals next to each other in the code, Python will join 
     In [6]: "this" "that"
     Out[6]: 'thisthat'
 
-(note: no comma in between!)
+(Note: no comma in between!)
+
 This may not look useful, but when combined with the fact that Python joins together lines when inside a parentheses, it can be a nice way to make larger string literals:
 
 .. code-block:: ipython
@@ -287,7 +279,7 @@ This may not look useful, but when combined with the fact that Python joins toge
     And here is another line
     If I don't put in a newline I can get a very long line in, without making the line of code too long.
 
-Ordinal values
+Ordinal Values
 --------------
 
 Characters in strings are stored as numeric values:
@@ -296,7 +288,7 @@ Characters in strings are stored as numeric values:
 
 * Unicode "code points" -- 1 - 1,114,111 (!!!)
 
-Unicode supports a LOT of characters -- every character in every language known to man -- and then some :-). The Unicode code points for the characters in the ASCII character set are the same as ASCII -- so handy for us English speakers.
+Unicode supports a LOT of characters -- every character in every language known to man -- and then some. The Unicode code points for the characters in the ASCII character set are the same as ASCII -- so handy for us English speakers.
 
 To get the code point value, use ``ord()``:
 
@@ -314,8 +306,7 @@ To get the character from the code point, use ``chr()``:
        .....:     print(chr(i), end='')
     Chris
 
-For the English language, stick with ASCII, otherwise use full Unicode: it's easy with Python3
-
+For the English language, stick with ASCII, otherwise use full Unicode: it's easy with Python3.
 
 Building Strings from Data
 --------------------------
@@ -328,19 +319,21 @@ You could, but please don't(!), do this:
 
     'Hello ' + name + '!'
 
-(I know -- we did that in the grid_printing exercise)
+(I know -- we did that in the grid_printing exercise.)
 
-Why not? It's slow and not very flexible.  Python provides a few ways to "format" text, so you can do this instead:
+Why not? It's slow and not very flexible. Python provides a few ways to "format" text, so you can do this instead:
 
 .. code-block:: ipython
 
     In [11]: 'Hello {}!'.format(name)
     Out[11]: 'Hello Chris!'
 
-It's much faster and safer, and easier to modify as code gets complicated.
+    In [12]: f'Hello {name}!'
+    Out[12]: 'Hello Chris!'
+
+It's much faster and safer, and easier to modify as code gets complicated. The use of ``.format`` is compatible with every version of Python 3. The use of the ``f`` syntax, called an "f-string", is compatable with Python 3.6 and newer. Generally the f-strings are preferred in the Python world today.
 
 https://docs.python.org/3/library/string.html#string-formatting
-
 
 Old and New string formatting
 -----------------------------
@@ -355,8 +348,7 @@ This is very similar to C-style string formatting (`sprintf`).
 
 It's still around, and handy --- but ...
 
-The "new" ``format()`` method is more powerful and flexible, so we'll focus on that in this class.  And there is now the newer "f-strings" (see below) which provide a lot of that "quick and dirty" convenience, while using the same formatting codes as ``.format()``. So there really isn't a reason to use the "old style" anymore.
-
+The "new" ``format()`` method is more powerful and flexible, so we'll focus on that in this class. And there is now the newer "f-strings" (see below) which provide a lot of that "quick and dirty" convenience, while using the same formatting codes as ``.format()``. So there really isn't a reason to use the "old style" anymore.
 
 String Formatting
 -----------------
@@ -375,8 +367,8 @@ The string ``.format()`` method:
     Out[64]: 'a string is the default: anything'
 
 
-Multiple placeholders:
------------------------
+Multiple placeholders
+---------------------
 
 .. code-block:: ipython
 
@@ -398,12 +390,10 @@ The counts must agree:
 
     IndexError: tuple index out of range
 
-
-Named Placeholders:
--------------------
+Named Placeholders
+------------------
 
 .. code-block:: ipython
-
 
     In [69]: "Hello, {name}, whadaya know?".format(name="Joe")
     Out[69]: 'Hello, Joe, whadaya know?'
@@ -414,7 +404,6 @@ You can use values more than once, and skip values:
 
     In [73]: "Hi, {name}. Howzit, {name}?".format(name='Bob')
     Out[73]: 'Hi, Bob. Howzit, Bob?'
-
 
 The format operator works with string variables, too:
 
@@ -429,14 +418,12 @@ The format operator works with string variables, too:
 
 So you can save a format string, or even built it up dynamically, and then use it in multiple places in the code.
 
-
 Complex Formatting
 ------------------
 
 There is a complete syntax for specifying all sorts of options.
 
-It's well worth your while to spend some time getting to know this
-`formatting language`_. You can accomplish a great deal just with this.
+It's well worth your while to spend some time getting to know this `formatting language`_. You can accomplish a great deal just with this.
 
 .. _formatting language: https://docs.python.org/3/library/string.html#format-specification-mini-language
 
@@ -447,7 +434,6 @@ https://pyformat.info/
 And a nice formatting cookbook:
 
 https://mkaz.blog/code/python-string-format-cookbook/
-
 
 Literal String Interpolation
 ============================
@@ -551,30 +537,23 @@ You can see how this can be a very powerful and quick way to get things done.
 Formatting codes with f-strings
 -------------------------------
 
-We've seen that f-strings will automatically "stringify" the results of the expression used.
-And that's often what you want.
-But if you do want to control how that is done, you can use all the same formatting codes used with the ``.format()`` method:
+We've seen that f-strings will automatically "stringify" the results of the expression used. And that's often what you want.
 
+But if you do want to control how that is done, you can use all the same formatting codes used with the ``.format()`` method:
 
 .. code-block:: ipython
 
     In [15]: f"One third with 4 digits is: {1/3:.3f}"
     Out[15]: 'One third with 4 digits is: 0.333'
 
-you put the format specifier after a colon.
-
-
+You put the format specifier after a colon.
 
 f-string Use
 ------------
 
-f-strings are a fairly new Python feature. They will cause a syntax error in any Python version older than 3.6 -- 3.6 was first released on December 23, 2016 -- only a couple years from this writing.
+f-strings are a fairly new Python feature. They will cause a syntax error in any Python version older than 3.6 -- 3.6 was first released on December 23, 2016 -- but 3.6 is pretty old now! All supported versions of Python support f-strings.
 
-So there is still not much out there in the wild, and it it still rare in production code.
-
-They are not currently used in many of the examples in this course.
-
-Nevertheless, they are a nifty feature that could be very useful, so feel free to use them where it makes you code cleaner and clearer.
+This course typically tends to use ``.format`` because of the readability. However, f-strings are very popular and you will see them everywhere so get used to them and use them if you like.
 
 More on f-strings
 -----------------
@@ -583,8 +562,7 @@ To read all about the justification and syntax, read PEP 498:
 
 https://www.python.org/dev/peps/pep-0498/
 
-
-Other resources for f-strings
+Other Resources for f-strings
 -----------------------------
 
 f-strings have been around a while now, so there are a number of good introductions out there:
@@ -598,7 +576,3 @@ Another intro:
 https://www.pydanny.com/python-f-strings-are-fun.html
 
 http://zetcode.com/python/fstring/
-
-One that gets into the technical details (bytecode! -- for the real geeks):
-
-https://hackernoon.com/a-closer-look-at-how-python-f-strings-work-f197736b3bdb

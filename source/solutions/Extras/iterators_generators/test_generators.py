@@ -44,7 +44,6 @@ def test_prime2():
         p = next(g)
         print("p is:", p)
         assert p == val
-#    assert False
 
 
 def test_squares():

@@ -6,9 +6,7 @@ This is just a start -- you will need more tests!
 
 import io
 import pytest
-
-# import * is often bad form, but makes it easier to test everything in a module.
-from html_render import *
+from html_render import A, Br, Body, Element, Head, Hr, Html, OneLineTag, P, Title
 
 
 # utility function for testing render methods
@@ -40,9 +38,9 @@ def test_init():
     This only tests that it can be initialized with and without
     some content -- but it's a start.
     """
-    e = Element()
+    Element()
 
-    e = Element("this is some text")
+    Element("this is some text")
 
 
 def test_append():
@@ -70,8 +68,8 @@ def test_render_element():
     file_contents = render_result(e).strip()
     print(file_contents)
     # making sure the content got in there.
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     # make sure it's in the right order
     assert file_contents.index("this is") < file_contents.index("and this")
@@ -101,8 +99,8 @@ def test_render_element2():
     file_contents = render_result(e).strip()
 
     # making sure the content got in there.
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     # make sure it's in the right order
     assert file_contents.index("this is") < file_contents.index("and this")
@@ -112,10 +110,10 @@ def test_render_element2():
     assert file_contents.endswith("</html>")
 
 
-
 # ########
 # # Step 2
 # ########
+
 
 # tests for the new tags
 def test_html():
@@ -124,8 +122,8 @@ def test_html():
 
     file_contents = render_result(e).strip()
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
     print(file_contents)
     assert file_contents.endswith("</html>")
 
@@ -136,8 +134,8 @@ def test_body():
 
     file_contents = render_result(e).strip()
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<body>")
     assert file_contents.endswith("</body>")
@@ -149,16 +147,17 @@ def test_p():
 
     file_contents = render_result(e).strip()
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<p>")
     assert file_contents.endswith("</p>")
 
+
 def test_p_newlines():
     """
-    we want each element to start where it should start, and end with a newline,
-    ready for the next element.
+    we want each element to start where it should start, and end with a
+    newline, ready for the next element.
 
     with each piece of content on its own line:
     """
@@ -169,8 +168,8 @@ def test_p_newlines():
 
     print(file_contents)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<p>\n")
     assert file_contents.endswith("</p>\n")
@@ -186,7 +185,7 @@ def test_sub_element():
     page.append("Some more plain text.")
 
     file_contents = render_result(page)
-    print(file_contents) # so we can see it if the test fails
+    print(file_contents)  # so we can see it if the test fails
 
     # note: The previous tests should make sure that the tags are getting
     #       properly rendered, so we don't need to test that here.
@@ -210,7 +209,7 @@ def test_head():
 
     file_contents = render_result(e).strip()
 
-    assert("This is a Header") in file_contents
+    assert ("This is a Header") in file_contents
 
     assert file_contents.startswith("<head>")
     assert file_contents.endswith("</head>")
@@ -221,7 +220,7 @@ def test_title():
 
     file_contents = render_result(e).strip()
 
-    assert("This is a Title") in file_contents
+    assert ("This is a Title") in file_contents
     print(file_contents)
     assert file_contents.startswith("<title>")
     assert file_contents.endswith("</title>")
@@ -253,7 +252,7 @@ def test_attributes():
 
     # but now the opening tag is far more complex
     # but it starts the same:
-    assert file_contents.startswith("<p ") # make sure there's space after the p
+    assert file_contents.startswith("<p ")  # make sure there's space after the p
 
     # order of the tags is not important in html, so we need to
     # make sure not to test for that
@@ -294,7 +293,7 @@ def test_br():
 
 def test_content_in_br():
     with pytest.raises(TypeError):
-        br = Br("some content")
+        Br("some content")
 
 
 def test_append_content_in_br():
@@ -323,7 +322,7 @@ def test_indent():
     Tests that the indentation gets passed through to the renderer
     """
     html = Html("some content")
-    file_contents = render_result(html, ind="   ").rstrip()  #remove the end newline
+    file_contents = render_result(html, ind="   ").rstrip()  # remove the end newline
 
     print(file_contents)
     lines = file_contents.split("\n")
@@ -371,7 +370,7 @@ def test_element_indent1():
 
     <html>
         this is some text
-    <\html>
+    </html>
 
     More complex indentation should be tested later.
     """
@@ -381,7 +380,7 @@ def test_element_indent1():
     file_contents = render_result(e).strip()
 
     # making sure the content got in there.
-    assert("this is some text") in file_contents
+    assert ("this is some text") in file_contents
 
     # break into lines to check indentation
     lines = file_contents.split('\n')

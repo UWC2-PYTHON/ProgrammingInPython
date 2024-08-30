@@ -16,10 +16,12 @@ def type_error():
     # Try to use an object in a way that doesn't make sense
     "543" / 3
 
+
 def attribute_error():
     """This function raises an AttributeError"""
     x = 5
     y = x.strip()
+
 
 # have to comment this out, because the SyntaxError keeps the code from
 # running at all

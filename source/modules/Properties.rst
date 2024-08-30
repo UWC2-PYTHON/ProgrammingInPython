@@ -4,39 +4,33 @@
 Properties
 ##########
 
-https://en.wikipedia.org/wiki/Property_%28programming%29#Python
-
-Attributes are clear and concise
+Attributes Are Clear and Concise
 --------------------------------
 
-.. container::
+One of the strengths of Python is lack of clutter.
 
-    One of the strengths of Python is lack of clutter.
+.. code-block:: ipython
 
-    .. code-block:: ipython
+    In [5]: class C:
+            def __init__(self):
+                    self.x = 5
+    In [6]: c = C()
+    In [7]: c.x
+    Out[7]: 5
+    In [8]: c.x = 8
+    In [9]: c.x
+    Out[9]: 8
 
-        In [5]: class C:
-                def __init__(self):
-                        self.x = 5
-        In [6]: c = C()
-        In [7]: c.x
-        Out[7]: 5
-        In [8]: c.x = 8
-        In [9]: c.x
-        Out[9]: 8
-
-And we want to maintain this clarity as we develop our programs.
+We want to maintain this clarity as we develop our programs.
 
 Getter and Setters
 ------------------
 
 But what if you need to add behavior later?
 
-
 * do some calculation
 * check data validity
 * keep things in sync
-
 
 .. code-block:: ipython
 
@@ -55,9 +49,7 @@ But what if you need to add behavior later?
     In [9]: c.get_x()
     Out[9]: 8
 
-This is verbose -- `Java`_?
-
-.. _Java: http://dirtsimple.org/2004/12/python-is-not-java.html
+This is verbose.
 
 Properties
 ----------
@@ -82,7 +74,7 @@ Now the interface is like simple attribute access!
 Decorators
 ----------
 
-What's up with the "@" symbols?
+What's up with the ``@`` symbols?
 
 Those are "decorations". It is a syntax for wrapping functions up with something special.
 
@@ -93,14 +85,14 @@ We will cover decorators in detail in another part of the program, but for now j
     @property
     def x(self):
 
-means: make a property called x with this as the "getter".
+This means: make a property called ``x`` with this as the "getter".
 
 .. code-block:: python
 
     @x.setter
     def x(self, value):
 
-means: make the "setter" of the 'x' property this new function.
+This means: make this new function the "setter" of the ``x`` property.
 
 Read Only Attributes
 --------------------
@@ -144,9 +136,6 @@ If you want to do something special when a property is deleted, you can define a
        ....:     def x(self):
        ....:         del self._x
 
-If you leave this out, the property can't be deleted, which is usually
-what you want.
+If you leave this out, the property can't be deleted, which is usually what you want.
 
-Play around with some properties code:
-
-:download:`properties_example.py <../examples/properties/properties_example.py>`
+Play around with some properties code: :download:`properties_example.py <../examples/properties/properties_example.py>`

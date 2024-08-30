@@ -8,11 +8,12 @@ import json_save.json_save_meta as js
 
 # Metaclass examples
 
+
 class MyClass(js.JsonSaveable):
 
     x = js.Int()
     y = js.Float()
-    l = js.List()
+    n = js.List()
 
     def __init__(self, x, lst):
         self.x = x
@@ -27,6 +28,7 @@ class OtherSaveable(js.JsonSaveable):
     def __init__(self, foo, bar):
         self.foo = foo
         self.bar = bar
+
 
 # create one:
 print("about to create a instance")

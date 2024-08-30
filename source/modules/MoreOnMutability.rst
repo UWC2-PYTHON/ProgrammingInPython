@@ -1,14 +1,13 @@
 .. _a_bit_on_mutability:
 
+========================
+A Bit More on Mutability
+========================
 
-=====================================
-A bit more on mutability (and copies)
-=====================================
-
-mutable objects
+Mutable Objects
 ----------------
 
-We've talked about this: mutable objects can have their contents changed in place.
+We've talked about this before: mutable objects can have their contents changed in place.
 
 Immutable objects can not.
 
@@ -18,7 +17,7 @@ This has implications when you have a container with mutable objects in it:
 
     In [28]: list1 = [ [1,2,3], ['a','b'] ]
 
-one way to make a copy of a list:
+One way to make a copy of a list:
 
 .. code-block:: ipython
 
@@ -27,8 +26,7 @@ one way to make a copy of a list:
     In [30]: list2 is list1
     Out[30]: False
 
-they are different lists.
-
+They are different lists.
 
 What if we set an element to a new value?
 
@@ -44,7 +42,6 @@ What if we set an element to a new value?
 
 So they are independent.
 
-
 But what if we mutate an element?
 
 .. code-block:: ipython
@@ -57,8 +54,7 @@ But what if we mutate an element?
     In [36]: list2
     Out[36]: [[1, 2, 3], ['a', 'b', 'c']]
 
-uuh oh! mutating an element in one list mutated the one in the other list.
-
+Uh oh! Mutating an element in one list mutated the one in the other list.
 
 Why is that?
 
@@ -71,17 +67,16 @@ The elements are the same object!
 
 This is known as a "shallow" copy -- Python doesn't want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.
 
-Same for dicts (and any container type -- even tuples!)
+Same for dicts and any container type -- even tuples!
 
-If the elements are immutable, it doesn't really make a differnce -- but be very careful with mutable elements.
+If the elements are immutable, it doesn't really make a difference -- but be very careful with mutable elements.
 
-
-The copy module
+The copy Module
 ----------------
 
-most objects have a way to make copies (``dict.copy()`` for instance).
+Most objects have a way to make copies. For example, ``dict.copy()``.
 
-but if not, you can use the ``copy`` module to make a copy:
+But if not, you can use the ``copy`` module to make a copy:
 
 .. code-block:: ipython
 
@@ -93,7 +88,6 @@ but if not, you can use the ``copy`` module to make a copy:
     Out[41]: [[1, 2, 3], ['a', 'b', 'c']]
 
 This is also a shallow copy.
-
 
 But there is another option:
 
@@ -113,8 +107,6 @@ But there is another option:
     Out[7]: [[1, 2, 3], ['a', 'b', 'c']]
 
 ``deepcopy`` recurses through the object, making copies of everything as it goes.
-
-
 
 I happened on this thread on stack overflow:
 
@@ -150,9 +142,7 @@ But:
 
 Huh?!
 
-
 Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.
-
 
 **The solution:**
 
@@ -171,11 +161,3 @@ The standard practice for such a mutable default argument:
     [4]
 
 You get a new list every time the function is called
-
-For more reading.
-
-This: http://python.net/crew/mwh/hacks/objectthink.html#question
-
-Is a link to a discussion on comp.lang.python from over 15 years ago -- but the issues are still the same. In particular, Alex Martelli's answer is brilliant.
-
-Go read it....

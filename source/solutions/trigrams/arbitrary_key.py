@@ -31,7 +31,8 @@ print(tiny)
 
 
 # but this is pretty ugly:
-#  - we only want a key but we got the entire item, so we need to pull the key out of that
+#  - we only want a key but we got the entire item, so we need to pull the key
+#    out of that
 #  - even worse, we have to save the entire item and put it back
 #  So this is pretty unsatisfactory
 
@@ -48,28 +49,30 @@ print(list(tiny.keys())[0])
 print("a random key")
 print(random.choice(list(tiny.keys())))
 
-# However -- the downside of this is that you are making an entire list of all the keys,
-# just to toss it away afterward. Computers are fast and have lots of memory, so probably
-# not a big deal, but it is good to think it terms of efficient algorithms, if they don't
-# complicate your code. This is why dict.keys() does not return a list (in py3):
+# However -- the downside of this is that you are making an entire list of all
+# the keys, just to toss it away afterward. Computers are fast and have lots
+# of memory, so probably not a big deal, but it is good to think it terms of
+# efficient algorithms, if they don't complicate your code. This is why
+# dict.keys() does not return a list (in py3):
 print("type of keys():", type(tiny.keys()))
 
-# the dict_Keys type is an "iterable" -- something you can iterate through with a for loop:
+# the dict_Keys type is an "iterable" -- something you can iterate through
+# with a for loop:
 for key in tiny.keys():
     print(key)
 
-# The dict_keys object "gives" the for loop each key, one at a time, without ever making
-# a full copy of them all.
+# The dict_keys object "gives" the for loop each key, one at a time, without
+# ever making a full copy of them all.
 
-# So we could take advantage of this to get an arbitrary key without making an entire list
-# first:
+# So we could take advantage of this to get an arbitrary key without making an
+# entire list first:
 
 for key in tiny.keys():
     print("An arbitrary key")
     print(key)
     break
-# (notice that it's the SAME arbitrary key as the first item of the list method --
-# it IS the first item off the list.
+# (notice that it's the SAME arbitrary key as the first item of the list
+# method -- it IS the first item off the list.
 
 # So this leads us to another solution:
 #
@@ -117,16 +120,16 @@ except TypeError as err:
 #  next(iter(tiny.keys()))
 #
 #  is probably the most "pythonic" way to do it -- compact and efficient
-#  However, it does require fairly advanced understanding of iterables and iterators.
-#  So:
+#  However, it does require fairly advanced understanding of iterables and
+#  iterators. So:
 #
 #  list(tiny.keys())[0]
 #
 #  is a fine option. And leaves the door open for using random.choice, too.
 
 # One other option:
-# let's say you want a random, rather than arbitrary item, but you don't want to
-# create the full list of keys.
+# let's say you want a random, rather than arbitrary item, but you don't want
+# to create the full list of keys.
 
 # We can leverage the iterator protocol, by using a for loop and breaking it
 # when we've gotten a random number of keys:

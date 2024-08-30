@@ -8,14 +8,13 @@ Python Classes
 
 They provide the tools for encapsulation (keeping the data with the functions) and subclassing (making custom versions of certain types) and polymorphism (making different classes reusable in the same context).
 
-
 How are classes made in Python?
 ===============================
 
-The ``class`` statement
+The ``class`` Statement
 -----------------------
 
-The ``class``  statement creates a new type object:
+The ``class`` statement creates a new type object:
 
 .. code-block:: ipython
 
@@ -25,11 +24,11 @@ The ``class``  statement creates a new type object:
     In [5]: type(C)
     Out[5]: type
 
-.. note:: A class is a type -- interesting! Remember how everything is an object in Python? well, every object is of a certain type. There are the built-in types that you are used to: integers, strings, lists, .... When you create a new class, you are creating a new type, and it is exactly the same as the built in ones.
+.. note:: A class is a type -- interesting! Remember how everything is an object in Python? Well, every object is of a certain type. There are the built-in types that you are used to: integers, strings, lists, etc. When you create a new class, you are creating a new type, and it is exactly the same as the built in ones.
 
 The class is created when the ``class`` statement is run -- much like ``def`` creates a function object.
 
-So we now have a new type, or class -- it doesn't have any actual functionality yet, though by default all classes "inherit" from ``object``. In doing so they get some minimal functionality from that:
+So we now have a new type, or class but it doesn't have any actual functionality yet, though by default all classes "inherit" from ``object``. In doing so they get some minimal functionality from that:
 
 .. code-block:: ipython
 
@@ -80,11 +79,10 @@ Most of those don't do anything -- but they are there, so every class is guarant
 
 In order for the class to do anything useful, it needs to be given attributes and methods.
 
-
-A simple ``class``
+A Simple ``class``
 ------------------
 
-About the simplest class you can write that is still useful:
+Here is about the simplest class that you can write that is still useful:
 
 .. code-block:: python
 
@@ -101,32 +99,29 @@ About the simplest class you can write that is still useful:
     >>> p.x
     1
 
-This looks a lot like a "struct" in C -- Python doesn't have structures, so yes, a class with no methods (functions) is essentially a struct.
+This looks a lot like a "struct" in C, but Python doesn't have structures, so yes, a class with no methods (functions) is essentially a struct.
 
-.. note:: In practice, it is very common to use a simple class like this to store related data, even if there are no functions involved. So common, in fact, that in Python 3.8, a standard library package called ``dataclasses`` was added that generates classes for storing data like this -- without having to write hardly any code. I encourage you to check it out for real use, but for now, we'll build things from scratch so that you can learn how it all works.
+.. note:: In practice, it is very common to use a simple class like this to store related data, even if there are no functions involved. So common, in fact, that in Python there is a standard library package called ``dataclasses`` that generates classes for storing data like this, without having to write hardly any code. I encourage you to check it out for real use, but for now, we'll build things from scratch so that you can learn how it all works.
 
-
-Basic Structure of a class
+Basic Structure of a Class
 --------------------------
 
 .. code-block:: python
 
     class Point:
-    # everything defined in here is in the class namespace
+        # everything defined in here is in the class namespace
         def __init__(self, x, y):
             self.x = x
             self.y = y
 
-So this class has a method called "__init__" -- which is a Python special method. Almost all classes have an ``__init__`` method
+So this class has a method called ``__init__`` which is a Python special method. Almost all classes have an ``__init__`` method.
 
-see: :download:`simple_classes.py <../examples/classes/simple_classes.py>`
+See: :download:`simple_classes.py <../examples/classes/simple_classes.py>`
 
 The Initializer
 ---------------
 
-The ``__init__``  special method is known as the initializer. It is automatically called when a new instance of a class is created.
-
-You can use it to do any set-up you need:
+The ``__init__``  special method is known as the initializer. It is automatically called when a new instance of a class is created. You can use it to do any set-up you need:
 
 .. code-block:: python
 
@@ -135,14 +130,13 @@ You can use it to do any set-up you need:
             self.x = x
             self.y = y
 
-
 It gets the arguments passed when you call the class object:
 
 .. code-block:: python
 
     Point(x, y)
 
-Once you have defined an __init__, you can create "instances" of the class:
+Once you have defined an ``__init__`` method then you can create "instances" of the class:
 
 .. code-block:: python
 
@@ -154,7 +148,6 @@ And access the attributes:
 
     print("p.x is:", p.x)
     print("p.y is:", p.y)
-
 
 Self
 ----
@@ -173,28 +166,26 @@ The name "``self``" is only a convention -- but you *DO* want to use it.
 
 Does this look familiar from C-style procedural programming?
 
-Anything assigned to a ``self.``  attribute is kept in the instance
-name space -- ``self`` *is* the instance.
+Anything assigned to a ``self.`` attribute is kept in the instance namespace. ``self`` *is* the instance.
 
 That's where all the instance-specific data is.
-
 
 Class Attributes
 ----------------
 
-In the above example, we assigned two attributes to ``self`` -- these are going to be different for each instance, or copy of this class. But what if you want all the instances of a class to share the same values?
+In the above example, we assigned two attributes to ``self``. These are going to be different for each instance, or copy of this class. But what if you want all the instances of a class to share the same values?
 
 .. code-block:: python
 
     class Point(object):
         size = 4
-        color= "red"
+        color = "red"
+
         def __init__(self, x, y):
             self.x = x
             self.y = y
 
-Anything assigned in the class scope is a class attribute -- every
-instance of the class shares the same one.
+Anything assigned in the class scope is a class attribute. Every instance of the class shares the same one.
 
 Note: the methods defined by ``def`` are class attributes as well.
 
@@ -215,14 +206,14 @@ So in this case, ``size`` and ``color`` are class attributes.
 
 But note in ``get_color`` -- it accesses color from ``self``:
 
-class attributes are accessed with ``self``  also.
+Class attributes are accessed with ``self`` also.
 
 So what is the difference?
 
- * class attributes are shared by ALL the instances of the class.
- * instance attributes are unique to each instance -- each one has its own copy.
+* Class attributes are shared by ALL the instances of the class.
+* Instance attributes are unique to each instance. Each one has its own copy.
 
-Example:
+Here is an example:
 
 .. code-block:: ipython
 
@@ -242,7 +233,7 @@ Example:
     In [10]: c1.y is c2.y # does each instance see the same y?
     Out[10]: False
 
-But what are the consequences of this? It's a **very** important distinction. watch what happens if we change something in these objects, adding a new item to both the lists in ``c1``:
+But what are the consequences of this? It's a **very** important distinction. Watch what happens if we change something in these objects, adding a new item to both the lists in ``c1``:
 
 .. code-block:: ipython
 
@@ -255,9 +246,9 @@ But what are the consequences of this? It's a **very** important distinction. wa
     In [7]: c2.x
     Out[7]: [1, 2, 3, 100]
 
-Note that adding something to ``c1.x`` also changed ``c2.x`` that is because they are the *same* list -- ``.x`` is a *class attribute* -- c1 and c2 share the same class, so they share the same class attributes.
+Note that adding something to ``c1.x`` also changed ``c2.x``. That is because they are the *same* list. ``.x`` is a *class attribute*. ``c1`` and ``c2`` share the same class, so they share the same class attributes.
 
-But if we change ``y``, an instance attribute:
+But if we change ``y``, which is an instance attribute:
 
 .. code-block:: ipython
 
@@ -269,7 +260,7 @@ But if we change ``y``, an instance attribute:
     In [10]: c2.y
     Out[10]: [4, 5, 6]
 
-appending to ``c1.y`` did not change ``c2.y`` -- ``y`` in this case is a an *instance* attribute -- each instance has its own version -- changing one will not affect the others.
+Appending to ``c1.y`` did not change ``c2.y``. ``y`` in this case is a an *instance* attribute. Each instance has its own version. Changing one will not affect the others.
 
 So when you are deciding where to "put" something, you need to think about whether all instances need the same thing, or if they each need their own version of the attribute.
 
@@ -289,7 +280,7 @@ So here we changed ``x`` on the *class* object, ``C``, and the change showed up 
 
 Instance attributes are far more common than class attributes. After all, the whole point of classes it to have instances with their own data.
 
-Typical methods
+Typical Methods
 ---------------
 
 .. code-block:: python
@@ -310,10 +301,9 @@ Typical methods
             area = (self.diameter / 2)**2 * math.pi
             return area
 
-
 Methods take some parameters, and possibly manipulate the attributes in ``self``.
 
-Remember that classes are about encapsulating the data and the functions that act on that data -- the methods are the functions that act on the data.
+Remember that classes are about encapsulating the data and the functions that act on that data. The methods are the functions that act on the data.
 
 They may or may not return something useful.
 
@@ -321,11 +311,10 @@ They may or may not return something useful.
 
   It is a convention in Python that methods that change the internal state of an object return ``None``, whereas methods that return a new object, or some calculated result without changing the state return that value.
 
-  You can see examples of this in the python built ins -- methods of lists like ``append`` or ``sort`` return None -- indicating that they have mutated the instance.
+  You can see examples of this in the python built-ins. Methods of lists like ``append`` or ``sort`` return None, indicating that they have mutated the instance.
 
-
-Gotcha !
---------
+Gotchas
+-------
 
 .. code-block:: python
 
@@ -338,26 +327,25 @@ Gotcha !
 
     TypeError: grow() takes at most 2 arguments (3 given)
 
-Huh???? I only gave two arguments!
+Huh? I only gave two arguments!
 
-``self`` is implicitly passed in for you by Python. so it actually *did* get three!
-
+``self`` is implicitly passed in for you by Python. So it actually *did* get three!
 
 Functions (methods) are First Class Objects
 -------------------------------------------
 
 Note that in Python, functions are first class objects, so a method *is* an attribute.
 
-All the same rules apply about attribute access: note that the methods are defined in the class -- so they are class attributes.
+All the same rules apply about attribute access. Note that the methods are defined in the class, so they are class attributes.
 
-All the instances share the same methods -- there is only one copy of each method.
+All the instances share the same methods. There is only one copy of each method.
 
-But each method gets its own namespace when it is actually called, so there is no confusion -- just like when you call a regular function multiple times.
+But each method gets its own namespace when it is actually called, so there is no confusion, just like when you call a regular function multiple times.
 
 Manipulating Attributes
 -----------------------
 
-Python makes it very easy to manipulate object's attributes -- you can access them with the "dot" notation, and simply set them like any other variable.  With the Circle class above:
+Python makes it very easy to manipulate object's attributes -- you can access them with the "dot" notation, and simply set them like any other variable. With the ``Circle`` class above:
 
 .. code-block:: python
 
@@ -375,12 +363,12 @@ Note that after I changed the diameter attribute, when I called the ``area()`` m
 
 So you now know how to:
 
- * Define a class
- * Give the class shared (class) attributes
- * Add an initializer to set up its initial state
- * Add methods to manipulate that state.
- * Add methods that return the results of calculations of the current state
+* Define a class
+* Give the class shared (class) attributes
+* Add an initializer to set up its initial state
+* Add methods to manipulate that state
+* Add methods that return the results of calculations of the current state
 
-You can do a lot with this simple functionality. Frankly, all creating classes like this has done is put everything together in a neat package -- which is very useful, but hasn't given you much new power.
+You can do a lot with this simple functionality. Frankly, all creating classes like this has done is put everything together in a neat package. This is very useful, but hasn't given you much new power.
 
 But it's a good idea to get the hang of using classes, and methods, and ``self`` for a bit before moving on to the more powerful feature of subclassing.

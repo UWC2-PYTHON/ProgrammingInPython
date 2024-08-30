@@ -8,7 +8,6 @@ Introduction to Functional Programming
     ../../modules/OO_vs_functional
     ../../modules/Lambda
     ../../modules/MapFilterReduce
-    ../../modules/IPythonParallel
     ../../modules/Closures
 
 .. toctree::

@@ -9,12 +9,12 @@ In particular, you know that functions can contain a chunk of code that can be w
 
 You know that you can pass values into the function, and that it can return values to the "calling" code.
 
-Now we will dig a bit deeper down into the specifics of functions in Python:
+Now we will dig a bit deeper down into the specifics of functions in Python.
 
 Variable scope
 --------------
 
-Defining a function:
+You know how to define a function:
 
 .. code-block:: python
 
@@ -24,18 +24,16 @@ Defining a function:
 
 ``x``, ``y``, ``z`` are *local* names.
 
-``x`` and ``y`` because they are function *parameters*
+``x`` and ``y`` are local because they are function *parameters*.
 
-``z`` because it was "bound" inside the function.
-
+``z`` is local because it was "bound" inside the function.
 
 Local vs. Global
 ................
 
-Names bound in Python have a *scope*
+Names bound in Python have a *scope*.
 
-That *scope* determines where a name is visible, and what value it has in a
-given block.
+That *scope* determines where a name is visible, and what value it has in a given block.
 
 .. code-block:: ipython
 
@@ -66,12 +64,11 @@ The ones outside the function are "global" names.
 
 When you use a name in Python, it first checks if it's a local name. Then, if that name is not in the local scope, it will look in the global scope for it.
 
-**NOTE:** "global" in Python means global to the module (generally a single file), not global to an entire program. Which is really good, as you have little way of knowing what names are being used in packages you are using, but are not writing yourself!
+**NOTE:** "global" in Python means global to the module (generally a single file), not global to an entire program. This is a really good thing, as you have little way of knowing what names are being used in packages you are using, but are not writing yourself!
 
 In general, you should use global names mostly for constants.
 
-The Python convention is to designate global constants by typing the
-names we bind to them in ALL_CAPS:
+The Python convention is to designate global constants by typing the names we bind to them in ALL_CAPS:
 
 .. code-block:: python
 
@@ -80,7 +77,6 @@ names we bind to them in ALL_CAPS:
     ...
 
 This is just a convention, but it's a good one to follow.
-
 
 Global Gotcha
 .............
@@ -99,7 +95,6 @@ Take a look at this function definition:
        ....:
 
 What is going to happen when we call ``f``?
-
 
 Try it and see:
 
@@ -120,21 +115,18 @@ Try it and see:
 
     UnboundLocalError: local variable 'x' referenced before assignment
 
-Because you are binding the symbol ``x`` locally, it becomes a local and masks
-the global value already bound. So in the line that caused the error:
+Because you are binding the symbol ``x`` locally, it becomes a local and masks the global value already bound. So in the line that caused the error:
 
 .. code-block:: python
 
     y = x
 
-Python knows that x is a local name, as it is assigned on the next line.  But on this line,  x has not yet been given a value -- hence the error.
-
+Python knows that ``x`` is a local name, as it is assigned on the next line. But on this line, ``x`` has not yet been given a value -- hence the error.
 
 Globals are "read only"
 .......................
 
 While you have access to the global names in side a function, you can't change what those names are bound to. Take a look at the previous examples -- when we set a new value to a name (using the equal sign), that makes the name local -- so it will not change what the global name refers to.
-
 
 Parameters
 ----------
@@ -148,11 +140,10 @@ So far we've seen simple parameter lists:
 
 These types of parameters are called *positional*
 
-When you call a function, you **must** provide arguments for all *positional*
-parameters *in the order they are listed*.
+When you call a function, you **must** provide arguments for all *positional* parameters *in the order they are listed*.
 
-Defaults for parameters:
-........................
+Defaults for parameters
+.......................
 
 You can provide *default values* for parameters in a function definition:
 
@@ -169,8 +160,7 @@ When parameters are given with default values, they become *optional*.
     In [25]: fun()
     1 2 3
 
-You can provide arguments to a function call for *optional* parameters
-positionally:
+You can provide arguments to a function call for *optional* parameters positionally:
 
 .. code-block:: ipython
 
@@ -188,13 +178,13 @@ Or, you can use the parameter name as a *keyword* to indicate which you mean:
     In [29]: fun(y=4, x=1)
     1 4 3
 
-
 This allows you to specify only those optional parameters that you need to, and keep using the defaults for the rest.
+
 This is a very powerful feature of Python -- you'll find it's common to have a pretty long optional parameter list to functions.
+
 It allows a lot of flexibility (the hard stuff is possible), while in common use, it's easy to use (the easy stuff is easy).
 
-Once you've provided a *keyword* argument in this way, you can no longer
-provide any *positional* arguments:
+Once you've provided a *keyword* argument in this way, you can no longer provide any *positional* arguments:
 
 .. code-block:: ipython
 
@@ -202,7 +192,6 @@ provide any *positional* arguments:
       File "<ipython-input-30-4529e5befb95>", line 1
         fun(x=5, 6)
     SyntaxError: non-keyword arg after keyword arg
-
 
 Recursion
 ---------
@@ -215,8 +204,7 @@ Like with other functions, a call within a call establishes a *call stack*.
 
 With recursion, if you are not careful, this stack can get *very* deep.
 
-Python has a maximum limit to how much it can recurse. This is intended to
-save your machine from running out of RAM.
+Python has a maximum limit to how much it can recurse. This is intended to save your machine from running out of memory.
 
 Recursion can be Useful
 -----------------------
@@ -245,14 +233,6 @@ We can use a recursive function nicely to model this mathematical function:
 This is a typical structure for a recursive function:
 
 A) It starts with a check to see if the recursive process is "done" -- can it simply return a simple value.
-
 B) If not, then it does a computation using the same function with another value.
 
 It is critical that the first check is there, or the function will never terminate.
-
-Further Reading
----------------
-
-Here's a nice blog post about writting better functions:
-
-https://jeffknupp.com/blog/2018/10/11/write-better-python-functions/

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-
 def pos_neg(a, b, negative):
     if negative:
         return a < 0 and b < 0
     else:
         return (a < 0 and b > 0) or (a > 0 and b < 0)
+
 
 if __name__ == "__main__":
     # run some tests if run as script
@@ -22,6 +22,4 @@ if __name__ == "__main__":
     assert pos_neg(-5, 6, True) is False
     assert pos_neg(-5, -5, True) is True
 
-
-
-    print "all tests passed"
+    print("all tests passed")

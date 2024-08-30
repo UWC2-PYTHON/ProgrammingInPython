@@ -4,9 +4,6 @@
 Comprehensions
 ##############
 
-**A bit of functional programming.**
-
-
 List Comprehensions
 -------------------
 
@@ -35,9 +32,10 @@ The above structure can be expressed with a single line using a "list comprehens
 Nice and clear and compact, and the use of the "list" brackets (``[...]``) makes it clear you are making a list.
 
 Recall what an expression is in Python: a bit of code (names and operators) that evaluates to a value. So in the beginning of a comprehension, you can put anything that evaluates to a value -- and that value is what gets added to the new list.
-This can be a simple (or complex) math operation: ``x * 3``, or a function or method call: ``a_string.upper()``, ``int(x)``, etc.
-But it can not contain any statements: code that does not return a value, such as assignment (``x = 5``), or ``for`` loops, or ``if`` blocks.
 
+This can be a simple (or complex) math operation: ``x * 3``, or a function or method call: ``a_string.upper()``, ``int(x)``, etc.
+
+But it can not contain any statements: code that does not return a value, such as assignment (``x = 5``), or ``for`` loops, or ``if`` blocks.
 
 Nested Loops
 ............
@@ -57,9 +55,7 @@ This can also be expressed with a comprehension in one line:
 
     new_list =  [expression_with_var_and_var2 for var in a_list for var2 in a_list2]
 
-But the two lists are not looped through in parallel. Rather, you get all combinations of the two lists -- Sometimes called the "outer product".
-
-For example:
+But the two lists are not looped through in parallel. Rather, you get all combinations of the two lists. This is sometimes called the "outer product". For example:
 
 .. code-block:: ipython
 
@@ -72,7 +68,7 @@ For example:
 
 Note that it makes every combination of the two input lists, and thus will be ``len(list1) * len(list2)`` in size. And there is no reason for them to be the same size.
 
-zip() with comprehensions
+zip() With Comprehensions
 .........................
 
 If you want them paired up instead, you can use ``zip()``:
@@ -83,7 +79,7 @@ If you want them paired up instead, you can use ``zip()``:
     Out[31]: [(1, 4), (2, 5)]
 
 
-Comprehensions and map()
+map() and Comprehensions
 ........................
 
 Comprehensions are another way of expressing the "map" pattern from functional programming.
@@ -98,7 +94,7 @@ is the same as:
 
 .. code-block:: python
 
-    [a_function(item), for item in an_iterable]
+    [a_function(item) for item in an_iterable]
 
 In this case, the comprehension is a tad wordier than ``map()``.  But comprehensions really shine when you don't already have a handy function to pass to map:
 
@@ -146,7 +142,6 @@ This kind of "filtering" loop can be achieved by adding a conditional to the com
 
 This is expressing the "filter" pattern and the "map" pattern at the same time -- one reason I like the comprehension syntax so much.
 
-
 .. rubric:: Examples:
 
 .. code-block:: ipython
@@ -161,9 +156,7 @@ This is expressing the "filter" pattern and the "map" pattern at the same time -
     Out[343]: [0, 4, 8]
 
 
-Get creative....
-
-How do I see all the built in Exceptions?
+You can do creative things with this syntax. For example, how do I see all the built in Exceptions?
 
 .. code-block:: python
 
@@ -176,7 +169,6 @@ How do I see all the built in Exceptions?
      ....
 
 Note that the last one was only filtering (``if "Error" in name``), without applying any expression to the items (``name for name``).
-
 
 Set Comprehensions
 ------------------
@@ -197,14 +189,13 @@ This results in the same set as this for loop:
     for variable in a_sequence:
         new_set.add(expression_with_variable)
 
-or, indeed, the same as passing a list comp to ``set()``.
+Or, indeed, the same as passing a list comp to ``set()``.
 
 .. code-block:: python
 
     new_set = set([expression_with_variable for variable in a_sequence])
 
-
-**Example:** Finding all the vowels in a string...
+For example, finding all the vowels in a string:
 
 .. code-block:: ipython
 
@@ -215,10 +206,7 @@ or, indeed, the same as passing a list comp to ``set()``.
     In [21]: { l for l in s if l in vowels }
     Out[21]: {'a', 'e', 'i', 'o'}
 
-.. note::
-
-  Why did I use ``set('aeiou')`` rather than just ``'aeiou'`` ? ... ``in`` works with strings as well, but is it efficient?
-
+.. note:: Why did I use ``set('aeiou')`` rather than just ``'aeiou'``? ``in`` works with strings as well, but is it efficient? It is not, in this case. Because ``'aeiou'`` is a string and searching in a string requires ``O(n)`` time whereas a ``set('aeiou')`` is a set and searching a set requires ``O(1)`` time.
 
 Dict Comprehensions
 -------------------
@@ -228,7 +216,6 @@ You can also build up a dictionary with a comprehension:
 .. code-block:: python
 
     new_dict = {key: value for variable in a_sequence}
-
 
 Which is the same as this for loop:
 
@@ -240,7 +227,7 @@ Which is the same as this for loop:
 
 A dict comprehension also uses curly brackets like the set comprehension -- Python knows it's a dict comprehension due to the ``key: value`` construct.
 
-**Example:**
+For example:
 
 .. code-block:: ipython
 
@@ -248,17 +235,16 @@ A dict comprehension also uses curly brackets like the set comprehension -- Pyth
     Out[22]: {0: 'this_0', 1: 'this_1', 2: 'this_2',
               3: 'this_3', 4: 'this_4'}
 
+A bit of History
+................
 
-A bit of History:
-.................
-
-dict comps are not as useful as they used to be, now that we have the ``dict()``  constructor.
+dict comprehensions are not as useful as they used to be, now that we have the ``dict()`` constructor.
 
 In the early days of Python the only way to create a dict was with a literal::
 
   a_dict = {}  # an empty dict
 
-or a dict that was already populated with a bunch of data.
+Or a dict that was already populated with a bunch of data.
 
 If you had a bunch of data in some other form, like a couple of lists, you'd need to write a loop to fill it in:
 
@@ -277,7 +263,7 @@ If you had a bunch of data in some other form, like a couple of lists, you'd nee
     In [6]: d
     Out[6]: {'fred': 1, 'john': 2, 'mary': 3}
 
-now, with dict comps, you can do:
+Now, with dict comprehensions, you can do:
 
 .. code-block:: ipython
 
@@ -286,7 +272,7 @@ now, with dict comps, you can do:
     In [10]: d
     Out[10]: {1: 'fred', 2: 'john', 3: 'mary'}
 
-But there is also a ``dict()`` constructor (actually the type object for dict):
+But there is also a ``dict()`` constructor, which is actually just the type object for dict:
 
 .. code-block:: ipython
 
@@ -306,11 +292,11 @@ But there is also a ``dict()`` constructor (actually the type object for dict):
 
 ``dict()`` can take different types of arguments, and will do something different with each one.
 
-The first option (no argument) is an empty dict -- simple enough.
+The first option with no argument is an empty dict -- simple enough.
 
-The option makes a dict from the contents of another dict or similar object (called a "mapping").
+The option makes a dict from the contents of another dict or similar object, called a "mapping".
 
-The options is of interest here -- it makes a dict from an iterable of key, value pairs -- exactly what ``zip()`` gives you.
+The third option is of interest here -- it makes a dict from an iterable of key, value pairs -- exactly what ``zip()`` gives you.
 
 So we can create a dict from data like so:
 
@@ -323,7 +309,7 @@ So we can create a dict from data like so:
 
 Which is more compact, and arguably more clear, than the dict comprehension.
 
-dict comps are still nice if you need to filter the results, though:
+dict comprehensions are still nice if you need to filter the results, though:
 
 .. code-block:: ipython
 
@@ -331,7 +317,6 @@ dict comps are still nice if you need to filter the results, though:
 
     In [17]: d
     Out[17]: {1: 'fred', 2: 'john'}
-
 
 Generator Comprehensions
 ------------------------
@@ -346,7 +331,8 @@ This is useful, because we often create a comprehension simply to loop over it r
         outfile.write(f"The number is: {x}")
 
 In this case, the list comprehension: ``[y**2 for y in a_sequence]`` iterates over ``a_sequence``, computes the square of each item, and creates a whole new list with the new values.
-All this, just so it can be iterated over again right away. If the original sequence is large (or is itself a lazy-evaluated iterable), then the step of creating the extra list can be expensive and unnecessary.
+
+All this work, just so it can be iterated over again right away. If the original sequence is large (or is itself a lazy-evaluated iterable), then the step of creating the extra list can be expensive and unnecessary.
 
 Generator comprehensions, on the other hand, create an iterable that evaluates the items as they are iterated over, rather than all at once ahead of time -- so the entire collection is never stored.
 
@@ -402,11 +388,9 @@ Let's use a little function to make this clear:
 
 It simply returns the square of the passed-in value, but prints it as it does so, so we can see when it is called.
 
-.. note::
-  Having a "print" in a function is a example of a "side effect" -- something that is an effect of the function being called that is not reflected in the return value of that function.
-  As a rule, it's not a good idea to use functions with side effects in comprehensions. We're only doing it here as a debugging aid -- so we can clearly see when the function is being called.
+.. note:: Having a "print" in a function is a example of a "side effect" -- something that is an effect of the function being called that is not reflected in the return value of that function. As a rule, it's not a good idea to use functions with side effects in comprehensions. We're only doing it here as a debugging aid -- so we can clearly see when the function is being called.
 
-If we use it in a list comp:
+If we use it in a list comprehension:
 
 .. code-block:: ipython
 
@@ -416,8 +400,7 @@ If we use it in a list comp:
     test called with:  2
     Out[10]: [0, 1, 4]
 
-We see that ``test()`` gets called for all the values, and then a list is returned with all the results.
-But if we use it in a generator comprehension:
+We see that ``test()`` gets called for all the values, and then a list is returned with all the results. But if we use it in a generator comprehension:
 
 .. code-block:: ipython
 
@@ -456,15 +439,13 @@ You usually don't assign a generator expression to a variable, but rather, loop 
 When to Use What
 ................
 
-It's pretty simple:
+It's pretty simple.
 
-If you need a list (or a set or dict) for further work, then use a list comp.
+If you need a list (or a set or a dict) for further work, then use a list (or set or dict) comprehension.
 
 If you are going to immediately loop through the items created by the comprehension, use a generator comprehension.
 
-.. note::
-
-  The "official" term is "generator expression" -- that is what you will see in the Python docs, and a lot of online discussions. I've used the term "generator comprehension" here to better make clear the association with list comprehensions.
+.. note:: The "official" term is "generator expression" -- that is what you will see in the Python docs, and a lot of online discussions. I've used the term "generator comprehension" here to better make clear the association with list comprehensions.
 
 References
 ----------

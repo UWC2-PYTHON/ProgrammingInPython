@@ -16,12 +16,12 @@ Readings
     ../modules/StaticAndClassMethods
     ../modules/SpecialMethodsAndProtocols
 
-Supplemental Readings
----------------------
+Supplemental Reading
+--------------------
 
 About Python's "magic methods":
 
-https://www.python-course.eu/python3_magic_methods.php
+https://python-course.eu/oop/magic-methods.php
 
 http://minhhh.github.io/posts/a-guide-to-pythons-magic-methods
 
@@ -31,19 +31,18 @@ A Good Book (dead trees version only):
 
   (Dusty is a local boy and co-founder of PuPPy)
 
-
-Exercises:
-==========
+Exercises
+=========
 
 .. toctree::
     :maxdepth: 1
 
     ../exercises/circle/circle_class.rst
 
-Optional Exercise:
-------------------
+Optional Exercise
+-----------------
 
-This one is challenging -- if you have got html_render and circle class done, then by all means -- it's a great exercise.  but if you are still struggling with html_render -- get that done first.
+This one is challenging -- if you have got html_render and circle class done, then by all means -- it's a great exercise. But if you are still struggling with html_render -- get that done first.
 
 .. toctree::
     :maxdepth: 1

@@ -33,9 +33,10 @@ import mailroom
 # creates a sample database for the tests to use
 sample_db = mailroom.DonorDB(mailroom.get_sample_data())
 
+
 def test_empty_db():
     """
-    tests that you can initilize an empty DB
+    tests that you can initialize an empty DB
     """
     db = mailroom.DonorDB()
 
@@ -91,7 +92,7 @@ def test_list_donors():
     assert len(listing.split('\n')) == 5
 
 
-# fixme: add more odd serch test cases -- extra whitespace, etc.
+# fixme: add more odd search test cases -- extra whitespace, etc.
 def test_find_donor():
     """ checks a donor that is there, but with odd case and spaces"""
     donor = sample_db.find_donor("jefF beZos ")

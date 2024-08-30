@@ -6,7 +6,6 @@ Advanced Setup
 
 Once you have the core tools running, there are a number of things you can do to really get your environment working well. It is well worth doing some of this customization right up front.
 
-
 Creating an IDE
 ---------------
 
@@ -14,7 +13,6 @@ Creating an IDE
     :maxdepth: 1
 
     sublime_as_ide.rst
-    atom_as_ide.rst
     vsc_as_ide.rst
 
 Command Shells

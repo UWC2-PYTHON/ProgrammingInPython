@@ -3,19 +3,13 @@
 Iterators and Generators
 =========================
 
-  The Tools of Pythonicity
-
-    What goes on in those for loops?
-
-
-A note about Python History
+A Note About Python History
 ---------------------------
 
 Python 2
-.........
+........
 
-Python used to be all about sequences -- a good chunk of anything you did
-was stored in a sequence, or involved manipulating a sequence.
+Python used to be all about sequences -- a good chunk of anything you did was stored in a sequence, or involved manipulating a sequence.
 
 - lists
 - tuples
@@ -25,43 +19,37 @@ was stored in a sequence, or involved manipulating a sequence.
 - ``dict.values()``
 - ``dict.items()``
 - ``zip()``
-- ...
+- etc.
 
-In python2 -- those are all sequences. (in the case of zip and dict methods, they return actual lists)
+In Python 2 -- those are all sequences. (In the case of zip and dict methods, they return actual lists.)
 
 But it turns out that the most common operation for sequences is to iterate through them:
 
 .. code-block:: python
 
-  for item in a_sequence:
-      do_something_with_item
+    for item in a_sequence:
+        do_something_with_item()
 
 So fairly early in Python2, Python introduced the idea of the "iterable".
 
-More or less, an "iterable" is something you can, well, iterate over in
-a for loop, but often does not keep the whole sequence in memory at once.
+More or less, an "iterable" is something you can, well, iterate over in a for loop, but often does not keep the whole sequence in memory at once. After all -- why make a copy of something just to look at all its items?
 
-After all -- why make a copy of something just to look at all its items?
+For example:
 
-Example:
-
-In python2: ``dict.keys()`` returns a list of all the keys in the dict.
-But why make a full copy of all the keys, when all you want to do is:
+In python2: ``dict.keys()`` returns a list of all the keys in the dict. But why make a full copy of all the keys, when all you want to do is:
 
 .. code-block:: python
 
     for k in dict.keys():
         do_something_with(k)
 
-Even worse: ``dict.items()`` created a full list of ``(key, value)`` tuples.
--- a complete copy of all the data in the dict.
+Even worse: ``dict.items()`` created a full list of ``(key, value)`` tuples -- a complete copy of all the data in the dict.
 
-Even worse still: ``enumerate(dict.items())`` created a whole list of
-``(index, (key, value))`` tuples -- lots of copies of everything.
+Even worse still: ``enumerate(dict.items())`` created a whole list of ``(index, (key, value))`` tuples -- lots of copies of everything.
 
-Enter ``iter*``
+Enter ``iter*``.
 
-Python2 then introduced "iterable" versions of a number of functions and methods:
+Python 2 then introduced "iterable" versions of a number of functions and methods:
 
 ``itertools.izip``
 ``dict.iteritems()``
@@ -70,24 +58,20 @@ Python2 then introduced "iterable" versions of a number of functions and methods
 
 So you could now iterate through that stuff without copying anything. Nice performance benefits, but a somewhat ugly interface.
 
-Python3
-.......
+Python 3
+........
 
-Python3 embraces iterables -- now everything that could be an iterable without making a copy is done that way -- no unnecessary copies.
+Python 3 embraces iterables -- now everything that could be an iterable without making a copy is done that way -- no unnecessary copies.
 
-If you DO need an actual sequence (becasue you want to do something with it other than iterate over it), you have to make a list out of them explicitly:
+If you DO need an actual sequence -- because you want to do something with it other than iterate over it -- you have to make a list out of them explicitly::
 
-``list(dict.keys())``
+    list(dict.keys())
 
-Then there is an entire module: ``itertools`` that provides nifty ways
-to iterate through stuff.
+Then there is an entire module -- ``itertools`` -- that provides nifty ways to iterate through stuff.
 
 That will be covered elsewhere.
 
-So while I used to say that python was "all about sequences", I know say:
-
-    "Python is all about iterables
-
+So while I used to say that python was "all about sequences", I know say: Python is all about iterables.
 
 Iterators and Iterables
 -----------------------
@@ -99,19 +83,15 @@ Iteration is one of the main reasons Python code is so readable:
     for x in just_about_anything:
         do_stuff(x)
 
-An "iterable" is anything that can be looped over sequentially, so it does not have to be
-a "sequence": list, tuple, etc.  For example, a string is iterable. So is a set.
+An "iterable" is anything that can be looped over sequentially, so it does not have to be a "sequence": list, tuple, etc. For example, a string is iterable. So is a set.
 
-An iterator is an iterable that remembers state. All sequences are iterable, but
-not all sequences are iterators. To make a sequence an iterator, you can call it with iter:
+An iterator is an iterable that remembers state. All sequences are iterable, but not all sequences are iterators. To make a sequence an iterator, you can call it with iter:
 
 .. code-block:: python
 
    my_iter = iter(my_sequence)
 
-Iterator Types:
-
-https://docs.python.org/3/library/stdtypes.html#iterator-types
+Here are the iterator Types: https://docs.python.org/3/library/stdtypes.html#iterator-types
 
 Iterables
 ---------
@@ -126,14 +106,12 @@ To make an object iterable, you simply have to implement the ``__getitem__`` met
                 raise IndexError
             return position
 
-
 ``iter()``
 ----------
 
 How do you get the iterator object from an "iterable"?
 
-The ``iter`` function will make any iterable an iterator. It first looks for the ``__iter__``
-method, and if none is found, uses ``__getitem__`` to create the iterator.
+The ``iter`` function will make any iterable an iterator. It first looks for the ``__iter__`` method, and if none is found, uses ``__getitem__`` to create the iterator.
 
 The ``iter()`` function:
 
@@ -148,9 +126,8 @@ The ``iter()`` function:
     In [22]: iter( ('a', 'tuple') )
     Out[22]: <tupleiterator at 0x101e01710>
 
-
-List as an Iterator:
---------------------
+List as an Iterator
+-------------------
 
 .. code-block:: ipython
 
@@ -174,24 +151,19 @@ List as an Iterator:
     ----> 1 next(list_iter)
     StopIteration:
 
-Using iterators when you can
+Using Iterators When You Can
 ----------------------------
 
-consider the example from the trigrams problem:
+Consider the example from the trigrams problem: http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
 
-(http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/)
-
-You have a list of words: ``words``
-
-And you want to go through it, three at a time, and match up pairs with
-the following word.
+You have a list of words -- ``words`` -- and you want to go through it, three at a time, and match up pairs with the following word.
 
 The *non-pythonic* way to do that is a loop through the indices:
 
 .. code-block:: python
 
-  for i in range(len(words)-2):
-     triple = words[i:i+3]
+    for i in range(len(words)-2):
+        triple = words[i:i+3]
 
 It works, and is fairly efficient, but what about:
 
@@ -200,16 +172,11 @@ It works, and is fairly efficient, but what about:
     for triple in zip(words[:-2], words[1:-1], words[2:]):
 
 
-``zip()`` returns an iterable -- it does not build up the whole list.
-So this is quite efficient.
+``zip()`` returns an iterable -- it does not build up the whole list. So this is quite efficient.
 
-but we are still slicing: ([1:]), which produces a copy -- so we are creating three copies of
-the list -- not so good if memory is tight. Note that they are shallow copies, so not **that** bad.
+but we are still slicing: ([1:]), which produces a copy -- so we are creating three copies of the list. That is not so good if memory is tight. Note that they are shallow copies, so it is not **that** bad. Nevertheless, we can do better!
 
-Nevertheless, we can do better:
-
-The ``itertools`` module has an ``islice()`` (iterable slice) function.
-It returns an iterator over a slice of a sequence -- so no more copies:
+The ``itertools`` module has an ``islice()`` (iterable slice) function. It returns an iterator over a slice of a sequence -- so no more copies:
 
 .. code-block:: ipython
 
@@ -226,12 +193,10 @@ It returns an iterator over a slice of a sequence -- so no more copies:
     ('other', 'and', 'one')
     ('and', 'one', 'more')
 
-
 The Iterator Protocol
 ----------------------
 
-The main thing that differentiates an iterator from an iterable (sequence)
-is that an iterator saves state.
+The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
 
 An iterable must have the following methods:
 
@@ -239,17 +204,15 @@ An iterable must have the following methods:
 
     an_iterator.__iter__()
 
-Usually returns the iterator object itself.
+This usually returns the iterator object itself.
 
 .. code-block:: python
 
     an_iterator.__next__()
 
-Returns the next item from the container. If there are no further items,
-raises the ``StopIteration`` exception.
+This returns the next item from the container. If there are no further items, raises the ``StopIteration`` exception.
 
-An *iterable*, on the other hand, must have a ``__iter__`` method that returns an initialized iterator (which may or may not be itself). It doesnot have a ``__next__`` method. So you oculd say that the difference between and iterator and a iterable, is htat iterables do not have ``__next__`` methods: you cannont call ``next()`` on them.
-
+An *iterable*, on the other hand, must have a ``__iter__`` method that returns an initialized iterator, which may or may not be itself. It does not have a ``__next__`` method. So you could say that the difference between and iterator and a iterable is that iterables do not have ``__next__`` methods: you cannot call ``next()`` on them.
 
 Making an Iterator
 ------------------
@@ -262,15 +225,16 @@ A simple version of ``range()``
         def __init__(self, stop=5):
             self.current = 0
             self.stop = stop
+
         def __iter__(self):
             return self
+
         def __next__(self):
             if self.current < self.stop:
                 self.current += 1
                 return self.current
             else:
                 raise StopIteration
-
 
 What does ``for`` do?
 ----------------------
@@ -296,37 +260,28 @@ Now that we know the iterator protocol, we can write something like a for loop:
                 break
             func(i)
 
-
-Itertools
+itertools
 ---------
 
-``itertools``  is a collection of utilities that make it easy to
-build an iterator that iterates over sequences in various common ways
+``itertools`` is a collection of utilities that make it easy to build an iterator that iterates over sequences in various common ways.
 
-http://docs.python.org/3/library/itertools.html
+* http://docs.python.org/3/library/itertools.html
+* https://pymotw.com/3/itertools/index.html
 
-https://pymotw.com/3/itertools/index.html
-
-NOTE:
-
-iteratables are not *only* for ``for``
-
-They can be used with anything that expects an iterable:
-
-``sum``, ``tuple``, ``sorted``, ``list``, ...
+Note that iterables are not *only* for ``for``! They can be used with anything that expects an iterable: ``sum``, ``tuple``, ``sorted``, ``list``, ...
 
 Is an iterator a type?
 ----------------------
 
-Iterators are not a type. An "iterable" is anything that has an ``__iter__``
-method that returns an iterator and/or has a ``__getitem__`` method that takes 0-based indexes.
+Iterators are not a type. An "iterable" is anything that has an ``__iter__`` method that returns an iterator and/or has a ``__getitem__`` method that takes 0-based indexes.
 
 An "iterator" is anything that conforms to the "iterator protocol":
 
- - Has a ``__next__()`` method that returns objects.
- - Raises ``StopIteration`` when their are no more objects to be returned.
- - Has a ``__iter__()`` method that returns an iterator -- usually itself.
-   - sometimes the ``__iter__()`` method re-sets the iteration...
+- Has a ``__next__()`` method that returns objects.
+- Raises ``StopIteration`` when their are no more objects to be returned.
+- Has a ``__iter__()`` method that returns an iterator -- usually itself.
+
+    - Sometimes the ``__iter__()`` method re-sets the iteration.
 
 https://docs.python.org/3/glossary.html#term-iterator
 
@@ -343,18 +298,14 @@ Lots of common iterators are different types:
   In [27]: type(iter(zip([],[])))
   Out[27]: zip
 
-Here's a nice overview:
-
-http://treyhunner.com/2016/12/python-iterator-protocol-how-for-loops-work/
+Here's a nice overview: http://treyhunner.com/2016/12/python-iterator-protocol-how-for-loops-work/
 
 LAB
 ----
 
-
 :download:`iterator_1.py <../examples/iterators_generators/iterator_1.py>`
 
 * Extend (``iterator_1.py`` ) to be more like ``range()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
-
 * What happens if you break from a loop and try to pick it up again:
 
 .. code-block:: python
@@ -371,19 +322,16 @@ LAB
 
 * Does ``range()``  behave the same?
 
-  - make yours match ``range()``
-
-  - is range an iterator or an iteratable?
-
+  - Make yours match ``range()``.
+  - Is range an iterator or an iterable?
 
 Generators
 ----------
 
 Generators
 
-* give you an iterator object
-* no access to the underlying data ... if it even exists
-
+* Give you an iterator object.
+* Provide no access to the underlying data, if the underlying data even exists.
 
 Conceptually:
   Iterators are about various ways to loop over data.
@@ -398,26 +346,22 @@ Practically:
   Generators also can be used for times you want to pause a function
   and pick it back up later where you left off.
 
-
 yield
-------
+-----
 
-``yield``  is a way to make a quickie generator with a function:
+``yield`` is a way to make a quick generator out of a function:
 
 .. code-block:: python
 
     def a_generator_function(params):
-        some_stuff
+        some_stuff()
         yield something
 
 Generator functions "yield" a value, rather than returning a value.
 
-It *does* 'return' a value, but rather than ending execution of the
-function -- it preserves the state so it can pick up where it left off.
+It *does* 'return' a value, but rather than ending execution of the function -- it preserves the state so it can pick up where it left off. State is preserved in between yields.
 
-State is preserved in between yields.
-
-A function with ``yield``  in it is a "factory" for a generator
+A function with ``yield`` in it is a "factory" for a generator.
 
 Each time you call it, you get a new generator:
 
@@ -428,15 +372,11 @@ Each time you call it, you get a new generator:
 
 Each instance keeps its own state.
 
-Really just a shorthand for an iterator class that does the book keeping for you.
+Really this is just a shorthand for an iterator class that does the book keeping for you.
 
-To master yield, you must understand that when you call the function,
-the code you have written in the function body does not run. The function
-only returns the generator object. The actual code in the function is run
-when ``next()`` is called on the generator itself.
+To master yield, you must understand that when you call the function, the code you have written in the function body does not run. The function only returns the generator object. The actual code in the function is run when ``next()`` is called on the generator itself.
 
-And note that each time you call the "generator function" you get a new
-instance of a generator object that saves state separately from other instances.
+And note that each time you call the "generator function" you get a new instance of a generator object that saves state separately from other instances.
 
 An example: like ``range()``
 
@@ -447,12 +387,6 @@ An example: like ``range()``
         while i < stop:
             yield i
             i += step
-
-Real World Example from FloatCanvas:
-
-https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100
-
-
 
 Note:
 
@@ -468,28 +402,18 @@ Note:
     ...
      '__next__',
 
+So the generator **is** an iterator.
 
-So the generator **is** an iterator
-
-Note: A generator function can also be a method in a class
-
-In fact, this is a nice way to provide different ways to iterate over
-the data in a class in multiple ways.
+Note: a generator function can also be a method in a class. In fact, this is a nice way to provide different ways to iterate over the data in a class in multiple ways.
 
 This is done by the dict protocol with ``dict.keys()`` and ``dict.values()``.
 
-More about iterators and generators:
-
-Chapter 14 in Fluent Python by Luciano Ramalho
-
-http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
-
 :download:`yield_example.py <../examples/iterators_generators/yield_example.py>`
 
-generator comprehensions
+Generator Comprehensions
 ------------------------
 
-yet another way to make a generator:
+Here is yet another way to make a generator:
 
 .. code-block:: python
 
@@ -501,25 +425,20 @@ yet another way to make a generator:
     ...   print n
     ... 2 4 6
 
-
-More interesting if [1, 2, 3] is also a generator
+More interesting if ``[1, 2, 3]`` is also a generator.
 
 Note that `map` and `filter` produce iterators.
 
-Keep in mind -- if all you need to do with the results is loop over it
--- use a generator expression rather than a list comprehension.
+Keep in mind -- if all you need to do with the results is loop over it -- use a generator expression rather than a list comprehension.
 
-Other uses for ``yield``
+Other Uses For ``yield``
 ------------------------
 
-The ``yield`` keyword and generator functions were designed with classic "generators" in mind.
-
-That is -- objects that generate values on the fly.
+The ``yield`` keyword and generator functions were designed with classic "generators" in mind. That is -- objects that generate values on the fly.
 
 But, as we alluded to earlier, ``yield`` can be used for other things as well.
 
-Anytime you want to return a value, and then hold state until later,
-``yield`` can be used.
+Anytime you want to return a value, and then hold state until later, ``yield`` can be used.
 
 **Example:** pytest fixtures:
 
@@ -533,9 +452,7 @@ Anytime you want to return a value, and then hold state until later,
         # do the teardown
         something_with(value)
 
-In this case, the ``yield`` isn't in any sort of loop or anything.
-It will only get run once. But the generator will maintain state,
-so the value can be used after the yield to do the teardown.
+In this case, the ``yield`` isn't in any sort of loop or anything. It will only get run once. But the generator will maintain state, so the value can be used after the yield to do the teardown.
 
 How would this be done without yield? You'd need to store the value in a class:
 
@@ -565,38 +482,35 @@ Write a few generators:
 * Fibonacci sequence
 * Prime numbers
 
-Test code in:
-
-:download:`test_generator.py <../examples/iterators_generators/test_generator.py>`
+Test code in: :download:`test_generator.py <../examples/iterators_generators/test_generator.py>`
 
 Descriptions:
 
 Sum of the integers:
-  keep adding the next integer
+  Keep adding the next integer::
 
-  0 + 1 + 2 + 3 + 4 + 5 + ...
+      0 + 1 + 2 + 3 + 4 + 5 + ...
 
-  so the sequence is:
+  So the sequence is::
 
-  0, 1, 3, 6, 10, 15 .....
-
+      0, 1, 3, 6, 10, 15 .....
 
 Doubler:
-  Each value is double the previous value:
+  Each value is double the previous value::
 
-  1, 2, 4, 8, 16, 32,
+      1, 2, 4, 8, 16, 32,
 
 Fibonacci sequence:
-  The fibonacci sequence as a generator:
+  The fibonacci sequence as a generator::
 
-  f(n) = f(n-1) + f(n-2)
+      f(n) = f(n-1) + f(n-2)
 
-  1, 1, 2, 3, 5, 8, 13, 21, 34...
+      1, 1, 2, 3, 5, 8, 13, 21, 34...
 
 Prime numbers:
-  Generate the prime numbers (numbers only divisible by them self and 1):
+  Generate the prime numbers (numbers only divisible by them self and 1)::
 
-  2, 3, 5, 7, 11, 13, 17, 19, 23...
+      2, 3, 5, 7, 11, 13, 17, 19, 23...
 
 Others to try:
   Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...

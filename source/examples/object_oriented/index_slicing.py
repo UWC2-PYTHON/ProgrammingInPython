@@ -39,5 +39,6 @@ if __name__ == "__main__":
     print("calling with two slices")
     it[3:4, 7:8]
 
+    # this next line will fail and is supposed to fail
     print("calling with an invalid index")
     it["this"]

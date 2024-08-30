@@ -4,15 +4,14 @@
 Context Managers
 ################
 
-You've seen the ``with`` statement -- probably used for working with files. Now you'll learn what that's all about.
+You've seen the ``with`` statement. You have probably used for working with files. Now you'll learn what that's all about.
 
 Managing Resources
 ==================
 
-**Repetition in code stinks (DRY!)**
+**Repetition in code stinks. Don't repeat yourself! (DRY!)**
 
-A large source of repetition in code deals with the handling of external
-resources.
+A large source of repetition in code deals with the handling of external resources.
 
 As an example, how many times do you think you might type something like the following code:
 
@@ -25,9 +24,8 @@ As an example, how many times do you think you might type something like the fol
 
 Not only is this a couple extra lines of code to write, it's also prone to error:
 
-What happens if you forget to call ``.close()``?
-
-What happens if reading the file raises an exception?
+* What happens if you forget to call ``.close()``?
+* What happens if reading the file raises an exception?
 
 So you really should write it something like:
 
@@ -41,51 +39,41 @@ So you really should write it something like:
     finally:
         file_handle.close()
 
-And that is getting pretty ugly, and hard to get right.
+And that is getting pretty ugly, and hard to get right, and just plain repetitive!
 
 Handling General Resources
 --------------------------
 
-Leaving an open file handle laying around is bad enough. What if the resource
-is a network connection, or a database cursor?
+Leaving an open file handle laying around is bad enough. What if the resource is a network connection, or a database cursor?
 
-Starting in version 2.5, Python provides a structure for reducing the
-repetition needed to handle resources like this.
+Starting in version 2.5, Python provides a structure for reducing the repetition needed to handle resources like this.
 
 **Context Managers**
 
-You can encapsulate the setup, error handling, and teardown of resources in a
-few simple steps.
+You can encapsulate the setup, error handling, and teardown of resources in a few simple steps. The key is to use the ``with`` statement.
 
-The key is to use the ``with`` statement.
-
-``with`` a little help
+``with`` a Little Help
 ----------------------
 
-Since the introduction of the ``with`` statement in `pep343 <https://www.python.org/dev/peps/pep-0343/>`_, the above seven lines of defensive code have been replaced with this simple form:
+Since the introduction of the ``with`` statement in `PEP 343 <https://www.python.org/dev/peps/pep-0343/>`_, the above seven lines of defensive code have been replaced with this simple form:
 
 .. code-block:: python
 
-    with open('filename', 'r') as file_handle:
+    with open("filename", "r") as file_handle:
         file_content = file_handle.read()
     # do something with file_content
 
 The ``open`` builtin is defined as a *context manager*.
 
-The resource it returns (``file_handle``) is automatically and reliably closed
-when the code block ends.
+The resource it returns (``file_handle``) is automatically and reliably closed when the code block ends.
 
 At this point in Python history, many functions you might expect to behave this way do:
 
 * ``open`` works as a context manager.
-* network connections via ``socket`` do as well.
-* most implementations of database wrappers can open connections or cursors as
-  context managers.
-* ...
+* Network connections via ``socket`` do as well.
+* Most implementations of database wrappers can open connections or cursors as context managers.
 
-* But what if you are working with a library that doesn't support this
-  (``urllib``)?
-
+But what if you are working with a library that doesn't support this, such as ``urllib``?
 
 Close It Automatically
 ----------------------
@@ -103,18 +91,16 @@ If the resource in questions has a ``.close()`` method, then you can simply use 
         # do something with the open resource
     # and here, it will be closed automatically
 
-But what if the thing doesn't have a ``close()`` method, or you're creating
-the thing and it shouldn't have a ``close()`` method?
+But what if the thing doesn't have a ``close()`` method, or you're creating the thing and it shouldn't have a ``close()`` method?
 
-(full confession: ``urlib.request`` was not a context manager in py2 -- but it is in py3 -- but the issue still comes up with third-party packages and your own code!)
+(Full disclosure: ``urlib.request`` was not a context manager in Python 2 -- but it is in Python 3 so you don't need to do this. But the issue still comes up with third-party packages and your own code!)
 
 Do It Yourself
 --------------
 
 If you do need to support resource management of some sort, you can create a context manager of your own with the context manager protocol.
 
-The interface is simple.  It must be a class that implements two
-more of the nifty python *special methods*
+The interface is simple. It must be a class that implements two more of the nifty python *special methods*.
 
 ``__enter__(self)``:
   Called when the ``with`` statement is run, it should return something to work with in the created context.
@@ -153,8 +139,7 @@ Consider this code:
 
 :download:`context_manager.py <../examples/context_managers/context_manager.py>`
 
-This class doesn't do much of anything, but playing with it can help
-clarify the order in which things happen:
+This class doesn't do much of anything, but playing with it can help clarify the order in which things happen:
 
 .. code-block:: ipython
 
@@ -193,10 +178,10 @@ What if we try with ``False``?
 
 So this time, the context manager did not catch the error -- so it was raised in the usual way.
 
-The parameters to ``__exit__``
+The Parameters to ``__exit__``
 ------------------------------
 
-In real life, a context manager could have pretty much any error raised in its context.  And the context manager will likely only be able to "properly" handle particular Exceptions.
+In real life, a context manager could have pretty much any error raised in its context. And the context manager will likely only be able to "properly" handle particular Exceptions.
 
 So the ``__exit__`` method takes all the information about the exception as parameters:
 
@@ -206,7 +191,7 @@ So the ``__exit__`` method takes all the information about the exception as para
 
 ``exc_val``: the value of the Exception
 
-``exc_tb``: the Exception Traceback object
+``exc_tb``: the Exception traceback object
 
 The type lets you check if this is a type you know how to handle:
 
@@ -218,9 +203,9 @@ The value is the exception object itself.
 
 And the traceback is a full traceback object. Traceback objects hold all the information about the context in which an error occurred. It's pretty advanced stuff, so you can mostly ignore it, but if you want to know more, there are tools for working with them in the ``traceback`` module.
 
-https://docs.python.org/3/library/traceback.html
+See: https://docs.python.org/3/library/traceback.html
 
-The ``contextmanager`` decorator
+The ``contextmanager`` Decorator
 --------------------------------
 
 Similar to writing iterable classes, there's a fair bit of bookkeeping involved. It turns out you can take advantage of generator functions to do that bookkeeping for you.
@@ -246,9 +231,9 @@ Consider this code:
         finally:
             print("__exit__ cleanup goes here")
 
-The code is similar to the class defined previously.
+The code is similar to the class defined previously. And using it has similar results.
 
-And using it has similar results.  We can handle errors:
+We can handle errors:
 
 .. code-block:: ipython
 
@@ -261,7 +246,6 @@ And using it has similar results.  We can handle errors:
     in the context
     errors handled here
     __exit__ cleanup goes here
-
 
 Or, we can allow them to propagate:
 
@@ -284,12 +268,12 @@ Or, we can allow them to propagate:
           4
     RuntimeError: error raised
 
-Mixing context_managers with generators
+Mixing Context Managers With Generators
 ---------------------------------------
 
 You can put a ``yield`` inside a context manager as well.
 
-here is a generator function that gives yields all the files in a directory:
+Here is a generator function that yields the content of all the files in a directory:
 
 .. code-block:: python
 
@@ -307,7 +291,7 @@ here is a generator function that gives yields all the files in a directory:
 
 :download:`file_yielder.py <../examples/context_managers/file_yielder.py>`
 
-So the ``yield`` is inside the file context manager, so that state will be preserved while the file object is in use.
+So the ``yield`` is inside the file context manager so that state will be preserved while the file object is in use.
 
 This generator can be used like so:
 
@@ -316,4 +300,4 @@ This generator can be used like so:
     In [20]: for f in file_yielder(pattern="*.py"):
         ...:     print("The first line of: {} is:\n{}".format(f.name, f.readline()))
 
-Each iteration through the loop, the previous file gets closed, and the new one opened.  If there is an exception raised inside that loop, the last file will get properly closed.
+Each iteration through the loop, the previous file gets closed, and the new one opened. If there is an exception raised inside that loop, the last file will get properly closed.

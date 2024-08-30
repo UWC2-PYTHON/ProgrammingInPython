@@ -9,6 +9,7 @@ exercise in understanding the iterator protocol
 
 from operator import index
 
+
 class range2:
     def __init__(self, start, stop=None, step=1):
         # some logic to handle the optional parameters

@@ -14,10 +14,10 @@ class SparseArray(object):
 
     def __init__(self, my_array=()):
         """
-        initilize a sparse array
+        initialize a sparse array
 
         :param my_array: an initial sequence to start with
-                         if there are zeros in it, they wil not be stored
+                         if there are zeros in it, they will not be stored
         """
         self.length = len(my_array)
         # self.sparse_array is a dict that stores only the non-zero items

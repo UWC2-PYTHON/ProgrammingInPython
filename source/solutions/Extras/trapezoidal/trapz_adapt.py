@@ -80,7 +80,7 @@ def trapz(fun, a, b, tol=1e-4, *args, **kwargs):
     y = fun(x), for x between a and b
 
     :param fun: the function to evaluate
-    :type fun: a function that takes teh vule to be integrated over as
+    :type fun: a function that takes the value to be integrated over as
                its first argument. Any arguments can be passed in at the end.
 
     :param a: the start point for the integration
@@ -91,11 +91,11 @@ def trapz(fun, a, b, tol=1e-4, *args, **kwargs):
 
     :param tol=1e-4: accuracy expected.
 
-    any other arguments will be passed through to fun.
+    any other arguments will be passed through to func.
     """
     # compute the range
 
-    # loop to try varying step sizes until desired accuracey is achieved
+    # loop to try varying step sizes until desired accuracy is achieved
 
     prev_s = None
     n = 2  # start with only two steps

@@ -109,4 +109,4 @@ class CLI:
 def create_cli_with_sample_data():
     print("***\nloading sample data\n***")
     cli = CLI(model.DonorDB.load_from_file(data_dir / "sample_data.json"))
-    return cli
+    return cli.main()

@@ -1,14 +1,8 @@
-:orphan:
-
 .. _sequences:
 
 ################
 Python Sequences
 ################
-
-
-Ordered collections of objects
-
 
 What is a Sequence?
 ===================
@@ -19,15 +13,11 @@ They are analogous to what are often called "arrays" or "lists" in other program
 
 But in Python, there are number of types that all fit this description, each with special customization. But any object that has the behavior expected of a sequence can be treated the same way in Python:
 
-Remember Duck Typing?
+Remember Duck Typing? If it looks like a duck and quacks like a duck...
 
-If it looks like a duck and quacks like a duck...
-
-OR: If it looks and acts like a sequence -- it **is** a sequence.
+In Python: if it looks and acts like a sequence -- it **is** a sequence.
 
 Technically, if it satisfies the "Sequence Protocol", it is a sequence.
-
-Python is all about these protocols -- we will see more of them.
 
 The Sequence Protocol
 ---------------------
@@ -41,7 +31,7 @@ A *sequence* can be considered as anything that supports *at least* these operat
 * Length
 * Iteration
 
-I'll get into all of those as we go along.
+We will get into all of those as we go along.
 
 Sequence Types
 --------------
@@ -57,20 +47,18 @@ There are eight built in types in Python that are *sequences*:
 * array.array
 * range object (almost)
 
-For this lesson, you won't see much beyond strings, lists, and tuples --
-the rest are pretty special purpose.
+For this lesson, you won't see much beyond strings, lists, and tuples -- the rest are pretty special purpose.
 
-But what we learn in this lesson applies to all sequences (with minor caveats).
+But what we learn in this lesson applies to all sequences, though with minor caveats.
 
-I'll use lists, strings and tuples in the examples.
+We'll use lists, strings and tuples in the examples.
 
-So let's take a look at the key parts of the sequence protocol:
+So let's take a look at the key parts of the sequence protocol.
 
 Indexing
 ========
 
-Items in a sequence may be looked up by *index* using the indexing
-operator: ``[]``
+Items in a sequence may be looked up by *index* using the indexing operator: ``[]``
 
 Indexing in Python always starts at zero.
 
@@ -84,9 +72,9 @@ Here is an example with a string -- a string is a sequence of characters.
     In [100]: s[5]
     Out[100]: 'i'
 
-Note that the first character is indexed with zero -- I sometimes call that the "zeroth" item in the sequence.
+Note that the first character is indexed with zero -- sometimes this is called the "zeroth" item in the sequence.
 
-Zero indexing may seem odd at first (if you are not already a programming geek), but it turns out to make a lot of things easier. More on that later.
+Zero indexing may seem odd at first, if you are not already used to it, but it turns out to make a lot of things easier. More on that later.
 
 You can use negative indexes to count from the end:
 
@@ -103,7 +91,6 @@ You can use negative indexes to count from the end:
     In [5]: a_list[-4]
     Out[5]: 56
 
-
 Indexing beyond the end of a sequence causes an IndexError:
 
 .. code-block:: ipython
@@ -119,19 +106,18 @@ Indexing beyond the end of a sequence causes an IndexError:
 
     IndexError: list index out of range
 
-Pretty straight forward so far...
+Pretty straight forward so far.
 
 Slicing
 -------
 
 Slicing is a real "power tool" of Python -- it can allow very short code.
 
-Slicing a sequence creates a new sequence with a range of objects from the
-original sequence.
+Slicing a sequence creates a new sequence with a range of objects from the original sequence.
 
 It also uses the indexing operator (``[]``), but with a twist.
 
-``sequence[start:finish]`` returns all `sequence[i]` for which `start <= i < finish`
+``sequence[start:finish]`` returns all ``sequence[i]`` for which ``start <= i < finish``.
 
 That's a fancy way to say that it's all the items from start to finish -- including start, but NOT including finish.
 
@@ -152,11 +138,7 @@ This also may be a bit unintuitive -- but it's very practical.
 Helpful Hint
 ------------
 
-It can really help if you think about slicing this way:
-
-(write this out!)
-
-Think of the indexes as pointing to the spaces between the items::
+It can really help if you think about slicing this way: think of the indexes as pointing to the spaces between the items::
 
        a       b   u   n   c   h       o   f       w   o   r   d   s
      |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
@@ -165,7 +147,7 @@ Think of the indexes as pointing to the spaces between the items::
 Slicing
 -------
 
-Python has some other slicing shortcuts...
+Python has some other slicing shortcuts.
 
 You do not have to provide both ``start`` and ``finish``:
 
@@ -189,7 +171,7 @@ You can combine this with the negative index to get the end of a sequence:
     In [6]: s[-4:]
     Out[6]: '.txt'
 
-**That** is a real-world example I use all the time.
+That is a real-world example I use all the time. (Note: don't really use this example. The ``os.path`` module has a function called ``splitext`` for splitting a file extension off of a string.)
 
 Why start from zero?
 --------------------
@@ -210,13 +192,12 @@ Why is the last item in the slice **not** included?
 
     len(seq[-b:]) == b
 
-There are very many fewer "off by one" errors as a result.
+There are many fewer "off by one" errors as a result.
 
 More on Slicing
 ---------------
 
-Slicing takes a third argument: ``step`` which controls which items are
-returned:
+Slicing takes a third argument: ``step`` which controls which items are returned:
 
 .. code-block:: ipython
 
@@ -240,12 +221,11 @@ Very cool -- a negative step reverses the results!
 Slicing vs. Indexing
 --------------------
 
-Though they share an operator, slicing and indexing have a few important
-differences:
+Though they share an operator, slicing and indexing have a few important differences:
 
 * Indexing will always return one single object (a scalar), whereas slicing will return a sequence of objects.
 
-So if you start with, say, a list of numbers, indexing will return a single number.  Slicing, on the other hand, will return list of numbers -- even if that list only has one number in it -- or zero!
+So if you start with, say, a list of numbers, indexing will return a single number. Slicing, on the other hand, will return another list of numbers -- even if that list only has one number in it -- or zero numbers in it!
 
 Note that strings are a bit of an exception -- there is no character type in Python -- so a single character is a string -- a sequence of length-1.
 
@@ -262,8 +242,6 @@ Note that strings are a bit of an exception -- there is no character type in Pyt
     In [132]: s[20:30]
     Out[132]: ''
 
-(try it yourself....)
-
 Membership
 ==========
 
@@ -279,9 +257,7 @@ All sequences support the ``in`` and ``not in`` membership operators:
     In [18]: 42 not in s
     Out[18]: True
 
-
-For strings, the membership operations are like ``substring`` operations in
-other languages:
+For strings, the membership operations are like ``substring`` operations in other languages:
 
 .. code-block:: ipython
 
@@ -296,7 +272,6 @@ This does not work for sub-sequences of other types (can you think of why?):
     In [22]: s = [1, 2, 3, 4]
     In [23]: [2, 3] in s
     Out[23]: False
-
 
 Concatenation
 =============
@@ -315,10 +290,7 @@ Using ``+`` or ``*`` on sequences will *concatenate* them:
 Multiplying and Slicing
 -----------------------
 
-You can apply this concatenation to slices as well, leading to some nicely
-concise code:
-
-from CodingBat: Warmup-1 -- front3
+You can apply this concatenation to slices as well, leading to some nicely concise code:
 
 .. code-block:: python
 
@@ -328,7 +300,7 @@ from CodingBat: Warmup-1 -- front3
       else:
         return str[:3]+str[:3]+str[:3]
 
-This non-pythonic solution can also be expressed like so:
+The above non-pythonic solution can also be expressed pythonically, like so:
 
 .. code-block:: python
 
@@ -338,7 +310,7 @@ This non-pythonic solution can also be expressed like so:
 Length
 ======
 
-All sequences have a length.  You can get it with the ``len`` builtin:
+All sequences have a length. You can get it with the ``len`` builtin:
 
 .. code-block:: ipython
 
@@ -346,7 +318,7 @@ All sequences have a length.  You can get it with the ``len`` builtin:
     In [37]: len(s)
     Out[37]: 25
 
-Remember: Sequences are 0-indexed, so the last index is ``len(s)-1``:
+Remember: sequences are 0-indexed, so the last index is ``len(s)-1``:
 
 .. code-block:: ipython
 
@@ -358,13 +330,13 @@ Remember: Sequences are 0-indexed, so the last index is ``len(s)-1``:
     ----> 1 s[count]
     IndexError: string index out of range
 
-Better to use ``s[-1]``
-
+Better to use ``s[-1]``.
 
 Miscellaneous
 =============
 
 There are a bunch more operations supported by most sequences.
+
 Min and Max
 -----------
 
@@ -394,7 +366,6 @@ Of course this works with numbers, too!
     In [3]: max(seq)
     Out[3]: 8
 
-
 Index
 -----
 
@@ -420,8 +391,7 @@ This causes a ``ValueError`` if the item is not in the sequence:
 Count
 -----
 
-A sequence can also be queried for the number of times a particular item
-appears:
+A sequence can also be queried for the number of times a particular item appears:
 
 .. code-block:: ipython
 
@@ -437,7 +407,6 @@ This does not raise an error if the item you seek is not present:
     In [54]: all_letters.count('A')
     Out[54]: 0
 
-
 Iteration
 =========
 
@@ -450,16 +419,14 @@ You can iterate over a sequence with ``for``:
     for element in sequence:
         do_something(element)
 
-Which is what we mean when we say a sequence is an "iterable".
+This is what we mean when we say a sequence is an "iterable".
 
 There are some complexities about that -- but more on that in another lesson.
 
-
-Lists, Tuples...
+Lists and Tuples
 ================
 
-
-The *primary* sequence types.
+These are the *primary* sequence types that you will use over and over again.
 
 Lists
 -----
@@ -486,7 +453,7 @@ Or by using the ``list`` type object as a constructor:
     In [8]: list('abc')
     Out[8]: ['a', 'b', 'c']
 
-It will take any "iterable" (which means any sequence automatically -- remember that all sequences are iterable?)
+The ``list`` type object will take any "iterable", which means any sequence. Remember that all sequences are iterable.
 
 List Elements
 -------------
@@ -495,8 +462,7 @@ The elements contained in a list need not be of a single type.
 
 Lists are *heterogenous*, *ordered* collections.
 
-Each element in a list is a value, and can be in multiple lists and have
-multiple names (or no name):
+Each element in a list is a value, and can be in multiple lists and have multiple names or no name:
 
 .. code-block:: ipython
 
@@ -525,7 +491,6 @@ They can even be function calls:
     In [6]: l
     Out[6]: [3, 'four', 6, 18]
 
-
 Tuples
 ------
 
@@ -542,10 +507,10 @@ Tuples can be constructed using tuple literals (``()``):
     In [18]: (1,)
     Out[18]: (1,)
 
-Tuples and Commas...
---------------------
+Tuples and Commas
+-----------------
 
-Tuples don't NEED parentheses...
+Tuples don't NEED parentheses.
 
 .. code-block:: ipython
 
@@ -558,8 +523,7 @@ Tuples don't NEED parentheses...
     In [165]: type(t)
     Out[165]: tuple
 
-
-But they *do* need commas...!
+But they *do* need commas!
 
 .. code-block:: ipython
 
@@ -570,13 +534,13 @@ But they *do* need commas...!
     In [160]: type(t)
     Out[160]: tuple
 
-This is a Python "gotcha" -- some folks on my team recently had a weird bug that two of them could not figure out. They were getting a type error -- something like:
+This is a Python "gotcha" -- some folks on my team recently had a weird bug that two of them could not figure out. They were getting a type error -- something like::
 
-TypeError: unsupported operand type(s) for /: 'tuple' and 'float'
+    TypeError: unsupported operand type(s) for /: 'tuple' and 'float'
 
-which made no sense -- there were no tuples involved -- in this case, the value was being pulled from a list -- and it WAS a float. They even put type checking code in there, and it was, indeed, a float.
+This made no sense -- there were no tuples involved -- in this case, the value was being pulled from a list -- and it WAS a float. They even put type checking code in there, and it was, indeed, a float.
 
-After poking at the code a bit, I suddenly spotted an extra comma -- BINGO! that was it.
+After poking at the code a bit, we suddenly spotted an extra comma -- BINGO! that was it.
 
 The code was more involved, and thus harder to see, but it was pretty much like this:
 
@@ -586,7 +550,7 @@ The code was more involved, and thus harder to see, but it was pretty much like 
 
     In [17]: x = l[3],
 
-then a bit further down, x was used:
+Then a bit further down, x was used:
 
 .. code-block:: python
 
@@ -600,10 +564,10 @@ then a bit further down, x was used:
 
 Would you have seen that?
 
-Converting something to a Tuple
+Converting Something to a Tuple
 -------------------------------
 
-You can also use the ``tuple`` type object to convert any iterable (sequence) into a tuple:
+You can also use the ``tuple`` type object to convert any iterable (aka sequence) into a tuple:
 
 .. code-block:: ipython
 
@@ -614,7 +578,6 @@ You can also use the ``tuple`` type object to convert any iterable (sequence) in
     In [22]: tuple('garbanzo')
     Out[22]: ('g', 'a', 'r', 'b', 'a', 'n', 'z', 'o')
 
-
 Tuple Elements
 --------------
 
@@ -622,8 +585,7 @@ The elements contained in a tuple need not be of a single type.
 
 Tuples are *heterogenous*, *ordered* collections.
 
-Each element in a tuple is a value, and can be in multiple tuples and have
-multiple names (or no name):
+Each element in a tuple is a value, and can be in multiple tuples and have multiple names (or no name):
 
 .. code-block:: ipython
 
@@ -641,22 +603,7 @@ Look familiar from lists??
 Lists vs. Tuples
 ----------------
 
-
-    So why have both?
-
-Mutability
-==========
-
-.. image:: /_static/transmogrifier.jpg
-   :align: center
-   :width: 35%
-   :alt: Presto change-o
-
-
-image from flickr by `illuminaut`_, (CC by-nc-sa)
-
-.. _illuminaut: https://www.flickr.com/photos/illuminaut/3595530403
-
+So why have both?
 
 Mutability in Python
 ====================
@@ -668,9 +615,7 @@ All objects in Python fall into one of two camps:
 
 Objects which are mutable may be *changed in place*.
 
-Objects which are immutable may not be changed.
-
-Ever.
+Objects which are immutable may not be changed. Ever.
 
 The Types We Know
 -----------------
@@ -684,11 +629,11 @@ Float
 Tuple
 ========= ===========
 
-This may make it look like the Mutables are rare -- but in fact, most "container types", and most custom objects are mutable.
+This may make it look like the Mutables are rare -- but in fact, most "container types", and most custom objects, are mutable.
 
-Immutable types are the exception
+Immutable types are the exception.
 
-Lists Are Mutable
+Lists are Mutable
 -----------------
 
 Try this out:
@@ -701,8 +646,6 @@ Try this out:
     In [30]: food[1] = 'raspberries'
     In [31]: food
     Out[31]: ['spam', 'raspberries', 'ham']
-
-
 
 We repeat the exercise with a Tuple:
 
@@ -719,8 +662,7 @@ We repeat the exercise with a Tuple:
 
     TypeError: 'tuple' object does not support item assignment
 
-
-Watch Out when name binding
+Watch Out When nNme Binding
 ---------------------------
 
 This property means you need to be aware of what you are doing with your lists:
@@ -734,8 +676,7 @@ This property means you need to be aware of what you are doing with your lists:
        ....:         altered[i] += 1
        ....:
 
-Perhaps we want to check to see if altered has been updated, as a flag for
-whatever condition caused it to be updated.
+Perhaps we want to check to see if altered has been updated, as a flag for whatever condition caused it to be updated.
 
 What is the result of this code?
 
@@ -762,7 +703,7 @@ Let's look at that code again.
 
 What does the line: ``altered = original`` do?
 
-It binds the name: "altered" to the same object that "original" is bound to.
+It binds the name "altered" to the same object that "original" is bound to.
 
 That is, there is only one list, even though it is referred to by two names. So when you mutate (or change) that list from *either* name, the changes show up when you refer to it by the other name.
 
@@ -771,9 +712,9 @@ Other Gotchas
 
 Easy container setup, or deadly trap?
 
-Say you want something like sort of like a 2D array -- one way to do that is to nest lists -- make a list of lists.
+Say you want something sort of like a 2D array -- one way to do that is to nest lists -- make a list of lists.
 
-ONe seemingobvious way to create an empty list of lists would be to use multiplcation of lists -- make a list with one list in it, and then multiply it by the number of lists you want:
+One seemingly obvious way to create an empty list of lists would be to use multiplication of lists -- make a list with one list in it, and then multiply it by the number of lists you want:
 
 .. code-block:: ipython
 
@@ -788,10 +729,9 @@ OK -- that worked -- you have a list with five empty lists in it. So let's try u
 
     In [14]: words = ['one', 'three', 'rough', 'sad', 'goof']
 
-and you want to put one in each of the "inside" lists:
+And you want to put one in each of the "inside" lists:
 
 .. code-block:: ipython
-
 
     In [15]: # loop five times
         ...: for i in range(5):
@@ -800,8 +740,7 @@ and you want to put one in each of the "inside" lists:
 
 So, what is going to be in ``bins`` now? Think for a bit first -- you added one word to each bin, yes? But are those "sublists" independent?
 
-There is only **One** bin
--------------------------
+There is only **one** bin.
 
 .. code-block:: ipython
 
@@ -841,7 +780,6 @@ So how to make a list of independent lists? You need to loop and call that code 
     In [25]: bins
     Out[25]: [['one'], ['three'], ['rough'], ['sad'], ['goof']]
 
-
 Mutable Default Argument
 ------------------------
 
@@ -863,15 +801,15 @@ What is going on here???
 
 It turns out that that code: ``ac_list=[]`` is evaluated *when the function is defined* -- **not** when the function is called.
 
-So the name "ac_list" in the local scope of that function always refers to the same list. So every time the function is called, more is added to that same list.
+So the name ``ac_list`` in the local scope of that function always refers to the same list. So every time the function is called, more is added to that same list.
 
 The moral of the story here is:
 
-**Do not use mutable objects for default arguments!**
+    **Do not use mutable objects for default arguments!**
 
 It turns out that this early evaluation can be useful -- but for now, just remember not to use mutables as default arguments.
 
-By the way --this is how you *should* write that code:
+By the way -- this is how you *should* write that code:
 
 .. code-block:: ipython
 
@@ -890,23 +828,19 @@ By the way --this is how you *should* write that code:
 
 This will ensure that a new list will be created if one is not passed-in.
 
-
 Mutable Sequence Methods
 ========================
 
-In addition to all the methods supported by sequences we've seen above, mutable sequences (the list), have a number of other methods that are used to change it in place.
+In addition to all the methods supported by sequences we've seen above, mutable sequences have a number of other methods that are used to change it in place.
 
-You can find all these in the Standard Library Documentation:
-
-https://docs.python.org/3/library/stdtypes.html#typesseq-mutable
-
+You can find all these in the Standard Library Documentation: https://docs.python.org/3/library/stdtypes.html#typesseq-mutable
 
 Assignment
 -----------
 
 You've already seen changing a single element of a list by assignment.
 
-Pretty much the same as "arrays" in most languages:
+It is pretty much the same as "arrays" in most languages:
 
 .. code-block:: ipython
 
@@ -914,7 +848,6 @@ Pretty much the same as "arrays" in most languages:
     In [101]: my_list[2] = 10
     In [102]: my_list
     Out[102]: [1, 2, 10]
-
 
 Growing the List
 ----------------
@@ -934,7 +867,6 @@ Growing the List
     In [80]: food
     Out[80]: ['beans', 'spam', 'eggs', 'ham', 'sushi', 'bread', 'water']
 
-
 More on Extend
 --------------
 
@@ -951,7 +883,6 @@ You can pass any sequence to ``.extend()``:
      's', 'p', 'a', 'g', 'h', 'e', 't', 't', 'i']
 
 So be careful -- a string is a single object -- but also a sequence of characters (technically a sequence of length-1 strings).
-
 
 Shrinking a list
 ----------------
@@ -971,7 +902,6 @@ Shrinking a list
     In [208]: food
     Out[208]: ['eggs']
 
-
 You can also delete *slices* of a list with the ``del`` keyword:
 
 .. code-block:: ipython
@@ -985,7 +915,6 @@ You can also delete *slices* of a list with the ``del`` keyword:
     In [96]: del nums[-3:]
     In [97]: nums
     Out[97]: [0, 2, 4, 6]
-
 
 Copying Lists
 -------------
@@ -1012,7 +941,6 @@ If you provide *no* arguments to the slice, it makes a copy of the entire list:
     In [234]: food is food2
     Out[234]: False
 
-
 Shallow Copies
 --------------
 
@@ -1037,8 +965,7 @@ The list is itself a new object, but the objects it contains are not.
     In [258]: food_copy
     Out[258]: ['spam', ['eggs']]
 
-
-Copies can solve problems
+Copies Can Solve Problems
 -------------------------
 
 Consider this common pattern:
@@ -1084,7 +1011,6 @@ Iterate over a copy, and mutate the original:
     In [35]: l
     Out[35]: []
 
-
 Miscellaneous List Methods
 ==========================
 
@@ -1107,15 +1033,14 @@ These methods change a list in place and are not available on immutable sequence
     In [133]: food
     Out[133]: ['eggs', 'ham', 'spam']
 
-Because these methods mutate the list in place, they have a return value of ``None``
-
+Because these methods mutate the list in place, they have a return value of ``None``.
 
 Custom Sorting
 --------------
 
 ``.sort()`` can take an optional ``key`` parameter.
 
-It should be a function that takes one parameter (list items one at a time) and returns something that can be used for sorting:
+It should be a function that takes one parameter -- which will contain each list item, one at a time -- and returns something that can be used for sorting:
 
 .. code-block:: ipython
 
@@ -1131,24 +1056,21 @@ You end up with the list sorted by the third letter in each element.
 List Performance
 ----------------
 
-* indexing is fast and constant time: O(1)
-* ``x in l`` is proportional to n: O(n)
-* visiting all is proportional to n: O(n)
-* operating on the end of list is fast and constant time: O(1)
+* Indexing is fast and constant time: O(1)
+* Searching ``x in l`` is proportional to n: O(n)
+* Visiting all is proportional to n: O(n)
+* Operating on the end of list is fast and constant time: O(1)
 
-  * append(), pop()
+    - append(), pop()
 
-* operating on the front (or middle) of the list depends on n: O(n)
+* Operating on the front (or middle) of the list depends on n: O(n)
 
-  * ``pop(0)``, ``insert(0, v)``
-  * But, reversing is fast. ``Also, collections.deque``
+    - ``pop(0)``, ``insert(0, v)``
+    - But, reversing is fast. Also see: ``collections.deque``
 
-What the heck does this O() thing mean?  That is known as "big O" notation for time complexity.  What it does is provide an indication of how much more time an operation will take depending on how many items the operation is acting on.
+What the heck does this O() thing mean?  That is known as "big O" notation for time complexity. What it does is provide an indication of how much more time an operation will take depending on how many items the operation is acting on.
 
-Check out the Python wiki entry on Time Complexity for more info:
-
-http://wiki.python.org/moin/TimeComplexity
-
+Check out the Python wiki entry on Time Complexity for more info: http://wiki.python.org/moin/TimeComplexity
 
 Choosing Lists or Tuples
 ========================
@@ -1156,55 +1078,51 @@ Choosing Lists or Tuples
 Here are a few guidelines on when to choose a list or a tuple:
 
 * If it needs to be mutable: list
-
 * If it needs to be immutable: tuple
 
-  * provides safety when passing to a function (and as a key in a dict)
+    * provides safety when passing to a function (and as a key in a dict)
 
 Otherwise ... taste and convention.
-
 
 Convention
 ----------
 
 Lists are typically homogeneous collections:
--- they always contain values of the same type
--- they simplify iterating, sorting, etc
+
+- they always contain values of the same type
+- they simplify iterating, sorting, etc
 
 Tuples are mixed types:
--- they group multiple values into one logical thing
--- they are similar to simple C structs.
 
+- they group multiple values into one logical thing
+- they are similar to simple C structs.
 
 Other Considerations
 --------------------
 
 * Do you need to do the same operation to each element?
 
-  * list
+    * list
 
 * Is there a small collection of values which make a single logical item?
 
-  * tuple
+    * tuple
 
 * Do you want to document that these values won't change?
 
-  * tuple
+    * tuple
 
 * Do you want to build it iteratively?
 
-  * list
+    * list
 
 * Do you need to transform, filter, etc?
 
-  * list
-
+    * list
 
 More Documentation
 ------------------
 
 For more information, read the list docs:
 
-https://docs.python.org/3.6/library/stdtypes.html#mutable-sequence-types
-
-(actually any mutable sequence....)
+https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types

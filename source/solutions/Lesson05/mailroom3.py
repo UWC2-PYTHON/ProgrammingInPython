@@ -9,7 +9,6 @@ it also write the thank you letters to files.
 
 """
 
-import sys
 import math
 from operator import itemgetter
 
@@ -206,6 +205,7 @@ def send_thank_you():
                       "3": return_to_menu,
                       }
     run_menu(prompt, selection_dict)
+
 
 def main_menu():
     """

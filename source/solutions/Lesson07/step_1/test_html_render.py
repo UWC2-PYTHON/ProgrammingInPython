@@ -25,9 +25,9 @@ def test_init():
     """
     this only tests that it can be initialized -- but it's a start
     """
-    e = Element()
+    Element()
 
-    e = Element("this is some text")
+    Element("this is some text")
 
 
 def test_content():
@@ -60,8 +60,8 @@ def test_render():
 
     file_contents = render_result(e)
 
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     assert file_contents.startswith("<html>")
     assert file_contents.strip().endswith("</html>")

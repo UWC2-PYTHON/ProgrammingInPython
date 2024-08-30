@@ -3,7 +3,7 @@
 """
 nifty Circle class
 
-Used to demo propeties and "magic methods"
+Used to demo properties and "magic methods"
 """
 
 from math import pi
@@ -25,6 +25,7 @@ class Circle(object):
     @property
     def diameter(self):
         return self.radius * 2.0
+
     @diameter.setter
     def diameter(self, value):
         self.radius = value / 2.0
@@ -63,9 +64,8 @@ class Circle(object):
     def __rmul__(self, factor):
         return Circle(self.radius * factor)
 
-
     # You can define them all:
-    #  Might be useful for odd situations
+    #  This might be useful for odd situations
     # def __eq__(self, other):
     #     return self.radius == other.radius
     # def __ne__(self, other):
@@ -80,9 +80,10 @@ class Circle(object):
     #     return self.radius <= other.radius
 
     # Or you can put the @total_ordering decorator on the class definition
-    # and do only thesethis:
+    # and do only implement these methods:
     def __eq__(self, other):
         return self.radius == other.radius
+
     def __gt__(self, other):
         return self.radius > other.radius
 

@@ -6,26 +6,21 @@ iPython Interpreter
 
 iPython is an enhanced interpreter that makes interactive experimentation at the command line much more pleasant and powerful.
 
-The very basics of IPython
+The Very Basics of iPython
 --------------------------
 
-IPython can do a lot for you, but for starters, here are the key pieces
-you'll want to know:
+iPython can do a lot for you, but for starters, here are the key pieces you'll want to know:
 
-Start it up
+Start it up:
 
 .. code-block:: bash
 
-  $ ipython
-  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
-  Type "copyright", "credits" or "license" for more information.
+    $ ipython
+    Python 3.12.5 (main, Aug  9 2024, 08:49:33) [Clang 15.0.0 (clang-1500.3.9.4)]
+    Type 'copyright', 'credits' or 'license' for more information
+    IPython 8.26.0 -- An enhanced Interactive Python. Type '?' for help.
 
-  IPython 4.0.0 -- An enhanced Interactive Python.
-  ?         -> Introduction and overview of IPython's features.
-  %quickref -> Quick reference.
-  help      -> Python's own help system.
-  object?   -> Details about 'object', use 'object??' for extra details.
-
+    In [1]:
 
 This is the stuff I use every day:
 
@@ -40,7 +35,7 @@ This is the stuff I use every day:
 
 * any shell command:
 
- - ``! the_shell_command``
+  - ``! the_shell_command``
 
 * pasting from the clipboard:
 
@@ -58,20 +53,16 @@ This is the stuff I use every day:
 
   - ``run the_name_of_the_file.py``
 
-
 That's it -- you can get a lot done with those.
 
 iPython references
 ------------------
 
-
 * **The iPython tutorial**
-    (http://ipython.readthedocs.io/en/stable/interactive/tutorial.html)
+    http://ipython.readthedocs.io/en/stable/interactive/tutorial.html
 
 * **Using IPython for interactive work**
-    (http://ipython.readthedocs.io/en/stable/interactive/index.html)
-    Learn about the abilities iPython provides for interactive sessions.
+    http://ipython.readthedocs.io/en/stable/interactive/index.html -- Learn about the abilities iPython provides for interactive sessions.
 
 * **The iPython Documentation**
-    (http://ipython.readthedocs.io/en/stable/)
-    Use this to learn more about iPython's amazing capabilities.
+    http://ipython.readthedocs.io/en/stable/ -- Use this to learn more about iPython's amazing capabilities.
