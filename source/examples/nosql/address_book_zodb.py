@@ -10,6 +10,7 @@ This version uses ZODB for the data management.
 import persistent  # from ZODB
 from persistent.list import PersistentList
 
+
 class Person(persistent.Persistent):
     """
     class to represent an individual person
@@ -210,25 +211,24 @@ def create_sample():
 
     the_barkers = Household(name="The Barkers",
                             people=(chris, donna, emma),
-                            address = barker_address)
+                            address=barker_address)
 
-
-    joseph = Person(last_name = 'Sheedy',
+    joseph = Person(last_name='Sheedy',
                     first_name='Joseph',
                     cell_phone='(234) 555-8910',
-                    email = 'js@some_thing.com',
+                    email='js@some_thing.com',
                     )
 
-    cris = Person(last_name = 'Ewing',
+    cris = Person(last_name='Ewing',
                   first_name='Cris',
                   cell_phone='(345) 555-6789',
-                  email = 'cris@a_fake_domain.com',
+                  email='cris@a_fake_domain.com',
                   )
 
-    fulvio = Person(last_name = 'Casali',
-                    first_name= 'Fulvio',
+    fulvio = Person(last_name='Casali',
+                    first_name='Fulvio',
                     cell_phone='(345) 555-1234',
-                    email = 'fulvio@a_fake_domain.com',
+                    email='fulvio@a_fake_domain.com',
                     )
 
     fred = Person(first_name="Fred",
@@ -244,16 +244,15 @@ def create_sample():
                                   zip_code='98105',
                                   )
 
-    python_cert = Business(name = 'Python Certification Program',
+    python_cert = Business(name='Python Certification Program',
                            people=(chris, joseph, cris, fulvio),
-                           address = Address('UW Professional and Continuing Education',
-                                             line_2='4333 Brooklyn Ave. NE',
-                                             city='Seattle',
-                                             state='WA',
-                                             zip_code='98105',
-                                             )
+                           address=Address('UW Professional and Continuing Education',
+                                           line_2='4333 Brooklyn Ave. NE',
+                                           city='Seattle',
+                                           state='WA',
+                                           zip_code='98105',
+                                           )
                            )
-
 
     root.address_book = AddressBook()
 

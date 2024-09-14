@@ -7,9 +7,9 @@ This is a simplified version of FloatCanvas -- an extension to the
 wxPython desktop GUI library
 
 FloatCanvas is a system for handling zoomable and scalable graphics in
-a object-persistant way. That is, graphic objects like circles and
+a object-persistent way. That is, graphic objects like circles and
 rectangles and what not can be created ahead of time, and then the Canvas
-can render them accoding to the current zoom level and pan position, etc.
+can render them according to the current zoom level and pan position, etc.
 
 This lets the user think about their graphics object should look like,
 and not have to worry about exactly how to draw them -- or their pixel
@@ -54,7 +54,7 @@ class ObjectCanvas():
         self.background = background
 
     def add_object(self, draw_object, position="top"):
-        #fixme: maybe overload the inplace addition operator?
+        # fixme: maybe overload the inplace addition operator?
         """
         Add a new object to the canvas.
 

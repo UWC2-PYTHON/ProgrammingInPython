@@ -3,7 +3,7 @@
 """
 sample data for NOSQL examples
 
-This version has a not completely-trival data model
+This version has a not completely-trivial data model
 """
 
 
@@ -238,7 +238,6 @@ def create_sample():
                            people=(chris, joseph, cris, fulvio),
                            address=python_cert_address
                            )
-
 
     address_book = AddressBook()
 

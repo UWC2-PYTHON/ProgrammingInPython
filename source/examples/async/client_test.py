@@ -9,6 +9,7 @@ from docs
 import asyncio
 import aiohttp
 
+
 async def get_events():
     async with aiohttp.ClientSession() as session:
         print("created a session")

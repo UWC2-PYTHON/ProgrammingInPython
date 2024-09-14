@@ -34,6 +34,8 @@ params = [(2, 2, 4),
           (-2, -2, 4),
           (3, 0, 0),
           ]
+
+
 @pytest.mark.parametrize(param_names, params)
 def test_multiply(arg1, arg2, result):
     assert calc.multiply(arg1, arg2) == result

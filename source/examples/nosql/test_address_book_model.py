@@ -42,7 +42,7 @@ def test_zip_search():
 
 def test_state_search():
     locations = a_book.find_state('WA')
-    names = [l.name for l in locations]
+    names = [x.name for x in locations]
 
     assert "The Barkers" in names
     assert "Python Certification Program" in names

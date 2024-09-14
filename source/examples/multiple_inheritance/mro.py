@@ -35,6 +35,7 @@ class D(B1, C1):
         print("called D")
         super(D, self).my_method()
 
+
 print(D.mro())
 d = D()
 print(d.my_method())

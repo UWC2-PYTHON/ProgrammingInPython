@@ -9,6 +9,7 @@ def write():
     time.sleep(random.random())
     sys.stdout.write("..done\n")
 
+
 for i in range(100):
     thread = threading.Thread(target=write)
     thread.daemon = True  # allow ctrl-c to end

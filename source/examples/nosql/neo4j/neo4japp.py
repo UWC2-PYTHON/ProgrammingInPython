@@ -59,10 +59,10 @@ def clear_all(driver):
 
     NOTE: The Docs say about this:
 
-    "This query isn’t for deleting large amounts of data, but is nice
+    "This query isn't for deleting large amounts of data, but is nice
     when playing around with small example data sets."
 
-    I suppose if you have a really big datbase, you should just throw
+    I suppose if you have a really big database, you should just throw
     it away and make a new one.
     """
     logger.info("Running clear_all")
@@ -98,6 +98,7 @@ def test1(driver):
 
         logger.info('Note - this needs some exception handling!')
 
+
 def test2(driver):
     """
     Add a few people, some with a little more info
@@ -119,7 +120,7 @@ def test2(driver):
         # a record is one or more nodes,
         # in an ordered mapping, you can get it by name or index:
         print(rec[0])
-        print(rec['n']) # the n from the query above
+        print(rec['n'])  # the n from the query above
         node = rec[0]
 
         # each node as a unique id:
@@ -163,10 +164,10 @@ def test3(driver):
         print("relationship:", rel)
         print("relationship's type:", rel.type)
         print("it connects nodes:", rel.start, "and", rel.end)
-            # for name, node in rec.items():
-            #     print("got node:", name)
-            #     print(type(node))
-            #     print(node['first_name'], node['last_name'])
+        # for name, node in rec.items():
+        #     print("got node:", name)
+        #     print(type(node))
+        #     print(node['first_name'], node['last_name'])
 
         print("can we find Bob's friend?")
         result = session.run("MATCH (bob {first_name:'Bob', last_name:'Jones'})"

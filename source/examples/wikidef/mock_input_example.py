@@ -10,7 +10,6 @@ def get_color():
         return "Hey! that's mine too!"
     else:
         raise ValueError("nothing to say about that color")
-    return color
 
 
 @mock.patch('builtins.input')
@@ -31,4 +30,4 @@ def test_get_color_blue(mocked_input):
 def test_get_color_purple(mocked_input):
     mocked_input.return_value = "purple"
     with pytest.raises(ValueError):
-        result = get_color()
+        get_color()

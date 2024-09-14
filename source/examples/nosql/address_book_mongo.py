@@ -90,7 +90,6 @@ class Address(PersistObject):
                  city='',
                  state='',
                  zip_code='',
-#                  **kwargs
                  ):
         """
         Initialize an address
@@ -115,7 +114,7 @@ class Household(PersistObject):
     """
 
     def __init__(self,
-                 name = '',
+                 name='',
                  people=(),
                  address=None,
                  phone='',
@@ -188,7 +187,7 @@ class AddressBook(object):
         client = MongoClient('localhost', 27017)
         db = client.address_book
         if fresh:
-            ## clean out old one
+            # clean out old one
             db.people.drop()
             db.businesses.drop()
             db.households.drop()
@@ -339,7 +338,6 @@ def create_sample():
                            people=(chris, joseph, cris, fulvio),
                            address=python_cert_address
                            )
-
 
     address_book = AddressBook()
 

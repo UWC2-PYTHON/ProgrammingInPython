@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 """
-A quaratic function evaluator
+A quadratic function evaluator
 
 used to demonstrate callable classes
 """
+
 
 class Quadratic:
     """

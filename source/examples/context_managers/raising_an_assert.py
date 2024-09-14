@@ -9,5 +9,5 @@ def test_raise_assertion():
     raise AssertionError("this was done with a direct raise")
 
 
-def test_trasditional_assert():
+def test_traditional_assert():
     assert False, "this was done with a forced assert"

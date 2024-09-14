@@ -15,7 +15,8 @@ Note: Testing image generation is hard.  So for now, this mostly just
 import pathlib
 import object_canvas as oc
 
-SAVE_ALL=True  # save all the temp files?
+
+SAVE_ALL = True  # save all the temp files?
 
 
 def render_to_file(canvas, filename="test_image.png", save=False):
@@ -40,9 +41,11 @@ def test_init():
 
     assert canvas
 
+
 def test_backgound():
     canvas = oc.ObjectCanvas(background='blue')
     render_to_file(canvas, "blue_background.png")
+
 
 def test_polyline():
     """

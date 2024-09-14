@@ -30,6 +30,7 @@ class Point2:
         self.x = x
         self.y = y
 
+
 p2 = Point2(4, 5)
 print(p2.size)
 print(p2.color)
@@ -49,8 +50,8 @@ class Point3:
     def get_size(self):
         return  self.size
 
-class Rect:
 
+class Rect:
     def __init__(self, w, h):
         self.w = w
         self.h = h
@@ -92,6 +93,7 @@ class NewCircle(Circle):
     def grow(self, factor=2):
         """grows the area by factor..."""
         self.diameter = self.diameter * math.sqrt(2)
+
 
 nc = NewCircle
 print(nc.color)

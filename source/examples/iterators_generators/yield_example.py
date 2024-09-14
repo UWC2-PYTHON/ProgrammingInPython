@@ -6,6 +6,7 @@ def counter():
         print('counter: yield', i)
         yield i
 
+
 def y_range(start, stop, step=1):
     print("at the start")
     i = start
@@ -15,6 +16,7 @@ def y_range(start, stop, step=1):
         print("after yield")
         i += step
     print("at end of func")
+
 
 def test():
     yield 4

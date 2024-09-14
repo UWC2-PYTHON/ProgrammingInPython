@@ -15,11 +15,11 @@ db = client.test_database
 
 collection = db.test_collection
 
-chris = {'last_name':'Barker',
-         'first_name':'Chris',
-         'middle_name':'H',
-         'cell_phone':'(123) 555-7890',
-         'email':'PythonCHB@gmail.com',
+chris = {'last_name': 'Barker',
+         'first_name': 'Chris',
+         'middle_name': 'H',
+         'cell_phone': '(123) 555-7890',
+         'email': 'PythonCHB@gmail.com',
          }
 
 collection.insert(chris)

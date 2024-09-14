@@ -17,7 +17,7 @@ def load_special_words(data_file_name, words=None):
     the # charactor is a comment -- everything after it will be ignored
 
     """
-    words  = set() if words is None else words
+    words = set() if words is None else words
     with open(data_file_name) as data_file:
         for line in data_file:
             word = line.split('#')[0].strip()
@@ -25,14 +25,17 @@ def load_special_words(data_file_name, words=None):
                 words.add(word.lower())
     return words
 
+
 def get_datafile_name():
     """
     return the default data file that comes with the package
     """
     return Path(__file__).parent / "cap_data.txt"
 
-## load up the special words on import
+
+# load up the special words on import
 special_words = load_special_words(get_datafile_name())
+
 
 def capitalize_line(instr, special_words=special_words):
     """
@@ -42,7 +45,7 @@ def capitalize_line(instr, special_words=special_words):
     :type instr: string
 
     :param special_words: set of words that should not be capitalized
-                          defaults to the words in the encosed data file
+                          defaults to the words in the enclosed data file
     :type special_words: set of str
 
     :returns: a capitalized version of instr

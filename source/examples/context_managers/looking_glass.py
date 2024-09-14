@@ -5,6 +5,7 @@
 import sys
 import contextlib
 
+
 class LookingGlass:
 
     def __enter__(self):
@@ -22,11 +23,11 @@ class LookingGlass:
             return True
 
 
-
 @contextlib.contextmanager
 def looking_glass():
     msg = ''
     original_write = sys.stdout.write
+
     def reverse_write(text):
         original_write(text[::-1])
 

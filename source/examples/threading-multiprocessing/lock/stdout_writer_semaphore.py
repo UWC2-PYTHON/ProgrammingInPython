@@ -5,11 +5,12 @@ import time
 
 lock = threading.Semaphore(2)
 
+
 def write():
     lock.acquire()
-    sys.stdout.write( "%s writing.." % threading.current_thread().name)
+    sys.stdout.write("%s writing.." % threading.current_thread().name)
     time.sleep(random.random())
-    sys.stdout.write( "..done\n")
+    sys.stdout.write("..done\n")
     lock.release()
 
 

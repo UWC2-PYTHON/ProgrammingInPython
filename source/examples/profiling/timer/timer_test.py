@@ -22,5 +22,6 @@ def expensive_function():
 def less_expensive_function():
     time.sleep(.02)
 
+
 expensive_function()
 less_expensive_function()

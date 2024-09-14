@@ -1,33 +1,35 @@
 #!/usr/bin/env python3
 
 """
-Some example code demonstrating some super() behaviour
+Some example code demonstrating some super() behavior
 """
+
 
 # Define a multiple inheritance scheme:
 class A():
     def __init__(self):
         print("in A __init__")
         print("self's class is:", self.__class__)
-        s = super().__init__()
+        super().__init__()
 
 
 class B():
     def __init__(self):
         print("in B.__init__")
-        s = super().__init__()
+        super().__init__()
 
 
 class C():
     def __init__(self):
         print("in C.__init__")
-        s = super().__init__()
+        super().__init__()
 
 
 class D(C, B, A):
     def __init__(self):
         print("self's class is:", self.__class__)
         super().__init__()
+
 
 # print our D's method resoluton order
 #  Is it what you expect?
@@ -108,15 +110,18 @@ class A():
     def this(self):
         print("in A.this")
 
+
 class B():
     def this(self):
         print("in B.this")
+
 
 class C(A,B):
     def this(self):
         print("in C.this")
         A.this(self)
         B.this(self)
+
 
 print("\nRunning without super()")
 print("Creating a C instance without super() -- and calling it's this method:")
@@ -129,13 +134,16 @@ print("C's `this` explicitly called both A and B's methods -- so they all get ca
 
 print("\n using super() in C, but not everywhere...")
 
+
 class A():
     def this(self):
         print("in A.this")
 
+
 class B(A):
     def this(self):
         print("in B.this")
+
 
 class C(B):
     def this(self):
@@ -162,20 +170,25 @@ print("**NOTE:  `A.this` did NOT get called!")
 
 print("using super everywhere:")
 
+
 class Base():
     def this(self):
         pass # just so there is a base that has the method
+
 
 class A(Base):
     def this(self):
         print("in A.this")
         super().this()
 
+
 class B(Base):
     def this(self):
         print("in B.this")
         super().this()
-class C(A,B):
+
+
+class C(A, B):
     def this(self):
         print("in C.this")
         super().this()
@@ -192,27 +205,32 @@ print(Base.__mro__)
 
 # But if you don't want both called -- better to just be Explicit, rather than use super():
 
+
 class Base():
     def this(self):
         pass # just so there is a base that has the method
+
 
 class A(Base):
     def this(self):
         print("in A.this")
         super().this()
 
+
 class B(Base):
     def this(self):
         print("in B.this")
         super().this()
 
-class C(A,B):
+
+class C(A, B):
     def this(self):
         print("in C.this")
         A.this(self)
 
-print("\nIf you want total control of what methods get called --don't use super"
-      "and be explicit")
+
+print("\nIf you want total control of what methods get called --don't use "
+      "super and be explicit")
 
 c = C()
 c.this()
@@ -228,9 +246,11 @@ print("B is not there")
 
 print("\nBut if we print the class of each instance when this() is called")
 
+
 class Base():
     def this(self):
         pass # just so there is a base that has the method
+
 
 class A(Base):
     def this(self):
@@ -238,12 +258,14 @@ class A(Base):
         print("self's class in A's this method:", self.__class__)
         super().this()
 
+
 class B(Base):
     def this(self):
         print("in B.this")
         super().this()
 
-class C(A,B):
+
+class C(A, B):
     def this(self):
         print("in C.this")
         A.this(self)

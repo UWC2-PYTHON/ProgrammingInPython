@@ -1,9 +1,7 @@
 import logging
 import os
-import sys
 import sqlite3
 import threading
-import time
 import random
 import string
 
@@ -14,9 +12,11 @@ logging.basicConfig(level=logging.DEBUG,
 
 DB_FILENAME = 'test.db'
 
+
 def create_db_table():
     with sqlite3.connect(DB_FILENAME) as conn:
         conn.execute("""CREATE TABLE BOOKS(author VARCHAR, title VARCHAR, id INTEGER PRIMARY KEY)""")
+
 
 def reader():
     """
@@ -28,9 +28,9 @@ def reader():
             # keep track of each loop
             print('try to get a book', i)
             cursor = conn.cursor()
-            cursor.execute("""SELECT * FROM BOOKS WHERE id={}""".format(i))
+            cursor.execute("SELECT * FROM BOOKS WHERE id = ?", (i,))
             #cursor.execute("SELECT * FROM BOOKS ORDER BY id DESC LIMIT 1")
-            # have to iteratote through the cursor to get the result, but it
+            # have to iterate through the cursor to get the result, but it
             # is only printing one thing.
             # If there is not a new book there yet, will get the last book
             for row in cursor:
@@ -41,6 +41,7 @@ def reader():
                 break
 
     print('exit show_books')
+
 
 def writer():
     """
@@ -69,10 +70,11 @@ if __name__ == '__main__':
     create_db_table()
     ready = threading.Event()
 
-    # If you start the writer thread first, it will hog the thread similarly
-    # In general, you will see that the database connection does not like to let go
-    # Can you figure out how to get the connection to cooperate more?
-    # Under what circumstances are database transactions optimized by threading?
+    # If you start the writer thread first, it will hog the thread similarly.
+    # In general, you will see that the database connection does not like to
+    # let go. Can you figure out how to get the connection to cooperate more?
+    # Under what circumstances are database transactions optimized by
+    # threading?
 
     threads = [
         threading.Thread(name="Reader", target=reader, args=()),

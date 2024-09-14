@@ -4,7 +4,8 @@
 here is a simple main() module -- to demonstrate setuptools entrypoints
 """
 
-import sys, os
+import os
+import sys
 import capital_mod
 
 help = """
@@ -14,6 +15,7 @@ capitalize file_to_process [output_file_name]
 
 capitalizes (title case) each line in a passed in file
 """
+
 
 def main():
     """

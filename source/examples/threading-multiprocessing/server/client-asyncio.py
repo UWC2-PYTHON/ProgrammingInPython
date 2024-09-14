@@ -2,40 +2,36 @@
 
 # TODO: update this with async / await
 
-import os
-import sys
-from urllib.request import urlopen
 import asyncio
+from urllib.request import urlopen
+from decorators import timer
 
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
-# from decorators.decorators import timer
-
-# @timer
 
 results = asyncio.Queue()
-
 url = "http://localhost:37337"
 
 
-@asyncio.coroutine
-def producer():
+async def producer():
     conn = urlopen(url)
     result = conn.read()
     return result
 
 
-@asyncio.coroutine
-def worker():
-    result = yield from producer()
+async def worker():
+    result = await producer()
     results.put(result)
 
 
-loop = asyncio.get_event_loop()
+@timer
+def threading_client(number_of_requests=10):
+    loop = asyncio.new_event_loop()
 
-number_of_requests = 100
+    for i in range(number_of_requests):
+        loop.run_until_complete(worker())
 
-for i in range(number_of_requests):
-    loop.run_until_complete(worker())
+    print("made %d requests" % number_of_requests)
 
-print("made %d requests" % number_of_requests)
+
+if __name__ == "__main__":
+    number_of_requests = 100
+    threading_client(number_of_requests=number_of_requests)

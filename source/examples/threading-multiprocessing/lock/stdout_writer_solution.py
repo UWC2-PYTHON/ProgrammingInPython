@@ -13,6 +13,7 @@ def write():
     sys.stdout.write("..done\n")
     lock.release()
 
+
 threads = []
 for i in range(50):
     thread = threading.Thread(target=write)

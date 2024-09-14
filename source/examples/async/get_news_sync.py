@@ -15,6 +15,7 @@ NOTE: you need to register with the web site to get a KEY.
 import time
 import requests
 
+
 WORD = "trump"
 
 NEWS_API_KEY = "84d0483394c44f288965d7b366e54a74"

@@ -2,10 +2,12 @@
 some example code to play with scope
 """
 
+
 def start_at(x):
     def increment_by(y):
         return x + y
     return increment_by
+
 
 closure_1 = start_at(3)
 closure_2 = start_at(5)
@@ -15,6 +17,7 @@ start_at(2)(4)
 
 def make_um_counter():
     series = []
+
     def um_counter(new_word):
         series.append(new_word)  # free variable
         count = 0

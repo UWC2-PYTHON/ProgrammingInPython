@@ -50,6 +50,7 @@ def main():
     else:
         return "invalid input"
 
+
 if __name__ == "__main__":
     try:
         print(main())

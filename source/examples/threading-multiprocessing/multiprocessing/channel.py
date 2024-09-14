@@ -2,6 +2,7 @@
 # Does not work with python3...
 import pickle
 
+
 class Channel():
     def __init__(self, out_f, in_f):
         self.out_f = out_f

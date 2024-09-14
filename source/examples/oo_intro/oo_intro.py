@@ -1,5 +1,3 @@
-import math
-import operator
 from uuid import uuid4
 
 
@@ -75,7 +73,6 @@ if __name__ == "__main__":
     report.add_row(Row("johny", "jakes", "WA"))
     report.add_row(Row("derek", "wright", "WA"))
 
-
     def run_report(sort_field):
         print(f"... PAGED REPORT SORTED BY: '{sort_field}'...")
         page = 1
@@ -96,7 +93,6 @@ if __name__ == "__main__":
             print("---------------------------------------------------------------")
 
             page += 1
-
 
     run_report("fname")
 

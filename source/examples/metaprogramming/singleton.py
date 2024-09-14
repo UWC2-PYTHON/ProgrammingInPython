@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-example of using __metaclass__ to impliment the singleton pattern
+example of using __metaclass__ to implement the singleton pattern
 """
 
 
@@ -16,6 +16,7 @@ class Singleton(type):
 
 class MyClass(metaclass=Singleton):
     pass
+
 
 object1 = MyClass()
 object2 = MyClass()

@@ -3,6 +3,7 @@ print('importing')
 
 def my_decorator(func):
     print('in my_decorator for: ', func.__name__)
+
     def inner():
         print('in inner function')
         func()
@@ -14,9 +15,11 @@ def my_decorator(func):
 def first_func():
     print('running first_func')
 
+
 @my_decorator
 def other_func():
     print('running other_func')
+
 
 print('imports and loading done')
 

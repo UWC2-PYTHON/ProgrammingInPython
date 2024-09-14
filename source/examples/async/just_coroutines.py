@@ -9,9 +9,11 @@ outside of an async framework or event loop.
 Hopefully, this will help us better understand how they work.
 """
 
+
 async def corout():
     print("running corout")
     return "something returned"
+
 
 # Note that the returned value gets tacked on to the StopIteration
 
@@ -34,6 +36,7 @@ from types import coroutine
 """applying the coroutine decorator makes a generator a coroutine, and thus an awaitable object.
 """
 
+
 @coroutine
 def do_nothing():
     """
@@ -50,6 +53,7 @@ def do_nothing():
 
 # """But we can now we can make another coroutine that awaits on the first one:
 # """
+
 
 async def do_a_few_things(num=3):
     # a loop for multiple things
@@ -113,6 +117,7 @@ while True:
 
 print("\n\n*********\n\n")
 
+
 @coroutine
 def nothing():
     """
@@ -121,6 +126,7 @@ def nothing():
     """
     yield "from nothing"
     return ("returned from nothing")
+
 
 @coroutine
 def count(num):
@@ -132,12 +138,14 @@ def count(num):
     for i in range(num):
         yield f"count: {i}"
 
+
 async def do_a_few_things(num=3, name="no_name"):
     # a loop for multiple things
     for i in range(num):
         print(f'\nin the "{name}" loop for the {i}th time')
         from_await = await nothing()
         print("value returned from await:", from_await)
+
 
 # create it:
 daft = do_a_few_things(5, "first one")
@@ -187,6 +195,7 @@ def count(num):
         yield f"count: {i}"
     return "returned from count"
 
+
 # and this one loops a bit more, calling count
 async def do_a_few_things(num=3, name="no_name"):
     # a loop for multiple things
@@ -194,6 +203,7 @@ async def do_a_few_things(num=3, name="no_name"):
         print(f'in the "{name}" loop for the {i}th time')
         from_await = await count(i + 2)
         print("value returned from await:", from_await)
+
 
 # """
 # We're going to create a little class to make a task loop
@@ -278,7 +288,7 @@ def sleep(secs=0):
 
 async def fib(n):
     """
-    Classic fibbonacci number, but with a delay
+    Classic fibonacci number, but with a delay
     """
     if n == 0:
         return 0
@@ -332,6 +342,7 @@ class TaskLoop():
                 # Whatever is returned is in the Exception's args
                 results.append(si.args[0])
         return results
+
 
 # """
 # Now let's try it out by putting a creating a few tasks and putting them on the loop.

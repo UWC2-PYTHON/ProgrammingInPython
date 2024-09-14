@@ -1,28 +1,27 @@
 #!/usr/bin/env python
 
 from multiprocessing.pool import ThreadPool
-import os
-import sys
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import queue
+from decorators import timer
 
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from decorators.decorators import timer
+
+results = queue.Queue()
+url = "http://localhost:37337"
+
+
+def worker(*args):
+    conn = urllib.request.urlopen(url)
+    result = conn.read()
+    conn.close()
+    results.put(result)
+    print(result)
 
 
 @timer
 def threading_client(number_of_requests=10, thread_count=2):
-
-    results = queue.Queue()
-    url = "http://localhost:37337"
-
-    def worker(*args):
-        conn = urllib.request.urlopen(url)
-        result = conn.read()
-        conn.close()
-        results.put(result)
-        print(result)
-
     pool = ThreadPool(processes=thread_count)
     pool.map(worker, list(range(number_of_requests)))
 

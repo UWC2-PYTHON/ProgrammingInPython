@@ -35,6 +35,7 @@ def test_two(example_fixture):
     print("running test_two")
     assert example_fixture["that"] == 2
 
+
 # with teardown:
 @pytest.fixture(scope="module")
 def example_fixture2():
