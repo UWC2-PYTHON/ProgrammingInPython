@@ -13,6 +13,7 @@ import pytest
 
 import capital_mod
 
+
 # fixture that creates and removes a file with special words in it
 @pytest.fixture(scope='module')
 def special_words_path():
@@ -75,7 +76,8 @@ def test_capitalize_line():
     expected = "This is a Line to Capitalize"
 
     result = capital_mod.capitalize_line(line, special_words=special)
-    assert  result == expected
+    assert result == expected
+
 
 def test_capitalize(test_file_path):
     """ test an actual file """

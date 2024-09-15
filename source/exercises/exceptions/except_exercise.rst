@@ -4,6 +4,9 @@
 Exceptions Exercise
 ###################
 
+Goal
+====
+
 This is a little exercise that shows you how to handle exceptions in a way that mirrors actual development.
 
 Procedure
@@ -15,16 +18,17 @@ Here are two files that you should be in the github classroom repo:
 
 :download:`except_test.py`
 
-Run ``except_exercise.py``::
+Run ``except_exercise.py``:
 
-   $ python except_exercise.py
+.. code-block:: bash
 
-(or ``run except_exercise.py`` in iPython)
+     $ python except_exercise.py
+
+Or ``run except_exercise.py`` in iPython)
 
 You will find that it crashes with an exception.
 
-Your job is to write the proper exception handler in the
-``except_exercise.py`` file, so that the code can run.
+Your job is to write the proper exception handler in the ``except_exercise.py`` file, so that the code can run.
 
 It will then crash again.
 
@@ -32,7 +36,7 @@ You will then need to handle the next exception.
 
 There are instructions in the ``except_exercise.py`` file telling you want you want to achieve.
 
-This is simulating writing code that is using another library -- your code is ``except_exercise.py`` and ``except_test.py`` is the other library. So you don't want to alter ``except_test.py`` -- only change the ``except_exercise.py`` file.
+This is simulating writing code that is using another library. Your code is ``except_exercise.py`` and ``except_test.py`` is the other library. So you don't want to alter ``except_test.py``. Only make changes in the ``except_exercise.py`` file.
 
 **Hint:** the exceptions themselves usually come from the other file, so you will get a traceback like this::
 
@@ -71,9 +75,9 @@ When you are done, running ``except_exercise.py`` should result in output someth
     Shopkeeper: Well, it's so clean.
     Customer:  It's certainly uncontaminated by cheese.
 
-
 Why are you doing this?
 -----------------------
 
-This is a kind of silly exercise, but in real life, this is a common work flow -- you call a library, and find that in certain circumstances it raises an exception.
+This is a kind of silly exercise, but in real life, this is a common work flow: you call a library, and find that in certain circumstances it raises an exception.
+
 As the code in the library is out of your hands, you need to decide how to handle that exception in your code instead.

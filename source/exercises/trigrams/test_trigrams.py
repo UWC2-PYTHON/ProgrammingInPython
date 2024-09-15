@@ -133,7 +133,6 @@ def test_make_sentence():
     # use the already tested build_trigram function to make the dict
     tri_dict = trigrams.build_trigram(LONGER_TEXT)
 
-
     # make a sentence of 6 words
     sentence = trigrams.make_sentence(tri_dict, 6)
 

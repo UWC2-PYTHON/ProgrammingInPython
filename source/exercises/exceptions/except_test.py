@@ -24,7 +24,7 @@ def fun(reaper):
         print('Spam, Spam, Spam, Spam, Beautiful Spam')
     elif reaper == 'mr death':
         print()
-        return('{}{}\n{}{}'.format(cust, shop, clerk, district))
+        return ('{}{}\n{}{}'.format(cust, shop, clerk, district))
 
 
 def more_fun(language):

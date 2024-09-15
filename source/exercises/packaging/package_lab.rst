@@ -1,18 +1,23 @@
+.. _exercise_packaging:
+
+#####################
+Packaging Python Code
+#####################
+
 A Small Example Package
 =======================
 
-* Create a small package
+Create a small package:
 
-  - package structure
+    - package structure
 
-  - ``setup.py``
+    - ``pyproject.toml``
 
-  - ``python setup.py develop``
+    - ``python -m pip install -e``
 
-  - ``at least one working test``
+    - at least one working test
 
-
-* Here is a ridiculously simple and useless package to use as an example:
+Here is a ridiculously simple and useless package to use as an example:
 
 :download:`capitalize.zip <capitalize.zip>`
 
@@ -30,4 +35,4 @@ Unzip that, and you will find::
 
     sample_text_file.txt: an example file you can use to try it out.
 
-Your mission is to put all these files in an package hierarchy, and then write a simple ``setup.py`` file that will build and install it as a package.
+Your mission is to put all these files in an package hierarchy, and then write a simple ``pyproject.toml`` file that will build and install it as a package.

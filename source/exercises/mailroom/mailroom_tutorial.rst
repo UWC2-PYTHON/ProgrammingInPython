@@ -1,21 +1,20 @@
 .. _exercise_mailroom_part1_tutorial:
 
-
+#################
 Mailroom Tutorial
-=================
+#################
 
 Controlling Main Program Flow
------------------------------
+=============================
 
-One of the key components of the mailroom program is managing program flow and interacting with the user. Ideally main flow code should be cleanly separate from your feature code.
+One of the key components of the mailroom program is managing program flow and interacting with the user. Ideally, main flow code should be cleanly separate from your feature code.
 
 The best way to manage the program flow of an interactive prompt is to use a ``while True`` loop, which means you will keep asking the user for input until the user selects a feature or exits.
 
 There are several ways to write your main interactive loop. Let's consider these two options:
 
-
-Option 1:
-.........
+Option 1
+--------
 
 .. code-block:: python
 
@@ -28,8 +27,8 @@ Option 1:
 
     main()
 
-Option 2:
-.........
+Option 2
+--------
 
 .. code-block:: python
 
@@ -42,10 +41,10 @@ Option 2:
 
     main()
 
-
 Can you see the advantages of one example over the other?
 
 In the first one, ``do_something`` is not aware of how the main function works and as you add more features they don't need to know about how the main function works either.
+
 The call stack will also keep getting deeper and deeper, which can make error stack traces hard to debug.
 
 Another advantage is simpler code logic, and simpler code logic means fewer bugs!
@@ -84,6 +83,7 @@ Let's look at a simple program to utilize the ``while True`` loop and how we can
         else:
             fruits.remove(purge_fruit)
 
+
     def exit_program():
         print("Bye!")
         sys.exit()  # exit the interactive script
@@ -109,13 +109,11 @@ Let's look at a simple program to utilize the ``while True`` loop and how we can
         # don't forget this block to guard against your code running automatically if this module is imported
         main()
 
-
-
 Choosing A Data Structure
 -------------------------
 
-
 So far in this course, we have learned about strings, tuples, and lists. We will apply these data structures to hold our mailroom donor information.
+
 Choosing the right data structure is critical and our donor data structure will change in Parts 2 and 3 of this assignment as we learn about additional structures.
 
 What goes into this decision to use a specific data structure? Here are a couple of things to consider.
@@ -146,7 +144,6 @@ Here we have the first item in a tuple as a donor name, which we will use to det
 
 Why choose tuples for the inner donor record? Well, another part of using the right data structure is to reduce bugs; you are setting clear expectations that a single donor entry only contains two items.
 
-
 Sorting
 -------
 
@@ -162,15 +159,18 @@ We will use the ``sorted`` function to do the sorting and either sort by name or
 
 The first option is to use optional ``key`` param, which accepts a function object - it can be any custom function we define as long as input and output are correctly implemented.
 
+::
+
     >>> def sort_key(student):
             return student[1]
     >>> sorted(students, key=sort_key)
     [('Joe', 26), ('Bob', 39), ('Jimmy', 40)]
 
-``sort_key`` function takes in a single parameter that represents the item in the list, in our case the student record, you then need to return which field should be used for sort comparison. We are using field at index 1, that's the age.
-
+The ``sort_key`` function takes in a single parameter that represents the item in the list, in our case the student record, you then need to return which field should be used for sort comparison. We are using field at index 1, that's the age.
 
 Another option is to use a ``itemgetter`` function from ``operator`` module, it accepts a parameter for list item index value, similar to our ``sort_key`` function:
+
+::
 
     >>> from operator import itemgetter
     >>> sorted(students, key=itemgetter(1))
@@ -180,17 +180,20 @@ Another option is to use a ``itemgetter`` function from ``operator`` module, it 
 
 Using second option makes the most sense in simple cases like above since we're not doing anything complicated and simply need to sort on the index. If our student record also included the last name:
 
+::
+
     >>> students = [('Bob Mac', 39), ('Joe Acer', 26), ('Jimmy Lenovo', 40)]
 
 Then the custom function becomes really handy to sort on the last name:
+
+::
 
     >>> def sort_key(student):
             return student[0].split(" ")[1]
     >>> sorted(students, key=sort_key)
     [('Joe Acer', 26), ('Jimmy Lenovo', 40), ('Bob Mac', 39)]
 
-
-Note: you might see a lot of examples online using the ``lambda`` statement, it is valid and can be used but isn't preferred because the syntax isn't elegant or very readable:
+Note: you might see a lot of examples online using the ``lambda`` statement. It is valid and can be used but isn't preferred because the syntax isn't elegant or very readable:
 
 .. code-block:: python
 

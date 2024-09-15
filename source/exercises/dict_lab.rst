@@ -1,63 +1,27 @@
 .. _exercise_dict_lab:
 
-**********************
+######################
 Dictionary and Set Lab
-**********************
+######################
 
-Learning about dictionaries and sets
-
-
-Goal:
------
+Goal
+====
 
 Learn the basic ins and outs of Python dictionaries and sets.
 
-Procedure
----------
+Tasks
+=====
 
 Create a new ``dict_lab.py`` file.
 
-The file should be an executable Python script. That is to say that one
-should be able to run the script directly like so:
+Add the file to your clone of the repository and commit changes frequently while working on the following tasks.
 
-.. code-block:: bash
+When the script is run, it should accomplish the following four series of actions.
 
-    $ ./dict_lab.py
+Part 1
+------
 
-(on macOS and Linux) or
-
-.. code-block:: bash
-
-    $ py dict_lab.py
-
-(on Windows)
-
-To make this work you, make sure you include the 'shebang' on the first line of your file.
-
-.. code-block:: bash
-
-    #!/usr/bin/env python3
-
-
-Finally (on macOS and linux) you need to make the file executable; do that with this command:
-
-.. code-block:: bash
-
-  $ chmod +x dict_lab.py
-
-(The +x means make this executable)
-
-
-Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks.
-
-When the script is run, it should accomplish the following four series of
-actions:
-
-Dictionaries 1
---------------
-
-* Create a dictionary containing "name", "city", and "cake" for "Chris" from "Seattle" who likes "Chocolate" (so the keys should be: "name", etc, and values: "Chris", etc.)
+* Create a dictionary containing "name", "city", and "cake" for "Chris" from "Seattle" who likes "Chocolate". So the keys should be: "name", etc, and values: "Chris", etc.
 
 * Display the dictionary.
 
@@ -67,38 +31,36 @@ Dictionaries 1
 
 * Add an entry for "fruit" with "Mango" and display the dictionary.
 
-  - Display the dictionary keys.
-  - Display the dictionary values.
-  - Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
-  - Display whether or not "Mango" is a value in the dictionary (i.e. True).
+    - Display the dictionary keys.
+    - Display the dictionary values.
+    - Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
+    - Display whether or not "Mango" is a value in the dictionary (i.e. True).
 
+Part 2
+------
 
-Dictionaries 2
---------------
-
-* Using the dictionary from item 1: Make a dictionary using the same keys but
-  with the number of 't's in each value as the value (consider upper and lower case?).
+* Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 't's in each value as the value (consider upper and lower case?).
 
   The result should look something like::
 
-      {"name": 0
-       "city": 2
-       "cake": 2
+      {
+          "name": 0,
+          "city": 2,
+          "cake": 2,
       }
 
-Sets
-----
+Part 3
+------
 
-* Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-  divisible by 2, 3 and 4 (figure out a way to compute those -- don't just type them in).
+* Create sets ``s2``, ``s3`` and ``s4`` that contain numbers from zero through twenty, divisible by 2, 3 and 4. Figure out a way to compute those -- don't just type them in.
 
 * Display the sets.
 
 * Display if s3 is a subset of s2 (False)
 
-* and if s4 is a subset of s2 (True).
+* Display if s4 is a subset of s2 (True)
 
-Sets 2
+Part 4
 ------
 
 * Create a set with the letters in 'Python' and add 'i' to the set.

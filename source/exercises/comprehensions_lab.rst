@@ -4,20 +4,17 @@
 Comprehensions Lab
 ##################
 
+Goal
+====
 
-Playing with Comprehensions
-============================
+Getting familiar with list, set and dict comprehensions.
 
-**Goal:**
-
-Getting Familiar with list, set and dict comprehensions
-
-List comprehensions
+List Comprehensions
 --------------------
 
-Note: this is a bit of a "backwards" exercise -- we show you code, you figure out what it does.
+Note: this is a bit of a "backwards" exercise. We show you code and then you figure out what it does.
 
-As a result, not much to submit -- don't worry about it -- you'll have a chance to use these in other exercises.
+As a result, there is not much to submit. Don't worry about it. You'll have a chance to use these in other exercises.
 
 .. code-block:: python
 
@@ -26,7 +23,7 @@ As a result, not much to submit -- don't worry about it -- you'll have a chance 
 
     >>> comprehension = [delicacy.capitalize() for delicacy in feast]
 
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
@@ -36,9 +33,9 @@ What is the output of:
     >>> comprehension[2]
     ???
 
-(figure it out before you try it)
+Figure it out before you try it.
 
-Filtering lists with list comprehensions
+Filtering Lists With List Comprehensions
 ----------------------------------------
 
 .. code-block:: python
@@ -48,7 +45,7 @@ Filtering lists with list comprehensions
 
     >>> comp = [delicacy for delicacy in feast if len(delicacy) > 6]
 
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
@@ -58,10 +55,9 @@ What is the output of:
     >>> len(comp)
     ???
 
-(figure it out first!)
+Figure it out first, before trying!
 
-
-Unpacking tuples in list comprehensions
+Unpacking Tuples in List Comprehensions
 ---------------------------------------
 
 .. code-block:: python
@@ -70,7 +66,7 @@ Unpacking tuples in list comprehensions
 
     >>> comprehension = [ skit * number for number, skit in list_of_tuples ]
 
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
@@ -80,9 +76,9 @@ What is the output of:
     >>> len(comprehension[2])
     ???
 
-
-Double list comprehensions
+Double List Comprehensions
 ---------------------------
+
 .. code-block:: python
 
     >>> eggs = ['poached egg', 'fried egg']
@@ -92,8 +88,7 @@ Double list comprehensions
     >>> comprehension = \
     [ '{0} and {1}'.format(egg, meat) for egg in eggs for meat in meats]
 
-
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
@@ -103,22 +98,21 @@ What is the output of:
     >>> comprehension[0]
     ???
 
-Set comprehensions
+Set Comprehensions
 ------------------
 
 .. code-block:: python
 
     >>> comprehension = { c for c in 'aabbbcccc'}
 
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
     >>> comprehension
     ???
 
-
-Dictionary comprehensions
+Dictionary Comprehensions
 -------------------------
 
 .. code-block:: python
@@ -131,7 +125,7 @@ Dictionary comprehensions
     >>> dict_comprehension = \
     { k.upper(): weapon for k, weapon in dict_of_weapons.items() if weapon}
 
-What is the output of:
+What is the output of this?
 
 .. code-block:: python
 
@@ -144,17 +138,16 @@ What is the output of:
     >>> len(dict_comprehension)
     ???
 
-Other resources
+Other Resources
 ---------------
 
 See also:
 
-https://github.com/gregmalcolm/python_koans/blob/master/python3/koans/about_comprehension.py
+https://github.com/gregmalcolm/python_koans/blob/master/koans/about_comprehension.py
 
 From Greg Malcolm's excellent Python Koans series:
 
 https://github.com/gregmalcolm/python_koans
-
 
 Count Even Numbers
 ------------------
@@ -173,7 +166,6 @@ Note: the % "mod" operator computes the remainder, e.g. ``5 % 2`` is 1.
 
     count_evens([1, 3, 5]) == 0
 
-
 Can you do this with a single line comprehension?
 
 .. code-block:: python
@@ -181,17 +173,14 @@ Can you do this with a single line comprehension?
     def count_evens(nums):
        one_line_comprehension_here
 
+``dict`` and ``set`` Comprehensions
+-----------------------------------
 
-``dict`` and ``set`` comprehensions
-------------------------------------
-
-Revisiting the dict/set lab -- see how much you can do with comprehensions instead.
-
-(:ref:`exercise_dict_lab`)
+Revisiting the dict/set lab, see how much you can do with comprehensions instead: :ref:`exercise_dict_lab`
 
 Specifically, look at these:
 
-First a slightly bigger, more interesting (or at least bigger..) dict:
+First a slightly bigger, more interesting, or at least bigger, dict:
 
 .. code-block:: python
 
@@ -202,37 +191,29 @@ First a slightly bigger, more interesting (or at least bigger..) dict:
                   "salad": "greek",
                   "pasta": "lasagna"}
 
-Working with this dict:
------------------------
+Working With This dict
+----------------------
 
 1. Print the dict by passing it to a string format method, so that you get something like:
 
-   "Chris is from Seattle, and he likes chocolate cake, mango fruit,
-   greek salad, and lasagna pasta"
+    "Chris is from Seattle, and he likes chocolate cake, mango fruit, greek salad, and lasagna pasta."
 
-2. Using a list comprehension, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine). (the ``hex()`` function gives you the hexidecimal representation of a number as a string)
+2. Using a list comprehension, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent. String is fine. The ``hex()`` function gives you the hexidecimal representation of a number as a string.
 
-3. Do the previous entirely with a dict comprehension -- should be a one-liner
+3. Do the previous entirely with a dict comprehension. This should be a one-liner.
 
-4. Using the dictionary from item (1): Make a dictionary using the same keys but with the number of 'a's in each value. You can do this either by editing the dict in place, or making a new one. If you edit in place make a copy first!
+4. Using the dictionary from item (1), make a dictionary using the same keys but with the number of 'a's in each value. You can do this either by editing the dict in place, or making a new one. If you edit in place make a copy first!
 
-5. Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
+5. Create sets s2, s3, and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
 
     a. Do this with one set comprehension for each set.
 
     b. What if you had a lot more than 3? -- Don't Repeat Yourself (DRY).
 
-       - create a sequence that holds all the divisors you might want --
-         could be 2,3,4, or could be any other arbitrary divisors.
+        - Create a sequence that holds all the divisors you might want. It could be 2,3,4, or could be any other arbitrary divisors.
 
-       - loop through that sequence to build the sets up -- so no repeated code.
-         you will end up with a list of sets -- one set for each divisor in your
-         sequence.
+        - Loop through that sequence to build the sets up -- so no repeated code. You will end up with a list of sets -- one set for each divisor in your sequence.
 
-       - The idea here is that when you see three (Or more!) lines of code that
-         are almost identical, then you you want to find a way to generalize
-         that code and have it act on a set of inputs, so the actual code is
-         only written once.
+        - The idea here is that when you see three (Or more!) lines of code that are almost identical, then you you want to find a way to generalize that code and have it act on a set of inputs, so the actual code is only written once.
 
-    c. Extra credit:  do it all as a one-liner by nesting a set comprehension
-       inside a list comprehension. (OK, that may be getting carried away!)
+    c. For extra credit, do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, maybe this is getting carried away!)

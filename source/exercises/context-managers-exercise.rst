@@ -4,15 +4,17 @@
 A Couple Handy Context Managers
 ###############################
 
-Context managers can be used in a number of ways -- the classic is to manage resources - that is, close files and the like.  But they are also useful for other handy things when you want to run some code before and after a block of code, or handle exceptions in special way.
+Goal
+====
+
+Context managers can be used in a number of ways. The classic way is to manage resources. That is, to close files and the like. But they are also useful for other handy things when you want to run some code before and after a block of code, or handle exceptions in special way.
 
 Timing Context Manager
-======================
+----------------------
 
 This is an example of running some code before and after the enclosed block.
 
-Create a context manager that will print the elapsed time taken to
-run all the code inside the context:
+Create a context manager that will print the elapsed time taken to run all the code inside the context:
 
 .. code-block:: ipython
 
@@ -22,33 +24,27 @@ run all the code inside the context:
        ...:
     This code took 0.206805 seconds
 
-NOTE: the ``time`` module has what you need:
+Note: the ``time`` module has what you need:
 
 .. code-block:: python
 
     import time
 
-    start = time.clock()
+    start = time.perf_counter()
     # some code here
-    elapsed = time.clock() - start
+    elapsed = time.perf_counter() - start
 
-``time.clock()`` returns the number of seconds that this process has been running.  You can also use ``time.time()``, which gives the "wall time", rather than the process time. ``time()`` will vary more depending on how busy the system is. But you may want to use it if you want to measure how long it takes to download something, for instance.
+``time.perf_counter()`` returns the number of seconds that this process has been running. You can also use ``time.time()``, which gives the "wall time", rather than the process time. ``time()`` will vary more depending on how busy the system is. But you may want to use it if you want to measure how long it takes to download something, for instance.
 
 Extra Credit
 ------------
 
-Allow the ``Timer`` context manager to take a file-like
-object as an argument (the default should be ``sys.stdout``). The results of the
-timing should be printed to the file-like object. You could also pass in a name for this particular context, so the message in the file-like object is labeled -- kind of a poor man's logging system.
+Allow the ``Timer`` context manager to take a file-like object as an argument (the default should be ``sys.stdout``). The results of the timing should be printed to the file-like object. You could also pass in a name for this particular context, so the message in the file-like object is labeled -- kind of a poor man's logging system.
 
 Extra Extra Credit
 ------------------
 
-Implement this as a generator, wrapped by the:
-
-``contextlib.contextmanager``
-
-decorator.
+Implement this as a generator, wrapped by the ``contextlib.contextmanager`` decorator.
 
 The pytest error handler
 ========================
@@ -60,7 +56,7 @@ pytest come with a nifty context manager for testing for error conditions:
     with pytest.raises(ZeroDivisionError)
         5 / 0
 
-The test should pass
+The test should pass.
 
 But:
 
@@ -69,7 +65,7 @@ But:
     with pytest.raises(ZeroDivisionError)
         5 / 2
 
-This test should fail -- no Exception occurred.
+This test should fail because no Exception occurred.
 
 And so should this one:
 
@@ -78,30 +74,27 @@ And so should this one:
     with pytest.raises(ValueError)
         5 / 0
 
-the wrong Exception occurred.
+Because the wrong Exception occurred.
 
-You task is to write a similar context manager (yes, it's already written, but this should help you understand how to handle exceptions in context managers...)
+You task is to write a similar context manager. Yes, it's already written, but this should help you understand how to handle exceptions in context managers.
 
+More Extra Credit
+-----------------
 
-Extra Credit
-------------
+The pytest version has a few other features: https://docs.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions
 
-The pytest version has a few other features:
+See if you can implement a few of them.
 
-[https://docs.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions]
+Hints
+-----
 
-See if you can implement a few of them....
-
-Hints:
-------
-
-tests fail when an assert fails:
+Tests fail when an assert fails:
 
 .. code-block:: python
 
     assert some_expression, "a message"
 
-you get a failure when ``some_expression`` evaluates as false.
+yYu get a failure when ``some_expression`` evaluates as False.
 
 This is more-or-less the same as this code:
 
@@ -110,7 +103,7 @@ This is more-or-less the same as this code:
     if some_expression:
         raise AssertionError("a message")
 
-The reason it exists is not so much to save a bit of typing (though that's nice), but that assertions are designed for tests, and thus can be turned off for an entire python process -- and, indeed are turned off when you turn on optimization.
+The reason it exists is not so much to save a bit of typing, though that's nice, but because assertions are designed for tests, and thus can be turned off for an entire python process. And, indeed are turned off when you turn on optimization when building Python.
 
 So in your context manager, you can raise an AssertionError, or force one with an assert:
 
@@ -118,7 +111,6 @@ So in your context manager, you can raise an AssertionError, or force one with a
 
     assert False, "a message"
 
-either will work fine.
+Either will work fine.
 
-See:
-:download:`raising_an_assert.py <../examples/context_managers/raising_an_assert.py>`
+See: :download:`raising_an_assert.py <../examples/context_managers/raising_an_assert.py>`

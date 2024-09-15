@@ -6,8 +6,7 @@ File Processing
 
 A bit of practice with reading and processing files.
 
-
-File reading and parsing
+File Reading and Parsing
 ========================
 
 Download this text file:
@@ -20,8 +19,8 @@ Write a little script that reads that file and generates a list of all the langu
 
 What might be the best data structure to use to keep track of bunch of values (the languages) without duplication?
 
-The file format:
-----------------
+The File Format
+---------------
 
 The first line of the file is:
 

@@ -4,8 +4,10 @@
 here is a simple main() module -- to demonstrate setuptools entrypoints
 """
 
-import sys, os
+import os
+import sys
 import capital_mod
+
 
 help = """
 capitalize script
@@ -14,6 +16,7 @@ capitalize file_to_process [output_file_name]
 
 capitalizes (title case) each line in a passed in file
 """
+
 
 def main():
     """
@@ -29,10 +32,10 @@ def main():
         outfilename = sys.argv[2]
     except IndexError:
         root, ext = os.path.splitext(infilename)
-        outfilename = root + "_cap" + ext
+        outfilename = f"{root}_cap{ext}"
 
     # do the real work:
-    print("Capitalizing: %s and storing it in %s"%(infilename, outfilename))
+    print(f"Capitalizing: {infilename} and storing it in {outfilename}")
 
     capital_mod.capitalize(infilename, outfilename)
 

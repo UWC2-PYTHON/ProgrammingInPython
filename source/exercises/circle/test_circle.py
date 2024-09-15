@@ -262,7 +262,7 @@ def test_sphere_change_radius():
     """
     create from diameter, change the radius
 
-    NOTE: if you subclassed Circlel then this all should "just work"!
+    NOTE: if you subclassed Circle then this all should "just work"!
     """
     s = Sphere.from_diameter(8)
 

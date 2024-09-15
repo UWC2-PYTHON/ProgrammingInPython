@@ -6,32 +6,34 @@ String Formatting Exercise
 
 Goal
 ====
-In this exercise we will reinforce the important concepts of string formatting, so that these start to become second nature!
+
+In this exercise we will reinforce the important concepts of string formatting so that these start to become second nature!
 
 Procedure
 =========
-Create a new file called ``string_formatting.py`` in the exercise repo -- or use the one that's there, if there is one.
+
+Create a new file called ``string_formatting.py`` in the exercise repository. Or use the one that's there, if there is one.
 
 When the empty script is available and runnable, complete the following four tasks.
 
-
 Task One
 --------
-* Write a format string that will take the following four values:
 
-    ``(2, 123.4567, 10000, 12345.67)``
+Write a format string that will take the following four values::
 
-    and produce:
+    (2, 123.4567, 10000, 12345.67)
 
-    ``'file_002 :   123.46, 1.00e+04, 1.23e+04'``
+And produce::
 
-It should look like:
+    'file_002 :   123.46, 1.00e+04, 1.23e+04'
 
-  ``print("some_stuff_in_here".format(2, 123.4567, 10000, 12345.67))``
+It should look like::
+
+    print("some_stuff_in_here".format(2, 123.4567, 10000, 12345.67))
 
 Let's look at each of the four tuple elements in turn:
 
-1) The first element is used to generate a filename that can help with file sorting. The idea behind the "file_002" is that if you have a bunch of files that you want to name with numbers that can be sorted, you need to "pad" the numbers with zeros to get the right sort order.
+1. The first element is used to generate a filename that can help with file sorting. The idea behind the "file_002" is that if you have a bunch of files that you want to name with numbers that can be sorted, you need to "pad" the numbers with zeros to get the right sort order.
 
 To illustrate this further let's look at an example:
 
@@ -54,30 +56,26 @@ That works!
 
 So you need to find a string formatting operator that will "pad" the number with zeros for you.
 
-2) The second element is a floating point number. You should display it with 2 decimal places shown.
+2. The second element is a floating point number. You should display it with 2 decimal places shown.
 
-3) The third value is an integer, but could be any number. You should display it in scientific notation, with 2 decimal places shown.
+3. The third value is an integer, but could be any number. You should display it in scientific notation, with 2 decimal places shown.
 
-4) The fourth value is a float with a lot of digits -- display it in scientific notation with 3 significant figures.
-
+4. The fourth value is a float with a lot of digits -- display it in scientific notation with 3 significant figures.
 
 Task Two
 --------
 
-Using your results from Task One, repeat the exercise, but this time use an alternate type of format string (hint: think about alternative ways to use .format() (keywords anyone?, or indexes?), and also consider f-strings if you've not used them already).
-
+Using your results from Task One, repeat the exercise, but this time use an alternate type of format string. Hint: think about alternative ways to use ``.format()`` -- keywords anyone?, or indexes? Also consider f-strings if you've not used them already.
 
 Task Three
 ----------
 
-Dynamically Building up format strings
---------------------------------------
+Dynamically Building Format Strings
+-----------------------------------
 
-* Rewrite:
+Rewrite this to take an arbitrary number of values::
 
-``"the 3 numbers are: {:d}, {:d}, {:d}".format(1,2,3)``
-
-to take an arbitrary number of values.
+    "the 3 numbers are: {:d}, {:d}, {:d}".format(1,2,3)
 
 Hint: You can pass in a tuple of values to a function with a ``*``:
 
@@ -88,7 +86,7 @@ Hint: You can pass in a tuple of values to a function with a ``*``:
     In [53]: "the 3 numbers are: {:d}, {:d}, {:d}".format(*t)
     Out[53]: 'the 3 numbers are: 1, 2, 3'
 
-The idea here is that you may have a tuple of three numbers, but might also have 4 or 5 or 2 or....
+The idea here is that you may have a tuple of three numbers, but might also have 4 or 5 or 2 or whatever.
 
 So you can dynamically build up the format string to accommodate the length of the tuple.
 
@@ -103,8 +101,7 @@ The string object has the ``format()`` method, so you can call it with a string 
     In [18]: fstring.format(*nums)
     Out[18]: '34, 56'
 
-So in the example above, how would you make a form_string that was the right length for an arbitrary tuple?
-
+So in the example above, how would you make a ``form_string`` that was the right length for an arbitrary tuple?
 
 Put your code in a function that will return the final string like so:
 
@@ -125,24 +122,23 @@ It will look like:
 
       return form_string.format(*in_tuple)
 
-
 Task Four
-----------
+---------
 
-* Given a 5 element tuple:
+Given a 5 element tuple::
 
-    ``( 4, 30, 2017, 2, 27)``
+    (4, 30, 2017, 2, 27)
 
-    use string formating to print:
+Use string formatting to print::
 
-    ``'02 27 2017 04 30'``
+    '02 27 2017 04 30'
 
 Hint: use index numbers to specify positions.
 
-
 Task Five
 ---------
-f-strings are new to Python (version 3.6), but are very powerful and efficient. This means they are worth understanding and using. And this is made easier than it might be because they use the same, familiar formatting language that is conventionally used in Python (in ``.format()``).
+
+f-strings are newer to Python but are very powerful and efficient. This means they are worth understanding and using. And this is made easier than it might be because they use the same, familiar formatting language that is conventionally used in Python in ``.format()``.
 
 So in this exercise we are going to specifically use f-strings.
 
@@ -166,7 +162,7 @@ In addition to referencing variables in the local scope, f-strings can evaluate 
     In [7]: f"Your name is {name.upper()}"
     Out[7]: 'Your name is ANDY'
 
-or
+Or:
 
 .. code-block:: ipython
 
@@ -177,23 +173,22 @@ or
     In [10]: f"The sum is: {a+b}"
     Out[10]: 'The sum is: 15'
 
+Here's a task for you. Given the following four element list::
 
-* Here's a task for you: Given the following four element list:
+    ['oranges', 1.3, 'lemons', 1.1]
 
-    ``['oranges', 1.3, 'lemons', 1.1]``
+Write an f-string that will display::
 
-* Write an f-string that will display:
+    The weight of an orange is 1.3 and the weight of a lemon is 1.1
 
-    ``The weight of an orange is 1.3 and the weight of a lemon is 1.1``
-
-* Now see if you can change the f-string so that it displays the names of the fruit in upper case, and the weight 20% higher (that is 1.2 times higher).
-
+Now see if you can change the f-string so that it displays the names of the fruit in upper case, and the weight 20% higher, i.e. that is 1.2 times higher.
 
 Task Six
 --------
+
 Often it's convenient to display data in columns. String formatting helps to make this straightforward.
 
-Suppose you'd like to display something like:
+Suppose you'd like to display something like::
 
      'First               $99.01    Second              $88.09  '
 
@@ -205,12 +200,11 @@ One way to do that is:
 
 
 In this simple example everything aligns nicely. But that will not be the case when the numbers to the left of the decimal place vary.
+
 Then you will need to use alignment specifiers. Do some research on this using the links below. Then:
 
 * Write some Python code to print a table of several rows, each with a name, an age and a cost. Make sure some of the costs are in the hundreds and thousands to test your alignment specifiers.
-
 * And for an extra task, given a tuple with 10 consecutive numbers, can you work how to quickly print the tuple in columns that are 5 characters wide? It can be done on one short line!
-
 
 Resources on string formatting
 ==============================
@@ -231,10 +225,10 @@ https://mkaz.blog/code/python-string-format-cookbook/
 Submitting Your Work
 ====================
 
-Add the file to the develop brnach of your repo for this excercise.
+Add the file to the develop branch of your repo for this exercise.
 
 Make frequent commits with good, clear messages about what you're doing and why.
 
 When you're done and ready for the instructors to review your work, push your changes to GitHub fork and then go to the GitHub website and make a pull request.
 
-Copy the GitHub link to the pull request, and provide it to the insstructors when you submit it in your LMS.
+Copy the GitHub link to the pull request, and provide it to the instructors when you submit it in your LMS.

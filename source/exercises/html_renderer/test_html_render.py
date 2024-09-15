@@ -5,10 +5,8 @@ This is just a start -- you will need more tests!
 """
 
 import io
-import pytest
 
-# import * is often bad form, but makes it easier to test everything in a module.
-from html_render import *
+from html_render import Element
 
 
 # utility function for testing render methods
@@ -34,14 +32,15 @@ def render_result(element, ind=""):
 # Step 1
 ########
 
+
 def test_init():
     """
     This only tests that it can be initialized with and without
     some content -- but it's a start
     """
-    e = Element()
+    Element()
 
-    e = Element("this is some text")
+    Element("this is some text")
 
 
 def test_append():
@@ -69,8 +68,8 @@ def test_render_element():
     file_contents = render_result(e).strip()
 
     # making sure the content got in there.
-    assert("this is some text") in file_contents
-    assert("and this is some more text") in file_contents
+    assert ("this is some text") in file_contents
+    assert ("and this is some more text") in file_contents
 
     # make sure it's in the right order
     assert file_contents.index("this is") < file_contents.index("and this")
@@ -78,6 +77,7 @@ def test_render_element():
     # making sure the opening and closing tags are right.
     assert file_contents.startswith("<html>")
     assert file_contents.endswith("</html>")
+
 
 # # Uncomment this one after you get the one above to pass
 # # Does it pass right away?
@@ -96,8 +96,8 @@ def test_render_element():
 #     file_contents = render_result(e).strip()
 
 #     # making sure the content got in there.
-#     assert("this is some text") in file_contents
-#     assert("and this is some more text") in file_contents
+#     assert ("this is some text") in file_contents
+#     assert ("and this is some more text") in file_contents
 
 #     # make sure it's in the right order
 #     assert file_contents.index("this is") < file_contents.index("and this")
@@ -107,10 +107,9 @@ def test_render_element():
 #     assert file_contents.endswith("</html>")
 
 
-
-# # ########
-# # # Step 2
-# # ########
+# ##########
+# # Step 2 #
+# ##########
 
 # # tests for the new tags
 # def test_html():
@@ -119,8 +118,8 @@ def test_render_element():
 
 #     file_contents = render_result(e).strip()
 
-#     assert("this is some text") in file_contents
-#     assert("and this is some more text") in file_contents
+#     assert ("this is some text") in file_contents
+#     assert ("and this is some more text") in file_contents
 #     print(file_contents)
 #     assert file_contents.endswith("</html>")
 
@@ -131,8 +130,8 @@ def test_render_element():
 
 #     file_contents = render_result(e).strip()
 
-#     assert("this is some text") in file_contents
-#     assert("and this is some more text") in file_contents
+#     assert ("this is some text") in file_contents
+#     assert ("and this is some more text") in file_contents
 
 #     assert file_contents.startswith("<body>")
 #     assert file_contents.endswith("</body>")
@@ -144,8 +143,8 @@ def test_render_element():
 
 #     file_contents = render_result(e).strip()
 
-#     assert("this is some text") in file_contents
-#     assert("and this is some more text") in file_contents
+#     assert ("this is some text") in file_contents
+#     assert ("and this is some more text") in file_contents
 
 #     assert file_contents.startswith("<p>")
 #     assert file_contents.endswith("</p>")
@@ -174,13 +173,11 @@ def test_render_element():
 #     assert "</p>" in file_contents
 
 
+# ##########
+# # Step 3 #
+# ##########
 
-
-########
-# Step 3
-########
-
-# Add your tests here!
+# # Add your tests here!
 
 # #####################
 # # indentation testing
@@ -251,7 +248,7 @@ def test_render_element():
 #     file_contents = render_result(e).strip()
 
 #     # making sure the content got in there.
-#     assert("this is some text") in file_contents
+#     assert ("this is some text") in file_contents
 
 #     # break into lines to check indentation
 #     lines = file_contents.split('\n')

@@ -4,31 +4,31 @@
 Python Pushups
 ##############
 
-These are a quick exercise to kick you off with Python:
-
+These are a quick exercise to kick you off with Python.
 
 Explore Errors
 ==============
 
 * Create a new directory in your working dir for the class::
 
-  $ mkdir pushups
-  $ cd pushups
+    $ mkdir pushups
+    $ cd pushups
 
 * Add a new file to it called ``break_me.py``
 
 * In the ``break_me.py`` file write four simple Python functions:
 
-  * Each function, when called, should cause an exception to happen
+    * Each function, when called, should cause an exception to happen.
 
-  * Each function should result in one of the four most common exceptions you'll find.
+    * Each function should result in one of the four most common exceptions you'll find.
 
-  * for review:
-    - ``NameError``
-    - ``TypeError``
-    - ``SyntaxError``
-    - ``AttributeError``
+    * For review:
 
-(hint -- the interpreter will quit when it hits a Exception -- so you can comment out all but the one you are testing at the moment)
+        - ``NameError``
+        - ``TypeError``
+        - ``SyntaxError``
+        - ``AttributeError``
 
-  * Use the Python standard library reference on `Built In Exceptions <https://docs.python.org/3/library/exceptions.html>`_ as a reference
+Hint: the interpreter will quit when it hits a Exception so you can comment out all but the one you are testing at the moment.
+
+Use the Python standard library reference on `Built In Exceptions <https://docs.python.org/3/library/exceptions.html>`_ as a reference.

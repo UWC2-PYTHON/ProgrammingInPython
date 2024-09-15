@@ -27,12 +27,13 @@ def sum_series(n, n0=0, n1=1):
     Once generalized that way, sum_series(n, 0, 1) should be equivalent to fibonacci(n).
     And sum_series(n, 2, 1) should be equivalent to lucas(n).
 
-    sum_series(n, 3, 2) should generate antoehr series with no specific name
+    sum_series(n, 3, 2) should generate another series with no specific name
 
     The defaults are set to 0, 1, so if you don't pass in any values, you'll
-    get the fibonacci sercies
+    get the fibonacci series
     """
     pass
+
 
 if __name__ == "__main__":
     # run some tests

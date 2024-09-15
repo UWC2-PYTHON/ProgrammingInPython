@@ -1,35 +1,29 @@
 .. _exercise_lambda_magic:
 
 ************************
-lambda and keyword Magic
+Lambda and Keyword Magic
 ************************
 
 Goals
 =====
 
+* A bit of lambda
+* Functions as objects
+* Keyword evaluation
 
-    * A bit of lambda
-    * functions as objects
-    * keyword evaluation
+Tasks
+=====
 
+Write a function that returns a list of n functions, such that each one, when called, will return the input value, incremented by an increasing number.
 
-Task
-----
+Use a for loop, ``lambda``, and a keyword argument.
 
-Write a function that returns a list of n functions,
-such that each one, when called, will return the input value,
-incremented by an increasing number.
+**Extra Credit:** Do it with a list comprehension, instead of a for loop.
 
-Use a for loop, ``lambda``, and a keyword argument
+Not clear? Here's what you should get.
 
-**Extra credit:**
-
-Do it with a list comprehension, instead of a for loop
-
-Not clear? here's what you should get...
-
-Example calling code
----------------------
+Example Calling Code
+--------------------
 
 .. code-block:: ipython
 
@@ -54,4 +48,6 @@ Example calling code
     to the input, 5... i.e. the nth function in the list adds n to the input.
 
 
-See the test code in :download:`test_lambda.py <../solutions/extras/lambda/test_lambda.py>`
+See the test code here:
+
+:download:`test_lambda.py <../solutions/extras/lambda/test_lambda.py>`
